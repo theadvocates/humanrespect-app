@@ -1,0 +1,40 @@
+import { createRouter, createWebHistory } from 'vue-router'
+import LandingPage from '@/pages/LandingPage.vue'
+
+const routes = [
+  {
+    path: '/',
+    name: 'home',
+    component: LandingPage
+  },
+  {
+    path: '/experience/the-question',
+    name: 'exp01',
+    component: () => import('@/pages/Experience01.vue')
+  },
+  {
+    path: '/experience/the-objection',
+    name: 'exp02',
+    component: () => import('@/pages/Experience02.vue')
+  },
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/pages/AboutPage.vue')
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'not-found',
+    component: () => import('@/pages/NotFound.vue')
+  }
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+  scrollBehavior() {
+    return { top: 0 }
+  }
+})
+
+export default router
