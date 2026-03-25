@@ -1,3 +1,8 @@
+#!/bin/bash
+# Updates Experience 01 Invitation to include Exp 03 in the paths
+# Run from humanrespect-app/ root AFTER running exp03-screens.sh
+
+cat > src/components/experiences/exp01/Invitation.vue << 'VUEEOF'
 <template>
   <div class="screen-inner stagger" ref="el">
     <StepDots :current="8" :total="9" />
@@ -76,3 +81,6 @@ function share() {
   font-style: italic;
 }
 </style>
+VUEEOF
+
+echo "✓ Experience 01 Invitation updated with Exp 03 link"

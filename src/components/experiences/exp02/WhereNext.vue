@@ -20,14 +20,14 @@
     </div>
 
     <div style="margin-top: 2.5rem;">
-      <p class="caption" style="margin-bottom: 1rem;">Or continue your journey</p>
+      <p class="caption" style="margin-bottom: 1rem;">Or go deeper</p>
+      <PathCard :to="{ name: 'exp03' }">
+        <template #title>What flourishing actually means</template>
+        <template #desc>The empirical grounding for the principle — why coercion damages human well-being, drawn from your own experience.</template>
+      </PathCard>
       <PathCard href="#" @click.prevent="$emit('share')">
         <template #title>Share this with someone who disagrees</template>
         <template #desc>See which objection they choose — and whether the response holds up for them too.</template>
-      </PathCard>
-      <PathCard :to="{ name: 'exp01' }">
-        <template #title>Revisit the original thought experiment</template>
-        <template #desc>Experience 01: The Question That Changes Everything</template>
       </PathCard>
     </div>
   </div>
@@ -49,7 +49,6 @@ const otherObjections = computed(() =>
 const el = ref(null)
 onMounted(() => {
   requestAnimationFrame(() => el.value?.classList.add('animate'))
-  // Mark experience as complete
   journey.completeExp02(journey.exp02.chosenObjection, null)
 })
 </script>
