@@ -23,6 +23,11 @@ const routes = [
     component: () => import('@/pages/Experience03.vue')
   },
   {
+    path: '/pillar/your-time-is-your-life',
+    name: 'pillarB',
+    component: () => import('@/pages/PillarB.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/pages/AboutPage.vue')

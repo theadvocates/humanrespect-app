@@ -34,9 +34,9 @@
     <div class="paths" style="margin-top: 2.5rem;">
       <p class="caption" style="margin-bottom: 1rem;">Go deeper</p>
 
-      <PathCard :to="{ name: 'home' }">
+      <PathCard :to="{ name: 'pillarB' }">
         <template #title>Your Time Is Your Life</template>
-        <template #desc>The philosophy's most original insight: time is the irreplaceable substance of life, and every form of coercion is ultimately a theft of time. Coming soon.</template>
+        <template #desc>The philosophy's most original insight: time is the irreplaceable substance of life, and every form of coercion is ultimately a theft of time.</template>
       </PathCard>
 
       <PathCard :to="{ name: 'home' }">
