@@ -112,6 +112,8 @@ function handleScroll() {
 }
 
 onMounted(() => {
+  // Ensure dark mode is off on landing page
+  document.body.classList.remove('dark-mode')
   window.addEventListener('scroll', handleScroll, { passive: true })
 })
 
@@ -191,6 +193,7 @@ onUnmounted(() => {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0;
   animation: fadeIn 0.8s ease 1.8s forwards;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hero-begin:hover {
@@ -381,6 +384,7 @@ onUnmounted(() => {
   border-radius: 100px;
   text-decoration: none;
   transition: all 0.4s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .closing-begin:hover {
@@ -450,6 +454,7 @@ onUnmounted(() => {
 @media (max-width: 680px) {
   .hero { padding: 3rem 1.5rem; }
   .context { padding: 5rem 1.5rem; }
+  .attributes { padding: 4rem 1.5rem; }
   .attributes-inner {
     grid-template-columns: 1fr;
     gap: 2.5rem;
@@ -465,5 +470,16 @@ onUnmounted(() => {
     text-align: center;
   }
   .hero-scroll-hint { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 2.5rem 1.25rem; }
+  .hero-headline { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .hero-begin { padding: 0.85rem 2rem; font-size: 1rem; }
+  .context { padding: 3.5rem 1.25rem; }
+  .context-text { font-size: 1.15rem; }
+  .attributes { padding: 3rem 1.25rem; }
+  .closing { padding: 3.5rem 1.25rem; }
+  .closing-begin { padding: 0.85rem 2rem; }
 }
 </style>

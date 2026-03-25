@@ -30,4 +30,11 @@ defineProps({
 }
 .scenario :deep(p) { color: var(--ink); line-height: 1.8; }
 .scenario :deep(p + p) { margin-top: 1rem; }
+
+@media (max-width: 480px) {
+  .scenario {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+}
 </style>

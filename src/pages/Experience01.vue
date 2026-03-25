@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue'
+import { computed, watch, onUnmounted } from 'vue'
 import { useScreenNav } from '@/composables/useScreenNav'
 import { useJourneyStore } from '@/stores/journey'
 
@@ -39,11 +39,9 @@ const screenComponents = [
 ]
 
 const currentComponent = computed(() => screenComponents[currentScreen.value])
-
-// Only the opening screen is dark
 const isDark = computed(() => currentScreen.value === 0)
 
-// Sync dark mode to body for global styles
+// Sync dark mode to body
 watch(isDark, (dark) => {
   if (dark) {
     document.body.classList.add('dark-mode')
@@ -51,6 +49,11 @@ watch(isDark, (dark) => {
     document.body.classList.remove('dark-mode')
   }
 }, { immediate: true })
+
+// CRITICAL: Clean up dark mode when leaving this page
+onUnmounted(() => {
+  document.body.classList.remove('dark-mode')
+})
 
 function handleChoice({ key, value }) {
   if (key === 'personal') journey.exp01.personal = value
@@ -94,5 +97,11 @@ function handleChoice({ key, value }) {
 .screen-fade-leave-to {
   opacity: 0;
   transform: translateY(-8px);
+}
+
+@media (max-width: 480px) {
+  .exp-app {
+    padding: 1.5rem 1rem;
+  }
 }
 </style>

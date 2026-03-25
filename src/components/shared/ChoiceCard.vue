@@ -33,11 +33,15 @@ defineEmits(['select'])
   line-height: 1.6;
   color: var(--ink);
   box-shadow: var(--shadow-soft);
+  -webkit-tap-highlight-color: transparent;
 }
 .choice:hover {
   border-color: var(--ochre);
   box-shadow: var(--shadow-hover);
   transform: translateY(-1px);
+}
+.choice:active {
+  transform: translateY(0);
 }
 .choice.selected {
   border-color: var(--ochre);
@@ -49,5 +53,15 @@ defineEmits(['select'])
   font-size: 0.85rem;
   color: var(--ink-muted);
   margin-top: 0.35rem;
+}
+
+@media (max-width: 480px) {
+  .choice {
+    padding: 1rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  .choice-detail {
+    font-size: 0.8rem;
+  }
 }
 </style>

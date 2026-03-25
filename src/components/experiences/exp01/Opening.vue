@@ -2,12 +2,12 @@
   <div class="opening stagger" ref="el">
     <span class="overline">A five-minute philosophical experiment</span>
     <h1 class="display-large headline">
-      You live by a moral code<br><em>you've never put into words.</em>
+      Let's find it.<br><em>Two questions. One mirror.</em>
     </h1>
     <Divider :centered="true" />
     <p class="subtitle">
-      In the next few minutes, you'll discover what that code is — and a question
-      about it you've probably never thought to ask.
+      You're about to answer two simple questions. Then you'll see them
+      side by side — and notice something you've probably never noticed before.
     </p>
     <button class="begin-btn" @click="$emit('advance')">
       Begin <span class="arrow">→</span>

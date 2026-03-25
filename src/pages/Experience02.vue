@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import { useJourneyStore } from '@/stores/journey'
 
 import Opening from '@/components/experiences/exp02/Opening.vue'
@@ -49,6 +49,11 @@ watch(isDark, (dark) => {
   }
 }, { immediate: true })
 
+// Clean up dark mode when leaving
+onUnmounted(() => {
+  document.body.classList.remove('dark-mode')
+})
+
 function advance() {
   if (currentScreen.value < screenComponents.length - 1) {
     currentScreen.value++
@@ -73,7 +78,7 @@ function handleObjectionChoice(key) {
 function restartWith(key) {
   journey.exp02.chosenObjection = key
   journey.persist()
-  currentScreen.value = 2 // jump to Steelman
+  currentScreen.value = 2
   history.value = [0, 1, 2]
   window.scrollTo({ top: 0, behavior: 'smooth' })
 }
@@ -115,4 +120,10 @@ function handleShare() {
 }
 .screen-fade-enter-from { opacity: 0; transform: translateY(16px); }
 .screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
+
+@media (max-width: 480px) {
+  .exp-app {
+    padding: 1.5rem 1rem;
+  }
+}
 </style>

@@ -69,4 +69,11 @@ const variantClass = computed(() => `block-${props.variant}`)
 }
 .block-concession :deep(p) { color: var(--concede-warm); }
 .block-concession .block-label { color: var(--concede-warm); }
+
+@media (max-width: 480px) {
+  .block {
+    padding: 1.25rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+}
 </style>
