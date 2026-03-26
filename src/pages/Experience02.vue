@@ -59,7 +59,7 @@ function advance() {
   if (currentScreen.value < screenComponents.length - 1) {
     currentScreen.value++
     history.value.push(currentScreen.value)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
   }
 }
 
@@ -67,7 +67,7 @@ function goBack() {
   if (history.value.length > 1) {
     history.value.pop()
     currentScreen.value = history.value[history.value.length - 1]
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
   }
 }
 
@@ -83,7 +83,7 @@ function restartWith(key) {
   trackChoice('exp02', 'objection-restart', key)
   currentScreen.value = 2
   history.value = [0, 1, 2]
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo(0, 0)
 }
 
 function handleShare(method) {

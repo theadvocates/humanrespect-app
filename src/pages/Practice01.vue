@@ -52,7 +52,7 @@ function advance() {
   if (currentScreen.value < TOTAL_SCREENS - 1) {
     currentScreen.value++
     history.value.push(currentScreen.value)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
   }
 }
 
@@ -60,7 +60,7 @@ function goBack() {
   if (history.value.length > 1) {
     history.value.pop()
     currentScreen.value = history.value[history.value.length - 1]
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    window.scrollTo(0, 0)
   }
 }
 </script>

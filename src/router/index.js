@@ -26,7 +26,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior() { return { top: 0 } }
+  scrollBehavior() { return { top: 0, behavior: 'instant' } }
 })
 
 // Update document title and meta description on each navigation

@@ -10,40 +10,110 @@
     button,
     .path-card,
     .choice-card,
+    .verdict-card,
+    .item-card,
     [role="button"] {
         min-height: 44px;
     }
 }
 
-/* ── Content block mobile adjustments ── */
-@media (max-width: 480px) {
-    .content-block {
-        padding: 1.1rem 1.25rem;
-        margin: 1.25rem 0;
-    }
-
-    .screen-inner {
-        padding: 0 0.25rem;
-    }
-
+/* ── Mobile typography ── */
+@media (max-width: 680px) {
     .display-large {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        font-size: clamp(1.8rem, 5vw, 2.5rem) !important;
+        line-height: 1.25 !important;
     }
 
     .display-medium {
-        font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+        font-size: clamp(1.3rem, 3.5vw, 1.7rem) !important;
+        line-height: 1.35 !important;
     }
 
+    .body-text,
     .body-text-large {
-        font-size: 1rem;
+        font-size: 0.95rem !important;
+        line-height: 1.75 !important;
+    }
+
+    .body-text + .body-text,
+    .body-text-large + .body-text,
+    .body-text + .body-text-large,
+    .body-text-large + .body-text-large {
+        margin-top: 0.85rem !important;
+    }
+
+    .caption {
+        font-size: 0.72rem !important;
+    }
+}
+
+/* ── Experience container mobile ── */
+@media (max-width: 680px) {
+    .exp-container {
+        padding: 3rem 1.25rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .exp-container {
+        padding: 2.5rem 1rem !important;
+    }
+}
+
+/* ── Content blocks on mobile ── */
+@media (max-width: 680px) {
+    .content-block {
+        padding: 1.1rem 1.25rem !important;
+        margin: 1.25rem 0 !important;
+    }
+
+    .content-block p {
+        font-size: 0.92rem !important;
+    }
+}
+
+/* ── Path cards on mobile ── */
+@media (max-width: 480px) {
+    .path-card {
+        padding: 1rem 1.1rem !important;
+    }
+
+    .path-card-title {
+        font-size: 0.95rem !important;
+    }
+
+    .path-card-desc {
+        font-size: 0.78rem !important;
+    }
+}
+
+/* ── Opening screen mobile ── */
+@media (max-width: 480px) {
+    .opening {
+        padding: 1.5rem 0 !important;
+        min-height: auto !important;
+    }
+
+    .opening .subtitle {
+        font-size: 0.88rem !important;
+        line-height: 1.7 !important;
+    }
+
+    .opening .begin-btn {
+        font-size: 0.92rem !important;
+        padding: 0.75rem 1.75rem !important;
+    }
+
+    .overline {
+        font-size: 0.68rem !important;
     }
 }
 
 /* ── Closing question blocks on mobile ── */
 @media (max-width: 480px) {
     .closing-question {
-        font-size: 1.2rem !important;
-        padding: 1.5rem 1rem !important;
+        font-size: 1.15rem !important;
+        padding: 1.25rem 0.75rem !important;
     }
 
     .closing-question-block {
@@ -52,62 +122,95 @@
     }
 }
 
-/* ── Opening screen mobile ── */
-@media (max-width: 480px) {
-    .opening {
-        padding: 1.5rem 0;
-        min-height: auto;
-    }
-
-    .opening .subtitle {
-        font-size: 0.9rem;
-    }
-
-    .opening .begin-btn {
-        font-size: 0.95rem;
-        padding: 0.75rem 1.75rem;
-    }
-}
-
 /* ── Newsletter form mobile ── */
 @media (max-width: 480px) {
     .newsletter-block {
-        padding: 1.25rem;
+        padding: 1.25rem !important;
     }
 
     .newsletter-headline {
-        font-size: 0.95rem;
+        font-size: 0.95rem !important;
     }
 
     .input-row {
-        flex-direction: column;
+        flex-direction: column !important;
     }
 
     .submit-btn {
-        width: 100%;
+        width: 100% !important;
     }
 }
 
-/* ── Foundation summary on mobile ── */
+/* ── Scenario boxes on mobile ── */
+@media (max-width: 480px) {
+    .scenario-box {
+        padding: 1.1rem 1.2rem !important;
+    }
+
+    .scenario-box p {
+        font-size: 0.9rem !important;
+    }
+}
+
+/* ── Step dots spacing ── */
+@media (max-width: 480px) {
+    .step-dots {
+        margin-bottom: 1.5rem !important;
+    }
+}
+
+/* ── Journey nav spacing ── */
+@media (max-width: 480px) {
+    .journey-nav {
+        margin-top: 2rem !important;
+    }
+}
+
+/* ── Foundation summary ── */
 @media (max-width: 480px) {
     .foundation-summary {
-        gap: 1rem;
+        gap: 1rem !important;
     }
 
     .foundation-item {
-        gap: 0.75rem;
+        gap: 0.75rem !important;
+    }
+
+    .foundation-desc {
+        font-size: 0.82rem !important;
+    }
+}
+
+/* ── Divider spacing ── */
+@media (max-width: 480px) {
+    .divider {
+        margin: 1rem 0 !important;
     }
 }
 
 /* ── Safe area for notched phones ── */
 @supports (padding: env(safe-area-inset-bottom)) {
     .site-nav {
-        padding-top: max(1rem, env(safe-area-inset-top));
-        padding-left: max(1.5rem, env(safe-area-inset-left));
-        padding-right: max(1.5rem, env(safe-area-inset-right));
+        padding-top: max(0.6rem, env(safe-area-inset-top));
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
     }
 
     .page-footer {
-        padding-bottom: max(3rem, env(safe-area-inset-bottom));
+        padding-bottom: max(2rem, env(safe-area-inset-bottom));
     }
+}
+
+/* ── Reduce motion on mobile ── */
+@media (max-width: 480px) {
+    .stagger > * {
+        transform: translateY(8px) !important;
+        transition-duration: 0.3s !important;
+    }
+    .stagger.animate > *:nth-child(1) { transition-delay: 0.02s !important; }
+    .stagger.animate > *:nth-child(2) { transition-delay: 0.08s !important; }
+    .stagger.animate > *:nth-child(3) { transition-delay: 0.14s !important; }
+    .stagger.animate > *:nth-child(4) { transition-delay: 0.2s !important; }
+    .stagger.animate > *:nth-child(5) { transition-delay: 0.26s !important; }
+    .stagger.animate > *:nth-child(n+6) { transition-delay: 0.3s !important; }
 }

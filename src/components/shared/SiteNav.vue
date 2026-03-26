@@ -3,8 +3,8 @@
     class="site-nav"
     :class="{
       minimal: isExperience,
-      'nav-hidden': isHome && !scrolled,
-      'nav-scrolled': isHome && scrolled
+      'nav-hidden': shouldHide,
+      'nav-visible': !shouldHide
     }"
   >
     <div class="nav-inner">
@@ -23,6 +23,9 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const scrolled = ref(false)
+const scrollingUp = ref(false)
+const lastScrollY = ref(0)
+const isMobile = ref(false)
 
 const isExperience = computed(() => {
   const path = route.path
@@ -33,17 +36,36 @@ const isExperience = computed(() => {
 
 const isHome = computed(() => route.path === '/')
 
+const shouldHide = computed(() => {
+  // Landing page: hidden until scroll
+  if (isHome.value && !scrolled.value) return true
+  // Experiences on mobile: hidden unless scrolling up
+  if (isExperience.value && isMobile.value) return !scrollingUp.value
+  // Everything else: always visible
+  return false
+})
+
 function handleScroll() {
-  scrolled.value = window.scrollY > 200
+  const currentY = window.scrollY
+  scrolled.value = currentY > 200
+  scrollingUp.value = currentY < lastScrollY.value && currentY > 60
+  lastScrollY.value = currentY
+}
+
+function checkMobile() {
+  isMobile.value = window.innerWidth <= 680
 }
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
+  window.addEventListener('resize', checkMobile, { passive: true })
+  checkMobile()
   handleScroll()
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('resize', checkMobile)
 })
 </script>
 
@@ -54,8 +76,8 @@ onUnmounted(() => {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 1rem 1.5rem;
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  padding: 0.75rem 1.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .nav-inner {
@@ -76,14 +98,9 @@ onUnmounted(() => {
   transition: color 0.2s ease;
 }
 
-.nav-wordmark:hover {
-  color: var(--ink);
-}
+.nav-wordmark:hover { color: var(--ink); }
 
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-}
+.nav-links { display: flex; gap: 1.5rem; }
 
 .nav-link {
   font-family: var(--sans);
@@ -95,31 +112,44 @@ onUnmounted(() => {
   transition: color 0.2s ease;
 }
 
-.nav-link:hover {
-  color: var(--ink-muted);
-}
+.nav-link:hover { color: var(--ink-muted); }
 
-/* Hidden on landing page before scroll */
+/* Visibility states */
 .nav-hidden {
   opacity: 0;
-  transform: translateY(-10px);
+  transform: translateY(-100%);
   pointer-events: none;
 }
 
-/* Appears on landing page after scroll */
-.nav-scrolled {
+.nav-visible {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
 
-/* Minimal mode during experiences */
+/* Minimal mode during experiences (desktop) */
 .site-nav.minimal {
-  opacity: 0.35;
+  opacity: 0.3;
 }
 
 .site-nav.minimal:hover {
   opacity: 0.8;
+}
+
+/* On mobile during experiences: fully hidden/shown, no faded state */
+@media (max-width: 680px) {
+  .site-nav.minimal {
+    opacity: 1;
+    background: rgba(244, 240, 234, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.6rem 1rem;
+  }
+
+  .site-nav.minimal .nav-wordmark {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+  }
 }
 
 /* Dark mode support */
@@ -139,8 +169,14 @@ onUnmounted(() => {
   color: rgba(240, 235, 227, 0.5);
 }
 
+@media (max-width: 680px) {
+  :global(body.dark-mode) .site-nav.minimal {
+    background: rgba(26, 26, 46, 0.92);
+  }
+}
+
 @media (max-width: 480px) {
-  .site-nav { padding: 0.75rem 1rem; }
+  .site-nav { padding: 0.6rem 1rem; }
   .nav-wordmark { font-size: 0.82rem; }
   .nav-links { gap: 1rem; }
 }
