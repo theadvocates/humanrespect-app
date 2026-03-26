@@ -34,7 +34,7 @@ import { ref, onMounted } from 'vue'
 import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
 import NavBar from '@/components/shared/NavBar.vue'
-import { examples } from './examplesData.js'
+import { cooperationExamples as examples } from './examplesData.js'
 
 defineEmits(['advance', 'back'])
 const el = ref(null)
