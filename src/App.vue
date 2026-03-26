@@ -1,18 +1,8 @@
 <template>
-  <router-view v-slot="{ Component }">
-    <transition name="page-fade" mode="out-in">
-      <component :is="Component" />
-    </transition>
-  </router-view>
+  <SiteNav />
+  <router-view />
 </template>
 
-<style>
-.page-fade-enter-active,
-.page-fade-leave-active {
-  transition: opacity 0.3s ease;
-}
-.page-fade-enter-from,
-.page-fade-leave-to {
-  opacity: 0;
-}
-</style>
+<script setup>
+import SiteNav from '@/components/shared/SiteNav.vue'
+</script>

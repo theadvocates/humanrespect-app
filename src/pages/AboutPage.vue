@@ -116,7 +116,7 @@ onMounted(() => document.body.classList.remove('dark-mode'))
 .page-container {
   max-width: 640px;
   margin: 0 auto;
-  padding: 6rem 1.5rem 4rem;
+  padding: 5rem 1.5rem 4rem;
 }
 
 .section-heading {
@@ -194,7 +194,7 @@ onMounted(() => document.body.classList.remove('dark-mode'))
 .footer-link:hover { color: rgba(244, 240, 234, 0.6); }
 
 @media (max-width: 480px) {
-  .page-container { padding: 4rem 1.25rem 3rem; }
+  .page-container { padding: 3.5rem 1.25rem 3rem; }
   .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
 }
 </style>
