@@ -1,3 +1,8 @@
+#!/bin/bash
+# Updates analytics composable to sync completions to journey store
+# Run from humanrespect-app/ root
+
+cat > src/composables/useAnalytics.js << 'JSEOF'
 import { useJourneyStore } from '@/stores/journey'
 
 export function useAnalytics() {
@@ -53,3 +58,6 @@ export function useAnalytics() {
     trackNewsletterSignup
   }
 }
+JSEOF
+
+echo "✅ Analytics composable updated — trackCompletion now syncs to journey store"

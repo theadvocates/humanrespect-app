@@ -1,3 +1,11 @@
+#!/bin/bash
+# Updates the journey store to track all 14 experience completions
+# Run AFTER the SQL migration above
+# Run from humanrespect-app/ root
+
+set -e
+
+cat > src/stores/journey.js << 'JSEOF'
 import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabase'
 
@@ -174,3 +182,15 @@ export const useJourneyStore = defineStore('journey', {
     }
   }
 })
+JSEOF
+
+echo "✅ Journey store updated with full completion tracking."
+echo ""
+echo "New capabilities:"
+echo "  • completions{} — tracks which of all 14 experiences are done"
+echo "  • completionTimes{} — when each was completed"
+echo "  • lastExperience — most recently completed experience"
+echo "  • furthestTier — deepest engagement level (none/foundation/pillar/practice)"
+echo "  • markComplete(expId) — universal method any experience can call"
+echo ""
+echo "Push with: git add . && git commit -m 'store: full journey tracking across all experiences' && git push"
