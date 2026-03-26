@@ -42,7 +42,7 @@
 
     <div v-if="hoursPerYear" class="result-block">
       <div class="result-number">{{ hoursPerYear.toLocaleString() }}</div>
-      <div class="result-label">hours of your life per year</div>
+      <div class="result-label">hours of your life per year</div><div style="font-size:0.72rem;color:var(--ink-faint);font-style:italic;margin-top:0.5rem">Based on a standard 40-hour work week.</div>
       <div class="result-context">That's <strong>{{ weeksPerYear }} full work weeks</strong> — spent earning money that goes to someone else's priorities, not yours.</div>
 
       <div class="lifetime-row">

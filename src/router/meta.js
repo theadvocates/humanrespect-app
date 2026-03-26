@@ -58,6 +58,10 @@ export const routeMeta = {
     title: 'Design a Voluntary Solution — Human Respect',
     description: 'Pick a real problem in your community and design a solution that doesn\'t use force.'
   },
+  milestone: {
+    title: 'Foundation Complete — Human Respect',
+    description: 'You have completed the foundation of the Philosophy of Human Respect.'
+  },
   about: {
     title: 'About — Human Respect',
     description: 'Why this exists: the Philosophy of Human Respect, articulated by Chris J. Rufer, founder of The Morning Star Company.'
