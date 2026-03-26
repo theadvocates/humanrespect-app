@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LandingPage from '@/pages/LandingPage.vue'
+import { routeMeta } from './meta.js'
 
 const routes = [
   { path: '/', name: 'home', component: LandingPage },
@@ -25,6 +26,34 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior() { return { top: 0 } }
+})
+
+// Update document title and meta description on each navigation
+router.afterEach((to) => {
+  const meta = routeMeta[to.name] || routeMeta.home
+  
+  document.title = meta.title
+  
+  // Update meta description
+  let descTag = document.querySelector('meta[name="description"]')
+  if (descTag) descTag.setAttribute('content', meta.description)
+  
+  // Update OG tags
+  let ogTitle = document.querySelector('meta[property="og:title"]')
+  if (ogTitle) ogTitle.setAttribute('content', meta.title.replace(' — Human Respect', ''))
+  
+  let ogDesc = document.querySelector('meta[property="og:description"]')
+  if (ogDesc) ogDesc.setAttribute('content', meta.description)
+
+  let ogUrl = document.querySelector('meta[property="og:url"]')
+  if (ogUrl) ogUrl.setAttribute('content', 'https://humanrespect.app' + to.path)
+  
+  // Update Twitter tags
+  let twTitle = document.querySelector('meta[name="twitter:title"]')
+  if (twTitle) twTitle.setAttribute('content', meta.title.replace(' — Human Respect', ''))
+  
+  let twDesc = document.querySelector('meta[name="twitter:description"]')
+  if (twDesc) twDesc.setAttribute('content', meta.description)
 })
 
 export default router

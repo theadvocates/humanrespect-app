@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Human Respect monogram</title>
+  <desc id="desc">HR monogram in Cormorant serif on ink background, for use as favicon and app icon.</desc>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500&amp;display=swap');
+    .bg { fill: #1E1C19; }
+    .monogram { font-family: "Cormorant", Georgia, "Times New Roman", serif; font-weight: 400; fill: #B8995E; }
+    .divider { fill: #B8995E; opacity: 0.25; }
+  </style>
+  <rect class="bg" width="512" height="512" rx="72"/>
+  <text class="monogram" x="256" y="296" text-anchor="middle" font-size="240" letter-spacing="-8">HR</text>
+  <rect class="divider" x="254" y="148" width="2.5" height="216" rx="1.25"/>
+</svg>
