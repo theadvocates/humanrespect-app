@@ -1,6 +1,6 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="5" :total="7" />
+    <StepDots :current="5" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The question that remains</p>
     <h2 class="display-medium">We don't end with an answer. We end with a question.</h2>
     <Divider />

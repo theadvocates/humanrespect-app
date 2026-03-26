@@ -1,6 +1,6 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="3" :total="7" />
+    <StepDots :current="3" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The honest response</p>
     <h2 class="display-medium">Here's what the philosophy says back.</h2>
     <Divider />

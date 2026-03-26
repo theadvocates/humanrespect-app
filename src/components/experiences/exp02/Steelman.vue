@@ -1,6 +1,6 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="2" :total="7" />
+    <StepDots :current="2" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Taking your objection seriously</p>
     <h2 class="display-medium">{{ obj.title }}</h2>
     <Divider />

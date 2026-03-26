@@ -1,6 +1,6 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="6" :total="7" />
+    <StepDots :current="7" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Where this leads</p>
     <h2 class="display-medium">You examined one objection. There are others.</h2>
     <Divider />

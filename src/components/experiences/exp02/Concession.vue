@@ -1,6 +1,6 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="4" :total="7" />
+    <StepDots :current="4" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">What honesty requires</p>
     <h2 class="display-medium">What the philosophy can't claim.</h2>
     <Divider />
