@@ -23,9 +23,19 @@ const routes = [
     component: () => import('@/pages/Experience03.vue')
   },
   {
+    path: '/pillar/your-body-is-not-negotiable',
+    name: 'pillarA',
+    component: () => import('@/pages/PillarA.vue')
+  },
+  {
     path: '/pillar/your-time-is-your-life',
     name: 'pillarB',
     component: () => import('@/pages/PillarB.vue')
+  },
+  {
+    path: '/pillar/what-you-built',
+    name: 'pillarC',
+    component: () => import('@/pages/PillarC.vue')
   },
   {
     path: '/pillar/the-method-is-the-message',
