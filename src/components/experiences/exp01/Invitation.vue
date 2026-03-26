@@ -10,25 +10,16 @@
     <ContentBlock variant="insight">
       <p>This isn't a question that gets answered in five minutes. It's a question that changes how you see every political argument, every policy debate, every election — for the rest of your life.</p>
     </ContentBlock>
-    <p class="body-text" style="text-align: center; margin-top: 2rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
 
-    <div class="continue-paths" style="margin-top: 2.5rem;">
-      <p class="caption" style="margin-bottom: 1rem;">Continue exploring</p>
-      <PathCard :to="{ name: 'exp02' }">
-        <template #title>You probably have a "but..."</template>
-        <template #desc>Pick your strongest objection. We'll take it seriously, respond honestly, and tell you what the philosophy can't claim.</template>
-      </PathCard>
-      <PathCard :to="{ name: 'exp03' }">
-        <template #title>What flourishing actually means</template>
-        <template #desc>The empirical grounding — why the principle is true, discovered from your own life experience.</template>
-      </PathCard>
-      <PathCard href="#" @click.prevent="share">
-        <template #title>Share this experience</template>
-        <template #desc>{{ shareDesc }}</template>
-      </PathCard>
-    </div>
+    <PathCard href="#" @click.prevent="share">
+      <template #title>Share this experience</template>
+      <template #desc>{{ shareDesc }}</template>
+    </PathCard>
 
+    <JourneyNav current="exp01" />
     <NewsletterSignup source="exp01_invitation" />
+
+    <p class="body-text" style="text-align: center; margin-top: 2rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
   </div>
 </template>
 
@@ -38,35 +29,32 @@ import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
 import ContentBlock from '@/components/shared/ContentBlock.vue'
 import PathCard from '@/components/shared/PathCard.vue'
+import JourneyNav from '@/components/shared/JourneyNav.vue'
 import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
 
 const journey = useJourneyStore()
-const { trackShare, trackCompletion } = useAnalytics()
+const { trackShare } = useAnalytics()
 const el = ref(null)
-const shareDesc = ref('Send this thought experiment to someone you disagree with politically. See what they discover.')
+const shareDesc = ref('Send this thought experiment to someone you disagree with politically.')
 
 onMounted(() => {
   requestAnimationFrame(() => el.value?.classList.add('animate'))
   journey.completeExp01(journey.exp01.personal, journey.exp01.political)
-  trackCompletion('exp01', { pattern: journey.mirrorPattern })
 })
 
 function share() {
   const text = "I just went through a 5-minute thought experiment that showed me something I'd never noticed about my own political beliefs."
   const url = window.location.origin + '/experience/the-question'
-
   if (navigator.share) {
-    navigator.share({ title: 'The Question That Changes Everything', text, url })
+    navigator.share({ title: 'The Question', text, url })
     trackShare('native', 'exp01')
   } else {
     navigator.clipboard.writeText(text + ' ' + url).then(() => {
       shareDesc.value = 'Link copied to clipboard.'
       trackShare('clipboard', 'exp01')
-      setTimeout(() => {
-        shareDesc.value = 'Send this thought experiment to someone you disagree with politically. See what they discover.'
-      }, 2000)
+      setTimeout(() => { shareDesc.value = 'Send this thought experiment to someone you disagree with politically.' }, 2000)
     })
   }
 }
@@ -74,13 +62,5 @@ function share() {
 
 <style scoped>
 .screen-inner { padding: 0 0.5rem; }
-.closing-question {
-  font-family: var(--serif);
-  font-size: clamp(1.3rem, 3vw, 1.6rem);
-  line-height: 1.5;
-  color: var(--ink);
-  text-align: center;
-  margin: 2rem 0;
-  font-style: italic;
-}
+.closing-question { font-family: var(--serif); font-size: clamp(1.3rem, 3vw, 1.6rem); line-height: 1.5; color: var(--ink); text-align: center; margin: 2rem 0; font-style: italic; }
 </style>
