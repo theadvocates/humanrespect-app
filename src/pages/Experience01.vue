@@ -2,13 +2,7 @@
   <div class="exp-app" :class="{ 'dark-mode': isDark }">
     <div class="exp-container">
       <Transition name="screen-fade" mode="out-in">
-        <component
-          :is="currentComponent"
-          :key="currentScreen"
-          @advance="advance"
-          @back="goBack"
-          @choose="handleChoice"
-        />
+        <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" @choose="handleChoice" />
       </Transition>
     </div>
   </div>
@@ -30,36 +24,20 @@ import WhyTheGap from '@/components/experiences/exp01/WhyTheGap.vue'
 import ThePrinciple from '@/components/experiences/exp01/ThePrinciple.vue'
 import Invitation from '@/components/experiences/exp01/Invitation.vue'
 
-const TOTAL_SCREENS = 9
-const screenNames = ['opening', 'common-ground', 'scenario', 'personal-choice', 'political-choice', 'mirror', 'why-the-gap', 'the-principle', 'invitation']
-
-const { currentScreen, advance: rawAdvance, goBack } = useScreenNav(TOTAL_SCREENS)
+const screenNames = ['opening','common-ground','scenario','personal-choice','political-choice','mirror','why-the-gap','the-principle','invitation']
+const { currentScreen, advance, goBack } = useScreenNav(9, 'exp01', screenNames)
 const journey = useJourneyStore()
-const { trackScreenView, trackChoice } = useAnalytics()
+const { trackChoice } = useAnalytics()
 
-const screenComponents = [
-  Opening, CommonGround, Scenario, PersonalChoice, PoliticalChoice,
-  Mirror, WhyTheGap, ThePrinciple, Invitation
-]
-
+const screenComponents = [Opening, CommonGround, Scenario, PersonalChoice, PoliticalChoice, Mirror, WhyTheGap, ThePrinciple, Invitation]
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
-
-// Track screen views
-watch(currentScreen, (idx) => {
-  trackScreenView('exp01', screenNames[idx])
-})
 
 watch(isDark, (dark) => {
   if (dark) document.body.classList.add('dark-mode')
   else document.body.classList.remove('dark-mode')
 }, { immediate: true })
-
 onUnmounted(() => document.body.classList.remove('dark-mode'))
-
-function advance() {
-  rawAdvance()
-}
 
 function handleChoice({ key, value }) {
   if (key === 'personal') journey.exp01.personal = value

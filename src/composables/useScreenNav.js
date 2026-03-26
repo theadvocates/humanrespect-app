@@ -1,39 +1,34 @@
-import { ref, nextTick } from 'vue'
+import { ref, watch } from 'vue'
+import { useAnalytics } from '@/composables/useAnalytics'
 
-export function useScreenNav(totalScreens) {
+export function useScreenNav(totalScreens, experienceId = null, screenNames = []) {
   const currentScreen = ref(0)
   const history = ref([0])
-  const isTransitioning = ref(false)
+  const { trackScreenView } = useAnalytics()
 
-  async function advance() {
-    if (isTransitioning.value) return
+  // Track screen views when experienceId is provided
+  if (experienceId) {
+    watch(currentScreen, (idx) => {
+      const name = screenNames[idx] || `screen-${idx}`
+      trackScreenView(experienceId, name)
+    })
+  }
+
+  function advance() {
     if (currentScreen.value < totalScreens - 1) {
-      isTransitioning.value = true
       currentScreen.value++
       history.value.push(currentScreen.value)
-      await nextTick()
       window.scrollTo({ top: 0, behavior: 'smooth' })
-      setTimeout(() => { isTransitioning.value = false }, 400)
     }
   }
 
-  async function goBack() {
-    if (isTransitioning.value) return
+  function goBack() {
     if (history.value.length > 1) {
-      isTransitioning.value = true
       history.value.pop()
       currentScreen.value = history.value[history.value.length - 1]
-      await nextTick()
       window.scrollTo({ top: 0, behavior: 'smooth' })
-      setTimeout(() => { isTransitioning.value = false }, 400)
     }
   }
 
-  function goTo(index) {
-    currentScreen.value = index
-    history.value = Array.from({ length: index + 1 }, (_, i) => i)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  return { currentScreen, history, advance, goBack, goTo, isTransitioning }
+  return { currentScreen, advance, goBack }
 }

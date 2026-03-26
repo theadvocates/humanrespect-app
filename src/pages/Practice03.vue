@@ -2,56 +2,39 @@
   <div class="exp-app" :class="{ 'dark-mode': isDark }">
     <div class="exp-container">
       <Transition name="screen-fade" mode="out-in">
-        <component
-          :is="currentComponent"
-          :key="currentScreen"
-          @advance="advance"
-          @back="goBack"
-        />
+        <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" />
       </Transition>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch, onUnmounted } from 'vue'
+import { computed, watch, onUnmounted } from 'vue'
+import { useScreenNav } from '@/composables/useScreenNav'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 import Opening from '@/components/experiences/practice03/Opening.vue'
 import TheFramework from '@/components/experiences/practice03/TheFramework.vue'
 import TheExamples from '@/components/experiences/practice03/TheExamples.vue'
 import TheInvitation from '@/components/experiences/practice03/TheInvitation.vue'
 
-const TOTAL_SCREENS = 4
-const currentScreen = ref(0)
-const history = ref([0])
+const screenNames = ['opening','the-framework','the-examples','the-invitation']
+const { currentScreen, advance, goBack } = useScreenNav(4, 'practice03', screenNames)
+const { trackCompletion } = useAnalytics()
 
 const screenComponents = [Opening, TheFramework, TheExamples, TheInvitation]
-
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
+
+watch(currentScreen, (idx) => {
+  if (idx === 3) trackCompletion('practice03')
+})
 
 watch(isDark, (dark) => {
   if (dark) document.body.classList.add('dark-mode')
   else document.body.classList.remove('dark-mode')
 }, { immediate: true })
-
 onUnmounted(() => document.body.classList.remove('dark-mode'))
-
-function advance() {
-  if (currentScreen.value < TOTAL_SCREENS - 1) {
-    currentScreen.value++
-    history.value.push(currentScreen.value)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-}
-
-function goBack() {
-  if (history.value.length > 1) {
-    history.value.pop()
-    currentScreen.value = history.value[history.value.length - 1]
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-}
 </script>
 
 <style scoped>
