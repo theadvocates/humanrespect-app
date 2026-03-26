@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <p class="body-text-large" style="margin-top: 2rem;">From here, the philosophy goes deeper. Each of the three domains has implications that reshape how you think about justice, economics, community, and the role of institutions in human life.</p>
+    <p class="body-text-large" style="margin-top: 2rem;">From here, the philosophy goes deeper. Each dimension has implications that reshape how you think about justice, economics, community, and the role of institutions in human life.</p>
 
     <div class="paths" style="margin-top: 2.5rem;">
       <p class="caption" style="margin-bottom: 1rem;">Go deeper</p>
@@ -39,9 +39,9 @@
         <template #desc>The philosophy's most original insight: time is the irreplaceable substance of life, and every form of coercion is ultimately a theft of time.</template>
       </PathCard>
 
-      <PathCard :to="{ name: 'home' }">
+      <PathCard :to="{ name: 'pillarD' }">
         <template #title>The Method Is the Message</template>
-        <template #desc>Your values aren't the problem — progressive or conservative, they're both genuine. The question is whether you advance them through persuasion or force. Coming soon.</template>
+        <template #desc>Your values aren't the problem — progressive or conservative, they're both genuine. The question is whether you advance them through persuasion or force.</template>
       </PathCard>
 
       <PathCard :to="{ name: 'home' }">
