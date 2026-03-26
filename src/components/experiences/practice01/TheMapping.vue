@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">Map your footprint</p>
     <h2 class="display-medium">Where do you currently support the use of force?</h2>
     <Divider />
-    <p class="body-text">No judgment. This is about seeing clearly. For each area, ask: does the government use force (fines, imprisonment, seizure) to fund or enforce this?</p>
+    <p class="body-text">No judgment. This is about seeing clearly. Check each area where you currently accept, benefit from, or vote in favor of government involvement — even if you have never thought of it as force before.</p>
 
     <div class="categories">
       <div v-for="cat in categories" :key="cat.id" class="category">
