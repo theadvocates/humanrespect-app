@@ -1,6 +1,6 @@
-export const examples = [
+export const cooperationExamples = [
   {
-    id: 'knowledge',
+    id: 'wikipedia',
     name: 'Wikipedia',
     what: 'The largest encyclopedia in human history',
     how: 'Entirely volunteer-written and donation-funded. No government mandate. No compulsory participation. 60+ million articles in 300+ languages.',
@@ -19,7 +19,7 @@ export const examples = [
     id: 'disaster',
     name: 'Volunteer disaster response',
     what: 'Faster and more effective than government in crisis',
-    how: 'The Cajun Navy during Hurricane Harvey. Volunteer firefighters protecting 70% of US communities. Mutual aid networks during COVID. Community organizations consistently arrive before FEMA.',
+    how: 'The Cajun Navy during Hurricane Harvey. Volunteer firefighters protecting roughly two-thirds of US communities. Mutual aid networks during COVID. Community organizations consistently arrive before FEMA.',
     assumption: '"Only government can coordinate large-scale emergency response."',
     reality: 'Voluntary networks are consistently faster, more adaptive, and more personally responsive than bureaucratic agencies.'
   },
@@ -35,7 +35,7 @@ export const examples = [
     id: 'charity',
     name: 'Private philanthropy',
     what: 'Voluntary generosity at scale',
-    how: 'Americans voluntarily donated $557 billion in 2023. Community foundations, mutual aid societies, GoFundMe campaigns, religious charities — all funded by choice, not compulsion.',
+    how: 'Americans gave $592.5 billion to charity in 2024 — from individuals, families, foundations, and corporations. All by choice, not compulsion. Community foundations, mutual aid societies, GoFundMe campaigns, religious charities.',
     assumption: '"Without forced redistribution, the poor would be abandoned."',
     reality: 'Voluntary generosity has existed in every culture in history and consistently grows when people feel economically secure and socially connected.'
   }
@@ -101,10 +101,10 @@ export const appliedIssues = [
     forceSolution: 'Government police forces funded by taxes.',
     voluntaryApproaches: [
       'Neighborhood watch and community patrol programs',
-      'Private security funded by neighborhood associations',
-      'Restorative justice circles that repair harm rather than punish',
-      'Mediation services for disputes before they escalate',
-      'Community investment in root causes — opportunity, connection, purpose'
+      'Private security cooperatives funded by residents',
+      'Restorative justice circles and community mediation',
+      'Technology-enabled safety networks (apps, cameras, communication)',
+      'Addressing root causes through voluntary mentorship and opportunity creation'
     ]
   }
 ]

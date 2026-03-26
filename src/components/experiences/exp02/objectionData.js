@@ -1,11 +1,12 @@
 export const objections = {
   'social-contract': {
     title: '"I consented by living here."',
-    steelman: 'By participating in a democratic society — using its roads, courts, schools, and protections — you implicitly consent to its funding mechanism. Taxation is the price of civilization. You\'re free to leave if you don\'t want to pay. This is nothing like a stranger walking into someone\'s house.',
+    steelman: 'By participating in a democratic society — using its roads, courts, schools, and protections — you implicitly consent to its funding mechanism. Taxation is the price of civilization. This argument has deep philosophical roots: Rawls argued that rational people, choosing principles of justice from behind a veil of ignorance, would agree to institutions that protect the least advantaged — even through compulsory taxation. You\'re free to leave if you disagree. This is fundamentally different from a stranger walking into someone\'s house.',
     response: [
       'Consider: if a landscaping company mowed your lawn without asking, then handed you a bill and said "you benefited, so you owe us" — would the benefit you received make it a voluntary transaction?',
       'Most people would say no. Consent requires the ability to say no <em>before</em> the obligation is imposed.',
       '"Implicit consent" is a concept we reject in every other moral context. We don\'t accept it in contracts. We don\'t accept it in medicine. We don\'t accept it in relationships. In every other area of life, consent means the right to say no without being punished.',
+      'The Rawlsian version is more sophisticated, but it rests on a thought experiment — what people <em>would</em> agree to hypothetically — not on what any actual person <em>did</em> agree to. The Philosophy of Human Respect holds that hypothetical consent is not consent.',
       'And the "you can leave" argument actually proves the point. If the only way to withdraw consent is to abandon your home, your community, your livelihood, and your country — that\'s not meaningful consent. It\'s coercion with an escape clause.'
     ],
     concession: 'The social contract tradition is serious philosophy with a long lineage — Locke, Rousseau, Rawls. The Philosophy of Human Respect doesn\'t claim these thinkers are foolish. It claims they\'ve accepted an exception to a principle they\'d never accept in personal life. That\'s precisely what the thought experiment revealed.',
@@ -17,12 +18,12 @@ export const objections = {
     steelman: 'A child is hungry. A family is homeless. Someone is dying of a treatable disease. If refusing to use force means people die preventable deaths, then the force is the lesser evil. The moral weight of preventing suffering outweighs the moral cost of nonconsensual taxation.',
     response: [
       'This is the strongest objection, and it deserves a serious answer. Notice what it assumes: that <em>force is the only way</em> to help.',
-      'Before government welfare programs existed, voluntary institutions — mutual aid societies, fraternal organizations, religious charities, community networks — provided healthcare, education, disaster relief, and poverty assistance. These systems were <em>replaced</em> by government programs, not because they failed, but because political actors argued they could do it better through force.',
+      'Before government welfare programs existed, voluntary institutions — mutual aid societies, fraternal organizations, religious charities, community networks — provided healthcare, education, disaster relief, and poverty assistance. These systems were extensive and effective, though imperfect. They didn\'t reach everyone — many were segregated or restricted to employed members. Government programs expanded partly because voluntary systems were overwhelmed during the Great Depression, and partly because political actors saw advantage in centralizing these functions.',
       'The deeper question: does taking James\'s money against his will actually help Sarah in the most sustainable way? Or does it create dependency, reduce James\'s willingness to give voluntarily, erode the community bonds that produce real care — and ultimately generate worse outcomes than cooperation would?',
       'Consider the massive reduction in global poverty over the past two centuries. That progress came primarily from expanding voluntary exchange and economic freedom — not from redistribution programs.'
     ],
     concession: 'This is where the philosophy must be most honest. Voluntary systems are not guaranteed to catch every person who falls. During any transition from coercive to voluntary systems, some people who currently receive government help might experience disruption. The philosophy cannot credibly promise zero casualties. What it can argue is that the <em>trajectory</em> of voluntary cooperation points toward greater flourishing for everyone — and that coercive systems create their own suffering, less visible but equally real.',
-    question: 'Is compassion measured by your willingness to use force on others — or by your willingness to act yourself? If you care about Sarah, what\'s stopping you from helping her directly, right now, without waiting for a politician to take James\'s money?'
+    question: 'Is compassion measured by your willingness to use force on others — or by your willingness to act yourself?'
   },
 
   'democracy': {
@@ -32,7 +33,7 @@ export const objections = {
       'Democratic process determines <em>who</em> makes a decision. It doesn\'t transform the <em>nature</em> of the action.',
       'If 60% of your neighbors voted that you must give $500 a month to a community fund — and men with guns would come to your house if you refused — the vote wouldn\'t change what happens to you. Your money still leaves your possession against your will. The vote changes the <em>authority</em>, not the <em>experience of the person being acted upon</em>.',
       'The Philosophy of Human Respect holds that the effect on the person experiencing force doesn\'t change based on how many people authorized it. Democratic authorization makes coercion more orderly — which is genuinely better than chaotic coercion — but it doesn\'t make it voluntary.',
-      'History is full of democratic majorities authorizing terrible things. Slavery was democratically supported. Segregation was passed by elected legislatures. Democratic legitimacy has never been sufficient, on its own, to make an action moral.'
+      'History shows that democratic majorities have authorized things we now recognize as deeply unjust — from Jim Crow laws to Japanese internment to forced sterilization programs. Democratic legitimacy has never been, on its own, sufficient to make an action moral.'
     ],
     concession: 'Democracy is better than dictatorship. The philosophy isn\'t arguing that democratic process has no value — it\'s arguing that democracy is an <em>incomplete</em> answer to the question of how people should relate to each other. Majority rule is appropriate for genuinely shared decisions. It becomes problematic when it\'s used to override individual consent on matters of property and personal choice.',
     question: 'If democratic legitimacy truly transforms the nature of the act, then there\'s nothing a democratic majority could do that would be wrong — as long as they voted on it first. Do you accept that conclusion? If not, where do you draw the line?'

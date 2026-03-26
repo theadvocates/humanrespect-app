@@ -4,13 +4,13 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The pattern has a name</p>
     <h2 class="display-medium">The Principle of Human Respect</h2>
     <Divider />
-    <p class="body-text-large">Across every culture and era, a consistent pattern holds: when people experience violence initiated against them, or theft of their property through force or fraud, their happiness, harmony, and prosperity decrease.</p>
-    <p class="body-text">This is true whether the force comes from a mugger, a dictator, a majority vote, or a well-intentioned policy. The mechanism doesn't change the effect.</p>
+    <p class="body-text-large">Across every culture and era, a consistent pattern holds: human well-being is sensitive to how people treat each other. Specifically, it is sensitive to the presence or absence of force.</p>
     <ContentBlock variant="principle">
-      <p>Human happiness, harmony, and prosperity always decrease as persons experience the initiation of violence, or the theft of their property or time through force or fraud.</p>
+      <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>
     </ContentBlock>
+    <p class="body-text">This holds whether the force comes from a mugger, a dictator, a majority vote, or a well-intentioned policy. The mechanism doesn't change the effect.</p>
     <p class="body-text">And the inverse holds too. Wherever people interact through persuasion and voluntary cooperation — in friendships, in markets, in communities that choose to help each other — flourishing increases.</p>
-    <p class="body-text">This is what the thought experiment was pointing toward. Not a political ideology, but an observation about cause and effect: <em>how</em> we pursue good outcomes matters as much as the outcomes themselves.</p>
+    <p class="body-text">This is what the thought experiment was pointing toward. A statement about cause and effect: <em>how</em> we pursue good outcomes matters as much as the outcomes themselves.</p>
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>
