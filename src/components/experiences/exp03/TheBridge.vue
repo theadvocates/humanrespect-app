@@ -22,6 +22,13 @@
 
     <p class="body-text-large" style="margin-top: 2rem;">From here, the philosophy goes deeper into each dimension.</p>
 
+    <NewsletterSignup
+      source="exp03_bridge"
+      headline="The questions don't stop here."
+      description="Once you start seeing the force/persuasion distinction, you notice it everywhere — in the news, in conversations, in your own decisions. We send one short email per week applying the Philosophy of Human Respect to a real situation. No selling. No spam. Just the question, applied."
+      success-message="You're in. The first question arrives this week."
+    />
+
     <JourneyNav current="exp03" next-label="Go deeper" />
 
     <p class="body-text" style="text-align: center; margin-top: 3rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
@@ -32,6 +39,7 @@
 import { ref, onMounted } from 'vue'
 import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
+import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import JourneyNav from '@/components/shared/JourneyNav.vue'
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

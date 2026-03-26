@@ -8,6 +8,7 @@
     <div class="share-block">
       <button class="share-btn" @click="copyLink">{{ copied ? 'Copied!' : 'Copy link to humanrespect.app' }}</button>
     </div>
+    <NewsletterSignup source="practice03_closing" headline="Keep practicing." description="Weekly conversation fuel — one real situation, the force/persuasion question applied, and ideas from others who are having these conversations too." button-text="I'm in" success-message="Welcome. Conversation fuel arrives this week." />
     <JourneyNav current="practice03" />
   </div>
 </template>
@@ -15,6 +16,7 @@
 import { ref, onMounted } from 'vue'
 import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
+import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import JourneyNav from '@/components/shared/JourneyNav.vue'
 const el = ref(null)
 const copied = ref(false)

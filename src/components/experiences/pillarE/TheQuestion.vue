@@ -16,6 +16,7 @@
       </PathCard>
     </div>
 
+    <NewsletterSignup variant="minimal" source="pillarE_closing" headline="One question per week, applied to the real world." description="A short email exploring how the force/persuasion question plays out in actual situations." button-text="Subscribe" />
     <JourneyNav current="pillarE" />
     <p class="body-text" style="text-align: center; margin-top: 3rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
   </div>
@@ -26,6 +27,7 @@ import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
 import ContentBlock from '@/components/shared/ContentBlock.vue'
 import PathCard from '@/components/shared/PathCard.vue'
+import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import JourneyNav from '@/components/shared/JourneyNav.vue'
 import { appliedIssues } from './examplesData.js'
 

@@ -17,7 +17,6 @@
     </PathCard>
 
     <JourneyNav current="exp01" />
-    <NewsletterSignup source="exp01_invitation" />
 
     <p class="body-text" style="text-align: center; margin-top: 2rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
   </div>
@@ -30,7 +29,6 @@ import Divider from '@/components/shared/Divider.vue'
 import ContentBlock from '@/components/shared/ContentBlock.vue'
 import PathCard from '@/components/shared/PathCard.vue'
 import JourneyNav from '@/components/shared/JourneyNav.vue'
-import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
 
