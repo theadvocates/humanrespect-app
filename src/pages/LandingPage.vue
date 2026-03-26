@@ -87,7 +87,7 @@
         <div class="footer-left">Human Respect</div>
         <div class="footer-right">
           <router-link to="/about" class="footer-link">About</router-link>
-          <a href="#" class="footer-link">Privacy</a>
+          <router-link to="/privacy" class="footer-link">Privacy</router-link>
         </div>
       </div>
     </footer>

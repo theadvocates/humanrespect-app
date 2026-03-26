@@ -17,6 +17,7 @@ const routes = [
   { path: '/practice/respect-audit', name: 'practice04', component: () => import('@/pages/Practice04.vue') },
   { path: '/practice/design-a-solution', name: 'practice05', component: () => import('@/pages/Practice05.vue') },
   { path: '/about', name: 'about', component: () => import('@/pages/AboutPage.vue') },
+  { path: '/privacy', name: 'privacy', component: () => import('@/pages/PrivacyPage.vue') },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/pages/NotFound.vue') }
 ]
 
