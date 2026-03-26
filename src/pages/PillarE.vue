@@ -8,6 +8,7 @@
           @advance="advance"
           @back="goBack"
           @set-issue="handleIssue"
+          @restart-with="restartWith"
         />
       </Transition>
     </div>
@@ -63,6 +64,13 @@ function goBack() {
 }
 
 function handleIssue(id) { chosenIssue.value = id }
+
+function restartWith(id) {
+  chosenIssue.value = id
+  currentScreen.value = 3 // jump to DesignYourOwn
+  history.value = [0, 1, 2, 3]
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
 </script>
 
 <style scoped>
