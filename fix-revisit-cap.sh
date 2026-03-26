@@ -1,3 +1,11 @@
+#!/bin/bash
+# Fix: show all completed experiences in Revisit section
+# Run from humanrespect-app/ root
+
+# Only need to change one line in JourneyNav — the .slice(0, 2) on revisitSteps
+# But since we're rewriting anyway, let's also group revisits by tier for clarity
+
+cat > src/components/shared/JourneyNav.vue << 'VUEEOF'
 <template>
   <div class="journey-nav">
     <!-- Suggested next steps -->
@@ -103,3 +111,7 @@ function getTierPriority(currentTier) {
 <style scoped>
 .journey-nav { margin-top: 2.5rem; }
 </style>
+VUEEOF
+
+echo "✅ Revisit section now shows all completed experiences"
+echo "Push with: git add . && git commit -m 'ux: show all completed in revisit' && git push"
