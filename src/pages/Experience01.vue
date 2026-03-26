@@ -18,6 +18,7 @@
 import { computed, watch, onUnmounted } from 'vue'
 import { useScreenNav } from '@/composables/useScreenNav'
 import { useJourneyStore } from '@/stores/journey'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 import Opening from '@/components/experiences/exp01/Opening.vue'
 import CommonGround from '@/components/experiences/exp01/CommonGround.vue'
@@ -30,8 +31,11 @@ import ThePrinciple from '@/components/experiences/exp01/ThePrinciple.vue'
 import Invitation from '@/components/experiences/exp01/Invitation.vue'
 
 const TOTAL_SCREENS = 9
-const { currentScreen, advance, goBack } = useScreenNav(TOTAL_SCREENS)
+const screenNames = ['opening', 'common-ground', 'scenario', 'personal-choice', 'political-choice', 'mirror', 'why-the-gap', 'the-principle', 'invitation']
+
+const { currentScreen, advance: rawAdvance, goBack } = useScreenNav(TOTAL_SCREENS)
 const journey = useJourneyStore()
+const { trackScreenView, trackChoice } = useAnalytics()
 
 const screenComponents = [
   Opening, CommonGround, Scenario, PersonalChoice, PoliticalChoice,
@@ -41,67 +45,36 @@ const screenComponents = [
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
 
-// Sync dark mode to body
+// Track screen views
+watch(currentScreen, (idx) => {
+  trackScreenView('exp01', screenNames[idx])
+})
+
 watch(isDark, (dark) => {
-  if (dark) {
-    document.body.classList.add('dark-mode')
-  } else {
-    document.body.classList.remove('dark-mode')
-  }
+  if (dark) document.body.classList.add('dark-mode')
+  else document.body.classList.remove('dark-mode')
 }, { immediate: true })
 
-// CRITICAL: Clean up dark mode when leaving this page
-onUnmounted(() => {
-  document.body.classList.remove('dark-mode')
-})
+onUnmounted(() => document.body.classList.remove('dark-mode'))
+
+function advance() {
+  rawAdvance()
+}
 
 function handleChoice({ key, value }) {
   if (key === 'personal') journey.exp01.personal = value
   if (key === 'political') journey.exp01.political = value
   journey.persist()
+  trackChoice('exp01', key, value)
 }
 </script>
 
 <style scoped>
-.exp-app {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1.5rem;
-  transition: background 0.6s ease, color 0.6s ease;
-  background: var(--paper);
-}
-
-.exp-app.dark-mode {
-  background: var(--bg-dark);
-  color: var(--text-inverse);
-}
-
-.exp-container {
-  max-width: 640px;
-  width: 100%;
-}
-
-.screen-fade-enter-active,
-.screen-fade-leave-active {
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.screen-fade-enter-from {
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-.screen-fade-leave-to {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-@media (max-width: 480px) {
-  .exp-app {
-    padding: 1.5rem 1rem;
-  }
-}
+.exp-app { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem; transition: background 0.6s ease, color 0.6s ease; background: var(--paper); }
+.exp-app.dark-mode { background: var(--bg-dark); color: var(--text-inverse); }
+.exp-container { max-width: 640px; width: 100%; }
+.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
+.screen-fade-enter-from { opacity: 0; transform: translateY(16px); }
+.screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
+@media (max-width: 480px) { .exp-app { padding: 1.5rem 1rem; } }
 </style>

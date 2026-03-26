@@ -27,6 +27,8 @@
         <template #desc>{{ shareDesc }}</template>
       </PathCard>
     </div>
+
+    <NewsletterSignup source="exp01_invitation" />
   </div>
 </template>
 
@@ -36,15 +38,19 @@ import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
 import ContentBlock from '@/components/shared/ContentBlock.vue'
 import PathCard from '@/components/shared/PathCard.vue'
+import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import { useJourneyStore } from '@/stores/journey'
+import { useAnalytics } from '@/composables/useAnalytics'
 
 const journey = useJourneyStore()
+const { trackShare, trackCompletion } = useAnalytics()
 const el = ref(null)
 const shareDesc = ref('Send this thought experiment to someone you disagree with politically. See what they discover.')
 
 onMounted(() => {
   requestAnimationFrame(() => el.value?.classList.add('animate'))
   journey.completeExp01(journey.exp01.personal, journey.exp01.political)
+  trackCompletion('exp01', { pattern: journey.mirrorPattern })
 })
 
 function share() {
@@ -53,9 +59,11 @@ function share() {
 
   if (navigator.share) {
     navigator.share({ title: 'The Question That Changes Everything', text, url })
+    trackShare('native', 'exp01')
   } else {
     navigator.clipboard.writeText(text + ' ' + url).then(() => {
       shareDesc.value = 'Link copied to clipboard.'
+      trackShare('clipboard', 'exp01')
       setTimeout(() => {
         shareDesc.value = 'Send this thought experiment to someone you disagree with politically. See what they discover.'
       }, 2000)

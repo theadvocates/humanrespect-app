@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabase'
 
-const USE_SUPABASE = false
+const USE_SUPABASE = true
 
 export const useJourneyStore = defineStore('journey', {
   state: () => ({
@@ -50,7 +50,11 @@ export const useJourneyStore = defineStore('journey', {
       this.exp01.completedAt = new Date().toISOString()
       this.visitor.totalExperiences++
       this.persist()
+      this.trackEvent('exp01_completed', {
+        personal, political, pattern: this.mirrorPattern
+      })
     },
+
     completeExp02(objection, reflection) {
       this.exp02.chosenObjection = objection
       this.exp02.reflection = reflection
@@ -58,7 +62,9 @@ export const useJourneyStore = defineStore('journey', {
       this.exp02.completedAt = new Date().toISOString()
       this.visitor.totalExperiences++
       this.persist()
+      this.trackEvent('exp02_completed', { objection })
     },
+
     recordVisit() {
       const now = new Date().toISOString()
       if (!this.visitor.firstVisit) this.visitor.firstVisit = now
@@ -66,18 +72,23 @@ export const useJourneyStore = defineStore('journey', {
       if (!this.visitorId) this.visitorId = crypto.randomUUID()
       this.persist()
     },
+
+    // ── localStorage (always active) ──
     persist() {
       try {
         localStorage.setItem('hr-journey', JSON.stringify(this.$state))
       } catch (e) { /* silent */ }
       if (USE_SUPABASE) this.syncToSupabase()
     },
+
     hydrate() {
       try {
         const saved = localStorage.getItem('hr-journey')
         if (saved) this.$patch(JSON.parse(saved))
       } catch (e) { /* fresh start */ }
     },
+
+    // ── Supabase sync ──
     async syncToSupabase() {
       if (!this.visitorId) return
       try {
@@ -86,18 +97,25 @@ export const useJourneyStore = defineStore('journey', {
           exp01_personal: this.exp01.personal,
           exp01_political: this.exp01.political,
           exp01_completed: this.exp01.completed,
+          exp01_completed_at: this.exp01.completedAt,
           mirror_pattern: this.mirrorPattern,
           exp02_objection: this.exp02.chosenObjection,
           exp02_completed: this.exp02.completed,
+          exp02_completed_at: this.exp02.completedAt,
           total_experiences: this.visitor.totalExperiences,
           first_visit: this.visitor.firstVisit,
           last_visit: this.visitor.lastVisit,
           updated_at: new Date().toISOString()
         }, { onConflict: 'visitor_id' })
-      } catch (e) { console.warn('Supabase sync failed:', e) }
+      } catch (e) {
+        console.warn('Supabase sync failed:', e)
+      }
     },
+
+    // ── Analytics events ──
     async trackEvent(eventName, properties = {}) {
       if (!USE_SUPABASE) return
+      if (!this.visitorId) return
       try {
         await supabase.from('events').insert({
           visitor_id: this.visitorId,
