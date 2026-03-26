@@ -13,7 +13,7 @@
       <p class="body-text-large">The money still comes from someone who earned it. It still goes to someone who needs it. The cause is equally compassionate in both cases.</p>
       <p class="body-text">The only thing that changed is who does the taking. And somehow, that changed your answer.</p>
       <ContentBlock variant="insight">
-        <p>You may have seen where this was headed. That's fine — it doesn't change the fact that you gave two different answers to what is, at its core, the same moral question. <strong>Most people do.</strong> We hold one standard for personal conduct and a different one for political action, and we rarely stop to ask why.</p>
+        <p>Most people hold one standard for personal conduct and a different one for political action, and we rarely stop to ask why. <strong>That gap is the starting point for everything that follows.</strong></p>
       </ContentBlock>
     </template>
 
