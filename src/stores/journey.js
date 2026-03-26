@@ -3,11 +3,7 @@ import { supabase } from '@/lib/supabase'
 
 const USE_SUPABASE = true
 
-const ALL_EXPERIENCES = [
-  'exp01', 'exp02', 'exp03',
-  'pillarA', 'pillarB', 'pillarC', 'pillarD', 'pillarE',
-  'practice01', 'practice02', 'practice03', 'practice04', 'practice05'
-]
+const TIER_ORDER = { none: 0, foundation: 1, pillar: 2, practice: 3 }
 
 function getTier(expId) {
   if (expId.startsWith('exp')) return 'foundation'
@@ -15,8 +11,6 @@ function getTier(expId) {
   if (expId.startsWith('practice')) return 'practice'
   return 'none'
 }
-
-const TIER_ORDER = { none: 0, foundation: 1, pillar: 2, practice: 3 }
 
 export const useJourneyStore = defineStore('journey', {
   state: () => ({
@@ -30,6 +24,7 @@ export const useJourneyStore = defineStore('journey', {
     exp02: {
       completed: false,
       chosenObjection: null,
+      exploredObjections: [],
       reflection: null,
       completedAt: null
     },
@@ -55,11 +50,11 @@ export const useJourneyStore = defineStore('journey', {
     },
     foundationComplete: (state) => state.exp01.completed && state.exp02.completed && state.completions.exp03,
     completionCount: (state) => Object.values(state.completions).filter(Boolean).length,
-    isCompleted: (state) => (expId) => !!state.completions[expId]
+    isCompleted: (state) => (expId) => !!state.completions[expId],
+    hasExploredObjection: (state) => (key) => state.exp02.exploredObjections.includes(key)
   },
 
   actions: {
-    // ── Experience-specific completions ──
     completeExp01(personal, political) {
       this.exp01.personal = personal
       this.exp01.political = political
@@ -73,24 +68,24 @@ export const useJourneyStore = defineStore('journey', {
       this.exp02.reflection = reflection
       this.exp02.completed = true
       this.exp02.completedAt = new Date().toISOString()
+      // Track this specific objection as explored
+      if (objection && !this.exp02.exploredObjections.includes(objection)) {
+        this.exp02.exploredObjections.push(objection)
+      }
       this.markComplete('exp02')
     },
 
-    // ── Universal completion tracker ──
     markComplete(expId) {
       if (!this.completions[expId]) {
         this.completions[expId] = true
         this.completionTimes[expId] = new Date().toISOString()
         this.visitor.totalExperiences = Object.values(this.completions).filter(Boolean).length
       }
-
       this.lastExperience = expId
-
       const tier = getTier(expId)
       if (TIER_ORDER[tier] > TIER_ORDER[this.furthestTier]) {
         this.furthestTier = tier
       }
-
       this.persist()
       this.trackEvent('experience_completed', {
         experience: expId,
@@ -99,7 +94,6 @@ export const useJourneyStore = defineStore('journey', {
       })
     },
 
-    // ── Visit recording ──
     recordVisit() {
       const now = new Date().toISOString()
       if (!this.visitor.firstVisit) this.visitor.firstVisit = now
@@ -108,7 +102,6 @@ export const useJourneyStore = defineStore('journey', {
       this.persist()
     },
 
-    // ── localStorage ──
     persist() {
       try {
         localStorage.setItem('hr-journey', JSON.stringify(this.$state))
@@ -121,16 +114,18 @@ export const useJourneyStore = defineStore('journey', {
         const saved = localStorage.getItem('hr-journey')
         if (saved) {
           const parsed = JSON.parse(saved)
-          // Ensure completions objects exist even from old localStorage
           if (!parsed.completions) parsed.completions = {}
           if (!parsed.completionTimes) parsed.completionTimes = {}
           if (!parsed.furthestTier) parsed.furthestTier = 'none'
+          if (!parsed.exp02?.exploredObjections) {
+            if (!parsed.exp02) parsed.exp02 = {}
+            parsed.exp02.exploredObjections = parsed.exp02.chosenObjection ? [parsed.exp02.chosenObjection] : []
+          }
           this.$patch(parsed)
         }
       } catch (e) { /* fresh start */ }
     },
 
-    // ── Supabase sync ──
     async syncToSupabase() {
       if (!this.visitorId) return
       try {
@@ -159,7 +154,6 @@ export const useJourneyStore = defineStore('journey', {
       }
     },
 
-    // ── Analytics events ──
     async trackEvent(eventName, properties = {}) {
       if (!USE_SUPABASE) return
       if (!this.visitorId) return

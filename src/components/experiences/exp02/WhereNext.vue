@@ -6,15 +6,29 @@
     <Divider />
     <p class="body-text-large">Each objection gets the same treatment — steelmanned, responded to, conceded where honesty requires.</p>
 
-    <div style="margin-top: 2rem;">
+    <div v-if="unexploredObjections.length" style="margin-top: 2rem;">
       <p class="caption" style="margin-bottom: 1rem;">Explore another objection</p>
-      <PathCard v-for="key in otherObjections" :key="key" href="#" @click.prevent="$emit('restart-with', key)">
+      <PathCard v-for="key in unexploredObjections" :key="key" href="#" @click.prevent="$emit('restart-with', key)">
         <template #title>{{ allObjections[key].title }}</template>
         <template #desc>Explore this objection with the same honesty.</template>
       </PathCard>
     </div>
 
-    <JourneyNav current="exp02" next-label="Or continue your journey" />
+    <div v-if="exploredOtherObjections.length" style="margin-top: 1.5rem;">
+      <p class="caption" style="margin-bottom: 1rem;">Already explored</p>
+      <PathCard v-for="key in exploredOtherObjections" :key="key" href="#" :completed="true" @click.prevent="$emit('restart-with', key)">
+        <template #title>{{ allObjections[key].title }}</template>
+        <template #desc>Revisit this objection.</template>
+      </PathCard>
+    </div>
+
+    <div v-if="allExplored" style="margin-top: 2rem;">
+      <ContentBlock variant="insight">
+        <p>You've explored all four objections. You've seen each one steelmanned, responded to, and honestly conceded. That's rare — most people stop at the first one that confirms their existing view.</p>
+      </ContentBlock>
+    </div>
+
+    <JourneyNav current="exp02" next-label="Continue your journey" />
   </div>
 </template>
 
@@ -22,6 +36,7 @@
 import { ref, computed, onMounted } from 'vue'
 import StepDots from '@/components/shared/StepDots.vue'
 import Divider from '@/components/shared/Divider.vue'
+import ContentBlock from '@/components/shared/ContentBlock.vue'
 import PathCard from '@/components/shared/PathCard.vue'
 import JourneyNav from '@/components/shared/JourneyNav.vue'
 import { useJourneyStore } from '@/stores/journey'
@@ -29,7 +44,22 @@ import { objections as allObjections } from './objectionData.js'
 
 defineEmits(['restart-with'])
 const journey = useJourneyStore()
-const otherObjections = computed(() => Object.keys(allObjections).filter(k => k !== journey.exp02.chosenObjection))
+
+const allKeys = Object.keys(allObjections)
+const otherKeys = computed(() => allKeys.filter(k => k !== journey.exp02.chosenObjection))
+
+const unexploredObjections = computed(() =>
+  otherKeys.value.filter(k => !journey.exp02.exploredObjections.includes(k))
+)
+
+const exploredOtherObjections = computed(() =>
+  otherKeys.value.filter(k => journey.exp02.exploredObjections.includes(k))
+)
+
+const allExplored = computed(() =>
+  allKeys.every(k => journey.exp02.exploredObjections.includes(k))
+)
+
 const el = ref(null)
 onMounted(() => {
   requestAnimationFrame(() => el.value?.classList.add('animate'))
