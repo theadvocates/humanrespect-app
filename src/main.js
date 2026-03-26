@@ -7,6 +7,8 @@ import { useJourneyStore } from './stores/journey'
 import './styles/tokens.css'
 import './styles/base.css'
 import './styles/typography.css'
+import './styles/animations.css'
+import './styles/mobile.css'
 
 const app = createApp(App)
 const pinia = createPinia()
