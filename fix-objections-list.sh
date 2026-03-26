@@ -1,3 +1,8 @@
+#!/bin/bash
+# Fix: Exp02 WhereNext shows all 4 objections when all explored
+# Run from humanrespect-app/ root
+
+cat > src/components/experiences/exp02/WhereNext.vue << 'VUEEOF'
 <template>
   <div class="screen-inner stagger" ref="el">
     <StepDots :current="6" :total="7" />
@@ -67,3 +72,7 @@ onMounted(() => {
 </script>
 
 <style scoped>.screen-inner { padding: 0 0.5rem; }</style>
+VUEEOF
+
+echo "✅ Fixed: all 4 objections now show when explored"
+echo "Push with: git add . && git commit -m 'fix: show all explored objections' && git push"
