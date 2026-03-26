@@ -44,9 +44,9 @@
         <template #desc>Your values aren't the problem — progressive or conservative, they're both genuine. The question is whether you advance them through persuasion or force.</template>
       </PathCard>
 
-      <PathCard :to="{ name: 'home' }">
+      <PathCard :to="{ name: 'pillarE' }">
         <template #title>Cooperation Is a Technology</template>
-        <template #desc>Voluntary cooperation isn't just morally superior to coercion — it's more effective. Real examples of people solving "impossible" problems without force. Coming soon.</template>
+        <template #desc>Voluntary cooperation isn't just morally superior to coercion — it's more effective. Real examples of people solving "impossible" problems without force.</template>
       </PathCard>
     </div>
 
@@ -81,40 +81,9 @@ onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 <style scoped>
 .screen-inner { padding: 0 0.5rem; }
 
-.foundation-summary {
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.foundation-item {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-}
-
-.foundation-number {
-  flex-shrink: 0;
-  font-family: var(--serif);
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--ochre);
-  margin-top: 0.15rem;
-}
-
-.foundation-title {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 0.2rem;
-}
-
-.foundation-desc {
-  font-size: 0.88rem;
-  color: var(--ink-muted);
-  line-height: 1.6;
-  margin: 0;
-}
+.foundation-summary { margin: 2rem 0; display: flex; flex-direction: column; gap: 1.25rem; }
+.foundation-item { display: flex; gap: 1rem; align-items: flex-start; }
+.foundation-number { flex-shrink: 0; font-family: var(--serif); font-size: 0.85rem; font-weight: 400; color: var(--ochre); margin-top: 0.15rem; }
+.foundation-title { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+.foundation-desc { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.6; margin: 0; }
 </style>

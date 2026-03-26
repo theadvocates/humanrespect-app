@@ -33,6 +33,11 @@ const routes = [
     component: () => import('@/pages/PillarD.vue')
   },
   {
+    path: '/pillar/cooperation-is-a-technology',
+    name: 'pillarE',
+    component: () => import('@/pages/PillarE.vue')
+  },
+  {
     path: '/about',
     name: 'about',
     component: () => import('@/pages/AboutPage.vue')
