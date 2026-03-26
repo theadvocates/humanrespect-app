@@ -1,9 +1,11 @@
+/* ── Display type ── */
 .display-large {
     font-family: var(--serif);
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.2;
     letter-spacing: -0.02em;
     font-weight: 400;
+    color: var(--ink);
 }
 
 .display-medium {
@@ -12,8 +14,10 @@
     line-height: 1.3;
     letter-spacing: -0.01em;
     font-weight: 400;
+    color: var(--ink);
 }
 
+/* ── Body type ── */
 .body-text {
     font-size: 1rem;
     line-height: 1.8;
@@ -33,7 +37,7 @@
     color: var(--ink-faint);
 }
 
-/* Dark mode: boost contrast and weight */
+/* ── Dark mode: boost weight + contrast ── */
 .dark-mode .display-large,
 .dark-mode .display-medium {
     color: #F0EBE3;
@@ -54,4 +58,18 @@
 
 .dark-mode .caption {
     color: rgba(240, 235, 227, 0.45);
+}
+
+.dark-mode .body-text strong,
+.dark-mode .body-text-large strong {
+    color: rgba(240, 235, 227, 0.9);
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

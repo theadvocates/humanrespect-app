@@ -31,3 +31,47 @@
 
     --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+/* ── Base ── */
+html {
+    font-size: 18px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+}
+
+/* Dark mode base */
+body.dark-mode {
+    background: var(--bg-dark);
+}
+
+/* ── Responsive base font ── */
+@media (max-width: 680px) {
+    html { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+    html { font-size: 15px; }
+}
+
+/* ── Global reset helpers ── */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    color: inherit;
+}

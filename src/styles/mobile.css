@@ -1,0 +1,113 @@
+/* ── Prevent horizontal overflow ── */
+.screen-inner,
+.opening {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* ── Tap target sizing ── */
+@media (max-width: 680px) {
+    button,
+    .path-card,
+    .choice-card,
+    [role="button"] {
+        min-height: 44px;
+    }
+}
+
+/* ── Content block mobile adjustments ── */
+@media (max-width: 480px) {
+    .content-block {
+        padding: 1.1rem 1.25rem;
+        margin: 1.25rem 0;
+    }
+
+    .screen-inner {
+        padding: 0 0.25rem;
+    }
+
+    .display-large {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+
+    .display-medium {
+        font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+    }
+
+    .body-text-large {
+        font-size: 1rem;
+    }
+}
+
+/* ── Closing question blocks on mobile ── */
+@media (max-width: 480px) {
+    .closing-question {
+        font-size: 1.2rem !important;
+        padding: 1.5rem 1rem !important;
+    }
+
+    .closing-question-block {
+        margin: 1.5rem 0 !important;
+        padding: 1.5rem 0.5rem !important;
+    }
+}
+
+/* ── Opening screen mobile ── */
+@media (max-width: 480px) {
+    .opening {
+        padding: 1.5rem 0;
+        min-height: auto;
+    }
+
+    .opening .subtitle {
+        font-size: 0.9rem;
+    }
+
+    .opening .begin-btn {
+        font-size: 0.95rem;
+        padding: 0.75rem 1.75rem;
+    }
+}
+
+/* ── Newsletter form mobile ── */
+@media (max-width: 480px) {
+    .newsletter-block {
+        padding: 1.25rem;
+    }
+
+    .newsletter-headline {
+        font-size: 0.95rem;
+    }
+
+    .input-row {
+        flex-direction: column;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+/* ── Foundation summary on mobile ── */
+@media (max-width: 480px) {
+    .foundation-summary {
+        gap: 1rem;
+    }
+
+    .foundation-item {
+        gap: 0.75rem;
+    }
+}
+
+/* ── Safe area for notched phones ── */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .site-nav {
+        padding-top: max(1rem, env(safe-area-inset-top));
+        padding-left: max(1.5rem, env(safe-area-inset-left));
+        padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+
+    .page-footer {
+        padding-bottom: max(3rem, env(safe-area-inset-bottom));
+    }
+}
