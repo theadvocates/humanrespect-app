@@ -2,62 +2,80 @@
   <div class="exp-app" :class="{ 'dark-mode': isDark }">
     <div class="exp-container">
       <Transition name="screen-fade" mode="out-in">
-        <component :is="currentComponent" :key="screenKey" @advance="advance" @back="goBack"  />
+        <component
+          :is="currentComponent"
+          :key="currentScreen"
+          @advance="advance"
+          @back="goBack"
+        />
       </Transition>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, watch, onUnmounted, provide } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
 
 import Opening from '@/components/experiences/pillarC/Opening.vue'
-import TheConnection from '@/components/experiences/pillarC/TheConnection.vue'
-import TheftAsLifeTheft from '@/components/experiences/pillarC/TheftAsLifeTheft.vue'
+import WhatYouveBuilt from '@/components/experiences/pillarC/WhatYouveBuilt.vue'
+import WhatYouDidntBuild from '@/components/experiences/pillarC/WhatYouDidntBuild.vue'
 import FraudAndTrust from '@/components/experiences/pillarC/FraudAndTrust.vue'
 import SecurityAndProsperity from '@/components/experiences/pillarC/SecurityAndProsperity.vue'
 import TheQuestion from '@/components/experiences/pillarC/TheQuestion.vue'
 
-const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
-const screenNames = ['opening','the-connection','theft-as-life-theft','fraud-and-trust','security-and-prosperity','the-question']
+const { trackScreenView, trackCompletion } = useAnalytics()
 
 const TOTAL_SCREENS = 6
 const currentScreen = ref(0)
 const history = ref([0])
 
+const screenComponents = [
+  Opening, WhatYouveBuilt, WhatYouDidntBuild, FraudAndTrust, SecurityAndProsperity, TheQuestion
+]
 
-const screenComponents = [Opening, TheConnection, TheftAsLifeTheft, FraudAndTrust, SecurityAndProsperity, TheQuestion]
+const screenNames = [
+  'opening', 'what-youve-built', 'what-you-didnt-build', 'fraud-and-trust', 'security', 'the-question'
+]
+
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
-const screenKey = computed(() => `${currentScreen.value}`)
+
+watch(isDark, (dark) => {
+  if (dark) document.body.classList.add('dark-mode')
+  else document.body.classList.remove('dark-mode')
+}, { immediate: true })
 
 watch(currentScreen, (idx) => {
   trackScreenView('pillarC', screenNames[idx])
   if (idx === TOTAL_SCREENS - 1) trackCompletion('pillarC')
 })
 
-watch(isDark, (dark) => {
-  if (dark) document.body.classList.add('dark-mode')
-  else document.body.classList.remove('dark-mode')
-}, { immediate: true })
 onUnmounted(() => document.body.classList.remove('dark-mode'))
 
 function advance() {
-  if (currentScreen.value < TOTAL_SCREENS - 1) { currentScreen.value++; history.value.push(currentScreen.value); window.scrollTo(0, 0) }
-}
-function goBack() {
-  if (history.value.length > 1) { history.value.pop(); currentScreen.value = history.value[history.value.length - 1]; window.scrollTo(0, 0) }
+  if (currentScreen.value < TOTAL_SCREENS - 1) {
+    currentScreen.value++
+    history.value.push(currentScreen.value)
+    window.scrollTo(0, 0)
+  }
 }
 
+function goBack() {
+  if (history.value.length > 1) {
+    history.value.pop()
+    currentScreen.value = history.value[history.value.length - 1]
+    window.scrollTo(0, 0)
+  }
+}
 </script>
 
 <style scoped>
-.exp-app { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem; transition: background 0.6s ease, color 0.6s ease; background: var(--paper); }
-.exp-app.dark-mode { background: var(--bg-dark); color: var(--text-inverse); }
-.exp-container { max-width: 640px; width: 100%; }
-.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
-.screen-fade-enter-from { opacity: 0; transform: translateY(16px); }
+.exp-app { min-height: 100vh; background: var(--paper); transition: background 0.6s ease; }
+.exp-app.dark-mode { background: var(--bg-dark); }
+.exp-container { max-width: 640px; margin: 0 auto; padding: 4rem 1.5rem; }
+.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.35s ease, transform 0.35s ease; }
+.screen-fade-enter-from { opacity: 0; transform: translateY(12px); }
 .screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
-@media (max-width: 480px) { .exp-app { padding: 1.5rem 1rem; } }
+@media (max-width: 480px) { .exp-container { padding: 2.5rem 1rem; } }
 </style>

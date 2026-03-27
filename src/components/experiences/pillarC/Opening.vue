@@ -3,11 +3,10 @@
     <span class="overline">Pillar · Material Integrity</span>
     <h1 class="display-large headline">What you built<br><em>is who you were.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">Your property represents hours, days, and years of your life — effort and creativity made durable. Understanding this changes how you see every act of theft, fraud, and forced redistribution.</p>
+    <p class="subtitle">Every object you own represents hours of your life. Every dollar saved represents mornings you got up and went to work. The cost of theft goes deeper than the object taken. And the cost of material insecurity extends to everything that never gets built.</p>
     <button class="begin-btn" @click="$emit('advance')">Continue <span class="arrow">→</span></button>
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
@@ -15,7 +14,6 @@ defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 </script>
-
 <style scoped>
 .opening { text-align: center; padding: 2rem 0; }
 .overline { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ochre-light); margin-bottom: 2rem; display: block; }
