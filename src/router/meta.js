@@ -58,6 +58,10 @@ export const routeMeta = {
     title: 'Design a Voluntary Solution — Human Respect',
     description: 'Pick a real problem in your community and design a solution that doesn\'t use force.'
   },
+  exp05: {
+    title: 'Human Agency — Human Respect',
+    description: 'If you hire someone to steal, you bear responsibility. What changes when the intermediary is a government?'
+  },
   exp04: {
     title: 'The Realist Objection — Human Respect',
     description: 'People are flawed and self-interested. That turns out to be the strongest argument against giving any of them coercive power over the rest.'
