@@ -22,7 +22,7 @@
     </div>
 
     <ContentBlock variant="principle">
-      <p>The values stay exactly the same. Only the method changes. And that single change — from force to persuasion — transforms a conflict machine into a cooperation machine.</p>
+      <p>The values stay exactly the same. Only the method changes. And that single change — from force to persuasion — turns a conflict machine into a cooperation machine.</p>
     </ContentBlock>
 
     <p class="body-text">This is the core insight of the Human Respect Method: the moral legitimacy of a social system depends not on the values it promotes, but on the methods it uses. You can hold any values and still commit to advancing them through persuasion alone.</p>

@@ -15,7 +15,7 @@
     </ScenarioBox>
 
     <ContentBlock variant="principle">
-      <p>This is why property isn't about materialism. It's about respecting the time — the irreplaceable life-hours — that someone invested to create, earn, or build what they have.</p>
+      <p>Property matters because it represents the time — the irreplaceable life-hours — that someone invested to create, earn, or build what they have.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

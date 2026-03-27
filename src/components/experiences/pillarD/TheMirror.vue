@@ -79,10 +79,10 @@ const mixedInsight = computed(() => {
   const persuadeIssues = allIssues.filter(i => methodAnswers.value[i.id] === 'persuade')
 
   if (forceIssues.every(i => i.lean === 'progressive') && persuadeIssues.every(i => i.lean === 'conservative')) {
-    return 'You chose force for progressive goals and persuasion for conservative ones. In other words: you want the government to enforce the values you agree with, but not the ones you don\'t.'
+    return 'You chose force for progressive goals and persuasion for conservative ones. You want the government to enforce the values you agree with, but not the ones you don\'t.'
   }
   if (forceIssues.every(i => i.lean === 'conservative') && persuadeIssues.every(i => i.lean === 'progressive')) {
-    return 'You chose force for conservative goals and persuasion for progressive ones. In other words: you want the government to enforce the values you agree with, but not the ones you don\'t.'
+    return 'You chose force for conservative goals and persuasion for progressive ones. You want the government to enforce the values you agree with, but not the ones you don\'t.'
   }
   return 'Notice which issues you chose force for and which you chose persuasion. Is there a pattern? Most people choose force for the goals they care about most — and persuasion for the goals they\'re less invested in.'
 })

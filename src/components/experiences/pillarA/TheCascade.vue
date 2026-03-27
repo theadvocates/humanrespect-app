@@ -49,7 +49,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>This is why societies with high levels of violence are invariably poor, while the most prosperous societies are those where physical safety is the norm. The relationship isn't coincidental — it's causal. Safety produces trust, trust produces cooperation, cooperation produces prosperity.</p>
+      <p>Societies with high levels of violence are invariably poor, while the most prosperous societies are those where physical safety is the norm. The relationship is causal. Safety produces trust, trust produces cooperation, cooperation produces prosperity.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

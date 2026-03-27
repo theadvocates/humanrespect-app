@@ -3,7 +3,7 @@
     <span class="overline">Pillar · Material Integrity</span>
     <h1 class="display-large headline">What you built<br><em>is who you were.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">Your property isn't stuff. It's the physical form of hours, days, and years of your life — effort and creativity made durable. Understanding this changes how you see every act of theft, fraud, and forced redistribution.</p>
+    <p class="subtitle">Your property represents hours, days, and years of your life — effort and creativity made durable. Understanding this changes how you see every act of theft, fraud, and forced redistribution.</p>
     <button class="begin-btn" @click="$emit('advance')">Continue <span class="arrow">→</span></button>
   </div>
 </template>

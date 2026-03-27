@@ -10,7 +10,7 @@
     </ContentBlock>
     <p class="body-text">This holds whether the force comes from a mugger, a dictator, a majority vote, or a well-intentioned policy. The mechanism doesn't change the effect.</p>
     <p class="body-text">And the inverse holds too. Wherever people interact through persuasion and voluntary cooperation — in friendships, in markets, in communities that choose to help each other — flourishing increases.</p>
-    <p class="body-text">This is what the thought experiment was pointing toward. A statement about cause and effect: <em>how</em> we pursue good outcomes matters as much as the outcomes themselves.</p>
+    <p class="body-text">The thought experiment points toward a statement about cause and effect: <em>how</em> we pursue good outcomes matters as much as the outcomes themselves.</p>
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

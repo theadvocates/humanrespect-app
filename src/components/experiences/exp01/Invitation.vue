@@ -8,7 +8,7 @@
     <p class="body-text-large">The question is whether you'll extend that same principle to how you think about politics and society.</p>
     <p class="closing-question">What if every social problem you care about could be addressed through cooperation instead of force — and what if the solutions would actually work better?</p>
     <ContentBlock variant="insight">
-      <p>This isn't a question that gets answered in five minutes. It's a question that changes how you see every political argument, every policy debate, every election — for the rest of your life.</p>
+      <p>This question doesn't get answered in five minutes. It changes how you see every political argument, every policy debate, every election — for the rest of your life.</p>
     </ContentBlock>
 
     <PathCard href="#" @click.prevent="share">

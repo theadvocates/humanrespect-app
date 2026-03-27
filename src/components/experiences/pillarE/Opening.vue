@@ -6,7 +6,7 @@
     </h1>
     <Divider :centered="true" />
     <p class="subtitle">
-      Voluntary cooperation isn't just morally superior to coercion. It's more
+      Voluntary cooperation outperforms coercion. It's more
       effective. More adaptive. More innovative. And it's already solving
       problems that people assume require force — at enormous scale.
     </p>

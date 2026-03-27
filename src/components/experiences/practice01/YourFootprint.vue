@@ -40,7 +40,7 @@
     </div>
 
     <ContentBlock v-if="gap > 0" variant="mirror">
-      <p>{{ gap }} areas of your life involve government force that you don't actually endorse. That's not a political position — it's a measurement. These are places where someone else's priorities are being imposed on you through the threat of punishment.</p>
+      <p>{{ gap }} areas of your life involve government force that you don't actually endorse. That's a measurement, not a political position. These are places where someone else's priorities are being imposed on you through the threat of punishment.</p>
     </ContentBlock>
 
     <ContentBlock v-if="gap === 0 && supports.length > 0" variant="mirror">

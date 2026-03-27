@@ -39,7 +39,7 @@
       <p>This doesn't mean every claim on your time is unjust. You voluntarily trade time for wages. You choose to spend time on relationships, community, and obligations you value. The moral line isn't between "spending time" and "not spending time." It's between <em>choosing</em> how to spend your time and having that choice <em>made for you by someone else under threat of punishment</em>.</p>
     </ContentBlock>
 
-    <p class="body-text">The question isn't whether society needs coordination. It's whether that coordination must come through coercion — the involuntary seizure of life-hours — or whether it can emerge from voluntary cooperation, where every participant has chosen to contribute their time.</p>
+    <p class="body-text">Society needs coordination. The question is whether that coordination must come through coercion — the involuntary seizure of life-hours — or whether it can emerge from voluntary cooperation, where every participant has chosen to contribute their time.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

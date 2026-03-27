@@ -13,7 +13,7 @@
     </ScenarioBox>
 
     <ContentBlock variant="principle">
-      <p>This is why bodily safety isn't just one nice thing among many. It is the precondition for all other forms of flourishing. Without it, the brain literally cannot enter the states that support growth, creativity, trust, or meaning.</p>
+      <p>Bodily safety is the precondition for all other forms of flourishing. Without it, the brain literally cannot enter the states that support growth, creativity, trust, or meaning.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

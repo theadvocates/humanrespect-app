@@ -24,8 +24,8 @@
 
     <ContentBlock v-if="selected.length >= 2" variant="insight">
       <p v-if="hasBoth">You selected values from both progressive and conservative traditions. That's not a contradiction — it's human. Most people hold a mix.</p>
-      <p v-else-if="leansProg">Your values lean progressive. That's a genuine expression of what you believe matters. The next question isn't about <em>whether</em> these values are right — it's about <em>how</em> to advance them.</p>
-      <p v-else>Your values lean conservative. That's a genuine expression of what you believe matters. The next question isn't about <em>whether</em> these values are right — it's about <em>how</em> to advance them.</p>
+      <p v-else-if="leansProg">Your values lean progressive. That's a genuine expression of what you believe matters. The question ahead is <em>how</em> to advance them.</p>
+      <p v-else>Your values lean conservative. That's a genuine expression of what you believe matters. The question ahead is <em>how</em> to advance them.</p>
     </ContentBlock>
 
     <NavBar

@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The four moves</p>
     <h2 class="display-medium">A conversation, not a debate.</h2>
     <Divider />
-    <p class="body-text">The goal isn't to win. It's to plant a question they'll keep thinking about. Four moves, in order.</p>
+    <p class="body-text">The goal is to plant a question they'll keep thinking about. Four moves, in order.</p>
 
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div><div class="step-title">Affirm their values</div><p>"I think compassion for the poor is genuinely important" or "I agree that personal responsibility matters." Start where they are, not where you want them to be.</p></div></div>

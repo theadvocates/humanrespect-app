@@ -10,7 +10,7 @@
     <p class="body-text">Theft sends a devastating message to the victim: the time you spent working doesn't matter. Your plans for tomorrow don't matter. Your autonomy over your own life doesn't matter.</p>
 
     <ContentBlock variant="mirror">
-      <p>This is why even small acts of theft feel violating — out of proportion to the material value lost. It's not about the thing. It's about the implicit claim that someone else has a right to the hours of your life you invested in earning it.</p>
+      <p>Even small acts of theft feel violating — out of proportion to the material value lost. The violation runs deeper than the object. Someone is claiming a right to the hours of your life you invested in earning it.</p>
     </ContentBlock>
 
     <p class="body-text">And this is why, in every culture across history, theft has been condemned — not because societies coincidentally agree, but because the violation of material integrity predictably disrupts flourishing for individuals and communities alike.</p>

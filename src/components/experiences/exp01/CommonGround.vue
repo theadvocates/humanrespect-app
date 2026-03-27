@@ -5,7 +5,7 @@
     <h2 class="display-medium">Every person you've ever met shares something fundamental with you.</h2>
     <Divider />
     <p class="body-text-large">Your closest friend. Your political opponent. The stranger you passed on the street. Every one of them woke up this morning trying to build a life that works — seeking some version of happiness, security, and meaning.</p>
-    <p class="body-text">This isn't a sentimental idea. It's observation. The universal human drive to flourish is as real and consistent as any pattern in nature. Everything that follows builds on this single, shared foundation.</p>
+    <p class="body-text">This is observation, not sentiment. The universal human drive to flourish is as real and consistent as any pattern in nature. Everything that follows builds on this single, shared foundation.</p>
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

@@ -2,7 +2,7 @@
   <div class="screen-inner stagger" ref="el">
     <StepDots :current="5" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The principle, grounded</p>
-    <h2 class="display-medium">This is what the Philosophy of Human Respect is actually saying.</h2>
+    <h2 class="display-medium">What the Philosophy of Human Respect is actually saying.</h2>
     <Divider />
 
     <p class="body-text-large">In Experience 01, you encountered the principle as a claim. Now you can see where it comes from — not from ideology, but from the observable structure of human well-being.</p>
@@ -12,7 +12,7 @@
       <p style="margin-top: 1rem;">Therefore, the ethical foundation of society is the full respect for each person's body, resources, and time.</p>
     </ContentBlock>
 
-    <p class="body-text">This is a statement about cause and effect — the same kind of statement as "plants grow toward light" or "trust increases cooperation." It describes a pattern that holds across cultures, eras, and individual lives.</p>
+    <p class="body-text">A statement about cause and effect — the same kind of statement as "plants grow toward light" or "trust increases cooperation." It describes a pattern that holds across cultures, eras, and individual lives.</p>
 
     <p class="body-text">Including yours. The best period of your life had these conditions present. The worst period had them violated. That's the pattern the principle describes.</p>
 

@@ -8,7 +8,7 @@
     <p class="subtitle">
       Progressive or conservative, your deepest values are genuine expressions of
       what you believe makes life good. The question the Philosophy of Human Respect
-      asks isn't <em>what</em> you value — it's how you propose to advance it.
+      asks how you propose to advance what you value.
     </p>
     <button class="begin-btn" @click="$emit('advance')">
       Continue <span class="arrow">→</span>

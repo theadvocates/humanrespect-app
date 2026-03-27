@@ -32,7 +32,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>This is why coercion — the theft of time — is the deepest violation. No payment can restore a stolen hour. No policy can return a wasted year. No compensation can un-live the life someone was forced to live instead of the one they would have chosen.</p>
+      <p>Coercion is the deepest violation because no payment can restore a stolen hour. No policy can return a wasted year. No compensation can un-live the life someone was forced to live instead of the one they would have chosen.</p>
     </ContentBlock>
 
     <p class="body-text">Money flows from property. Property flows from time. Time flows from nothing — it is the original resource, the source of all others. To steal someone's time is to steal the only resource that makes all others possible.</p>

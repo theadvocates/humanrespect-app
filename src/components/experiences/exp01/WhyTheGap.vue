@@ -10,7 +10,7 @@
     <p class="body-text">We've been taught that democratic authorization transforms the act. That voting for something makes it fundamentally different from doing it yourself. That the collective can do what the individual cannot.</p>
     <p class="body-text">But the Philosophy of Human Respect observes that the money still leaves James's pocket. He still didn't choose to give it. And his capacity to flourish still decreases — regardless of who authorized the taking.</p>
     <ContentBlock variant="principle">
-      <p>The philosophy holds that the effect on the person being acted upon doesn't change based on who authorized the action. If this is true, the implications are profound.</p>
+      <p>The philosophy holds that the effect on the person being acted upon doesn't change based on who authorized the action. If this is true, the implications run deep.</p>
     </ContentBlock>
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
