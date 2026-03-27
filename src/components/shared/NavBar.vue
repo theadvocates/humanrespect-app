@@ -1,74 +1,75 @@
 <template>
-  <div class="nav-area">
-    <button
-      class="nav-back"
-      :disabled="!canGoBack"
-      @click="$emit('back')"
-    >← Back</button>
-    <button
-      class="nav-continue"
-      :disabled="disableContinue"
-      @click="$emit('continue')"
-    >
-      Continue <span class="arrow">→</span>
+  <div class="nav-bar">
+    <button class="nav-back" :disabled="!canGoBack" @click="handleBack">
+      ← Back
+    </button>
+    <button class="nav-continue" :disabled="disableContinue" @click="$emit('continue')">
+      <span>Continue</span>
+      <span class="arrow">→</span>
     </button>
   </div>
 </template>
 
 <script setup>
-defineProps({
+import { useSmartBack } from '@/composables/useSmartBack'
+
+const props = defineProps({
   canGoBack: { type: Boolean, default: true },
-  disableContinue: { type: Boolean, default: false }
+  disableContinue: { type: Boolean, default: false },
+  smartBack: { type: Boolean, default: false }
 })
-defineEmits(['back', 'continue'])
+
+const emit = defineEmits(['back', 'continue'])
+const { goBack: smartGoBack } = useSmartBack()
+
+function handleBack() {
+  if (props.smartBack) {
+    smartGoBack()
+  } else {
+    emit('back')
+  }
+}
 </script>
 
 <style scoped>
-.nav-area {
+.nav-bar {
+  margin-top: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border-subtle);
 }
 .nav-back {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--ink-faint);
   background: none;
   border: none;
-  font-family: inherit;
-  font-size: 0.85rem;
-  color: var(--ink-faint);
   cursor: pointer;
-  padding: 0.75rem 0;
-  transition: color 0.2s ease;
-  -webkit-tap-highlight-color: transparent;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
 }
-.nav-back:hover { color: var(--ink); }
+.nav-back:hover { color: var(--ink-muted); }
 .nav-back:disabled { opacity: 0; cursor: default; }
 .nav-continue {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.85rem 2rem;
-  background: var(--ochre);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 500;
   color: white;
+  background: var(--ochre);
   border: none;
   border-radius: 100px;
-  font-family: inherit;
-  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
   cursor: pointer;
   transition: all 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.nav-continue:hover { background: var(--ochre-light); transform: translateY(-1px); }
+.nav-continue:hover { transform: translateX(2px); }
 .nav-continue:disabled { opacity: 0.35; cursor: not-allowed; transform: none; }
 .nav-continue .arrow { transition: transform 0.2s ease; }
 .nav-continue:hover:not(:disabled) .arrow { transform: translateX(3px); }
-
-@media (max-width: 480px) {
-  .nav-continue {
-    padding: 0.85rem 1.5rem;
-    font-size: 0.85rem;
-  }
-}
 </style>

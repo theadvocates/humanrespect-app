@@ -19,6 +19,7 @@ const routes = [
   { path: '/practice/design-a-solution', name: 'practice05', component: () => import('@/pages/Practice05.vue') },
   { path: '/experience/human-nature', name: 'exp04', component: () => import('@/pages/Experience04.vue') },
   { path: '/milestone', name: 'milestone', component: () => import('@/pages/MilestonePage.vue') },
+  { path: '/your-journey', name: 'your-journey', component: () => import('@/pages/YourJourney.vue') },
   { path: '/about', name: 'about', component: () => import('@/pages/AboutPage.vue') },
   { path: '/privacy', name: 'privacy', component: () => import('@/pages/PrivacyPage.vue') },
   { path: '/:pathMatch(.*)*', name: 'not-found', component: () => import('@/pages/NotFound.vue') }

@@ -63,6 +63,10 @@ export const routeMeta = {
     description: 'People are flawed and self-interested. That turns out to be the strongest argument against giving any of them coercive power over the rest.'
   },
   milestone: {
+  'your-journey': {
+    title: 'Your Journey — Human Respect',
+    description: 'Track your progress through the Philosophy of Human Respect.'
+  },
     title: 'Foundation Complete — Human Respect',
     description: 'You have completed the foundation of the Philosophy of Human Respect.'
   },
