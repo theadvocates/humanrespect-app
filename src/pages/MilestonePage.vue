@@ -14,7 +14,6 @@
         Three experiences. Three discoveries. A foundation for seeing every political question differently.
       </p>
 
-      <!-- Summary of discoveries -->
       <div class="discoveries">
         <div class="discovery">
           <div class="discovery-num">01</div>
@@ -30,7 +29,7 @@
           <div class="discovery-num">02</div>
           <div class="discovery-content">
             <div class="discovery-title">The objection</div>
-            <p class="discovery-desc" v-if="journey.exp02.chosenObjection">You chose "{{ objectionTitle }}" — and saw it steelmanned, responded to, and honestly conceded.</p>
+            <p class="discovery-desc" v-if="journey.exp02.chosenObjection">You chose "{{ objectionTitle }}" and saw it steelmanned, responded to, and honestly conceded.</p>
             <p class="discovery-desc" v-else>You tested the philosophy against your strongest objection.</p>
           </div>
         </div>
@@ -44,7 +43,6 @@
         </div>
       </div>
 
-      <!-- What the philosophy asks -->
       <div style="margin-top: 3rem;">
         <h2 class="display-medium" style="text-align: center;">What the philosophy asks of you.</h2>
         <Divider :centered="true" />
@@ -52,16 +50,28 @@
         <ContentBlock variant="principle">
           <p>Not agreement. Not conversion. Not a political identity. Just a question you carry with you: in this situation, am I reaching for force or persuasion? And could the outcome be better if I chose differently?</p>
         </ContentBlock>
-
-        <p class="body-text">That's it. One question, applied consistently, across every area of your life. The philosophy claims that people who carry this question discover, over time, that voluntary cooperation produces more flourishing than coercion. Not always faster. Not always easier. But more.</p>
       </div>
 
-      <!-- What's next -->
       <div style="margin-top: 3rem;">
-        <h2 class="display-medium" style="text-align: center;">Where to go from here.</h2>
+        <h2 class="display-medium" style="text-align: center;">Three paths forward.</h2>
         <Divider :centered="true" />
 
-        <p class="body-text">The foundation is complete, but the philosophy goes deeper. Five pillars explore specific dimensions — your body, your time, your resources, the method question, and the evidence for cooperation. Five practices help you apply the ideas to your actual life.</p>
+        <p class="body-text">The foundation is complete. From here, the philosophy opens up in three directions.</p>
+
+        <div class="path-section">
+          <div class="path-label">Arguments</div>
+          <p class="path-desc">Standalone arguments that deepen the case. Why human nature is the argument <em>for</em> the philosophy. Why you bear moral responsibility for the force you authorize.</p>
+        </div>
+
+        <div class="path-section">
+          <div class="path-label">Pillars</div>
+          <p class="path-desc">The three domains of human integrity explored in depth, plus the method question and the evidence for cooperation.</p>
+        </div>
+
+        <div class="path-section">
+          <div class="path-label">Practices</div>
+          <p class="path-desc">Apply the philosophy to your actual life. Map your political footprint, practice persuasion, design voluntary solutions.</p>
+        </div>
       </div>
 
       <JourneyNav current="milestone" next-label="Continue your journey" />
@@ -69,7 +79,7 @@
       <NewsletterSignup
         source="milestone"
         headline="The questions don't stop here."
-        description="One short email per week applying the Philosophy of Human Respect to a real situation. No selling. No spam. Just the question, applied."
+        description="One short email per week applying the Philosophy of Human Respect to a real situation."
         success-message="You're in. The first question arrives this week."
       />
 
@@ -112,67 +122,21 @@ const objectionTitle = computed(() => {
 
 <style scoped>
 .page { background: var(--paper); min-height: 100vh; }
+.page-container { max-width: 640px; margin: 0 auto; padding: 5rem 1.5rem 4rem; }
 
-.page-container {
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 5rem 1.5rem 4rem;
-}
+.milestone-badge { text-align: center; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--insight-green); background: var(--insight-bg); display: block; padding: 0.35rem 1rem; border-radius: 100px; font-weight: 600; width: fit-content; margin: 0 auto; }
 
-.milestone-badge {
-  text-align: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--insight-green);
-  background: var(--insight-bg);
-  display: inline-block;
-  padding: 0.35rem 1rem;
-  border-radius: 100px;
-  font-weight: 600;
-  margin: 0 auto;
-  display: block;
-  width: fit-content;
-}
+.discoveries { margin: 3rem 0; display: flex; flex-direction: column; gap: 1.5rem; }
+.discovery { display: flex; gap: 1.25rem; align-items: flex-start; }
+.discovery-num { flex-shrink: 0; font-family: var(--serif); font-size: 0.85rem; font-weight: 400; color: var(--ochre); margin-top: 0.15rem; }
+.discovery-content {}
+.discovery-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+.discovery-desc { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.65; margin: 0; }
 
-.discoveries {
-  margin: 3rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
+.path-section { margin-top: 1.25rem; padding: 1rem 1.25rem; background: var(--cream); border-radius: var(--radius); border: 1px solid var(--border-subtle); }
+.path-label { font-family: var(--serif); font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
+.path-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; margin: 0; }
 
-.discovery {
-  display: flex;
-  gap: 1.25rem;
-  align-items: flex-start;
-}
-
-.discovery-num {
-  flex-shrink: 0;
-  font-family: var(--serif);
-  font-size: 0.85rem;
-  font-weight: 400;
-  color: var(--ochre);
-  margin-top: 0.15rem;
-}
-
-.discovery-title {
-  font-family: var(--serif);
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--ink);
-  margin-bottom: 0.25rem;
-}
-
-.discovery-desc {
-  font-size: 0.88rem;
-  color: var(--ink-muted);
-  line-height: 1.65;
-  margin: 0;
-}
-
-/* Footer */
 .page-footer { padding: 3rem 1.5rem; background: var(--ink); display: flex; justify-content: center; }
 .footer-inner { max-width: 640px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
 .footer-left { font-family: var(--serif); font-size: 0.85rem; font-weight: 400; color: rgba(244, 240, 234, 0.3); }

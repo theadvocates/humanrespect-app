@@ -50,46 +50,48 @@
           </PathCard>
         </div>
 
-        <!-- AVAILABLE EXPERIENCES BY TIER -->
+        <!-- FOUNDATION (if any incomplete) -->
         <div v-if="availableByTier.foundation.length > 0" class="section">
           <h2 class="section-heading">Foundation</h2>
           <p class="section-note">Sequential experiences that build the philosophical framework.</p>
           <div class="experience-list">
-            <PathCard
-              v-for="exp in availableByTier.foundation"
-              :key="exp.name"
-              :to="{ name: exp.name }"
-            >
+            <PathCard v-for="exp in availableByTier.foundation" :key="exp.name" :to="{ name: exp.name }">
               <template #title>{{ exp.title }}</template>
               <template #desc>{{ exp.desc }}</template>
             </PathCard>
           </div>
         </div>
 
+        <!-- ARGUMENTS (if any incomplete) -->
+        <div v-if="availableByTier.argument.length > 0" class="section">
+          <h2 class="section-heading">Arguments</h2>
+          <p class="section-note">Standalone arguments that deepen the case. Explore in any order.</p>
+          <div class="experience-list">
+            <PathCard v-for="exp in availableByTier.argument" :key="exp.name" :to="{ name: exp.name }">
+              <template #title>{{ exp.title }}</template>
+              <template #desc>{{ exp.desc }}</template>
+            </PathCard>
+          </div>
+        </div>
+
+        <!-- PILLARS (if any incomplete) -->
         <div v-if="availableByTier.pillar.length > 0" class="section">
           <h2 class="section-heading">Pillars</h2>
-          <p class="section-note">Explore the three domains of human integrity and the case for cooperation.</p>
+          <p class="section-note">The three domains of human integrity and the case for cooperation.</p>
           <div class="experience-list">
-            <PathCard
-              v-for="exp in availableByTier.pillar"
-              :key="exp.name"
-              :to="{ name: exp.name }"
-            >
+            <PathCard v-for="exp in availableByTier.pillar" :key="exp.name" :to="{ name: exp.name }">
               <template #title>{{ exp.title }}</template>
               <template #desc>{{ exp.desc }}</template>
             </PathCard>
           </div>
         </div>
 
+        <!-- PRACTICES (if any incomplete) -->
         <div v-if="availableByTier.practice.length > 0" class="section">
           <h2 class="section-heading">Practices</h2>
           <p class="section-note">Apply the philosophy to your actual life.</p>
           <div class="experience-list">
-            <PathCard
-              v-for="exp in availableByTier.practice"
-              :key="exp.name"
-              :to="{ name: exp.name }"
-            >
+            <PathCard v-for="exp in availableByTier.practice" :key="exp.name" :to="{ name: exp.name }">
               <template #title>{{ exp.title }}</template>
               <template #desc>{{ exp.desc }}</template>
             </PathCard>
@@ -146,29 +148,28 @@ onMounted(() => {
 })
 
 const allExperiences = [
-  { name: 'exp01', title: 'The Question', desc: 'A thought experiment that reveals the gap between personal and political morality.', tier: 'foundation', order: 1 },
-  { name: 'exp02', title: 'The Objection', desc: 'Pick your strongest objection. It gets steelmanned, responded to, and honestly conceded.', tier: 'foundation', order: 2 },
-  { name: 'exp03', title: 'What Flourishing Means', desc: 'The empirical grounding for the principle, traced through your own life.', tier: 'foundation', order: 3 },
-  { name: 'exp04', title: 'The Realist Objection', desc: 'People are flawed. That is the strongest argument for voluntary cooperation.', tier: 'foundation', order: 4 },
-  { name: 'exp05', title: 'Human Agency', desc: 'If you hire someone to steal, you bear responsibility. What about voting?', tier: 'foundation', order: 5 },
-  { name: 'pillarA', title: 'Bodily Integrity', desc: 'Why safety is the precondition for all flourishing.', tier: 'pillar', order: 6 },
-  { name: 'pillarB', title: 'Temporal Integrity', desc: 'Time as the irreplaceable substance of life.', tier: 'pillar', order: 7 },
-  { name: 'pillarC', title: 'Material Integrity', desc: 'Property as crystallized time. The cost of insecurity.', tier: 'pillar', order: 8 },
-  { name: 'pillarD', title: 'The Human Respect Method', desc: 'Your values are not the problem. The question is force or persuasion.', tier: 'pillar', order: 9 },
-  { name: 'pillarE', title: 'Cooperation as Technology', desc: 'Real evidence that voluntary cooperation works at scale.', tier: 'pillar', order: 10 },
-  { name: 'practice01', title: 'Political Footprint', desc: 'Map where force operates in your life vs. where you support it.', tier: 'practice', order: 11 },
-  { name: 'practice02', title: 'Persuasion Practice', desc: 'Draft a persuasion-only approach to an issue you care about.', tier: 'practice', order: 12 },
-  { name: 'practice03', title: 'The Conversation', desc: 'A framework for discussing this with someone who disagrees.', tier: 'practice', order: 13 },
-  { name: 'practice04', title: 'Respect Audit', desc: 'Notice force vs. persuasion in your daily life for 7 days.', tier: 'practice', order: 14 },
-  { name: 'practice05', title: 'Design a Solution', desc: 'Pick a real problem. Solve it with zero coercion.', tier: 'practice', order: 15 },
+  { name: 'exp01', title: 'The Question', tier: 'foundation', order: 1, desc: 'A thought experiment revealing the gap between personal and political morality.' },
+  { name: 'exp02', title: 'The Objection', tier: 'foundation', order: 2, desc: 'Pick your strongest objection. It gets steelmanned and honestly conceded.' },
+  { name: 'exp03', title: 'What Flourishing Means', tier: 'foundation', order: 3, desc: 'The empirical grounding for the principle, traced through your own life.' },
+  { name: 'exp04', title: 'The Realist Objection', tier: 'argument', order: 4, desc: 'People are flawed. That is the strongest argument for voluntary cooperation.' },
+  { name: 'exp05', title: 'Human Agency', tier: 'argument', order: 5, desc: 'If you hire someone to steal, you bear responsibility. What about voting?' },
+  { name: 'pillarA', title: 'Bodily Integrity', tier: 'pillar', order: 6, desc: 'Why safety is the precondition for all flourishing.' },
+  { name: 'pillarB', title: 'Temporal Integrity', tier: 'pillar', order: 7, desc: 'Time as the irreplaceable substance of life.' },
+  { name: 'pillarC', title: 'Material Integrity', tier: 'pillar', order: 8, desc: 'Property as crystallized time. The cost of insecurity.' },
+  { name: 'pillarD', title: 'The Human Respect Method', tier: 'pillar', order: 9, desc: 'Your values are not the problem. The question is force or persuasion.' },
+  { name: 'pillarE', title: 'Cooperation as Technology', tier: 'pillar', order: 10, desc: 'Real evidence that voluntary cooperation works at scale.' },
+  { name: 'practice01', title: 'Political Footprint', tier: 'practice', order: 11, desc: 'Map where force operates in your life vs. where you support it.' },
+  { name: 'practice02', title: 'Persuasion Practice', tier: 'practice', order: 12, desc: 'Draft a persuasion-only approach to an issue you care about.' },
+  { name: 'practice03', title: 'The Conversation', tier: 'practice', order: 13, desc: 'A framework for discussing this with someone who disagrees.' },
+  { name: 'practice04', title: 'Respect Audit', tier: 'practice', order: 14, desc: 'Notice force vs. persuasion in your daily life for 7 days.' },
+  { name: 'practice05', title: 'Design a Solution', tier: 'practice', order: 15, desc: 'Pick a real problem. Solve it with zero coercion.' },
 ]
 
 const totalCount = allExperiences.length
 
 function isCompleted(name) {
-  if (name === 'exp01') return journey.exp01?.completed
-  if (name === 'exp02') return journey.exp02?.completed
-  if (name === 'exp03') return !!journey.completions?.exp03
+  if (name === 'exp01') return !!journey.exp01?.completed
+  if (name === 'exp02') return !!journey.exp02?.completed
   return !!journey.completions?.[name]
 }
 
@@ -224,6 +225,9 @@ const recommended = computed(() => {
   // Foundation first, in order
   const nextFoundation = incomplete.find(e => e.tier === 'foundation')
   if (nextFoundation) return nextFoundation
+  // Then arguments
+  const nextArgument = incomplete.find(e => e.tier === 'argument')
+  if (nextArgument) return nextArgument
   // Then pillars
   const nextPillar = incomplete.find(e => e.tier === 'pillar')
   if (nextPillar) return nextPillar
@@ -235,6 +239,7 @@ const availableByTier = computed(() => {
   const incomplete = allExperiences.filter(e => !isCompleted(e.name))
   return {
     foundation: incomplete.filter(e => e.tier === 'foundation'),
+    argument: incomplete.filter(e => e.tier === 'argument'),
     pillar: incomplete.filter(e => e.tier === 'pillar'),
     practice: incomplete.filter(e => e.tier === 'practice'),
   }
@@ -251,50 +256,22 @@ const availableByTier = computed(() => {
 
 .empty-state { margin-top: 1.5rem; }
 
-/* Completed experiences */
 .completed-experiences { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
-.completed-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.85rem 1.1rem;
-  background: var(--cream);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius);
-}
+.completed-card { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.1rem; background: var(--cream); border: 1px solid var(--border-subtle); border-radius: var(--radius); }
 .completed-header { display: flex; gap: 0.75rem; align-items: flex-start; flex: 1; }
-.completed-check {
-  flex-shrink: 0;
-  width: 20px; height: 20px;
-  border-radius: 50%;
-  background: var(--insight-bg);
-  color: var(--insight-green);
-  font-size: 0.65rem;
-  display: flex; align-items: center; justify-content: center;
-  margin-top: 2px;
-}
+.completed-check { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--insight-bg); color: var(--insight-green); font-size: 0.65rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .completed-title { font-family: var(--serif); font-size: 0.92rem; font-weight: 500; color: var(--ink); }
 .completed-detail { font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.15rem; font-style: italic; }
-.revisit-link {
-  flex-shrink: 0;
-  font-size: 0.75rem;
-  color: var(--ochre);
-  text-decoration: none;
-  font-family: var(--sans);
-  transition: opacity 0.2s;
-}
+.revisit-link { flex-shrink: 0; font-size: 0.75rem; color: var(--ochre); text-decoration: none; font-family: var(--sans); transition: opacity 0.2s; }
 .revisit-link:hover { opacity: 0.7; }
 
-/* Experience list */
 .experience-list { display: flex; flex-direction: column; gap: 0.5rem; }
 
-/* Progress bar */
 .progress-bar-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); }
 .progress-label { font-size: 0.78rem; color: var(--ink-faint); margin-bottom: 0.5rem; }
 .progress-track { height: 6px; background: var(--paper-warm); border-radius: 3px; overflow: hidden; }
 .progress-fill { height: 100%; background: var(--ochre); border-radius: 3px; transition: width 0.6s ease; }
 
-/* Footer */
 .page-footer { padding: 3rem 1.5rem; background: var(--ink); display: flex; justify-content: center; }
 .footer-inner { max-width: 640px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
 .footer-left { font-family: var(--serif); font-size: 0.85rem; font-weight: 400; color: rgba(244, 240, 234, 0.3); }
