@@ -35,7 +35,7 @@
     </div>
 
     <ContentBlock variant="principle">
-      <p>Cooperation isn't just a moral preference. It's a technology for producing human flourishing — in the same category as language, markets, and communication networks. It works better because it's aligned with human nature rather than fighting against it.</p>
+      <p>Cooperation is a technology for producing human flourishing — in the same category as language, markets, and communication networks. It works better because it's aligned with human nature rather than fighting against it.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

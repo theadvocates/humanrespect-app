@@ -16,7 +16,7 @@
     </ScenarioBox>
 
     <ContentBlock variant="concession" label="The honest tension">
-      <p>Protecting bodily integrity sometimes requires the use of defensive force. Stopping an attacker, restraining a violent person, defending against invasion — these are uses of force that the philosophy permits, because they respond to a violation already initiated by someone else. The line isn't between "force" and "no force." It's between <em>initiated</em> force and <em>defensive</em> force.</p>
+      <p>Protecting bodily integrity sometimes requires the use of defensive force. Stopping an attacker, restraining a violent person, defending against invasion — these are uses of force that the philosophy permits, because they respond to a violation already initiated by someone else. The line runs between <em>initiated</em> force and <em>defensive</em> force.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

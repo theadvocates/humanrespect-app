@@ -22,7 +22,7 @@
       <p>These aren't philosophical abstractions. They're the conditions that were present when <em>you</em> were at your best. And they're universal — every human being, across every culture and era, flourishes under these same conditions.</p>
     </ContentBlock>
 
-    <p class="body-text">This matters because it means flourishing isn't a matter of opinion. It's an observable, measurable pattern in human nature. And anything that systematically undermines these conditions systematically undermines human well-being.</p>
+    <p class="body-text">This matters because it means flourishing is an observable, measurable pattern in human nature. And anything that systematically undermines these conditions systematically undermines human well-being.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

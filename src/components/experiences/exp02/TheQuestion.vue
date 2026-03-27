@@ -8,7 +8,7 @@
     <ContentBlock variant="principle">
       <p v-html="obj.question"></p>
     </ContentBlock>
-    <p class="body-text">This isn't rhetorical. It's a question worth sitting with — maybe for a few days. The Philosophy of Human Respect doesn't ask you to accept it today. It asks you to carry the question and see if the world starts looking different.</p>
+    <p class="body-text">This question is worth sitting with — maybe for a few days. The Philosophy of Human Respect doesn't ask you to accept it today. It asks you to carry the question and see if the world starts looking different.</p>
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

@@ -12,7 +12,7 @@
       <p style="margin-top: 1rem;">Therefore, the ethical foundation of society is the full respect for each person's body, resources, and time.</p>
     </ContentBlock>
 
-    <p class="body-text">This isn't a political position. It's a statement about cause and effect — the same kind of statement as "plants grow toward light" or "trust increases cooperation." It describes a pattern that holds across cultures, eras, and individual lives.</p>
+    <p class="body-text">A statement about cause and effect — the same kind of statement as "plants grow toward light" or "trust increases cooperation." It describes a pattern that holds across cultures, eras, and individual lives.</p>
 
     <p class="body-text">Including yours. The best period of your life had these conditions present. The worst period had them violated. That's not a coincidence — it's the pattern the principle describes.</p>
 

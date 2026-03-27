@@ -16,7 +16,7 @@
             <div class="domain-imperative">Respect the Body: Do not harm.</div>
           </div>
         </div>
-        <p class="domain-desc">Your body is the seat of all experience. When it is unsafe — when you face violence, threats, or the fear of harm — your nervous system shifts into survival mode. Creativity shuts down. Trust collapses. Long-term thinking becomes impossible. Safety isn't a luxury. It's the precondition for everything else.</p>
+        <p class="domain-desc">Your body is the seat of all experience. When it is unsafe — when you face violence, threats, or the fear of harm — your nervous system shifts into survival mode. Creativity shuts down. Trust collapses. Long-term thinking becomes impossible. Safety is the precondition for everything else.</p>
         <div v-if="hasBody" class="domain-yours">You experienced this.</div>
       </div>
 
@@ -28,7 +28,7 @@
             <div class="domain-imperative">Respect Resources: Do not steal.</div>
           </div>
         </div>
-        <p class="domain-desc">Your property isn't just stuff. It's crystallized time — the physical form of hours, days, and years of effort. When resources are taken or destabilized, you lose not just things but the capacity to plan, build, and shape your future. Material security is the quiet engine of flourishing.</p>
+        <p class="domain-desc">Your property is crystallized time — the physical form of hours, days, and years of effort. When resources are taken or destabilized, you lose not just things but the capacity to plan, build, and shape your future. Material security is the quiet engine of flourishing.</p>
         <div v-if="hasResources" class="domain-yours">You experienced this.</div>
       </div>
 
