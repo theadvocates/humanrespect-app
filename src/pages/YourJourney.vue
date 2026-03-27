@@ -148,9 +148,9 @@ onMounted(() => {
 })
 
 const allExperiences = [
-  { name: 'exp01', title: 'The Question', tier: 'foundation', order: 1, desc: 'A thought experiment revealing the gap between personal and political morality.' },
-  { name: 'exp02', title: 'The Objection', tier: 'foundation', order: 2, desc: 'Pick your strongest objection. It gets steelmanned and honestly conceded.' },
-  { name: 'exp03', title: 'What Flourishing Means', tier: 'foundation', order: 3, desc: 'The empirical grounding for the principle, traced through your own life.' },
+  { name: 'exp01', title: 'The Question', tier: 'foundation', order: 1, desc: 'You already know that force damages relationships. The question is why we abandon that principle at scale.' },
+  { name: 'exp03', title: 'What Flourishing Means', tier: 'foundation', order: 2, desc: 'Pick your strongest objection. It gets steelmanned and honestly conceded.' },
+  { name: 'exp02', title: 'The Objection', tier: 'foundation', order: 3, desc: 'The empirical grounding for the principle, traced through your own life.' },
   { name: 'exp04', title: 'The Realist Objection', tier: 'argument', order: 4, desc: 'People are flawed. That is the strongest argument for voluntary cooperation.' },
   { name: 'exp05', title: 'Human Agency', tier: 'argument', order: 5, desc: 'If you hire someone to steal, you bear responsibility. What about voting?' },
   { name: 'pillarA', title: 'Bodily Integrity', tier: 'pillar', order: 6, desc: 'Why safety is the precondition for all flourishing.' },

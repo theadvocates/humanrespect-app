@@ -2,34 +2,55 @@
   <div class="exp-app" :class="{ 'dark-mode': isDark }">
     <div class="exp-container">
       <Transition name="screen-fade" mode="out-in">
-        <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" @choose="handleChoice" />
+        <component
+          :is="currentComponent"
+          :key="currentScreen"
+          @advance="advance"
+          @back="goBack"
+        />
       </Transition>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, watch, onUnmounted } from 'vue'
-import { useScreenNav } from '@/composables/useScreenNav'
+import { ref, computed, provide, watch, onUnmounted } from 'vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
 
 import Opening from '@/components/experiences/exp01/Opening.vue'
-import CommonGround from '@/components/experiences/exp01/CommonGround.vue'
-import Scenario from '@/components/experiences/exp01/Scenario.vue'
-import PersonalChoice from '@/components/experiences/exp01/PersonalChoice.vue'
-import PoliticalChoice from '@/components/experiences/exp01/PoliticalChoice.vue'
-import Mirror from '@/components/experiences/exp01/Mirror.vue'
-import WhyTheGap from '@/components/experiences/exp01/WhyTheGap.vue'
+import TheDisagreement from '@/components/experiences/exp01/TheDisagreement.vue'
+import HowYouHandledIt from '@/components/experiences/exp01/HowYouHandledIt.vue'
+import WouldYouForceIt from '@/components/experiences/exp01/WouldYouForceIt.vue'
+import WhatYouAlreadyKnow from '@/components/experiences/exp01/WhatYouAlreadyKnow.vue'
+import ThePivot from '@/components/experiences/exp01/ThePivot.vue'
 import ThePrinciple from '@/components/experiences/exp01/ThePrinciple.vue'
 import Invitation from '@/components/experiences/exp01/Invitation.vue'
 
-const screenNames = ['opening','common-ground','scenario','personal-choice','political-choice','mirror','why-the-gap','the-principle','invitation']
-const { currentScreen, advance, goBack } = useScreenNav(9, 'exp01', screenNames)
 const journey = useJourneyStore()
-const { trackChoice } = useAnalytics()
+const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
 
-const screenComponents = [Opening, CommonGround, Scenario, PersonalChoice, PoliticalChoice, Mirror, WhyTheGap, ThePrinciple, Invitation]
+const TOTAL_SCREENS = 8
+const currentScreen = ref(0)
+const history = ref([0])
+const selectedMethods = ref([])
+const wouldForce = ref(null)
+const whyNot = ref([])
+
+provide('selectedMethods', selectedMethods)
+provide('wouldForce', wouldForce)
+provide('whyNot', whyNot)
+
+const screenComponents = [
+  Opening, TheDisagreement, HowYouHandledIt, WouldYouForceIt,
+  WhatYouAlreadyKnow, ThePivot, ThePrinciple, Invitation
+]
+
+const screenNames = [
+  'opening', 'the-disagreement', 'how-you-handled-it', 'would-you-force-it',
+  'what-you-already-know', 'the-pivot', 'the-principle', 'invitation'
+]
+
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
 
@@ -37,22 +58,46 @@ watch(isDark, (dark) => {
   if (dark) document.body.classList.add('dark-mode')
   else document.body.classList.remove('dark-mode')
 }, { immediate: true })
+
+watch(currentScreen, (idx) => {
+  trackScreenView('exp01', screenNames[idx])
+  if (idx === TOTAL_SCREENS - 1) {
+    trackCompletion('exp01', {
+      methods: selectedMethods.value,
+      would_force: wouldForce.value,
+      why_not: whyNot.value
+    })
+    journey.exp01.completed = true
+    journey.exp01.completedAt = new Date().toISOString()
+    journey.persist()
+  }
+})
+
 onUnmounted(() => document.body.classList.remove('dark-mode'))
 
-function handleChoice({ key, value }) {
-  if (key === 'personal') journey.exp01.personal = value
-  if (key === 'political') journey.exp01.political = value
-  journey.persist()
-  trackChoice('exp01', key, value)
+function advance() {
+  if (currentScreen.value < TOTAL_SCREENS - 1) {
+    currentScreen.value++
+    history.value.push(currentScreen.value)
+    window.scrollTo(0, 0)
+  }
+}
+
+function goBack() {
+  if (history.value.length > 1) {
+    history.value.pop()
+    currentScreen.value = history.value[history.value.length - 1]
+    window.scrollTo(0, 0)
+  }
 }
 </script>
 
 <style scoped>
-.exp-app { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem; transition: background 0.6s ease, color 0.6s ease; background: var(--paper); }
-.exp-app.dark-mode { background: var(--bg-dark); color: var(--text-inverse); }
-.exp-container { max-width: 640px; width: 100%; }
-.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
-.screen-fade-enter-from { opacity: 0; transform: translateY(16px); }
+.exp-app { min-height: 100vh; background: var(--paper); transition: background 0.6s ease; }
+.exp-app.dark-mode { background: var(--bg-dark); }
+.exp-container { max-width: 640px; margin: 0 auto; padding: 4rem 1.5rem; }
+.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.35s ease, transform 0.35s ease; }
+.screen-fade-enter-from { opacity: 0; transform: translateY(12px); }
 .screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
-@media (max-width: 480px) { .exp-app { padding: 1.5rem 1rem; } }
+@media (max-width: 480px) { .exp-container { padding: 2.5rem 1rem; } }
 </style>

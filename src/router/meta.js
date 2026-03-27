@@ -8,7 +8,7 @@ export const routeMeta = {
   },
   exp01: {
     title: 'The Question — Human Respect',
-    description: 'A five-minute thought experiment that reveals the gap between your personal morality and your political beliefs.'
+    description: 'You already know that force damages relationships. This experience helps you see the principle you live by — and why we abandon it at scale.'
   },
   exp02: {
     title: 'The Objection — Human Respect',

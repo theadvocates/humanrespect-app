@@ -19,16 +19,16 @@
           <div class="discovery-num">01</div>
           <div class="discovery-content">
             <div class="discovery-title">The gap</div>
-            <p class="discovery-desc" v-if="journey.mirrorPattern === 'gap'">You hold one moral standard for personal life and a different one for politics. Most people do. Now you've seen it.</p>
-            <p class="discovery-desc" v-else-if="journey.mirrorPattern === 'consistent-voluntary'">You apply the same moral standard to personal and political life. You're already living by the principle most people haven't noticed.</p>
-            <p class="discovery-desc" v-else>You examined your own moral reasoning and found a pattern worth understanding.</p>
+            <p class="discovery-desc" v-if="journey.mirrorPattern === 'gap'">You already knew that force damages relationships. You chose persuasion in your own life. The question is why we abandon that principle at scale.</p>
+            <p class="discovery-desc" v-else-if="journey.mirrorPattern === 'consistent-voluntary'">You recognized that the principle you live by in personal relationships applies to collective life too.</p>
+            <p class="discovery-desc" v-else>You examined how you handle real disagreements and discovered what you already know about force and persuasion.</p>
           </div>
         </div>
 
         <div class="discovery">
           <div class="discovery-num">02</div>
           <div class="discovery-content">
-            <div class="discovery-title">The objection</div>
+            <div class="discovery-title">The grounding</div>
             <p class="discovery-desc" v-if="journey.exp02.chosenObjection">You chose "{{ objectionTitle }}" and saw it steelmanned, responded to, and honestly conceded.</p>
             <p class="discovery-desc" v-else>You tested the philosophy against your strongest objection.</p>
           </div>
