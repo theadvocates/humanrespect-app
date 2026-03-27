@@ -1,8 +1,8 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="3" :total="5" />
+    <StepDots :current="4" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The question behind the footprint</p>
-    <h2 class="display-medium">For each area you selected, ask one question.</h2>
+    <h2 class="display-medium">For each area — whether you support it or not — ask one question.</h2>
     <Divider />
 
     <p class="body-text-large">Could this be done without force? Could the same goal be achieved through persuasion, voluntary funding, or cooperative action?</p>
@@ -14,7 +14,7 @@
     </ContentBlock>
 
     <ContentBlock variant="principle">
-      <p>The philosophy doesn't ask you to oppose everything you checked. It asks you to hold each one up to the light and ask: is force truly necessary here, or have I simply never considered the alternative?</p>
+      <p>The philosophy doesn't ask you to oppose everything on your list. It asks you to hold each one up to the light and ask: is force truly necessary here, or have I simply never considered the alternative?</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

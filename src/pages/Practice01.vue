@@ -18,22 +18,25 @@ import { ref, computed, provide, watch } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
 
 import Opening from '@/components/experiences/practice01/Opening.vue'
-import TheMapping from '@/components/experiences/practice01/TheMapping.vue'
+import WhereItOperates from '@/components/experiences/practice01/WhereItOperates.vue'
+import WhereYouSupportIt from '@/components/experiences/practice01/WhereYouSupportIt.vue'
 import YourFootprint from '@/components/experiences/practice01/YourFootprint.vue'
 import TheChallenge from '@/components/experiences/practice01/TheChallenge.vue'
 import TheReflection from '@/components/experiences/practice01/TheReflection.vue'
 
 const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
 
-const TOTAL_SCREENS = 5
+const TOTAL_SCREENS = 6
 const currentScreen = ref(0)
 const history = ref([0])
-const selectedAreas = ref([])
+const operates = ref([])
+const supports = ref([])
 
-provide('selectedAreas', selectedAreas)
+provide('operates', operates)
+provide('supports', supports)
 
-const screenComponents = [Opening, TheMapping, YourFootprint, TheChallenge, TheReflection]
-const screenNames = ['opening', 'mapping', 'footprint', 'challenge', 'reflection']
+const screenComponents = [Opening, WhereItOperates, WhereYouSupportIt, YourFootprint, TheChallenge, TheReflection]
+const screenNames = ['opening', 'where-it-operates', 'where-you-support', 'footprint', 'challenge', 'reflection']
 
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
@@ -45,10 +48,22 @@ watch(isDark, (dark) => {
 
 watch(currentScreen, (idx) => {
   trackScreenView('practice01', screenNames[idx])
-  if (idx === TOTAL_SCREENS - 1) trackCompletion('practice01', { areas_checked: selectedAreas.value.length })
+  if (idx === TOTAL_SCREENS - 1) {
+    trackCompletion('practice01', {
+      operates_count: operates.value.length,
+      supports_count: supports.value.length,
+      gap: operates.value.length - supports.value.length
+    })
+  }
 })
 
 function advance() {
+  if (currentScreen.value === 1) {
+    trackChoice('practice01', 'operates', operates.value.join(','))
+  }
+  if (currentScreen.value === 2) {
+    trackChoice('practice01', 'supports', supports.value.join(','))
+  }
   if (currentScreen.value < TOTAL_SCREENS - 1) {
     currentScreen.value++
     history.value.push(currentScreen.value)
@@ -72,5 +87,5 @@ function goBack() {
 .screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.35s ease, transform 0.35s ease; }
 .screen-fade-enter-from { opacity: 0; transform: translateY(12px); }
 .screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
-@media (max-width: 480px) { .exp-container { padding: 3rem 1rem; } }
+@media (max-width: 480px) { .exp-container { padding: 2.5rem 1rem; } }
 </style>

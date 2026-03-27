@@ -1,14 +1,14 @@
 <template>
   <div class="screen-inner stagger" ref="el">
-    <StepDots :current="4" :total="5" />
+    <StepDots :current="5" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your next step</p>
     <h2 class="display-medium">Pick one. Just one.</h2>
     <Divider />
 
-    <p class="body-text-large">Pick one area from your footprint and spend this week exploring voluntary alternatives. Not arguing about it online. Not trying to convince anyone. Just researching: has anyone solved this without force?</p>
+    <p class="body-text-large">Pick one area from your footprint — ideally one you marked as involuntary — and spend this week exploring voluntary alternatives. Not arguing about it online. Not trying to convince anyone. Just researching: has anyone solved this without force?</p>
 
     <ContentBlock variant="insight">
-      <p>Your political footprint shrinks one conscious choice at a time. Not through revolution, but through the quiet decision to stop supporting force in one more area of life.</p>
+      <p>Your political footprint shifts one conscious choice at a time. Not through revolution, but through the quiet decision to question force in one more area of life.</p>
     </ContentBlock>
 
     <NewsletterSignup source="practice01_closing" headline="Keep practicing." description="A weekly email with one real-world situation and the question: force or persuasion? Plus what other people designed as voluntary solutions." button-text="I'm in" success-message="Welcome. The first situation arrives this week." />
