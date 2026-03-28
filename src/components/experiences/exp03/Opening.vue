@@ -1,15 +1,9 @@
 <template>
   <div class="opening stagger" ref="el">
-    <span class="overline">Experience 03 · The Philosophy of Human Respect</span>
-    <h1 class="display-large headline">
-      Now let's look at<br><em>what's underneath.</em>
-    </h1>
+    <span class="overline">Experience 02 · The Philosophy of Human Respect</span>
+    <h1 class="display-large headline">What<br><em>flourishing</em><br>actually means.</h1>
     <Divider :centered="true" />
-    <p class="subtitle">
-      You've seen the gap between personal and political morality. You've examined
-      your strongest objection. Now we need to understand <em>why</em> the principle
-      is true — and your own life already holds the answer.
-    </p>
+    <p class="subtitle">You discovered that you already choose persuasion over force in your own life. Now let's look at why. Your own experience holds the evidence.</p>
     <button class="begin-btn" @click="$emit('advance')">
       Continue <span class="arrow">→</span>
     </button>
@@ -37,7 +31,6 @@ onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
   font-family: var(--sans); font-size: 1rem; line-height: 1.8;
   color: rgba(240,235,227,0.65); max-width: 500px; margin: 0 auto;
 }
-.subtitle em { color: rgba(240,235,227,0.8); }
 .begin-btn {
   display: inline-block; margin-top: 3rem; padding: 1rem 3rem;
   background: transparent; color: var(--ochre-light); border: 1px solid var(--ochre-light);

@@ -11,7 +11,7 @@
       <p>In your personal life, you chose persuasion because you understand what force does to people and relationships. In collective life, you participate in a system that uses force on millions of people who never agreed to it — and expects cooperation in return.</p>
     </ContentBlock>
 
-    <p class="body-text">The disagreements are real. The stakes are real. The people who disagree with you about policy are as convinced they're right as you are. And the method you already know works best in your personal life — persuasion, compromise, voluntary cooperation — is the one method the political system doesn't use.</p>
+    <p class="body-text">The disagreements are real. The stakes are real. The people who disagree with you about policy are as convinced they're right as you are. And yes, politicians persuade — they campaign, negotiate, and compromise. But every political negotiation takes place in the shadow of a fact that has no equivalent in your personal life: when the process concludes, the result will be imposed on everyone, including those who never agreed. In your relationships, the failure of persuasion means you don't get your way. In politics, the failure of persuasion means force.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
