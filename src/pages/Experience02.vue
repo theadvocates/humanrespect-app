@@ -9,7 +9,6 @@
           @back="goBack"
           @choose-objection="handleObjectionChoice"
           @restart-with="restartWith"
-          @share="handleShare"
         />
       </Transition>
     </div>
@@ -17,7 +16,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onUnmounted } from 'vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
 
@@ -31,32 +30,46 @@ import YourVerdict from '@/components/experiences/exp02/YourVerdict.vue'
 import WhereNext from '@/components/experiences/exp02/WhereNext.vue'
 
 const journey = useJourneyStore()
-const { trackScreenView, trackChoice, trackShare } = useAnalytics()
+const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
 
+const TOTAL_SCREENS = 8
 const currentScreen = ref(0)
 const history = ref([0])
 
 const screenComponents = [
-  Opening, ChooseObjection, Steelman, Response, Concession, TheQuestion, YourVerdict, WhereNext
+  Opening, ChooseObjection, Steelman, Response,
+  Concession, TheQuestion, YourVerdict, WhereNext
 ]
 
 const screenNames = [
-  'opening', 'choose-objection', 'steelman', 'response', 'concession', 'the-question', 'your-verdict', 'where-next'
+  'opening', 'choose-objection', 'steelman', 'response',
+  'concession', 'the-question', 'your-verdict', 'where-next'
 ]
 
 const currentComponent = computed(() => screenComponents[currentScreen.value])
 const isDark = computed(() => currentScreen.value === 0)
-const screenKey = computed(() => `${currentScreen.value}-${journey.exp02.chosenObjection}`)
+const screenKey = computed(() => `${currentScreen.value}-${journey.exp02?.chosenObjection || 'none'}`)
 
 watch(isDark, (dark) => {
   if (dark) document.body.classList.add('dark-mode')
   else document.body.classList.remove('dark-mode')
 }, { immediate: true })
 
-watch(currentScreen, (idx) => trackScreenView('exp02', screenNames[idx]))
+watch(currentScreen, (idx) => {
+  trackScreenView('exp02', screenNames[idx])
+  if (idx === TOTAL_SCREENS - 1) {
+    trackCompletion('exp02')
+    if (!journey.exp02) journey.exp02 = {}
+    journey.exp02.completed = true
+    journey.exp02.completedAt = new Date().toISOString()
+    journey.persist()
+  }
+})
+
+onUnmounted(() => document.body.classList.remove('dark-mode'))
 
 function advance() {
-  if (currentScreen.value < screenComponents.length - 1) {
+  if (currentScreen.value < TOTAL_SCREENS - 1) {
     currentScreen.value++
     history.value.push(currentScreen.value)
     window.scrollTo(0, 0)
@@ -72,22 +85,17 @@ function goBack() {
 }
 
 function handleObjectionChoice(key) {
+  if (!journey.exp02) journey.exp02 = {}
   journey.exp02.chosenObjection = key
-  journey.persist()
   trackChoice('exp02', 'objection', key)
+  journey.persist()
 }
 
 function restartWith(key) {
-  journey.exp02.chosenObjection = key
-  journey.persist()
-  trackChoice('exp02', 'objection-restart', key)
+  handleObjectionChoice(key)
   currentScreen.value = 2
   history.value = [0, 1, 2]
   window.scrollTo(0, 0)
-}
-
-function handleShare(method) {
-  trackShare(method, 'exp02')
 }
 </script>
 
@@ -98,5 +106,5 @@ function handleShare(method) {
 .screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.35s ease, transform 0.35s ease; }
 .screen-fade-enter-from { opacity: 0; transform: translateY(12px); }
 .screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
-@media (max-width: 480px) { .exp-container { padding: 3rem 1rem; } }
+@media (max-width: 480px) { .exp-container { padding: 2.5rem 1rem; } }
 </style>
