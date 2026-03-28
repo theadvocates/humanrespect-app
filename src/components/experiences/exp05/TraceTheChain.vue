@@ -41,7 +41,7 @@
 
       <div v-if="revealedSteps >= currentChain.length" class="chain-complete">
         <ContentBlock variant="mirror">
-          <p>That is the full chain. It begins with a voter and ends with an armed agent at someone's door. Every link in the chain exists because the link before it authorized it. And the first link — the one that set the entire chain in motion — is the vote.</p>
+          <p>That is the full chain. It begins with a vote and ends with armed agents and a cage. Every link exists because the link before it authorized it. The first link — the one that set the entire chain in motion — is a person who believed they were choosing something good.</p>
         </ContentBlock>
       </div>
     </div>
@@ -73,8 +73,8 @@ onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 const policies = [
   { id: 'income-tax', label: 'Income tax' },
   { id: 'drug-prohibition', label: 'Drug prohibition' },
-  { id: 'licensing', label: 'Occupational licensing' },
-  { id: 'property-tax', label: 'Property tax' },
+  { id: 'gun-regulation', label: 'Firearm restrictions' },
+  { id: 'environmental', label: 'Environmental regulation' },
 ]
 
 const chains = {
@@ -83,36 +83,36 @@ const chains = {
     { actor: 'The legislature', action: 'Passes a tax law requiring citizens to surrender a percentage of their earnings.' },
     { actor: 'The IRS', action: 'Sends a notice to your neighbor demanding payment.' },
     { actor: 'Your neighbor', action: 'Believes the amount is unjust and declines to pay.' },
-    { actor: 'The IRS', action: 'Sends increasingly threatening letters. Imposes penalties. Garnishes wages. Places liens on property.' },
-    { actor: 'Your neighbor', action: 'Still refuses. Has broken no law except declining to surrender their earnings.' },
-    { actor: 'Federal agents', action: 'Arrive at your neighbor\'s home. Armed. They seize property, freeze bank accounts, or arrest your neighbor and transport them to a cage.' },
+    { actor: 'The IRS', action: 'Sends threatening letters. Imposes penalties. Garnishes wages. Places liens on property.' },
+    { actor: 'Your neighbor', action: 'Still refuses. They haven\'t harmed anyone. They simply declined to surrender their earnings.' },
+    { actor: 'Federal agents', action: 'Arrive at your neighbor\'s home. Armed. They seize property, freeze bank accounts, or arrest your neighbor and put them in a cell.' },
   ],
   'drug-prohibition': [
     { actor: 'You (the voter)', action: 'Vote for a candidate who supports criminalizing drug possession.' },
     { actor: 'The legislature', action: 'Passes a law making possession of certain substances a felony.' },
-    { actor: 'Police', action: 'Identify your neighbor as a suspected user based on a tip, surveillance, or a traffic stop.' },
-    { actor: 'A judge', action: 'Issues a warrant based on probable cause of possession.' },
-    { actor: 'A SWAT team', action: 'Breaks down your neighbor\'s door, often before dawn. Weapons drawn. Flash grenades deployed.' },
-    { actor: 'Your neighbor', action: 'Is handcuffed, processed, and transported to jail. Their only action was consuming a substance in their own home.' },
-    { actor: 'The court system', action: 'Prosecutes your neighbor. If convicted, they spend years in a cell. Their career, family, and future are permanently damaged.' },
+    { actor: 'Police', action: 'Identify your neighbor as a suspected user based on a tip or a traffic stop.' },
+    { actor: 'A judge', action: 'Issues a warrant based on probable cause.' },
+    { actor: 'A SWAT team', action: 'Breaks down your neighbor\'s door before dawn. Weapons drawn. Flash grenades deployed. Children screaming.' },
+    { actor: 'Your neighbor', action: 'Is handcuffed on the floor of their own home. Their only action was consuming a substance in private.' },
+    { actor: 'The court system', action: 'Prosecutes. Mandatory minimum: five years. Their career, their family, their children\'s stability — destroyed. For a choice that harmed no one but themselves.' },
   ],
-  'licensing': [
-    { actor: 'You (the voter)', action: 'Support laws requiring government licenses to practice certain professions.' },
-    { actor: 'The legislature', action: 'Passes a law requiring a license to braid hair, arrange flowers, or practice interior design.' },
-    { actor: 'A licensing board', action: 'Requires hundreds of hours of training, thousands of dollars in fees, and passing an exam — often written by existing practitioners who benefit from limiting competition.' },
-    { actor: 'Your neighbor', action: 'Starts a small business without the license because they can\'t afford the fees or the time away from earning income.' },
-    { actor: 'An inspector', action: 'Discovers the unlicensed business. Issues a cease-and-desist order and a fine.' },
-    { actor: 'Your neighbor', action: 'Continues working because this is how they feed their family.' },
-    { actor: 'Law enforcement', action: 'Arrives to enforce the court order. Your neighbor is arrested for the crime of working without government permission.' },
+  'gun-regulation': [
+    { actor: 'You (the voter)', action: 'Vote for a candidate who promises to ban certain firearms.' },
+    { actor: 'The legislature', action: 'Passes a law requiring owners of newly prohibited weapons to surrender them.' },
+    { actor: 'The government', action: 'Sends notices to registered owners: turn in your firearms by the deadline or face felony charges.' },
+    { actor: 'Your neighbor', action: 'A lifelong hunter and target shooter. Has never committed a crime. Believes the ban violates a fundamental right. Refuses to comply.' },
+    { actor: 'Law enforcement', action: 'Obtains a warrant. Arrives at your neighbor\'s home to execute a search and seizure.' },
+    { actor: 'Your neighbor', action: 'Faces a choice: surrender property they\'ve owned legally for decades, or resist agents with guns who have come to take their guns.' },
+    { actor: 'The situation', action: 'Armed agents enforcing a policy against an armed citizen who has harmed no one. The potential for violence is embedded in the design of the policy itself.' },
   ],
-  'property-tax': [
-    { actor: 'You (the voter)', action: 'Vote for local officials who fund public services through property taxation.' },
-    { actor: 'The county', action: 'Assesses your neighbor\'s home at a value and sends an annual tax bill.' },
-    { actor: 'Your neighbor', action: 'An elderly person on a fixed income. They own their home outright — no mortgage. But they can\'t afford the tax bill.' },
-    { actor: 'The county', action: 'Adds penalties and interest. Places a lien on the property.' },
-    { actor: 'Your neighbor', action: 'Still cannot pay. They have lived in this home for 40 years.' },
-    { actor: 'The county', action: 'Initiates a tax sale. The home your neighbor spent a lifetime paying for is auctioned to satisfy a debt to the government.' },
-    { actor: 'Your neighbor', action: 'Is evicted from the home they built their life in. If they refuse to leave, armed deputies will remove them.' },
+  'environmental': [
+    { actor: 'You (the voter)', action: 'Vote for a candidate who promises stricter environmental protections.' },
+    { actor: 'A regulatory agency', action: 'Issues new rules classifying a portion of your neighbor\'s land as protected wetland. They cannot build, farm, or develop it.' },
+    { actor: 'Your neighbor', action: 'A small farmer who bought this land with thirty years of savings. The protected portion is 60% of their property. They weren\'t consulted. They received no compensation.' },
+    { actor: 'Your neighbor', action: 'Plants crops on the restricted portion because their family depends on the income. They are not polluting. They are farming land they own.' },
+    { actor: 'The agency', action: 'Issues a cease-and-desist order and a fine of $75,000 per day of violation.' },
+    { actor: 'Your neighbor', action: 'Cannot afford the fine. Cannot afford a lawyer to fight it. Cannot sell the now-worthless land.' },
+    { actor: 'Federal agents', action: 'Arrive to enforce the order. Your neighbor\'s life savings, their land, and potentially their freedom are taken — for farming their own property.' },
   ]
 }
 
@@ -149,6 +149,5 @@ function revealNext() {
 .reveal-btn:hover { background: var(--ochre-faint); }
 .reveal-btn .arrow { display: inline-block; transition: transform 0.2s ease; }
 .reveal-btn:hover .arrow { transform: translateX(3px); }
-
 .chain-complete { margin-top: 1.5rem; }
 </style>

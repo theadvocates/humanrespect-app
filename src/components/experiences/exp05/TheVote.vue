@@ -8,14 +8,14 @@
     <p class="body-text-large">You just established that hiring someone to take, threaten, or coerce makes you morally responsible for the taking, the threatening, and the coercing. The intermediary doesn't absorb the moral weight.</p>
 
     <ScenarioBox label="The parallel">
-      <p>When you vote for a politician who promises to tax your neighbor, regulate your neighbor's business, or imprison your neighbor for choices you disapprove of, you are hiring an agent to act on your behalf.</p>
+      <p>When you vote for a politician who promises to tax your neighbor, regulate how your neighbor earns a living, or imprison your neighbor for choices you disapprove of, you are hiring an agent to act on your behalf.</p>
       <p>The politician is the intermediary. The police are the enforcement mechanism. But you — the voter — are the principal. You authorized it.</p>
     </ScenarioBox>
 
     <p class="body-text">The mechanism is more complex. The chain of authority is longer. The language is more polished. But the structure is identical: one person authorizes force against another person's body, property, or time, carried out by an agent.</p>
 
     <ContentBlock variant="mirror">
-      <p>In Experience 01, you saw that most people wouldn't personally take James's money but would vote for a politician to do it. Now the question is sharper: if hiring a private individual to take James's money makes you responsible for the theft, does hiring a public official to do the same thing make you any less responsible?</p>
+      <p>In Experience 01, you recognized that you wouldn't use force to resolve a disagreement with someone you care about — because you know what force does to people. When you vote for a policy that will be enforced through the threat of fines, seizure, or imprisonment, you are authorizing that same force against people every bit as real as the person you were thinking about. The distance doesn't change the effect. It changes how easily you can look away.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

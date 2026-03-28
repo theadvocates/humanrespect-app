@@ -7,23 +7,18 @@
 
     <div class="tools-list">
       <div class="tool-item">
-        <div class="tool-icon">⚖️</div>
-        <p>The legal authority to take anyone's property</p>
+        <p>The legal authority to take anyone's money or property</p>
       </div>
       <div class="tool-item">
-        <div class="tool-icon">🔒</div>
-        <p>The power to cage people who disobey</p>
+        <p>The power to put people in cages for disobeying</p>
       </div>
       <div class="tool-item">
-        <div class="tool-icon">🔫</div>
         <p>A monopoly on the legitimate use of violence</p>
       </div>
       <div class="tool-item">
-        <div class="tool-icon">📋</div>
-        <p>The ability to write the rules that govern everyone else</p>
+        <p>The ability to write the rules everyone else must follow</p>
       </div>
       <div class="tool-item">
-        <div class="tool-icon">🛡️</div>
         <p>Legal immunity for most of what they do with these tools</p>
       </div>
     </div>
@@ -31,7 +26,7 @@
     <p class="body-text-large" style="margin-top: 2rem;">You said people {{ topTraitSummary }}. What do you predict happens when those same people get these tools?</p>
 
     <ContentBlock variant="mirror">
-      <p>You don't need the Philosophy of Human Respect to answer this. Your own model of human nature already predicts exactly what happens. The question is whether you've applied that model consistently.</p>
+      <p>You don't need this philosophy to answer that. Your own observations about human nature already predict exactly what happens. The question is whether you've applied those observations consistently.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
@@ -72,8 +67,7 @@ const topTraitSummary = computed(() => {
 
 <style scoped>
 .screen-inner { padding: 0 0.5rem; }
-.tools-list { margin: 2rem 0; display: flex; flex-direction: column; gap: 0.75rem; }
-.tool-item { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 1.1rem; background: var(--cream); border: 1.5px solid var(--border-subtle); border-radius: var(--radius); }
-.tool-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+.tools-list { margin: 2rem 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.tool-item { padding: 0.85rem 1.1rem; background: var(--cream); border: 1.5px solid var(--border-subtle); border-radius: var(--radius); }
 .tool-item p { margin: 0; font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
 </style>

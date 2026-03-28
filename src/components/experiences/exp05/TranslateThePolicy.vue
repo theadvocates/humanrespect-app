@@ -5,10 +5,10 @@
     <h2 class="display-medium">Political language obscures what you're actually authorizing. Translate it.</h2>
     <Divider />
 
-    <p class="body-text">For each statement, choose the translation that most accurately describes the force being authorized.</p>
+    <p class="body-text">Each of these statements sounds reasonable. For each one, choose the translation that most accurately describes the force being authorized. These span the political spectrum deliberately — the philosophy doesn't take sides.</p>
 
     <div class="translations">
-      <div v-for="(t, idx) in translations" :key="t.id" class="translation-block">
+      <div v-for="t in translations" :key="t.id" class="translation-block">
         <div class="translation-sanitized">"{{ t.sanitized }}"</div>
         <div class="translation-options" v-if="!answers[t.id]">
           <button
@@ -32,7 +32,7 @@
 
     <div v-if="allAnswered">
       <ContentBlock variant="insight">
-        <p>The language of politics is engineered to sound reasonable. "Funding public services." "Protecting consumers." "Ensuring compliance." Behind every one of these phrases is a chain of authorization that ends with armed agents and a cage. The philosophy asks you to see through the language to the force underneath — not to make you angry, but to make you honest about what you're choosing.</p>
+        <p>Notice that these translations cut across the political spectrum. Progressive policies use force. Conservative policies use force. The philosophy doesn't ask you to abandon your values. It asks you to see the method clearly — and then decide whether that method is consistent with what you know about how force affects human beings.</p>
       </ContentBlock>
     </div>
 
@@ -60,31 +60,41 @@ const translations = [
     sanitized: 'I support universal healthcare.',
     options: [
       { id: 'a', text: 'I want everyone to have access to a doctor.', correct: false },
-      { id: 'b', text: 'I authorize armed agents to take money from people who would rather spend it differently, and to penalize medical professionals who practice outside approved boundaries.', correct: true },
-      { id: 'c', text: 'I believe healthcare is a human right.', correct: false },
+      { id: 'b', text: 'I authorize the seizure of earnings from every working person and penalties against anyone who provides or obtains care outside the approved system.', correct: true },
+      { id: 'c', text: 'I believe healthcare is a human right that society should guarantee.', correct: false },
     ],
-    actual: 'I authorize the seizure of earnings from every working person to fund a system designed by political actors, and I authorize penalties — including fines and imprisonment — against anyone who provides or obtains healthcare outside the approved system.'
+    actual: 'I authorize armed agents to take a portion of every working person\'s earnings to fund a system designed by political actors. I authorize fines and imprisonment for anyone who provides medical care outside approved channels — including a doctor who charges less than the approved rate, or a patient who buys medication from abroad.'
   },
   {
-    id: 'borders',
-    sanitized: 'I support strong borders.',
+    id: 'drug-war',
+    sanitized: 'I support the war on drugs.',
     options: [
-      { id: 'a', text: 'I want to protect our country and culture.', correct: false },
-      { id: 'b', text: 'I authorize armed agents to detain, cage, and deport people whose only action was crossing a line drawn by a government to work and feed their families.', correct: true },
-      { id: 'c', text: 'I believe nations have a right to self-determination.', correct: false },
+      { id: 'a', text: 'I want to protect communities from the damage of addiction.', correct: false },
+      { id: 'b', text: 'I authorize armed raids on homes, imprisonment of people for possessing substances, and the destruction of families — for choices that directly harmed no one else.', correct: true },
+      { id: 'c', text: 'I believe certain substances are too dangerous to allow.', correct: false },
     ],
-    actual: 'I authorize armed agents to patrol borders, detain people in facilities, separate families, and forcibly transport human beings to places they fled — for the act of moving across a line on a map without government permission.'
+    actual: 'I authorize armed agents to break into homes, cage human beings for years, and permanently destroy their employability, their families, and their futures — for the act of consuming a substance in private. I authorize this knowing that enforcement falls disproportionately on the poorest and most marginalized communities.'
   },
   {
-    id: 'education',
-    sanitized: 'I support public education.',
+    id: 'rent-control',
+    sanitized: 'I support rent control.',
     options: [
-      { id: 'a', text: 'I want every child to have access to learning.', correct: false },
-      { id: 'b', text: 'I authorize compulsory funding from all property owners regardless of whether they have children, and I authorize truancy enforcement against parents who educate their children outside the approved system.', correct: true },
-      { id: 'c', text: 'I believe education is the foundation of democracy.', correct: false },
+      { id: 'a', text: 'I want housing to be affordable for working families.', correct: false },
+      { id: 'b', text: 'I authorize the government to dictate what a property owner may charge for the use of their own building, with fines and legal action against anyone who asks for more.', correct: true },
+      { id: 'c', text: 'I believe landlords shouldn\'t be able to exploit tenants.', correct: false },
     ],
-    actual: 'I authorize the seizure of property from every homeowner to fund schools they may never use, designed by political actors and administered by bureaucracies. I authorize the state to dictate how children are educated and to threaten parents with fines or custody action if they choose differently.'
+    actual: 'I authorize the government to override voluntary agreements between property owners and tenants. If a landlord charges more than the approved rate — even if a tenant willingly agrees to pay it — I authorize fines, legal proceedings, and ultimately armed enforcement against the owner. The long-term result, documented across every city that has tried it: housing shortages, deteriorating buildings, and a black market that hurts the people the policy was meant to protect.'
   },
+  {
+    id: 'mandatory-min',
+    sanitized: 'I support mandatory minimum sentences.',
+    options: [
+      { id: 'a', text: 'I want consistent justice that doesn\'t depend on which judge you get.', correct: false },
+      { id: 'b', text: 'I authorize the removal of judicial discretion, requiring judges to cage people for predetermined periods regardless of circumstances, remorse, or likelihood of rehabilitation.', correct: true },
+      { id: 'c', text: 'I believe criminals need to face real consequences.', correct: false },
+    ],
+    actual: 'I authorize legislators who will never meet the defendant to predetermine the sentence. I remove the power of the one person in the system who actually sees the human being — the judge — to exercise judgment. I authorize caging a first-time offender for the same duration as a career criminal, destroying families and producing people more likely to reoffend, because the system that was supposed to rehabilitate them did nothing but warehouse them.'
+  }
 ]
 
 const allAnswered = computed(() => Object.keys(answers.value).length === translations.length)
@@ -98,7 +108,6 @@ function choose(translationId, optionId, correct) {
 <style scoped>
 .screen-inner { padding: 0 0.5rem; }
 .translations { margin: 2rem 0; display: flex; flex-direction: column; gap: 2rem; }
-.translation-block { }
 .translation-sanitized { font-family: var(--serif); font-size: 1.05rem; font-weight: 500; color: var(--ink); padding: 1rem 1.25rem; background: var(--cream); border: 1.5px solid var(--border-subtle); border-radius: var(--radius); margin-bottom: 0.75rem; }
 .translation-options { display: flex; flex-direction: column; gap: 0.4rem; }
 .option-btn { display: block; width: 100%; text-align: left; padding: 0.75rem 1rem; background: var(--paper); border: 1.5px solid var(--border-subtle); border-radius: var(--radius); font-family: var(--sans); font-size: 0.82rem; line-height: 1.55; color: var(--ink-muted); cursor: pointer; transition: all 0.2s ease; -webkit-tap-highlight-color: transparent; }
