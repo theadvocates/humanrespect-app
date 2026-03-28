@@ -19,9 +19,8 @@
           <div class="discovery-num">01</div>
           <div class="discovery-content">
             <div class="discovery-title">The gap</div>
-            <p class="discovery-desc" v-if="journey.mirrorPattern === 'gap'">You already knew that force damages relationships. You chose persuasion in your own life. The question is why we abandon that principle at scale.</p>
-            <p class="discovery-desc" v-else-if="journey.mirrorPattern === 'consistent-voluntary'">You recognized that the principle you live by in personal relationships applies to collective life too.</p>
-            <p class="discovery-desc" v-else>You examined how you handle real disagreements and discovered what you already know about force and persuasion.</p>
+            <p class="discovery-desc" v-if="journey.exp01?.wouldForce === 'no'">You already knew that force damages relationships. You chose persuasion — and articulated why. The question is why we abandon that principle at scale.</p>
+            <p class="discovery-desc" v-else>You examined how you handle real disagreements and what happens when force enters the picture.</p>
           </div>
         </div>
 

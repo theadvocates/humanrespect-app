@@ -21,11 +21,11 @@ export function useAnalytics() {
   }
 
   function trackCompletion(experienceId, data = {}) {
-    // markComplete handles both store update AND event firing
-    // so we don't double-fire the event
-    if (experienceId !== 'exp01' && experienceId !== 'exp02') {
-      // exp01 and exp02 have their own completeExp01/completeExp02 methods
-      // that already call markComplete internally
+    if (experienceId === 'exp01') {
+      journey.completeExp01(data)
+    } else if (experienceId === 'exp02') {
+      journey.completeExp02(data.objection, data.verdict)
+    } else {
       journey.markComplete(experienceId)
     }
   }

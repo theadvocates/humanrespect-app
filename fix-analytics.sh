@@ -1,3 +1,13 @@
+#!/bin/bash
+# Update journey store + analytics for new Exp01, Exp02, and 4-tier structure
+# Run from humanrespect-app/ root
+# PREREQUISITE: Run the SQL migration in Supabase first!
+
+set -e
+
+echo "🔧 Updating journey store + analytics..."
+
+cat > src/stores/journey.js << 'JSEOF'
 import { defineStore } from 'pinia'
 import { supabase } from '@/lib/supabase'
 
@@ -174,3 +184,127 @@ export const useJourneyStore = defineStore('journey', {
     }
   }
 })
+JSEOF
+
+echo "  ✓ journey.js updated"
+
+# ══════════════════════════════════════
+# UPDATE ANALYTICS COMPOSABLE
+# Fix trackCompletion to handle new exp01/exp02
+# ══════════════════════════════════════
+
+cat > src/composables/useAnalytics.js << 'JSEOF'
+import { useJourneyStore } from '@/stores/journey'
+
+export function useAnalytics() {
+  const journey = useJourneyStore()
+
+  function trackScreenView(experienceId, screenId) {
+    journey.trackEvent('screen_view', {
+      experience: experienceId,
+      screen: screenId,
+      timestamp: new Date().toISOString()
+    })
+  }
+
+  function trackChoice(experienceId, questionId, answer) {
+    journey.trackEvent('choice_made', {
+      experience: experienceId,
+      question: questionId,
+      answer,
+      timestamp: new Date().toISOString()
+    })
+  }
+
+  function trackCompletion(experienceId, data = {}) {
+    if (experienceId === 'exp01') {
+      journey.completeExp01(data)
+    } else if (experienceId === 'exp02') {
+      journey.completeExp02(data.objection, data.verdict)
+    } else {
+      journey.markComplete(experienceId)
+    }
+  }
+
+  function trackShare(method, experienceId) {
+    journey.trackEvent('share', {
+      method,
+      experience: experienceId,
+      timestamp: new Date().toISOString()
+    })
+  }
+
+  function trackNewsletterSignup(source) {
+    journey.trackEvent('newsletter_signup', {
+      source,
+      timestamp: new Date().toISOString()
+    })
+  }
+
+  return {
+    trackScreenView,
+    trackChoice,
+    trackCompletion,
+    trackShare,
+    trackNewsletterSignup
+  }
+}
+JSEOF
+
+echo "  ✓ useAnalytics.js updated"
+
+# ══════════════════════════════════════
+# FIX YOUR JOURNEY PAGE — remove mirrorPattern reference
+# ══════════════════════════════════════
+
+# The YourJourney page references journey.mirrorPattern for personal notes
+# This getter no longer exists. Replace with new exp01 data.
+sed -i '' "s/if (name === 'exp01' && journey.mirrorPattern)/if (name === 'exp01' \&\& journey.exp01?.completed)/" src/pages/YourJourney.vue 2>/dev/null
+sed -i '' "s/const patterns = {/\/\/ New exp01 doesn't have mirror pattern/" src/pages/YourJourney.vue 2>/dev/null
+
+# Actually, let's just rewrite the getPersonalNote function cleanly
+# This is in both YourJourney.vue - we need to handle it carefully
+
+echo "  ⚠ Check YourJourney.vue getPersonalNote function manually"
+echo "    Replace mirrorPattern references with:"
+echo "    if (name === 'exp01' && journey.exp01?.wouldForce) {"
+echo "      return journey.exp01.wouldForce === 'no'"
+echo "        ? 'You chose persuasion over force — and articulated why.'"
+echo "        : 'You explored what happens when force feels justified.'"
+echo "    }"
+
+echo ""
+echo "✅ Journey store + analytics updated!"
+echo ""
+echo "Changes:"
+echo "  journey.js:"
+echo "    - exp01 state: methods[], wouldForce, whyNot (replaces personal/political)"
+echo "    - exp02 state: added verdict, concessionCredibility"
+echo "    - getTier: now includes 'argument' tier for exp04/exp05"
+echo "    - syncToSupabase: writes new columns, drops old ones"
+echo "    - hydrate: migrates old localStorage format to new"
+echo "    - Removed mirrorPattern getter"
+echo ""
+echo "  useAnalytics.js:"
+echo "    - trackCompletion: routes exp01→completeExp01, exp02→completeExp02"
+echo ""
+echo "PREREQUISITES (run in Supabase SQL Editor first!):"
+echo "  ALTER TABLE journeys DROP COLUMN IF EXISTS exp01_personal;"
+echo "  ALTER TABLE journeys DROP COLUMN IF EXISTS exp01_political;"
+echo "  ALTER TABLE journeys DROP COLUMN IF EXISTS mirror_pattern;"
+echo "  ALTER TABLE journeys ADD COLUMN IF NOT EXISTS exp01_methods text[];"
+echo "  ALTER TABLE journeys ADD COLUMN IF NOT EXISTS exp01_would_force text;"
+echo "  ALTER TABLE journeys ADD COLUMN IF NOT EXISTS exp01_why_not text[];"
+echo "  ALTER TABLE journeys ADD COLUMN IF NOT EXISTS exp02_verdict text;"
+echo "  ALTER TABLE journeys ADD COLUMN IF NOT EXISTS exp02_concession_credibility text;"
+echo "  TRUNCATE TABLE events;"
+echo "  TRUNCATE TABLE journeys;"
+echo "  TRUNCATE TABLE newsletter_subscribers;"
+echo ""
+echo "ALSO: Clear localStorage in your browser (DevTools → Application → Local Storage)"
+echo ""
+echo "TEST BUILD:"
+echo "  npm run build"
+echo ""
+echo "If build passes:"
+echo "  git add . && git commit -m 'fix: journey store + analytics for new exp01/exp02' && git push"

@@ -197,18 +197,14 @@ const greeting = computed(() => {
 })
 
 function getPersonalNote(name) {
-  if (name === 'exp01' && journey.mirrorPattern) {
-    const patterns = {
-      gap: 'You found the gap between personal and political morality.',
-      'consistent-voluntary': 'You apply the same standard to personal and political life.',
-      'consistent-coercive': 'You believe urgent need can override individual consent.',
-      unusual: 'You hold yourself to a different standard than institutions.'
-    }
-    return patterns[journey.mirrorPattern] || null
+  if (name === 'exp01' && journey.exp01?.completed) {
+    return journey.exp01.wouldForce === 'no'
+      ? 'You chose persuasion over force — and articulated why.'
+      : 'You explored what happens when force feels justified.'
   }
   if (name === 'exp02' && journey.exp02?.chosenObjection) {
     const obj = objections[journey.exp02.chosenObjection]
-    return obj ? `You chose ${obj.title}` : null
+    return obj ? `You chose: ${obj.title}` : null
   }
   return null
 }
