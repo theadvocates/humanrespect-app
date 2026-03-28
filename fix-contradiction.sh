@@ -1,3 +1,8 @@
+#!/bin/bash
+# Fix TheContradiction screen
+# Run from humanrespect-app/ root
+
+cat > src/components/experiences/exp04/TheContradiction.vue << 'VUEEOF'
 <template>
   <div class="screen-inner stagger" ref="el">
     <StepDots :current="4" :total="7" />
@@ -58,3 +63,7 @@ onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 .conclusion p { color: var(--ink); }
 .contradiction-vs { text-align: center; font-family: var(--serif); font-size: 0.85rem; font-style: italic; color: var(--ink-faint); padding: 0.4rem 0; background: var(--paper); position: relative; z-index: 1; }
 </style>
+VUEEOF
+
+echo "✓ TheContradiction fixed"
+echo "npm run build && git add . && git commit -m 'fix: contradiction screen clarity' && git push"
