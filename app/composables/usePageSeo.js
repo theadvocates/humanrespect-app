@@ -33,4 +33,52 @@ export function usePageSeo(key, overrides = {}) {
   })
 
   useHead({ link: [{ rel: 'canonical', href: url }] })
+
+  // Structured data. Without this Google has no machine-readable statement of
+  // what this site is or who publishes it — it has to infer everything from
+  // prose, and the phrase "Human Respect" barely appears in the body copy.
+  const graph =
+    key === 'home'
+      ? [
+          {
+            '@type': 'WebSite',
+            '@id': `${SITE_URL}/#website`,
+            url: SITE_URL,
+            name: SITE_NAME,
+            description: meta.description,
+            publisher: { '@id': `${SITE_URL}/#organization` },
+            inLanguage: 'en-US'
+          },
+          {
+            '@type': 'Organization',
+            '@id': `${SITE_URL}/#organization`,
+            name: SITE_NAME,
+            url: SITE_URL,
+            logo: `${SITE_URL}/hr-monogram-512.png`,
+            description:
+              'The Philosophy of Human Respect — an interactive exploration of how ' +
+              'voluntary cooperation relates to human flourishing.'
+          }
+        ]
+      : [
+          {
+            '@type': 'Article',
+            '@id': `${url}#article`,
+            headline: meta.title,
+            description: meta.description,
+            url,
+            isPartOf: { '@id': `${SITE_URL}/#website` },
+            publisher: { '@id': `${SITE_URL}/#organization` },
+            inLanguage: 'en-US'
+          }
+        ]
+
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })
+      }
+    ]
+  })
 }

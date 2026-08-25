@@ -14,7 +14,7 @@
 
       <p class="body-text"><strong>Anonymous usage data.</strong> When you go through experiences on this site, we record which screens you visit, which choices you make, and whether you complete each experience. This data is tied to a randomly generated ID stored in your browser, not to your name, email, or any identifying information. We use this data to understand which experiences resonate, where people drop off, and how to improve the content.</p>
 
-      <p class="body-text"><strong>Basic traffic data.</strong> We use Cloudflare Web Analytics to understand how many people visit the site, what devices they use, and where traffic comes from. Cloudflare collects this data without using cookies and without tracking individual users across sites.</p>
+      <p class="body-text"><strong>Basic traffic data.</strong> We use PostHog to understand how many people visit the site, which pages they read, and where traffic comes from. It runs without cookies — the anonymous ID it uses is the same one described above, kept in your browser's local storage and never shared with other sites. We don't record your screen, we don't build heatmaps, and we never transmit anything you type into the interactive questions.</p>
 
       <p class="body-text"><strong>Newsletter signups.</strong> If you choose to subscribe to our weekly email, we store your email address and which experience you subscribed from. This is the only personally identifiable information we collect, and only because you gave it to us voluntarily.</p>
 
@@ -24,7 +24,7 @@
       <h2 class="section-heading">What we don't do</h2>
       <Divider />
 
-      <p class="body-text">We don't sell your data to anyone. We don't share it with advertisers. We don't use tracking cookies. We don't run retargeting campaigns. We don't use Google Analytics. We don't build profiles that follow you across the internet.</p>
+      <p class="body-text">We don't sell your data to anyone. We don't share it with advertisers. We don't use tracking cookies. We don't run retargeting campaigns. We don't use Google Analytics. We don't record your screen or replay your sessions. We honour your browser's Do Not Track setting. We don't build profiles that follow you across the internet.</p>
 
       <p class="body-text">We don't gate any content behind email capture. Every experience on this site is fully accessible without signing up for anything.</p>
 

@@ -17,6 +17,7 @@
     "@supabase/supabase-js": "^2.100.0",
     "nuxt": "^4.5.2",
     "pinia": "^4.0.3",
+    "posthog-js": "^1.419.4",
     "vue": "^3.5.30"
   },
   "devDependencies": {
