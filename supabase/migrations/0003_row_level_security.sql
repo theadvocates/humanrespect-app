@@ -6,6 +6,20 @@
 -- write your own journey, append events, read the catalog. No reads of
 -- anyone's data, ever.
 
+-- ── Remove the legacy policies first ────────────────────────────────────────
+-- The live database carries three policies from the original build. The one on
+-- journeys is a data exposure: cmd=ALL, USING=true, WITH CHECK=true for the
+-- `public` role, meaning anyone holding the anon key (which ships in the
+-- browser by design) can read, modify, or delete every visitor's journey.
+-- Despite its name it scopes nothing to the visitor.
+--
+-- The currently deployed site only ever calls .upsert() on journeys and never
+-- .select(), so removing the read path does not break it.
+
+drop policy if exists "Visitors can upsert own journey" on public.journeys;
+drop policy if exists "Anyone can insert events" on public.events;
+drop policy if exists "Anyone can subscribe" on public.newsletter_subscribers;
+
 alter table public.profiles              enable row level security;
 alter table public.experiences           enable row level security;
 alter table public.journeys              enable row level security;

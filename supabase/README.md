@@ -55,10 +55,29 @@ supabase db push
 
 Or paste each file into the SQL editor in dashboard order.
 
-> **Status: written but not yet applied.** These migrations have not been run
-> against a live database. Apply `0001` first and check for errors before
-> continuing — particularly the `auth.users` trigger in `0001`, which needs the
-> Supabase `auth` schema to exist.
+## This is a live database
+
+Project `jnspwumpiqbfqlveduzz` has been serving humanrespect.app since March
+2026. As of the last check it held **127 journeys, 224 events, and 2
+subscribers**, with traffic arriving the same day. It is not a fresh database.
+
+`journeys`, `events`, and `newsletter_subscribers` predate these migrations, so
+every change here is additive — `ADD COLUMN IF NOT EXISTS`, never `CREATE TABLE`
+— and no existing column is dropped or retyped. In particular `journeys.id` is
+`bigint`, not `uuid`, and `experience_responses.journey_id` matches that.
+
+The original `exp01_*` / `exp02_*` / `exp03_*` columns are deliberately left in
+place: the currently deployed Cloudflare site still writes them, and it keeps
+running until DNS moves to Vercel.
+
+### Security note
+
+The live database carries a policy named "Visitors can upsert own journey" on
+`journeys` with `cmd=ALL`, `USING=true`, `WITH CHECK=true` for the `public`
+role. Despite the name it scopes nothing to a visitor: anyone with the anon key
+can read, modify, or delete every row. `0003` drops it. Verified that the
+deployed site only calls `.upsert()` on that table and never `.select()`, so
+removing the read path does not break it.
 
 ## After applying
 

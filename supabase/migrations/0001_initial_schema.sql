@@ -1,8 +1,13 @@
--- Human Respect — core schema
+-- Human Respect — schema for accounts and the structured course
 --
--- Design note on identity: people start anonymous. The browser mints a
--- visitor_id and progress accrues against it. When they later sign in, that
--- row is claimed by setting user_id. Nothing is lost at the boundary.
+-- IMPORTANT: this evolves a LIVE database that has been serving humanrespect.app
+-- since March 2026. `journeys`, `events`, and `newsletter_subscribers` already
+-- exist and hold real visitor data, so everything here is additive:
+-- ADD COLUMN IF NOT EXISTS rather than CREATE TABLE, and no column is dropped
+-- or retyped. The original app's exp01_*/exp02_* columns are left alone — the
+-- currently deployed site still writes them.
+--
+-- Every statement is idempotent; re-running is safe.
 
 create extension if not exists "pgcrypto";
 
@@ -22,11 +27,16 @@ comment on table public.profiles is
   'App-level user record, one row per auth.users entry.';
 
 -- ── Experience catalog ──────────────────────────────────────────────────────
--- The course structure, in data rather than hardcoded in getTier(). Lets us
--- reorder the curriculum, add experiences, and compute completion without
--- shipping new code.
+-- The course structure as data rather than hardcoded in getTier(), so the
+-- curriculum can be reordered and extended without a deploy.
 
-create type public.experience_tier as enum ('foundation', 'argument', 'pillar', 'practice');
+do $$
+begin
+  if not exists (select 1 from pg_type where typname = 'experience_tier') then
+    create type public.experience_tier as enum ('foundation', 'argument', 'pillar', 'practice');
+  end if;
+end
+$$;
 
 create table if not exists public.experiences (
   id                 text primary key,               -- 'exp01', 'pillarA', ...
@@ -45,37 +55,33 @@ create table if not exists public.experiences (
 create index if not exists experiences_tier_order_idx
   on public.experiences (tier, sort_order);
 
--- ── Journeys ────────────────────────────────────────────────────────────────
--- One row per visitor. user_id is null until the journey is claimed.
+-- ── Journeys (existing table, extended) ─────────────────────────────────────
+-- Existing shape: id bigint PK, visitor_id uuid UNIQUE, completions jsonb,
+-- furthest_tier, last_experience, total_experiences, first/last_visit, plus
+-- the original exp01_*/exp02_*/exp03_* columns.
+--
+-- user_id is null until the journey is claimed by an account; see
+-- claim_journey() in 0002.
 
-create table if not exists public.journeys (
-  id                 uuid primary key default gen_random_uuid(),
-  visitor_id         uuid not null unique,
-  user_id            uuid references auth.users (id) on delete set null,
+alter table public.journeys
+  add column if not exists user_id uuid references auth.users (id) on delete set null;
 
-  completions        jsonb       not null default '{}'::jsonb,
-  completion_times   jsonb       not null default '{}'::jsonb,
-  last_experience    text,
-  furthest_tier      text        not null default 'none',
-  total_experiences  integer     not null default 0,
+alter table public.journeys
+  add column if not exists completion_times jsonb not null default '{}'::jsonb;
 
-  first_visit        timestamptz,
-  last_visit         timestamptz,
-  claimed_at         timestamptz,
-  created_at         timestamptz not null default now(),
-  updated_at         timestamptz not null default now()
-);
+alter table public.journeys
+  add column if not exists claimed_at timestamptz;
 
 create index if not exists journeys_user_id_idx on public.journeys (user_id);
 create index if not exists journeys_last_visit_idx on public.journeys (last_visit desc);
 
 -- ── Experience responses ────────────────────────────────────────────────────
--- The answers themselves, normalized out of the journey blob. This is what
--- makes "how did others answer this?" and per-question analytics possible.
+-- The answers themselves, normalized out of the journey blob. journey_id is
+-- BIGINT to match the existing journeys.id.
 
 create table if not exists public.experience_responses (
   id             uuid primary key default gen_random_uuid(),
-  journey_id     uuid not null references public.journeys (id) on delete cascade,
+  journey_id     bigint not null references public.journeys (id) on delete cascade,
   experience_id  text not null,
   question_key   text not null,
   response       jsonb not null,
@@ -87,45 +93,34 @@ create table if not exists public.experience_responses (
 create index if not exists experience_responses_experience_idx
   on public.experience_responses (experience_id, question_key);
 
--- ── Events ──────────────────────────────────────────────────────────────────
--- Append-only analytics stream. Write-only from the client.
+-- ── Events (existing table, extended) ───────────────────────────────────────
 
-create table if not exists public.events (
-  id          bigint generated always as identity primary key,
-  visitor_id  uuid,
-  user_id     uuid references auth.users (id) on delete set null,
-  event_name  text not null,
-  properties  jsonb not null default '{}'::jsonb,
-  created_at  timestamptz not null default now()
-);
+alter table public.events
+  add column if not exists user_id uuid references auth.users (id) on delete set null;
 
 create index if not exists events_name_created_idx on public.events (event_name, created_at desc);
 create index if not exists events_visitor_idx on public.events (visitor_id);
 
--- ── Newsletter ──────────────────────────────────────────────────────────────
--- Written only by the server (service key). No client access at all.
+-- ── Newsletter (existing table, extended) ───────────────────────────────────
+-- email already carries a unique constraint, which /api/subscribe relies on
+-- for its ignore-duplicates behaviour.
 
-create table if not exists public.newsletter_subscribers (
-  id             uuid primary key default gen_random_uuid(),
-  email          text not null unique,
-  source         text,
-  visitor_id     uuid,
-  user_id        uuid references auth.users (id) on delete set null,
-  subscribed_at  timestamptz not null default now(),
-  unsubscribed_at timestamptz
-);
+alter table public.newsletter_subscribers
+  add column if not exists user_id uuid references auth.users (id) on delete set null;
+
+alter table public.newsletter_subscribers
+  add column if not exists unsubscribed_at timestamptz;
 
 -- ── Certificates ────────────────────────────────────────────────────────────
--- Issued when a tier's required experiences are complete. Requires an account,
--- since a certificate needs a name and a durable identity.
+-- Requires an account: a certificate needs a name and a durable identity.
 
 create table if not exists public.certificates (
-  id            uuid primary key default gen_random_uuid(),
-  user_id       uuid not null references auth.users (id) on delete cascade,
-  tier          public.experience_tier not null,
+  id             uuid primary key default gen_random_uuid(),
+  user_id        uuid not null references auth.users (id) on delete cascade,
+  tier           public.experience_tier not null,
   recipient_name text not null,
-  issued_at     timestamptz not null default now(),
-  public_code   text not null unique default encode(gen_random_bytes(9), 'hex'),
+  issued_at      timestamptz not null default now(),
+  public_code    text not null unique default encode(gen_random_bytes(9), 'hex'),
 
   unique (user_id, tier)
 );
@@ -156,7 +151,6 @@ create trigger profiles_touch_updated_at
   for each row execute function public.touch_updated_at();
 
 -- ── Profile provisioning ────────────────────────────────────────────────────
--- Every new auth user gets a profile row automatically.
 
 create or replace function public.handle_new_user()
 returns trigger
