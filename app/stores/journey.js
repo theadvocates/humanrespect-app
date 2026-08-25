@@ -130,50 +130,35 @@ export const useJourneyStore = defineStore('journey', {
       } catch (e) { /* fresh start */ }
     },
 
+    /**
+     * Writes progress through the sync_journey function rather than upserting
+     * the table directly. A direct .upsert() emits INSERT ... ON CONFLICT DO
+     * UPDATE, which PostgreSQL will only run if a SELECT policy makes the
+     * conflicting row visible — and any such policy would expose every
+     * visitor's answers to anyone holding the anon key. The function does the
+     * upsert internally with RLS bypassed, so anon needs no read access at all.
+     */
     async syncToSupabase() {
       if (!this.visitorId) return
       const supabase = getSupabase()
       if (!supabase) return
-      // Once a journey is claimed the anon policies no longer apply, so the
-      // row must carry user_id for the authenticated policy to match.
-      const userId = useState('auth-user').value?.id ?? null
       try {
-        await supabase.from('journeys').upsert({
-          visitor_id: this.visitorId,
-          user_id: userId,
-          exp01_completed: this.exp01.completed,
-          exp01_completed_at: this.exp01.completedAt,
-          exp01_methods: this.exp01.methods,
-          exp01_would_force: this.exp01.wouldForce,
-          exp01_why_not: this.exp01.whyNot,
-          exp02_objection: this.exp02.chosenObjection,
-          exp02_completed: this.exp02.completed,
-          exp02_completed_at: this.exp02.completedAt,
-          exp02_verdict: this.exp02.verdict,
-          exp02_concession_credibility: this.exp02.concessionCredibility,
-          exp03_completed: !!this.completions.exp03,
-          exp03_completed_at: this.completionTimes.exp03 || null,
-          completions: this.completions,
-          last_experience: this.lastExperience,
-          furthest_tier: this.furthestTier,
-          total_experiences: this.visitor.totalExperiences,
-          first_visit: this.visitor.firstVisit,
-          last_visit: this.visitor.lastVisit,
-          updated_at: new Date().toISOString()
-        }, { onConflict: 'visitor_id' })
+        const { error } = await supabase.rpc('sync_journey', {
+          p_visitor_id: this.visitorId,
+          p_completions: this.completions,
+          p_completion_times: this.completionTimes,
+          p_last_experience: this.lastExperience,
+          p_furthest_tier: this.furthestTier,
+          p_total_experiences: this.visitor.totalExperiences,
+          p_first_visit: this.visitor.firstVisit,
+          p_last_visit: this.visitor.lastVisit
+        })
+        if (error) console.warn('Journey sync failed:', error.message)
       } catch (e) {
-        console.warn('Supabase sync failed:', e)
+        console.warn('Journey sync failed:', e)
       }
     },
 
-    /**
-     * Folds a server journey row into local state — used after claim_journey,
-     * which may have merged this device's progress with another device's.
-     *
-     * Adopting the returned visitor_id matters: when two journeys merge, the
-     * surviving row is the account's existing one, and later upserts from this
-     * browser must target it rather than recreating the anonymous row.
-     */
     applyRemote(row) {
       if (!row) return
 
@@ -201,11 +186,10 @@ export const useJourneyStore = defineStore('journey', {
       const supabase = getSupabase()
       if (!supabase) return
       try {
-        await supabase.from('events').insert({
-          visitor_id: this.visitorId,
-          event_name: eventName,
-          properties,
-          created_at: new Date().toISOString()
+        await supabase.rpc('record_event', {
+          p_visitor_id: this.visitorId,
+          p_event_name: eventName,
+          p_properties: properties
         })
       } catch (e) { /* best-effort */ }
     }
