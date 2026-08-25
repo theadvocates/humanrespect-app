@@ -44,6 +44,21 @@ RLS applies inside policy subqueries too. Where a policy needs to check a row
 the calling role can't see, the check goes through a `security definer` function
 that returns only a boolean — see `journey_is_unclaimed()`.
 
+## Status
+
+All six migrations are **applied** to `jnspwumpiqbfqlveduzz`. Verified after the
+run: 127 journeys, 224 events, 2 subscribers — unchanged. The 15-row experience
+catalog is seeded and all functions are installed.
+
+`claim_journey()` was exercised in a rolled-back transaction covering both
+paths: merging two devices (completions unioned, earliest completion time kept,
+higher tier retained, surviving `visitor_id` returned) and attaching a first
+device, through to `issue_certificate()`.
+
+RLS was verified by assuming the `anon` role directly: reads of `journeys`,
+`events`, and `newsletter_subscribers` all return zero rows, deletes affect
+zero rows, and the writes the live Cloudflare site depends on still succeed.
+
 ## Applying
 
 With the Supabase CLI, from the repo root:

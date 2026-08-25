@@ -16,9 +16,11 @@
 -- The currently deployed site only ever calls .upsert() on journeys and never
 -- .select(), so removing the read path does not break it.
 
+-- Only the journeys policy is dropped. The other two are INSERT-only with no
+-- USING clause, so they expose nothing readable, and the still-live Cloudflare
+-- site depends on them: it inserts events and newsletter signups straight from
+-- the browser with the anon key. Removing them would break the running site.
 drop policy if exists "Visitors can upsert own journey" on public.journeys;
-drop policy if exists "Anyone can insert events" on public.events;
-drop policy if exists "Anyone can subscribe" on public.newsletter_subscribers;
 
 alter table public.profiles              enable row level security;
 alter table public.experiences           enable row level security;
@@ -85,7 +87,7 @@ create policy journeys_auth_insert_unclaimed on public.journeys
 -- journeys — so an inline EXISTS here would always be false and every
 -- anonymous response would be rejected. A definer function does the lookup
 -- with RLS bypassed, while still only ever returning a boolean.
-create or replace function public.journey_is_unclaimed(p_journey_id uuid)
+create or replace function public.journey_is_unclaimed(p_journey_id bigint)
 returns boolean
 language sql
 stable
@@ -98,7 +100,7 @@ as $$
   );
 $$;
 
-grant execute on function public.journey_is_unclaimed(uuid) to anon, authenticated;
+grant execute on function public.journey_is_unclaimed(bigint) to anon, authenticated;
 
 drop policy if exists responses_anon_insert on public.experience_responses;
 create policy responses_anon_insert on public.experience_responses
@@ -123,6 +125,8 @@ create policy responses_owner_all on public.experience_responses
 
 -- ── Events: append-only, never readable from the client ─────────────────────
 
+-- The legacy "Anyone can insert events" policy already covers the anon role
+-- for the live Cloudflare site; this adds the same for signed-in users.
 drop policy if exists events_insert on public.events;
 create policy events_insert on public.events
   for insert to anon, authenticated
@@ -130,9 +134,16 @@ create policy events_insert on public.events
 
 -- No select/update/delete policy: analytics is read via the service key only.
 
--- ── Newsletter: server-side only ────────────────────────────────────────────
--- RLS is enabled with zero policies, so anon and authenticated get nothing.
--- POST /api/subscribe writes with the service key.
+-- ── Newsletter ──────────────────────────────────────────────────────────────
+-- The Nuxt app writes through POST /api/subscribe with the service key, which
+-- needs no policy. But the legacy Cloudflare site still inserts from the
+-- browser, so its INSERT-only policy ("Anyone can subscribe") is deliberately
+-- left in place. It permits no reads, so subscriber addresses stay private.
+--
+-- TODO: after DNS moves to Vercel and the Cloudflare deployment is retired,
+-- drop that policy so this table is reachable only by the service key:
+--   drop policy "Anyone can subscribe" on public.newsletter_subscribers;
+--   drop policy "Anyone can insert events" on public.events;
 
 -- ── Certificates ────────────────────────────────────────────────────────────
 
