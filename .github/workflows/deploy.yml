@@ -54,11 +54,21 @@ jobs:
       # Surfaces token/scope problems directly. "Could not retrieve Project
       # Settings" otherwise gives no hint about which of the two is wrong.
       - name: Verify token access
+        env:
+          TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
+          # Length and shape only — never the value. A Vercel token is 24
+          # characters; anything else means the secret was pasted with quotes,
+          # whitespace, or truncated.
+          echo "token length: ${#TOKEN} (expected 24)"
+          case "$TOKEN" in
+            *[[:space:]]*) echo "WARNING: token contains whitespace" ;;
+            \"*|\'*)       echo "WARNING: token starts with a quote character" ;;
+            "")            echo "WARNING: token is empty" ;;
+            *)             echo "token shape looks plausible" ;;
+          esac
           echo "Authenticated as:"
-          vercel whoami --token=${{ secrets.VERCEL_TOKEN }}
-          echo "Scopes this token can reach:"
-          vercel teams ls --token=${{ secrets.VERCEL_TOKEN }}
+          vercel whoami --token="$TOKEN"
 
       - name: Pull Vercel environment
         run: |
