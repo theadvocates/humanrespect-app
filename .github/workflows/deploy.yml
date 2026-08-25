@@ -27,7 +27,6 @@ concurrency:
 env:
   VERCEL_ORG_ID: team_khp6kAHGexj27sbFSBXBxF3a
   VERCEL_PROJECT_ID: prj_zWDya4rw4Ggv1jiZpipjMOxQ7HhT
-  VERCEL_SCOPE: mike-sertics-projects
 
 jobs:
   deploy:
@@ -51,14 +50,16 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@59
 
-      # NOTE: no `vercel whoami` check here. This token is project-scoped
-      # (Scope: humanrespect-app), and project tokens carry no user identity,
-      # so whoami returns "User not found" even when the token is valid.
+      # NOTE: no `vercel whoami` check and no --scope flag anywhere below.
+      # This token is project-scoped (Scope: humanrespect-app), and project
+      # tokens carry no user identity. Anything that resolves a user or team —
+      # whoami, teams ls, --scope — fails with "User not found" even though the
+      # token is valid. VERCEL_ORG_ID / VERCEL_PROJECT_ID target the project
+      # directly and need no such lookup.
       - name: Pull Vercel environment
         run: |
           vercel pull --yes \
             --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} \
-            --scope=$VERCEL_SCOPE \
             --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build
@@ -69,7 +70,6 @@ jobs:
         run: |
           URL=$(vercel deploy --prebuilt \
             ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} \
-            --scope=$VERCEL_SCOPE \
             --token=${{ secrets.VERCEL_TOKEN }})
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "Deployed to $URL" >> "$GITHUB_STEP_SUMMARY"
