@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The defenses</p>
     <h2 class="display-medium">Three things people say to avoid this conclusion.</h2>

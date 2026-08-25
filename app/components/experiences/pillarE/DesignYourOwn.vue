@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your turn</p>
     <h2 class="display-medium">Pick a problem you care about.</h2>

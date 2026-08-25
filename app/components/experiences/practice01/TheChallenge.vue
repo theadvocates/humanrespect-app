@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The question behind the footprint</p>
     <h2 class="display-medium">For each area — whether you support it or not — ask one question.</h2>

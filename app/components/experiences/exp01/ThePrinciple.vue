@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="6" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The pattern has a name</p>
     <h2 class="display-medium">The Principle of Human Respect</h2>

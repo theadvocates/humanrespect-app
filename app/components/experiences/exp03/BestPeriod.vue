@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your own evidence</p>
     <h2 class="display-medium">Think about the best sustained period of your life.</h2>

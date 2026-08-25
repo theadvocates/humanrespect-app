@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your strongest pushback</p>
     <h2 class="display-medium">Which of these is closest to what you're thinking?</h2>

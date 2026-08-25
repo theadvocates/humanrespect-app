@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The thought experiment</p>
     <h2 class="display-medium">Now imagine you had access to someone with the authority to simply force the other person to comply.</h2>
@@ -18,7 +18,7 @@
       </button>
     </div>
 
-    <div v-if="wouldForce === 'no'" class="followup stagger" ref="followupEl">
+    <div v-if="wouldForce === 'no'" ref="followupEl" class="followup stagger">
       <p class="body-text" style="margin-top: 1.5rem;">Why not? Select everything that rings true.</p>
 
       <div class="reasons">

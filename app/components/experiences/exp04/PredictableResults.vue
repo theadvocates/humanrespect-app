@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The results</p>
     <h2 class="display-medium">When you give flawed humans coercive power over other humans, the damage follows the same pattern every time.</h2>

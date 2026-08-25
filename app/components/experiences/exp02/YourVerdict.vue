@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="6" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your assessment</p>
     <h2 class="display-medium">Did the response address your objection?</h2>

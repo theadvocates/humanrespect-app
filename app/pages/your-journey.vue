@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="page-container stagger" ref="el">
+    <div ref="el" class="page-container stagger">
 
       <p class="caption">Your journey</p>
       <h1 class="display-large" style="margin-top: 0.5rem;">
@@ -33,7 +33,7 @@
                 <div class="completed-check">✓</div>
                 <div>
                   <div class="completed-title">{{ exp.title }}</div>
-                  <div class="completed-detail" v-if="exp.personalNote">{{ exp.personalNote }}</div>
+                  <div v-if="exp.personalNote" class="completed-detail">{{ exp.personalNote }}</div>
                 </div>
               </div>
               <router-link :to="{ name: exp.name }" class="revisit-link">Revisit →</router-link>
@@ -102,7 +102,7 @@
         <div class="progress-bar-section">
           <div class="progress-label">{{ completedCount }} of {{ totalCount }} experiences completed</div>
           <div class="progress-track">
-            <div class="progress-fill" :style="{ width: progressPct + '%' }"></div>
+            <div class="progress-fill" :style="{ width: progressPct + '%' }"/>
           </div>
         </div>
 

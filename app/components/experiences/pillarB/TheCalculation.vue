@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">A personal calculation</p>
     <h2 class="display-medium">How many hours of your life go to taxes each year?</h2>
@@ -18,7 +18,7 @@
             placeholder="e.g. 60000"
             :value="localIncome"
             @input="localIncome = Number($event.target.value)"
-          />
+          >
         </div>
       </div>
 
@@ -30,10 +30,10 @@
             class="calc-input"
             placeholder="e.g. 30"
             :value="localRate"
-            @input="localRate = Number($event.target.value)"
             min="0"
             max="70"
-          />
+            @input="localRate = Number($event.target.value)"
+          >
           <span class="input-suffix">%</span>
         </div>
         <p class="calc-hint">Most working Americans pay 25-40% across all taxes combined.</p>

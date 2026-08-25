@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">What it sounds like</p>
     <h2 class="display-medium">Two examples — one with a progressive, one with a conservative.</h2>

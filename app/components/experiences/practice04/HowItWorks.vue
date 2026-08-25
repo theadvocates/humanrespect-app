@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">The practice</p>
     <h2 class="display-medium">Seven days. One observation per day.</h2>

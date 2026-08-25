@@ -2,7 +2,7 @@
   <div>
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-mark"></div>
+      <div class="hero-mark"/>
       <h1 class="hero-headline">
         You live by a moral code<br>
         <em>you've never put into words.</em>
@@ -11,9 +11,9 @@
       <router-link :to="{ name: 'exp01' }" class="hero-begin">
         Begin <span class="arrow">→</span>
       </router-link>
-      <div class="hero-scroll-hint" ref="scrollHint">
+      <div ref="scrollHint" class="hero-scroll-hint">
         <span>Or learn more</span>
-        <div class="scroll-line"></div>
+        <div class="scroll-line"/>
       </div>
     </section>
 

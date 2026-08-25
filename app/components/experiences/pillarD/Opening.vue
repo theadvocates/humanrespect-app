@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Pillar · The Human Respect Method</span>
     <h1 class="display-large headline">
       Your values aren't<br><em>the problem.</em>

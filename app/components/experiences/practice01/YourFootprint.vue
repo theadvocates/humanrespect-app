@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your political footprint</p>
     <h2 class="display-medium">The gap between force and support.</h2>
@@ -33,9 +33,9 @@
         />
       </div>
       <div class="footprint-legend">
-        <span class="legend-item"><span class="legend-dot supported"></span> Force you support</span>
-        <span class="legend-item"><span class="legend-dot involuntary"></span> Force imposed on you</span>
-        <span class="legend-item"><span class="legend-dot none"></span> No force identified</span>
+        <span class="legend-item"><span class="legend-dot supported"/> Force you support</span>
+        <span class="legend-item"><span class="legend-dot involuntary"/> Force imposed on you</span>
+        <span class="legend-item"><span class="legend-dot none"/> No force identified</span>
       </div>
     </div>
 
@@ -57,15 +57,15 @@
         <div class="breakdown-label">{{ cat.label }}</div>
         <div class="breakdown-bars">
           <div class="bar-track">
-            <div class="bar-fill operates" :style="{ width: cat.operatesPct + '%' }"></div>
-            <div class="bar-fill supported" :style="{ width: cat.supportsPct + '%' }"></div>
+            <div class="bar-fill operates" :style="{ width: cat.operatesPct + '%' }"/>
+            <div class="bar-fill supported" :style="{ width: cat.supportsPct + '%' }"/>
           </div>
         </div>
         <div class="breakdown-count">{{ cat.supportsCount }}/{{ cat.operatesCount }}</div>
       </div>
       <div class="breakdown-legend">
-        <span class="legend-item"><span class="legend-dot involuntary" style="width:8px;height:8px;"></span> operates</span>
-        <span class="legend-item"><span class="legend-dot supported" style="width:8px;height:8px;"></span> supported</span>
+        <span class="legend-item"><span class="legend-dot involuntary" style="width:8px;height:8px;"/> operates</span>
+        <span class="legend-item"><span class="legend-dot supported" style="width:8px;height:8px;"/> supported</span>
       </div>
     </div>
 

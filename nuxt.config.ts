@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-08-25',
   devtools: { enabled: true },
 
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxt/eslint'],
 
   css: [
     '~/styles/tokens.css',
@@ -47,10 +47,20 @@ export default defineNuxtConfig({
     }
   },
 
+  routeRules: {
+    // The account page reads session state, which only exists in the browser —
+    // server-rendering it would always evaluate as signed-out and bounce the
+    // user to sign-in. It is noindex, so nothing is lost by client-rendering.
+    // /account/sign-in and /account/callback render fine without a session and
+    // keep SSR.
+    '/account': { ssr: false }
+  },
+
   nitro: {
     prerender: {
       crawlLinks: true,
       routes: ['/', '/about', '/privacy'],
+      ignore: ['/account', '/certificate'],
       failOnError: false
     }
   }

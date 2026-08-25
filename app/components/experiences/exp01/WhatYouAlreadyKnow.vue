@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">What you just demonstrated</p>
     <h2 class="display-medium">{{ wouldForce === 'yes' ? 'You chose force. Most people don\'t.' : 'You already know that force doesn\'t work.' }}</h2>
@@ -10,7 +10,7 @@
 
       <div class="your-reasons">
         <div v-for="r in selectedReasons" :key="r.id" class="reason-item">
-          <span class="reason-dot"></span>
+          <span class="reason-dot"/>
           <span>{{ r.label }}</span>
         </div>
       </div>

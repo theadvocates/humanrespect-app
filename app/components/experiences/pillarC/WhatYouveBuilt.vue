@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">A personal inventory</p>
     <h2 class="display-medium">Think of something you worked hard to earn.</h2>

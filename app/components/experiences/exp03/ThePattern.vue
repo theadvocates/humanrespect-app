@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The pattern in your answer</p>
     <h2 class="display-medium">You just described what scientists call human flourishing.</h2>

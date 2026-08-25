@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="5" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Now scale it up</p>
     <h2 class="display-medium">When millions of people disagree about healthcare, education, drug policy, and immigration, the system we've built to resolve those disagreements uses force.</h2>

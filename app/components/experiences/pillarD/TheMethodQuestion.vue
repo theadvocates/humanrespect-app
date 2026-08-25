@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The method question</p>
     <h2 class="display-medium">For each issue, how should society advance the goal?</h2>

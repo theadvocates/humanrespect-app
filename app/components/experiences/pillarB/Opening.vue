@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Temporal Integrity</span>
     <h1 class="display-large headline">
       Your time<br><em>is your life.</em>

@@ -1,5 +1,5 @@
 <template>
-  <div class="divider" :class="{ centered }"></div>
+  <div class="divider" :class="{ centered }"/>
 </template>
 
 <script setup>

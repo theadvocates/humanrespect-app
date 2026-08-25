@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">The most powerful tool</p>
     <h2 class="display-medium">Share the experience, not the argument.</h2>

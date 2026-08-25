@@ -11,7 +11,9 @@
       <router-link :to="wordmarkDest" class="nav-wordmark">Human Respect</router-link>
       <div v-if="!isExperience" class="nav-links">
         <router-link to="/about" class="nav-link">About</router-link>
-        <router-link to="/privacy" class="nav-link">Privacy</router-link>
+        <router-link v-if="isSignedIn" to="/account" class="nav-link">Account</router-link>
+        <router-link v-else-if="hasProgress" to="/account/sign-in" class="nav-link">Save progress</router-link>
+        <router-link v-else to="/account/sign-in" class="nav-link">Sign in</router-link>
       </div>
     </div>
   </nav>
@@ -24,6 +26,7 @@ import { useJourneyStore } from '@/stores/journey'
 
 const route = useRoute()
 const journey = useJourneyStore()
+const { isSignedIn } = useAuth()
 const scrolled = ref(false)
 const scrollingUp = ref(false)
 const lastScrollY = ref(0)

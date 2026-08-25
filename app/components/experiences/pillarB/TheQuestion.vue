@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="5" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The question that remains</p>
     <h2 class="display-medium">What is a system built on compulsory participation?</h2>

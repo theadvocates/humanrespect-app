@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">What honesty requires</p>
     <h2 class="display-medium">What the philosophy can't claim.</h2>
@@ -8,7 +8,8 @@
     <p class="body-text-large">A philosophy that only gives you the strong parts of its argument and hides the difficult parts isn't trustworthy. So here's what intellectual honesty requires us to say.</p>
 
     <ContentBlock variant="concession" label="The honest concession">
-      <p v-html="obj.concession"></p>
+      <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->
+      <p v-html="obj.concession"/>
     </ContentBlock>
 
     <p class="body-text" style="margin-top: 1.5rem;">Does this honesty make the philosophy more or less credible to you?</p>

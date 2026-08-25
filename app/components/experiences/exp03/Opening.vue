@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Experience 02 · The Philosophy of Human Respect</span>
     <h1 class="display-large headline">What<br><em>flourishing</em><br>actually means.</h1>
     <Divider :centered="true" />

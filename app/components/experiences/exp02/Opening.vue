@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Experience 03 · The Philosophy of Human Respect</span>
     <h1 class="display-large headline">You have a <em>"but..."</em></h1>
     <Divider :centered="true" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Taking your objection seriously</p>
     <h2 class="display-medium">{{ obj.title }}</h2>
@@ -25,12 +25,12 @@
 
     <div v-if="fairness === 'missing'" class="strengthen">
       <p class="body-text" style="margin-top: 1rem;">What's missing? In your own words, what would make this objection stronger?</p>
-      <textarea v-model="strengthening" class="strengthen-input" placeholder="The part this misses is..." rows="3"></textarea>
+      <textarea v-model="strengthening" class="strengthen-input" placeholder="The part this misses is..." rows="3"/>
     </div>
 
     <div v-if="fairness === 'stronger'" class="strengthen">
       <p class="body-text" style="margin-top: 1rem;">What's the stronger version?</p>
-      <textarea v-model="strengthening" class="strengthen-input" placeholder="My real objection is..." rows="3"></textarea>
+      <textarea v-model="strengthening" class="strengthen-input" placeholder="My real objection is..." rows="3"/>
     </div>
 
     <p v-if="fairness" class="body-text" style="margin-top: 1.5rem; font-style: italic; color: var(--ink-faint);">We're going to engage with the strongest version of this objection — because that's the only version worth responding to.</p>

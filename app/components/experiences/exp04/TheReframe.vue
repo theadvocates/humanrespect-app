@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="5" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The reframe</p>
     <h2 class="display-medium">The Philosophy of Human Respect is the position that takes human nature seriously.</h2>

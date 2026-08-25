@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="5" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The question that remains</p>
     <h2 class="display-medium">We don't end with an answer. We end with a question.</h2>
@@ -8,7 +8,8 @@
     <p class="body-text-large">You came in with an objection. You've seen it taken seriously, responded to, and the limits of that response honestly acknowledged. Now there's a question left.</p>
 
     <ContentBlock variant="principle">
-      <p v-html="obj.question"></p>
+      <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->
+      <p v-html="obj.question"/>
     </ContentBlock>
 
     <p class="body-text">This isn't rhetorical. It's a question worth sitting with — maybe for a few days. The philosophy doesn't ask you to accept it today. It asks you to carry the question and see if the world starts looking different.</p>

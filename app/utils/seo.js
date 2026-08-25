@@ -92,6 +92,10 @@ export const pageMeta = {
     description:
       'Why this exists: the Philosophy of Human Respect, articulated by Chris J. Rufer, founder of The Morning Star Company.'
   },
+  'sign-in': {
+    title: 'Sign In',
+    description: 'Sign in to keep your progress across devices. Nothing you have already done is lost.'
+  },
   privacy: {
     title: 'Privacy',
     description: 'How we handle your data. Anonymous analytics, no tracking cookies, no data sales.'

@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The hidden violation</p>
     <h2 class="display-medium">Fraud is theft by deception — and it breaks something deeper than a bank account.</h2>

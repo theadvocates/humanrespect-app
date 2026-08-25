@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Bodily Integrity</span>
     <h1 class="display-large headline">Your body is<br><em>not negotiable.</em></h1>
     <Divider :centered="true" />

@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Practice · Construction</span>
     <h1 class="display-large headline">Design a<br><em>voluntary solution.</em></h1>
     <Divider :centered="true" />

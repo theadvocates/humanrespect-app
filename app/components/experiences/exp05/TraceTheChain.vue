@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">Trace the chain</p>
     <h2 class="display-medium">Pick a policy. Then follow the enforcement chain to the end.</h2>

@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Voluntary Cooperation</span>
     <h1 class="display-large headline">
       Cooperation is<br><em>a technology.</em>

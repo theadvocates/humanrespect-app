@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The hierarchy of irreversibility</p>
     <h2 class="display-medium">Not all losses are equal.</h2>
@@ -9,21 +9,21 @@
 
     <div class="hierarchy">
       <div class="hierarchy-item level-3">
-        <div class="hierarchy-bar"></div>
+        <div class="hierarchy-bar"/>
         <div class="hierarchy-content">
           <div class="hierarchy-label">Money</div>
           <p>Can be re-earned. Losses are recoverable. A financial setback is painful but not permanent.</p>
         </div>
       </div>
       <div class="hierarchy-item level-2">
-        <div class="hierarchy-bar"></div>
+        <div class="hierarchy-bar"/>
         <div class="hierarchy-content">
           <div class="hierarchy-label">Property</div>
           <p>Harder to replace. A destroyed home, a stolen business, a wiped savings account — these take years to rebuild. But rebuilding is possible.</p>
         </div>
       </div>
       <div class="hierarchy-item level-1">
-        <div class="hierarchy-bar"></div>
+        <div class="hierarchy-bar"/>
         <div class="hierarchy-content">
           <div class="hierarchy-label">Time</div>
           <p>Cannot be replaced. Cannot be replenished. Cannot be stored. Cannot be compensated. Once a moment is taken, it is gone from your life permanently.</p>

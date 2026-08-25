@@ -5,12 +5,12 @@
       <p class="newsletter-desc">{{ description }}</p>
       <div class="input-row">
         <input
+          v-model="email"
           type="email"
           class="email-input"
-          v-model="email"
           placeholder="Your email address"
           @keydown.enter="submit"
-        />
+        >
         <button
           class="submit-btn"
           :disabled="!isValid || submitting"

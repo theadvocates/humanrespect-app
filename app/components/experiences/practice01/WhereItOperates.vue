@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Pass 1 of 2</p>
     <h2 class="display-medium">Where does government force currently operate in your life?</h2>

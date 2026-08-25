@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The inverse</p>
     <h2 class="display-medium">Now consider the hardest sustained period of your life.</h2>

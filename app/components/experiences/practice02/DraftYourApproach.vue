@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">The constraint</p>
     <h2 class="display-medium">Now solve it — with zero coercion.</h2>
@@ -14,7 +14,7 @@
       <p><strong>Leading by example</strong> — demonstrating the change you want to see.</p>
     </ScenarioBox>
 
-    <textarea class="text-input" v-model="approach" placeholder="How would you address your issue using only these tools?" rows="6"></textarea>
+    <textarea v-model="approach" class="text-input" placeholder="How would you address your issue using only these tools?" rows="6"/>
     <NavBar :can-go-back="true" :disable-continue="!approach.trim()" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

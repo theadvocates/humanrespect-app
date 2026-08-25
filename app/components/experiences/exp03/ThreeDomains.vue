@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The structure of what went wrong</p>
     <h2 class="display-medium">Every violation you identified falls into one of three domains.</h2>

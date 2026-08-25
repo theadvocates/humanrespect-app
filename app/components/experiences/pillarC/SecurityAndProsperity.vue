@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The world that gets built</p>
     <h2 class="display-medium">What happens when people trust that they can keep what they build?</h2>

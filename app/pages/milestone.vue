@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <div class="page-container stagger" ref="el">
+    <div ref="el" class="page-container stagger">
 
       <div class="milestone-badge">Foundation complete</div>
 
@@ -19,8 +19,8 @@
           <div class="discovery-num">01</div>
           <div class="discovery-content">
             <div class="discovery-title">The gap</div>
-            <p class="discovery-desc" v-if="journey.exp01?.wouldForce === 'no'">You already knew that force damages relationships. You chose persuasion — and articulated why. The question is why we abandon that principle at scale.</p>
-            <p class="discovery-desc" v-else>You examined how you handle real disagreements and what happens when force enters the picture.</p>
+            <p v-if="journey.exp01?.wouldForce === 'no'" class="discovery-desc">You already knew that force damages relationships. You chose persuasion — and articulated why. The question is why we abandon that principle at scale.</p>
+            <p v-else class="discovery-desc">You examined how you handle real disagreements and what happens when force enters the picture.</p>
           </div>
         </div>
 
@@ -28,8 +28,8 @@
           <div class="discovery-num">02</div>
           <div class="discovery-content">
             <div class="discovery-title">The grounding</div>
-            <p class="discovery-desc" v-if="journey.exp02.chosenObjection">You chose "{{ objectionTitle }}" and saw it steelmanned, responded to, and honestly conceded.</p>
-            <p class="discovery-desc" v-else>You tested the philosophy against your strongest objection.</p>
+            <p v-if="journey.exp02.chosenObjection" class="discovery-desc">You chose "{{ objectionTitle }}" and saw it steelmanned, responded to, and honestly conceded.</p>
+            <p v-else class="discovery-desc">You tested the philosophy against your strongest objection.</p>
           </div>
         </div>
 

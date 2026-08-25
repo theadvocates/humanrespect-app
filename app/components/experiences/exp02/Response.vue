@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The response</p>
     <h2 class="display-medium">Here's what the philosophy says back.</h2>
@@ -7,7 +7,8 @@
 
     <div class="response-flow">
       <div v-for="(para, idx) in obj.response" :key="idx" class="response-block" :class="{ visible: idx <= currentPara }">
-        <div class="response-para" v-html="para"></div>
+        <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->
+        <div class="response-para" v-html="para"/>
 
         <div v-if="idx === currentPara && idx < obj.response.length - 1" class="reaction-row">
           <p class="reaction-prompt">Does this address your concern?</p>

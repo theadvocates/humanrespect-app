@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your instinct</p>
     <h2 class="display-medium">How did you handle it?</h2>

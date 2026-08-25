@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="5" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">Translate the language</p>
     <h2 class="display-medium">Political language obscures what you're actually authorizing. Translate it.</h2>
@@ -10,7 +10,7 @@
     <div class="translations">
       <div v-for="t in translations" :key="t.id" class="translation-block">
         <div class="translation-sanitized">"{{ t.sanitized }}"</div>
-        <div class="translation-options" v-if="!answers[t.id]">
+        <div v-if="!answers[t.id]" class="translation-options">
           <button
             v-for="opt in t.options"
             :key="opt.id"

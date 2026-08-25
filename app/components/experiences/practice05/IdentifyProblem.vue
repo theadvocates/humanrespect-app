@@ -1,12 +1,12 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your community</p>
     <h2 class="display-medium">What's a real problem where you live?</h2>
     <Divider />
     <p class="body-text">Think local. A park that needs maintenance. A neighbor who needs help. A street that's unsafe. A school that's failing. Kids with nothing to do after school. Elderly people who are isolated. A food desert. A housing shortage.</p>
     <p class="body-text">Pick something specific enough to actually address — not "fix inequality" but "the playground on Elm Street is broken and kids have nowhere to play."</p>
-    <textarea class="text-input" v-model="problem" placeholder="Describe a real problem in your community..." rows="4"></textarea>
+    <textarea v-model="problem" class="text-input" placeholder="Describe a real problem in your community..." rows="4"/>
     <NavBar :can-go-back="true" :disable-continue="!problem.trim()" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

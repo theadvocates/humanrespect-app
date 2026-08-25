@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">What already exists</p>
     <h2 class="display-medium">Voluntary approaches to {{ issueData?.label?.toLowerCase() }} — already working.</h2>

@@ -15,7 +15,7 @@
       <div class="path-card-title"><slot name="title" /></div>
       <div class="path-card-desc"><slot name="desc" /></div>
     </div>
-    <span class="path-arrow" v-if="!disabled">→</span>
+    <span v-if="!disabled" class="path-arrow">→</span>
   </component>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="journey-nav" v-if="nextSteps.length > 0 || revisitSteps.length > 0">
+  <div v-if="nextSteps.length > 0 || revisitSteps.length > 0" class="journey-nav">
     <p class="caption" style="margin-bottom: 1rem;">{{ nextLabel || 'Continue your journey' }}</p>
 
     <div class="steps">

@@ -134,9 +134,13 @@ export const useJourneyStore = defineStore('journey', {
       if (!this.visitorId) return
       const supabase = getSupabase()
       if (!supabase) return
+      // Once a journey is claimed the anon policies no longer apply, so the
+      // row must carry user_id for the authenticated policy to match.
+      const userId = useState('auth-user').value?.id ?? null
       try {
         await supabase.from('journeys').upsert({
           visitor_id: this.visitorId,
+          user_id: userId,
           exp01_completed: this.exp01.completed,
           exp01_completed_at: this.exp01.completedAt,
           exp01_methods: this.exp01.methods,
@@ -160,6 +164,36 @@ export const useJourneyStore = defineStore('journey', {
       } catch (e) {
         console.warn('Supabase sync failed:', e)
       }
+    },
+
+    /**
+     * Folds a server journey row into local state — used after claim_journey,
+     * which may have merged this device's progress with another device's.
+     *
+     * Adopting the returned visitor_id matters: when two journeys merge, the
+     * surviving row is the account's existing one, and later upserts from this
+     * browser must target it rather than recreating the anonymous row.
+     */
+    applyRemote(row) {
+      if (!row) return
+
+      this.completions = { ...this.completions, ...(row.completions || {}) }
+      this.completionTimes = { ...this.completionTimes, ...(row.completion_times || {}) }
+      this.exp01.completed = this.exp01.completed || !!this.completions.exp01
+      this.exp02.completed = this.exp02.completed || !!this.completions.exp02
+
+      if (row.visitor_id) this.visitorId = row.visitor_id
+      if (row.last_experience) this.lastExperience = row.last_experience
+      if (row.furthest_tier) {
+        const remote = row.furthest_tier
+        if (TIER_ORDER[remote] > TIER_ORDER[this.furthestTier]) this.furthestTier = remote
+      }
+      if (row.first_visit) this.visitor.firstVisit = row.first_visit
+      this.visitor.totalExperiences = Object.values(this.completions).filter(Boolean).length
+
+      try {
+        localStorage.setItem('hr-journey', JSON.stringify(this.$state))
+      } catch (e) { /* silent */ }
     },
 
     async trackEvent(eventName, properties = {}) {

@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The shift</p>
     <h2 class="display-medium">What if everyone committed to persuasion — regardless of their values?</h2>

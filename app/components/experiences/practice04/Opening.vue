@@ -1,5 +1,5 @@
 <template>
-  <div class="opening stagger" ref="el">
+  <div ref="el" class="opening stagger">
     <span class="overline">Practice · Awareness</span>
     <h1 class="display-large headline">The respect<br><em>audit.</em></h1>
     <Divider :centered="true" />

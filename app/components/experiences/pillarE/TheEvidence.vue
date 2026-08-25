@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Already happening</p>
     <h2 class="display-medium">Voluntary cooperation is solving "impossible" problems right now.</h2>
@@ -16,7 +16,8 @@
         <p class="example-how">{{ ex.how }}</p>
         <div class="example-assumption">
           <span class="assumption-label">The assumption:</span>
-          <span v-html="ex.assumption"></span>
+          <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->
+          <span v-html="ex.assumption"/>
         </div>
         <div class="example-reality">
           <span class="reality-label">The reality:</span>

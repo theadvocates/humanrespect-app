@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="6" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The question you take with you</p>
     <h2 class="display-medium">Given what you know about how humans actually behave, which system would you design?</h2>

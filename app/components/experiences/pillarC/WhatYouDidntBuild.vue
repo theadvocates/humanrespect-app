@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">The hidden cost</p>
     <h2 class="display-medium">What have you not built because you weren't sure you could keep it?</h2>

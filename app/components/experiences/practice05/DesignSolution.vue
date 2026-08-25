@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">Your design</p>
     <h2 class="display-medium">Design a solution using only voluntary means.</h2>
@@ -14,7 +14,7 @@
       <div class="prompt"><strong>What's the first step?</strong> Not the whole plan — just the first action you'd take this week.</div>
     </div>
 
-    <textarea class="text-input" v-model="solution" placeholder="Describe your voluntary solution..." rows="6"></textarea>
+    <textarea v-model="solution" class="text-input" placeholder="Describe your voluntary solution..." rows="6"/>
     <NavBar :can-go-back="true" :disable-continue="!solution.trim()" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

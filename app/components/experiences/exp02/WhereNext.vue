@@ -1,5 +1,5 @@
 <template>
-  <div class="screen-inner stagger" ref="el">
+  <div ref="el" class="screen-inner stagger">
     <StepDots :current="7" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">The foundation is complete</p>
     <h2 class="display-medium">Three discoveries, from your own reasoning.</h2>
