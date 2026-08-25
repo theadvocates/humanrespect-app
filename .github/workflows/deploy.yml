@@ -27,6 +27,7 @@ concurrency:
 env:
   VERCEL_ORG_ID: team_khp6kAHGexj27sbFSBXBxF3a
   VERCEL_PROJECT_ID: prj_zWDya4rw4Ggv1jiZpipjMOxQ7HhT
+  VERCEL_SCOPE: mike-sertics-projects
 
 jobs:
   deploy:
@@ -50,10 +51,20 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
+      # Surfaces token/scope problems directly. "Could not retrieve Project
+      # Settings" otherwise gives no hint about which of the two is wrong.
+      - name: Verify token access
+        run: |
+          echo "Authenticated as:"
+          vercel whoami --token=${{ secrets.VERCEL_TOKEN }}
+          echo "Scopes this token can reach:"
+          vercel teams ls --token=${{ secrets.VERCEL_TOKEN }}
+
       - name: Pull Vercel environment
         run: |
           vercel pull --yes \
             --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} \
+            --scope=$VERCEL_SCOPE \
             --token=${{ secrets.VERCEL_TOKEN }}
 
       - name: Build
@@ -64,6 +75,7 @@ jobs:
         run: |
           URL=$(vercel deploy --prebuilt \
             ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} \
+            --scope=$VERCEL_SCOPE \
             --token=${{ secrets.VERCEL_TOKEN }})
           echo "url=$URL" >> "$GITHUB_OUTPUT"
           echo "Deployed to $URL" >> "$GITHUB_STEP_SUMMARY"
