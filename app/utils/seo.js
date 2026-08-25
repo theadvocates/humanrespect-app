@@ -96,6 +96,10 @@ export const pageMeta = {
     title: 'Sign In',
     description: 'Sign in to keep your progress across devices. Nothing you have already done is lost.'
   },
+  terms: {
+    title: 'Terms',
+    description: 'The agreement between us, in plain language. What this site is, what we ask of you, and what we do not promise.'
+  },
   privacy: {
     title: 'Privacy',
     description: 'How we handle your data. Anonymous analytics, no tracking cookies, no data sales.'

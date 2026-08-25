@@ -28,6 +28,7 @@ const ROUTES = {
   practice04: '/practice/respect-audit',
   practice05: '/practice/design-a-solution',
   about: '/about',
+  terms: '/terms',
   privacy: '/privacy'
 }
 
@@ -38,6 +39,7 @@ const PRIORITY = {
   exp02: '0.8',
   exp03: '0.8',
   about: '0.7',
+  terms: '0.3',
   privacy: '0.3'
 }
 

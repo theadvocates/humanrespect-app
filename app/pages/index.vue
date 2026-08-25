@@ -88,6 +88,7 @@
         <div class="footer-right">
           <router-link to="/about" class="footer-link">About</router-link>
           <router-link to="/privacy" class="footer-link">Privacy</router-link>
+          <router-link to="/terms" class="footer-link">Terms</router-link>
         </div>
       </div>
     </footer>
