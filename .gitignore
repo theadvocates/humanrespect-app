@@ -38,3 +38,16 @@ __screenshots__/
 # Vite
 *.timestamp-*-*.mjs
 .env.local
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Nuxt
+.nuxt
+.output
+.data
+
+# Vercel
+.vercel
