@@ -8,7 +8,14 @@
 #
 # Requires one repository secret: VERCEL_TOKEN
 #   Create at https://vercel.com/account/settings/tokens
-#   Add at   Settings -> Secrets and variables -> Actions -> New repository secret
+#
+# The token is scoped to the humanrespect-app *project*, not to the team.
+# Project tokens have no user identity and no team-level read access, so
+# anything that resolves a user or team fails with "User not found" and
+# `vercel pull` fails with "Could not retrieve Project Settings" — even though
+# the token is valid. So: no whoami, no --scope, no pull, no prebuild.
+# `vercel deploy` builds remotely using the env vars already configured on the
+# project, which is what the native Git integration does anyway.
 #
 # The org and project IDs below are identifiers, not credentials.
 
@@ -50,26 +57,10 @@ jobs:
       - name: Install Vercel CLI
         run: npm install --global vercel@59
 
-      # NOTE: no `vercel whoami` check and no --scope flag anywhere below.
-      # This token is project-scoped (Scope: humanrespect-app), and project
-      # tokens carry no user identity. Anything that resolves a user or team —
-      # whoami, teams ls, --scope — fails with "User not found" even though the
-      # token is valid. VERCEL_ORG_ID / VERCEL_PROJECT_ID target the project
-      # directly and need no such lookup.
-      - name: Pull Vercel environment
-        run: |
-          vercel pull --yes \
-            --environment=${{ github.ref == 'refs/heads/main' && 'production' || 'preview' }} \
-            --token=${{ secrets.VERCEL_TOKEN }}
-
-      - name: Build
-        run: vercel build ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} --token=${{ secrets.VERCEL_TOKEN }}
-
       - name: Deploy
-        id: deploy
         run: |
-          URL=$(vercel deploy --prebuilt \
+          URL=$(vercel deploy --yes \
             ${{ github.ref == 'refs/heads/main' && '--prod' || '' }} \
             --token=${{ secrets.VERCEL_TOKEN }})
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "Deployed to $URL"
           echo "Deployed to $URL" >> "$GITHUB_STEP_SUMMARY"
