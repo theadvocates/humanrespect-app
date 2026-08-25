@@ -57,15 +57,17 @@ jobs:
         env:
           TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
-          # Length and shape only — never the value. A Vercel token is 24
-          # characters; anything else means the secret was pasted with quotes,
-          # whitespace, or truncated.
-          echo "token length: ${#TOKEN} (expected 24)"
+          # Shape only — never the value. A Vercel token is 60 characters.
+          # The prefix check catches the common mistake of pasting a different
+          # credential (sbp_ = Supabase, ghp_ = GitHub) into this secret.
+          echo "token length: ${#TOKEN} (expected 60)"
           case "$TOKEN" in
-            *[[:space:]]*) echo "WARNING: token contains whitespace" ;;
-            \"*|\'*)       echo "WARNING: token starts with a quote character" ;;
-            "")            echo "WARNING: token is empty" ;;
-            *)             echo "token shape looks plausible" ;;
+            "")            echo "PROBLEM: secret is empty" ;;
+            *[[:space:]]*) echo "PROBLEM: token contains whitespace" ;;
+            sbp_*)         echo "PROBLEM: this is a Supabase token, not a Vercel one" ;;
+            ghp_*|gho_*)   echo "PROBLEM: this is a GitHub token, not a Vercel one" ;;
+            prj_*|team_*)  echo "PROBLEM: this is a Vercel ID, not an access token" ;;
+            *)             echo "prefix does not match a known wrong-credential pattern" ;;
           esac
           echo "Authenticated as:"
           vercel whoami --token="$TOKEN"
