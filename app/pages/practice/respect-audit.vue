@@ -1,0 +1,47 @@
+<template>
+  <div class="exp-app" :class="{ 'dark-mode': isDark }">
+    <div class="exp-container">
+      <Transition name="screen-fade" mode="out-in">
+        <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" />
+      </Transition>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { computed, watch } from 'vue'
+import { useScreenNav } from '@/composables/useScreenNav'
+import { useAnalytics } from '@/composables/useAnalytics'
+
+import Opening from '@/components/experiences/practice04/Opening.vue'
+import HowItWorks from '@/components/experiences/practice04/HowItWorks.vue'
+import DayOne from '@/components/experiences/practice04/DayOne.vue'
+import TheCommitment from '@/components/experiences/practice04/TheCommitment.vue'
+
+definePageMeta({ name: 'practice04' })
+usePageSeo('practice04')
+
+const screenNames = ['opening','how-it-works','day-one','the-commitment']
+const { currentScreen, advance, goBack } = useScreenNav(4, 'practice04', screenNames)
+const { trackCompletion } = useAnalytics()
+
+const screenComponents = [Opening, HowItWorks, DayOne, TheCommitment]
+const currentComponent = computed(() => screenComponents[currentScreen.value])
+const isDark = computed(() => currentScreen.value === 0)
+
+watch(currentScreen, (idx) => {
+  if (idx === 3) trackCompletion('practice04')
+})
+
+useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) } })
+</script>
+
+<style scoped>
+.exp-app { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem; transition: background 0.6s ease, color 0.6s ease; background: var(--paper); }
+.exp-app.dark-mode { background: var(--bg-dark); color: var(--text-inverse); }
+.exp-container { max-width: 640px; width: 100%; }
+.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
+.screen-fade-enter-from { opacity: 0; transform: translateY(16px); }
+.screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
+@media (max-width: 480px) { .exp-app { padding: 1.5rem 1rem; } }
+</style>

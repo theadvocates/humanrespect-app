@@ -1,0 +1,67 @@
+<template>
+  <div class="exp-app" :class="{ 'dark-mode': isDark }">
+    <div class="exp-container">
+      <Transition name="screen-fade" mode="out-in">
+        <component :is="currentComponent" :key="screenKey" @advance="advance" @back="goBack" @set-income="handleIncome" @set-rate="handleRate" />
+      </Transition>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, computed, watch, provide } from 'vue'
+import { useAnalytics } from '@/composables/useAnalytics'
+
+import Opening from '@/components/experiences/pillarB/Opening.vue'
+import TheCalculation from '@/components/experiences/pillarB/TheCalculation.vue'
+import TheReframe from '@/components/experiences/pillarB/TheReframe.vue'
+import TheHierarchy from '@/components/experiences/pillarB/TheHierarchy.vue'
+import TheRecognition from '@/components/experiences/pillarB/TheRecognition.vue'
+import TheQuestion from '@/components/experiences/pillarB/TheQuestion.vue'
+
+definePageMeta({ name: 'pillarB' })
+usePageSeo('pillarB')
+
+const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
+const screenNames = ['opening','the-calculation','the-reframe','the-hierarchy','the-recognition','the-question']
+
+const TOTAL_SCREENS = 6
+const currentScreen = ref(0)
+const history = ref([0])
+const income = ref(null)
+const taxRate = ref(null)
+
+provide('income', income)
+provide('taxRate', taxRate)
+
+const screenComponents = [Opening, TheCalculation, TheReframe, TheHierarchy, TheRecognition, TheQuestion]
+const currentComponent = computed(() => screenComponents[currentScreen.value])
+const isDark = computed(() => currentScreen.value === 0)
+const screenKey = computed(() => `${currentScreen.value}`)
+
+watch(currentScreen, (idx) => {
+  trackScreenView('pillarB', screenNames[idx])
+  if (idx === TOTAL_SCREENS - 1) trackCompletion('pillarB', { income: income.value, taxRate: taxRate.value })
+})
+
+useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) } })
+
+function advance() {
+  if (currentScreen.value < TOTAL_SCREENS - 1) { currentScreen.value++; history.value.push(currentScreen.value); window.scrollTo(0, 0) }
+}
+function goBack() {
+  if (history.value.length > 1) { history.value.pop(); currentScreen.value = history.value[history.value.length - 1]; window.scrollTo(0, 0) }
+}
+function handleIncome(val) { income.value = val; trackChoice('pillarB', 'income', val) }
+function handleRate(val) { taxRate.value = val; trackChoice('pillarB', 'tax-rate', val) }
+</script>
+
+<style scoped>
+.exp-app { width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem 1.5rem; transition: background 0.6s ease, color 0.6s ease; background: var(--paper); }
+.exp-app.dark-mode { background: var(--bg-dark); color: var(--text-inverse); }
+.exp-container { max-width: 640px; width: 100%; }
+.screen-fade-enter-active, .screen-fade-leave-active { transition: opacity 0.4s ease, transform 0.4s ease; }
+.screen-fade-enter-from { opacity: 0; transform: translateY(16px); }
+.screen-fade-leave-to { opacity: 0; transform: translateY(-8px); }
+@media (max-width: 480px) { .exp-app { padding: 1.5rem 1rem; } }
+</style>
