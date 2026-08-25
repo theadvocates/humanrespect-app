@@ -49,29 +49,11 @@ jobs:
         run: npx eslint .
 
       - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+        run: npm install --global vercel@59
 
-      # Surfaces token/scope problems directly. "Could not retrieve Project
-      # Settings" otherwise gives no hint about which of the two is wrong.
-      - name: Verify token access
-        env:
-          TOKEN: ${{ secrets.VERCEL_TOKEN }}
-        run: |
-          # Shape only — never the value. A Vercel token is 60 characters.
-          # The prefix check catches the common mistake of pasting a different
-          # credential (sbp_ = Supabase, ghp_ = GitHub) into this secret.
-          echo "token length: ${#TOKEN} (expected 60)"
-          case "$TOKEN" in
-            "")            echo "PROBLEM: secret is empty" ;;
-            *[[:space:]]*) echo "PROBLEM: token contains whitespace" ;;
-            sbp_*)         echo "PROBLEM: this is a Supabase token, not a Vercel one" ;;
-            ghp_*|gho_*)   echo "PROBLEM: this is a GitHub token, not a Vercel one" ;;
-            prj_*|team_*)  echo "PROBLEM: this is a Vercel ID, not an access token" ;;
-            *)             echo "prefix does not match a known wrong-credential pattern" ;;
-          esac
-          echo "Authenticated as:"
-          vercel whoami --token="$TOKEN"
-
+      # NOTE: no `vercel whoami` check here. This token is project-scoped
+      # (Scope: humanrespect-app), and project tokens carry no user identity,
+      # so whoami returns "User not found" even when the token is valid.
       - name: Pull Vercel environment
         run: |
           vercel pull --yes \
