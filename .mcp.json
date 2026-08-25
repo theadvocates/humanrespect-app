@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "supabase-humanrespect": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supabase/mcp-server-supabase@latest",
+        "--project-ref=jnspwumpiqbfqlveduzz"
+      ],
+      "env": {
+        "SUPABASE_ACCESS_TOKEN": "${SUPABASE_ACCESS_TOKEN}"
+      }
+    }
+  }
+}

@@ -9,6 +9,7 @@ Postgres on Supabase. Migrations are plain SQL, applied in filename order.
 | `0003_row_level_security.sql` | RLS policies for every table |
 | `0004_seed_experience_catalog.sql` | The 15 experiences, tiers, and ordering |
 | `0005_certificates.sql` | Tier-completion check, issuance, public verification |
+| `0006_rate_limits.sql` | Shared rate-limit counters for `/api/subscribe` |
 
 ## The identity model
 

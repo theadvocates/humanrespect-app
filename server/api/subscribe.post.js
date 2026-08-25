@@ -5,26 +5,49 @@
  * Writes to Supabase (when configured) and Buttondown; succeeds if either does.
  */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-
-// Naive in-memory rate limit: enough to blunt casual abuse of a public endpoint.
-const attempts = new Map()
-const WINDOW_MS = 60_000
 const MAX_PER_WINDOW = 5
+const WINDOW_SECS = 60
 
-function rateLimited(ip) {
-  const now = Date.now()
-  const hits = (attempts.get(ip) || []).filter((t) => now - t < WINDOW_MS)
-  hits.push(now)
-  attempts.set(ip, hits)
-  if (attempts.size > 5000) attempts.clear()
-  return hits.length > MAX_PER_WINDOW
+/**
+ * Rate limiting lives in Postgres, not in module memory: each serverless
+ * instance has its own memory and instances are recycled, so an in-process
+ * counter is per-instance and effectively unenforced. The database is the
+ * shared state every instance already has.
+ *
+ * Fails open — a limiter outage should not take signups down with it.
+ */
+async function rateLimited(config, ip) {
+  const url = config.public.supabaseUrl
+  const key = config.supabaseServiceKey
+  if (!url || !key) return false
+
+  try {
+    const res = await fetch(`${url}/rest/v1/rpc/check_rate_limit`, {
+      method: 'POST',
+      headers: {
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        p_bucket: 'subscribe',
+        p_identifier: ip,
+        p_max: MAX_PER_WINDOW,
+        p_window_secs: WINDOW_SECS
+      })
+    })
+    if (!res.ok) return false
+    return (await res.json()) === false
+  } catch {
+    return false
+  }
 }
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const ip = getRequestHeader(event, 'x-forwarded-for')?.split(',')[0]?.trim() || 'unknown'
 
-  if (rateLimited(ip)) {
+  if (await rateLimited(config, ip)) {
     throw createError({ statusCode: 429, statusMessage: 'Too many requests. Try again shortly.' })
   }
 
