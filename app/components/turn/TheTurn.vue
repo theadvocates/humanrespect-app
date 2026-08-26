@@ -9,12 +9,13 @@
       <!-- ── 1. The recall ─────────────────────────────────────────────── -->
       <div v-if="beat === 0" key="recall" class="beat">
         <h1 class="turn-head">
-          Think of the last real disagreement you had with someone you love.
+          Think of someone you know who is wrong about something that matters.
         </h1>
         <p class="turn-body">
-          Not about where to eat. Something that mattered — money, a child, a
-          decision you'd both have to live with. You were certain you were right.
-          They were just as certain.
+          Not a stranger on the internet. Someone you actually know — family, a
+          friend, someone you work with. And something real: money, how to raise
+          a child, who to vote for. You're certain you're right. They are every
+          bit as certain they are.
         </p>
         <p class="turn-body turn-body-quiet">Hold it in mind. Have you got one?</p>
         <button class="turn-btn" @click="advance('recall')">Yes, I've got one <span aria-hidden="true">→</span></button>
@@ -65,32 +66,32 @@
 
       <!-- ── 4. The turn ───────────────────────────────────────────────── -->
       <div v-else-if="beat === 3" key="turn" class="beat">
-        <h2 class="turn-head">You just described what force does to people.</h2>
+        <h2 class="turn-head">Now look at what you didn't say.</h2>
         <ul class="echo-list">
           <li v-for="r in pickedReasons" :key="r.id" class="echo">{{ r.echo }}</li>
         </ul>
         <p class="turn-body">
-          You didn't get that from a philosophy book. You got it from living
-          among other human beings. You've run that experiment your whole life —
-          in your family, your friendships, your work — and reached the same
-          answer every time.
+          Not one of those is <em>because I care about them</em>. Every reason you
+          gave is about what force does — to them, to you, to the chance that
+          you're the one who's wrong.
         </p>
-        <p class="turn-body turn-emphasis">Persuasion builds. Force diminishes.</p>
+        <p class="turn-body turn-emphasis">
+          They'd all still be true if you couldn't stand the person.
+        </p>
         <button class="turn-btn" @click="advance('turn')">Go on <span aria-hidden="true">→</span></button>
       </div>
 
       <!-- ── 5. The pivot ──────────────────────────────────────────────── -->
       <div v-else-if="beat === 4" key="pivot" class="beat">
-        <h2 class="turn-head">Now hold that next to this.</h2>
+        <h2 class="turn-head">So here's the harder part.</h2>
         <p class="turn-body">
-          When millions of people disagree — about healthcare, schools, drugs,
-          immigration — the system we built to settle it <em>is</em> the button.
-          Pass a law. Compel compliance. Fine or imprison those who refuse.
+          You already press it. Not with your own hand — you delegate. Every law
+          you support is that button, pointed at people who never agreed to it and
+          who are every bit as certain they're right as the person you were just
+          thinking about.
         </p>
-        <p class="turn-body">
-          The people on the receiving end are every bit as certain they're right,
-          every bit as complex, and every bit as resentful of being overridden as
-          the person you were thinking about a minute ago.
+        <p class="turn-body turn-emphasis">
+          The button doesn't change because someone else's finger is on it.
         </p>
         <button class="turn-btn" @click="advance('pivot')">
           So what's the question? <span aria-hidden="true">→</span>
@@ -101,20 +102,29 @@
       <div v-else key="question" class="beat">
         <p class="turn-eyebrow">The Philosophy of Human Respect</p>
         <h2 class="turn-head turn-head-final">
-          If you already know force doesn't work on someone you love —
-          <em>why do we build everything else on it?</em>
+          You wouldn't press it yourself.
+          <em>Would you pay someone else to?</em>
         </h2>
         <p class="turn-body">
-          That's the whole idea. It took about a minute. Everything past this
-          point is evidence, objections, and what to do about it — and none of it
-          is required.
+          That's the turn — and it isn't that force is bad. You knew that before
+          you got here. It's that the reasons it fails don't stop applying when
+          the person is a stranger, and don't transfer to someone else when you
+          delegate the pressing.
+        </p>
+        <p class="turn-body">
+          Everything past this point is evidence, objections, and what to do
+          about it. None of it is required.
         </p>
 
         <div class="paths">
-          <NuxtLink :to="{ name: 'exp02' }" class="path path-primary" @click="track('path', { to: 'objection' })">
-            <span class="path-label">Most people push back here</span>
-            <span class="path-title">The strongest objection to this</span>
-            <span class="path-meta">4 minutes</span>
+          <NuxtLink :to="{ name: 'exp05' }" class="path path-primary" @click="track('path', { to: 'agency' })">
+            <span class="path-label">Follow that thread</span>
+            <span class="path-title">If you hire someone to steal, who stole?</span>
+            <span class="path-meta">8 minutes · on delegating force</span>
+          </NuxtLink>
+          <NuxtLink :to="{ name: 'exp02' }" class="path" @click="track('path', { to: 'objection' })">
+            <span class="path-title">Hang on — I have an objection</span>
+            <span class="path-meta">4 minutes · the strongest case against</span>
           </NuxtLink>
           <NuxtLink :to="{ name: 'exp03' }" class="path" @click="track('path', { to: 'flourishing' })">
             <span class="path-title">Is any of this actually true?</span>
@@ -136,7 +146,7 @@
 const BEATS = 6
 
 const REASONS = [
-  { id: 'damage', text: 'It would damage what we have', echo: 'Force breaks the relationship.' },
+  { id: 'damage', text: 'It would wreck the relationship', echo: 'Force wrecks the relationship.' },
   { id: 'mind', text: "They'd comply, but they wouldn't change their mind", echo: 'Force produces compliance, not agreement.' },
   { id: 'resent', text: "They'd resent me for it", echo: 'Force breeds resentment.' },
   { id: 'wrong', text: 'I might be the one who\'s wrong', echo: 'Force removes the correction that disagreement provides.' },
