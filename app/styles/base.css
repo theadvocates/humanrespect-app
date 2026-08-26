@@ -103,11 +103,6 @@ a {
     }
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
+/* Reduced motion is handled once, at the end of mobile.css — the last
+   stylesheet loaded, which is what it takes to beat the !important stagger
+   delays declared there. */

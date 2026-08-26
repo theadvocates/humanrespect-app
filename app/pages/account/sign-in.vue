@@ -203,7 +203,7 @@ async function handleGoogle() {
   cursor: pointer;
   transition: all var(--transition);
 }
-.submit-button:hover:not(:disabled) { background: var(--ochre-light); border-color: var(--ochre-light); }
+.submit-button:hover:not(:disabled) { background: var(--ochre-deep); border-color: var(--ochre-deep); }
 .submit-button:disabled { opacity: 0.4; cursor: default; }
 
 .fine-print { margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-faint); line-height: 1.6; }

@@ -148,7 +148,7 @@ async function submit() {
   -webkit-tap-highlight-color: transparent;
 }
 
-.submit-btn:hover:not(:disabled) { background: var(--ochre-light); }
+.submit-btn:hover:not(:disabled) { background: var(--ochre-deep); }
 .submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
 .privacy-note {

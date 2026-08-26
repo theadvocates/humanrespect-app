@@ -86,7 +86,10 @@ function react(idx, reactionId) {
       setTimeout(() => {
         const blocks = document.querySelectorAll('.response-block')
         const nextBlock = blocks[idx + 1]
-        if (nextBlock) nextBlock.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // scroll-behavior in CSS does not govern scrollIntoView's own
+        // behavior option, so the preference has to be read here too.
+        const still = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+        if (nextBlock) nextBlock.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' })
       }, 100)
     })
   }

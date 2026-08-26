@@ -203,7 +203,7 @@ async function handleSignOut() {
   cursor: pointer;
   transition: all var(--transition);
 }
-.submit-button:hover:not(:disabled) { background: var(--ochre-light); border-color: var(--ochre-light); }
+.submit-button:hover:not(:disabled) { background: var(--ochre-deep); border-color: var(--ochre-deep); }
 .submit-button:disabled { opacity: 0.4; cursor: default; }
 
 .text-button {

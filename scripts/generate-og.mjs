@@ -31,7 +31,7 @@ const FONTS = join(ROOT, '.fonts')
 const INK = '#1E1C19'
 const INK_MUTED = '#6E6A62'
 const PAPER = '#F4F0EA'
-const OCHRE = '#9A7B4F'
+const OCHRE = '#856439'  // must track --ochre in tokens.css
 
 /** Satori needs real font data — it does not fall back to system fonts. */
 async function font(family, weight, file) {

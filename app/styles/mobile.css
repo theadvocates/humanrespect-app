@@ -214,3 +214,47 @@
     .stagger.animate > *:nth-child(5) { transition-delay: 0.26s !important; }
     .stagger.animate > *:nth-child(n+6) { transition-delay: 0.3s !important; }
 }
+
+/* ── Reduced motion ───────────────────────────────────────────────────────
+   The single global block, deliberately last. Two things it has to get right
+   that the previous version (duplicated in base.css and typography.css) did
+   not:
+
+   - Delays, not just durations. Every reveal on this site starts at
+     opacity: 0 and is brought in by a staggered transition. Zeroing the
+     duration alone still leaves an element invisible for up to 0.95s, which
+     is exactly the flicker-and-wait that reduced motion exists to avoid.
+   - Specificity. The stagger delays above are declared !important on
+     `.stagger.animate > *:nth-child(n)`, so a universal `*` selector loses
+     to them however important it is. The overrides below match that
+     specificity and win on source order.
+
+   Motion is reduced to near-zero rather than to zero: 0.01ms still fires
+   transitionend, which some reveals rely on to advance.                    */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        animation-delay: 0s !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0s !important;
+    }
+
+    .stagger.animate > *:nth-child(n),
+    .reveal-stagger.visible > *:nth-child(n) {
+        transition-delay: 0s !important;
+    }
+
+    /* Anything waiting on an observer or a class that may never arrive is
+       shown outright rather than left at opacity: 0. */
+    .stagger > *,
+    .reveal,
+    .reveal-stagger > * {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

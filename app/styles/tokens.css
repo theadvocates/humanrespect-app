@@ -2,7 +2,9 @@
     --ink: #1E1C19;
     --ink-soft: #3D3A34;
     --ink-muted: #6E6A62;
-    --ink-faint: #A09B92;
+    /* 4.73:1 on --paper. The old #A09B92 was 2.43:1 — below AA for the body
+       copy, captions and input placeholders that use it. */
+    --ink-faint: #6F6A61;
     --paper: #F4F0EA;
     --paper-warm: #EDE8E0;
     --paper-deep: #E4DED5;
@@ -10,9 +12,19 @@
     --bg-dark: #1A1A2E;
     --text-inverse: #F0EBE3;
 
-    --ochre: #9A7B4F;
+    /* Two ochres, and which one you want depends on what it sits on.
+       --ochre is the light-surface one: 4.77:1 on --paper (the old #9A7B4F
+       was 3.48:1) and 5.41:1 under white button text.
+       --ochre-light is the dark-surface one, unchanged at 6.30:1 on
+       --bg-dark, where every experience Opening uses it. Darkening it to
+       satisfy the light pages would have dropped it to 3.31:1 there —
+       fixing one screen by breaking fifteen. */
+    --ochre: #856439;
     --ochre-light: #B8995E;
-    --ochre-faint: rgba(154, 123, 79, 0.08);
+    /* Hover for filled ochre buttons on light pages. These used to hover
+       *lighter*, to --ochre-light, which put white text at 2.71:1. */
+    --ochre-deep: #6E5330;
+    --ochre-faint: rgba(133, 100, 57, 0.08);
 
     --insight-green: #2E5E4E;
     --insight-bg: #E8F0EC;
@@ -51,6 +63,15 @@ body {
 /* Dark mode base */
 body.dark-mode {
     background: var(--bg-dark);
+}
+
+/* The light-surface values above are unreadable on --bg-dark: --ink-faint
+   falls to 3.32:1 and --ochre to 3.31:1. Remap both so anything reaching for
+   them inside a dark experience resolves to the dark-surface pair instead. */
+.dark-mode {
+    --ink-faint: #A09B92;
+    --ochre: var(--ochre-light);
+    --ochre-deep: var(--ochre-light);
 }
 
 /* ── Responsive base font ── */
