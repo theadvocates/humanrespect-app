@@ -59,6 +59,32 @@ RLS was verified by assuming the `anon` role directly: reads of `journeys`,
 `events`, and `newsletter_subscribers` all return zero rows, deletes affect
 zero rows, and the writes the live Cloudflare site depends on still succeed.
 
+## Testing
+
+`humanrespect-test` (`mmsmdamtsimzxcisppww`, in the `theadvocates` org) is a
+disposable free-tier project used by `test/database.test.js`. Branching would
+have been the obvious tool but requires the Pro plan; a separate free project
+is equivalent for this purpose and costs nothing.
+
+Its schema is asserted identical to production's — 72 columns and 12 functions
+match exactly. The only deliberate difference is the two legacy INSERT policies
+(`"Anyone can insert events"`, `"Anyone can subscribe"`), which exist in
+production for the still-live Cloudflare site and are not recreated here. The
+test database therefore holds the post-cutover target state.
+
+Every test runs inside a transaction that is rolled back, so they are
+order-independent and leave nothing behind. They skip unless
+`SUPABASE_ACCESS_TOKEN` is set:
+
+```sh
+npm test                      # unit tests; database tests skipped
+SUPABASE_ACCESS_TOKEN=... npm test    # everything
+```
+
+To rebuild the test database from scratch, apply `0000` through `0007` in
+order — `0000_legacy_baseline.sql` recreates the original tables so the set
+replays from empty.
+
 ## Applying
 
 With the Supabase CLI, from the repo root:

@@ -55,8 +55,16 @@ jobs:
         run: npx eslint .
 
       # Runs before the deploy, so a broken build never reaches production.
+      #
+      # The database tests skip themselves unless SUPABASE_ACCESS_TOKEN is set,
+      # so CI is green without it. Adding it is a deliberate choice: a Supabase
+      # access token grants full account access, and it would be sitting in CI.
+      # Weigh that against catching a claim_journey regression automatically.
       - name: Test
         run: npm test
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_TEST_REF: mmsmdamtsimzxcisppww
 
       - name: Install Vercel CLI
         run: npm install --global vercel@59
