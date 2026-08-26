@@ -103,7 +103,9 @@ useSeoMeta({
       : 'Verify a Human Respect certificate.',
   ogTitle: seoTitle,
   ogUrl: () => `${SITE_URL}/certificate/${code.value}`,
-  ogImage: `${SITE_URL}/og-default.png`,
+  // Certificates are per-person, so they share the fallback card rather than
+  // getting one each — but the generated one, not the old static image.
+  ogImage: `${SITE_URL}/og/default.png`,
   twitterCard: 'summary_large_image'
 })
 </script>

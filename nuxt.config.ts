@@ -54,6 +54,26 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    // Security headers for every route.
+    //
+    // These lived in public/_headers, which is a Cloudflare Pages format that
+    // Vercel silently ignores — so from the DNS cutover until now the site
+    // sent none of them. Route rules are the Nitro-native equivalent and work
+    // on any host.
+    '/**': {
+      headers: {
+        // The site is never legitimately framed, and framing is how
+        // clickjacking works.
+        'X-Frame-Options': 'DENY',
+        'X-Content-Type-Options': 'nosniff',
+        // Send the origin cross-site but never the full path — visiting
+        // /certificate/<code> should not leak that code in a referer header.
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        // Nothing here needs a camera, a microphone, or a location.
+        'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+      }
+    },
+
     // Analytics served from our own domain. PostHog's own domains are on every
     // blocker list, so a large share of requests never arrive. The order
     // matters: the static rule must precede the catch-all.
