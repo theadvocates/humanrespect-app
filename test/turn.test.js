@@ -72,6 +72,10 @@ describe('the Turn', () => {
 
     await clickText(w, "So what's the question?")
     expect(w.text()).toContain('Would you pay someone else to?')
+
+    // The share belongs on this beat: the argument has just landed, which is
+    // the only moment someone wants to send it to anyone.
+    expect(w.text(), 'no way to share at the point of impact').toContain('Copy link')
   })
 
   it('echoes back the reasons the visitor chose, and only those', async () => {

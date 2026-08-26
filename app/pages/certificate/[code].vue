@@ -17,6 +17,15 @@
           Verified certificate · humanrespect.app/certificate/{{ code }}
         </p>
 
+        <ShareLink
+          class="cert-share"
+          :path="`/certificate/${code}`"
+          source="certificate"
+          prompt="Share it."
+          subject="I finished the foundation of the Philosophy of Human Respect"
+          text="I worked through the foundation of the Philosophy of Human Respect — a set of questions about force, cooperation, and how people should treat each other."
+        />
+
         <div class="cert-cta">
           <p class="body-text">
             This is a record of someone working through a set of questions about
@@ -41,6 +50,7 @@
 
 <script setup>
 import { getSupabase } from '@/lib/supabase'
+import ShareLink from '@/components/shared/ShareLink.vue'
 import { SITE_URL } from '@/utils/seo'
 
 definePageMeta({ name: 'certificate' })
@@ -166,7 +176,8 @@ useSeoMeta({
   color: var(--ink-faint);
 }
 
-.cert-cta { margin-top: 3.5rem; }
+.cert-share { margin-top: 2rem; display: flex; justify-content: center; flex-direction: column; align-items: center; }
+.cert-cta { margin-top: 3rem; }
 .cta-link {
   display: inline-block;
   margin-top: 1.5rem;

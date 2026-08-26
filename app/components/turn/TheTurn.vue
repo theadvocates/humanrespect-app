@@ -116,6 +116,12 @@
           about it. None of it is required.
         </p>
 
+        <ShareLink
+          class="turn-share"
+          source="turn_question"
+          prompt="Most people want to try this on someone. Go on."
+        />
+
         <div class="paths">
           <NuxtLink :to="{ name: 'exp05' }" class="path path-primary" @click="track('path', { to: 'agency' })">
             <span class="path-label">Follow that thread</span>
@@ -143,6 +149,8 @@
 </template>
 
 <script setup>
+import ShareLink from '@/components/shared/ShareLink.vue'
+
 const BEATS = 6
 
 const REASONS = [
@@ -351,6 +359,13 @@ onMounted(() => {
   padding: 0.45rem 0 0.45rem 1.15rem;
   border-left: 2px solid var(--ochre-light);
   margin-bottom: 0.5rem;
+}
+
+.turn-share {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-subtle);
 }
 
 .paths { display: flex; flex-direction: column; gap: 0.75rem; width: 100%; margin-top: 2.25rem; }
