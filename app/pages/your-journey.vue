@@ -1,286 +1,270 @@
 <template>
   <div class="page">
-    <div ref="el" class="page-container stagger">
-
+    <div class="page-container">
       <p class="caption">Your journey</p>
-      <h1 class="display-large" style="margin-top: 0.5rem;">
-        {{ hasAnyProgress ? greeting : 'Begin here.' }}
-      </h1>
+      <h1 class="display-large" style="margin-top: 0.5rem;">{{ heading }}</h1>
       <Divider />
 
-      <!-- NO PROGRESS YET -->
-      <div v-if="!hasAnyProgress" class="empty-state">
-        <p class="body-text-large">The Philosophy of Human Respect is a series of experiences designed to help you discover, through your own reasoning, how voluntary cooperation relates to human flourishing.</p>
-        <p class="body-text">Each experience takes 5-10 minutes. Start with the first one.</p>
-        <div style="margin-top: 2rem;">
-          <PathCard :to="{ name: 'exp01' }" :recommended="true">
-            <template #title>The Question</template>
-            <template #desc>A five-minute thought experiment that reveals something about your own moral reasoning.</template>
-          </PathCard>
-        </div>
+      <!-- Someone who arrives here without having done the Turn has skipped
+           the one-minute version of the whole argument. Send them there
+           rather than opening with a wall of fifteen cards. -->
+      <div v-if="!hasAnyProgress" class="intro">
+        <p class="body-text-large">
+          Everything here is optional. The question on the home page takes about
+          a minute and contains the core of it; the rest is evidence,
+          objections, and what to do about it.
+        </p>
+        <NuxtLink to="/" class="start-card">
+          <span class="start-label">Start here</span>
+          <span class="start-title">The question</span>
+          <span class="start-meta">About a minute · no account needed</span>
+        </NuxtLink>
+        <p class="body-text intro-note">
+          Or skip ahead — the full catalogue is below. Nothing is gated and
+          nothing has to be done in order.
+        </p>
       </div>
 
-      <!-- HAS PROGRESS -->
       <template v-else>
+        <p class="body-text-large summary-line">
+          You've finished <strong>{{ completedCount }}</strong> of
+          {{ total }} experiences — about {{ minutesDone }} minutes of the
+          roughly {{ minutesTotal }} here.
+        </p>
 
-        <!-- WHAT YOU'VE DISCOVERED -->
-        <div v-if="completedList.length > 0" class="section">
-          <h2 class="section-heading">What you've discovered</h2>
-
-          <div class="completed-experiences">
-            <div v-for="exp in completedList" :key="exp.name" class="completed-card">
-              <div class="completed-header">
-                <div class="completed-check">✓</div>
-                <div>
-                  <div class="completed-title">{{ exp.title }}</div>
-                  <div v-if="exp.personalNote" class="completed-detail">{{ exp.personalNote }}</div>
-                </div>
-              </div>
-              <router-link :to="{ name: exp.name }" class="revisit-link">Revisit →</router-link>
-            </div>
-          </div>
-        </div>
-
-        <!-- RECOMMENDED NEXT -->
         <div v-if="recommended" class="section">
-          <h2 class="section-heading">Recommended next</h2>
-          <PathCard :to="{ name: recommended.name }" :recommended="true">
-            <template #title>{{ recommended.title }}</template>
-            <template #desc>{{ recommended.desc }}</template>
-          </PathCard>
+          <h2 class="section-heading">Pick up here</h2>
+          <NuxtLink :to="{ name: recommended.route }" class="start-card">
+            <span class="start-label">Recommended next</span>
+            <span class="start-title">{{ recommended.title }}</span>
+            <span class="start-meta">{{ recommended.minutes }} minutes</span>
+          </NuxtLink>
         </div>
 
-        <!-- FOUNDATION (if any incomplete) -->
-        <div v-if="availableByTier.foundation.length > 0" class="section">
-          <h2 class="section-heading">Foundation</h2>
-          <p class="section-note">Sequential experiences that build the philosophical framework.</p>
-          <div class="experience-list">
-            <PathCard v-for="exp in availableByTier.foundation" :key="exp.name" :to="{ name: exp.name }">
-              <template #title>{{ exp.title }}</template>
-              <template #desc>{{ exp.desc }}</template>
-            </PathCard>
-          </div>
+        <div v-if="done.length" class="section">
+          <h2 class="section-heading">What you've worked through</h2>
+          <ul class="done-list">
+            <li v-for="e in done" :key="e.id" class="done-item">
+              <span class="done-check" aria-hidden="true">✓</span>
+              <span class="done-title">{{ e.title }}</span>
+              <NuxtLink :to="{ name: e.route }" class="done-again">Revisit</NuxtLink>
+            </li>
+          </ul>
         </div>
-
-        <!-- ARGUMENTS (if any incomplete) -->
-        <div v-if="availableByTier.argument.length > 0" class="section">
-          <h2 class="section-heading">Arguments</h2>
-          <p class="section-note">Standalone arguments that deepen the case. Explore in any order.</p>
-          <div class="experience-list">
-            <PathCard v-for="exp in availableByTier.argument" :key="exp.name" :to="{ name: exp.name }">
-              <template #title>{{ exp.title }}</template>
-              <template #desc>{{ exp.desc }}</template>
-            </PathCard>
-          </div>
-        </div>
-
-        <!-- PILLARS (if any incomplete) -->
-        <div v-if="availableByTier.pillar.length > 0" class="section">
-          <h2 class="section-heading">Pillars</h2>
-          <p class="section-note">The three domains of human integrity and the case for cooperation.</p>
-          <div class="experience-list">
-            <PathCard v-for="exp in availableByTier.pillar" :key="exp.name" :to="{ name: exp.name }">
-              <template #title>{{ exp.title }}</template>
-              <template #desc>{{ exp.desc }}</template>
-            </PathCard>
-          </div>
-        </div>
-
-        <!-- PRACTICES (if any incomplete) -->
-        <div v-if="availableByTier.practice.length > 0" class="section">
-          <h2 class="section-heading">Practices</h2>
-          <p class="section-note">Apply the philosophy to your actual life.</p>
-          <div class="experience-list">
-            <PathCard v-for="exp in availableByTier.practice" :key="exp.name" :to="{ name: exp.name }">
-              <template #title>{{ exp.title }}</template>
-              <template #desc>{{ exp.desc }}</template>
-            </PathCard>
-          </div>
-        </div>
-
-        <!-- PROGRESS SUMMARY -->
-        <div class="progress-bar-section">
-          <div class="progress-label">{{ completedCount }} of {{ totalCount }} experiences completed</div>
-          <div class="progress-track">
-            <div class="progress-fill" :style="{ width: progressPct + '%' }"/>
-          </div>
-        </div>
-
-        <!-- NEWSLETTER -->
-        <NewsletterSignup
-          v-if="completedCount >= 2"
-          source="your_journey"
-          headline="Stay with it."
-          description="A weekly email applying the Philosophy of Human Respect to real situations."
-          button-text="Subscribe"
-        />
-
       </template>
 
-    </div>
-
-    <footer class="page-footer">
-      <div class="footer-inner">
-        <div class="footer-left">Human Respect</div>
-        <div class="footer-right">
-          <router-link to="/about" class="footer-link">About</router-link>
-          <router-link to="/privacy" class="footer-link">Privacy</router-link>
-        </div>
+      <!-- The full catalogue, always visible. Grouping is by commitment rather
+           than by the old abstract tier names, and every card carries its real
+           time cost — an unlabelled one is what makes people bail. -->
+      <div v-for="tier in TIER_ORDER" :key="tier" class="section">
+        <h2 class="section-heading">{{ TIERS[tier].label }}</h2>
+        <p class="section-note">{{ TIERS[tier].note }}</p>
+        <ul class="exp-list">
+          <li v-for="e in byTier(tier)" :key="e.id">
+            <NuxtLink :to="{ name: e.route }" class="exp" :class="{ finished: isDone(e.id) }">
+              <span class="exp-main">
+                <span class="exp-title">
+                  <span v-if="isDone(e.id)" class="exp-check" aria-hidden="true">✓</span>
+                  {{ e.title }}
+                </span>
+                <span class="exp-short">{{ e.short }}</span>
+              </span>
+              <span class="exp-time">{{ e.minutes }} min</span>
+            </NuxtLink>
+          </li>
+        </ul>
       </div>
-    </footer>
+
+      <div class="progress-block">
+        <div class="progress-track" role="progressbar" :aria-valuenow="pct" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-fill" :style="{ width: pct + '%' }"/>
+        </div>
+        <p class="progress-label">{{ completedCount }} of {{ total }} complete</p>
+      </div>
+
+      <NewsletterSignup
+        v-if="completedCount >= 2"
+        source="your_journey"
+        headline="Stay with it."
+        description="A short email now and then, applying the philosophy to a real situation."
+        button-text="Subscribe"
+      />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
-import PathCard from '@/components/shared/PathCard.vue'
 import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
 import { useJourneyStore } from '@/stores/journey'
-import { objections } from '@/components/experiences/exp02/objectionData.js'
+import { EXPERIENCES, TIERS, TIER_ORDER, byTier, totalMinutes } from '@/utils/experiences'
 
 definePageMeta({ name: 'your-journey' })
 usePageSeo('your-journey')
 
 const journey = useJourneyStore()
-const el = ref(null)
 
-onMounted(() => {
-  requestAnimationFrame(() => el.value?.classList.add('animate'))
-})
+const total = EXPERIENCES.length
+const minutesTotal = totalMinutes()
 
-const allExperiences = [
-  { name: 'exp01', title: 'The Question', tier: 'foundation', order: 1, desc: 'You already know that force damages relationships. The question is why we abandon that principle at scale.' },
-  { name: 'exp03', title: 'What Flourishing Means', tier: 'foundation', order: 2, desc: 'Pick your strongest objection. It gets steelmanned and honestly conceded.' },
-  { name: 'exp02', title: 'The Objection', tier: 'foundation', order: 3, desc: 'The empirical grounding for the principle, traced through your own life.' },
-  { name: 'exp04', title: 'The Realist Objection', tier: 'argument', order: 4, desc: 'People are flawed. That is the strongest argument for voluntary cooperation.' },
-  { name: 'exp05', title: 'Human Agency', tier: 'argument', order: 5, desc: 'If you hire someone to steal, you bear responsibility. What about voting?' },
-  { name: 'pillarA', title: 'Bodily Integrity', tier: 'pillar', order: 6, desc: 'Why safety is the precondition for all flourishing.' },
-  { name: 'pillarB', title: 'Temporal Integrity', tier: 'pillar', order: 7, desc: 'Time as the irreplaceable substance of life.' },
-  { name: 'pillarC', title: 'Material Integrity', tier: 'pillar', order: 8, desc: 'Property as crystallized time. The cost of insecurity.' },
-  { name: 'pillarD', title: 'The Human Respect Method', tier: 'pillar', order: 9, desc: 'Your values are not the problem. The question is force or persuasion.' },
-  { name: 'pillarE', title: 'Cooperation as Technology', tier: 'pillar', order: 10, desc: 'Real evidence that voluntary cooperation works at scale.' },
-  { name: 'practice01', title: 'Political Footprint', tier: 'practice', order: 11, desc: 'Map where force operates in your life vs. where you support it.' },
-  { name: 'practice02', title: 'Persuasion Practice', tier: 'practice', order: 12, desc: 'Draft a persuasion-only approach to an issue you care about.' },
-  { name: 'practice03', title: 'The Conversation', tier: 'practice', order: 13, desc: 'A framework for discussing this with someone who disagrees.' },
-  { name: 'practice04', title: 'Respect Audit', tier: 'practice', order: 14, desc: 'Notice force vs. persuasion in your daily life for 7 days.' },
-  { name: 'practice05', title: 'Design a Solution', tier: 'practice', order: 15, desc: 'Pick a real problem. Solve it with zero coercion.' },
-]
-
-const totalCount = allExperiences.length
-
-function isCompleted(name) {
-  if (name === 'exp01') return !!journey.exp01?.completed
-  if (name === 'exp02') return !!journey.exp02?.completed
-  return !!journey.completions?.[name]
+function isDone(id) {
+  if (id === 'exp01') return !!journey.exp01?.completed
+  if (id === 'exp02') return !!journey.exp02?.completed
+  return !!journey.completions?.[id]
 }
 
-const hasAnyProgress = computed(() => {
-  return journey.exp01?.completed || journey.exp02?.completed ||
-    (journey.completions && Object.keys(journey.completions).length > 0) ||
-    journey.visitor?.totalExperiences > 0
-})
+const done = computed(() => EXPERIENCES.filter((e) => isDone(e.id)))
+const completedCount = computed(() => done.value.length)
+const minutesDone = computed(() => done.value.reduce((n, e) => n + e.minutes, 0))
+const pct = computed(() => Math.round((completedCount.value / total) * 100))
 
-const completedCount = computed(() =>
-  allExperiences.filter(e => isCompleted(e.name)).length
-)
+const hasAnyProgress = computed(() => completedCount.value > 0)
 
-const progressPct = computed(() =>
-  Math.round(100 * completedCount.value / totalCount)
-)
-
-const greeting = computed(() => {
-  const count = completedCount.value
-  if (count >= 14) return 'You have explored the full philosophy.'
-  if (count >= 10) return 'You are deep into this.'
-  if (count >= 5) return 'You are building something here.'
-  if (count >= 2) return 'You have started something.'
-  return 'Welcome back.'
-})
-
-function getPersonalNote(name) {
-  if (name === 'exp01' && journey.exp01?.completed) {
-    return journey.exp01.wouldForce === 'no'
-      ? 'You chose persuasion over force — and articulated why.'
-      : 'You explored what happens when force feels justified.'
-  }
-  if (name === 'exp02' && journey.exp02?.chosenObjection) {
-    const obj = objections[journey.exp02.chosenObjection]
-    return obj ? `You chose: ${obj.title}` : null
+// The next unfinished experience in curriculum order — foundation first, then
+// arguments, then pillars, then practices.
+const recommended = computed(() => {
+  for (const tier of TIER_ORDER) {
+    const next = byTier(tier).find((e) => !isDone(e.id))
+    if (next) return next
   }
   return null
-}
-
-const completedList = computed(() =>
-  allExperiences
-    .filter(e => isCompleted(e.name))
-    .map(e => ({ ...e, personalNote: getPersonalNote(e.name) }))
-)
-
-const recommended = computed(() => {
-  const incomplete = allExperiences.filter(e => !isCompleted(e.name))
-  if (incomplete.length === 0) return null
-  // Foundation first, in order
-  const nextFoundation = incomplete.find(e => e.tier === 'foundation')
-  if (nextFoundation) return nextFoundation
-  // Then arguments
-  const nextArgument = incomplete.find(e => e.tier === 'argument')
-  if (nextArgument) return nextArgument
-  // Then pillars
-  const nextPillar = incomplete.find(e => e.tier === 'pillar')
-  if (nextPillar) return nextPillar
-  // Then practices
-  return incomplete.find(e => e.tier === 'practice') || null
 })
 
-const availableByTier = computed(() => {
-  const incomplete = allExperiences.filter(e => !isCompleted(e.name))
-  return {
-    foundation: incomplete.filter(e => e.tier === 'foundation'),
-    argument: incomplete.filter(e => e.tier === 'argument'),
-    pillar: incomplete.filter(e => e.tier === 'pillar'),
-    practice: incomplete.filter(e => e.tier === 'practice'),
-  }
+const heading = computed(() => {
+  const n = completedCount.value
+  if (n === 0) return 'Begin wherever you like.'
+  if (n >= total) return "You've been through all of it."
+  if (n >= 10) return 'You are deep into this.'
+  if (n >= 5) return 'You are building something here.'
+  return 'Welcome back.'
 })
 </script>
 
 <style scoped>
-.page { background: var(--paper); min-height: 100vh; }
-.page-container { max-width: 640px; margin: 0 auto; padding: 5rem 1.5rem 4rem; }
+.page { min-height: 100vh; background: var(--paper); }
+.page-container { max-width: 44rem; margin: 0 auto; padding: 6rem 1.5rem 5rem; }
 
-.section { margin-top: 3rem; }
-.section-heading { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--ink); margin-bottom: 0.5rem; }
-.section-note { font-size: 0.82rem; color: var(--ink-faint); margin-bottom: 1rem; line-height: 1.5; }
+.intro { margin-bottom: 1rem; }
+.intro-note { margin-top: 1.5rem; color: var(--ink-muted); font-size: 0.92rem; }
+.summary-line { margin-bottom: 0.5rem; }
+.summary-line strong { color: var(--ink); font-weight: 500; }
 
-.empty-state { margin-top: 1.5rem; }
+.section { margin-top: 3.25rem; }
+.section-heading {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 0.4rem;
+}
+.section-note {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  margin: 0 0 1.25rem;
+}
 
-.completed-experiences { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.75rem; }
-.completed-card { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.1rem; background: var(--cream); border: 1px solid var(--border-subtle); border-radius: var(--radius); }
-.completed-header { display: flex; gap: 0.75rem; align-items: flex-start; flex: 1; }
-.completed-check { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; background: var(--insight-bg); color: var(--insight-green); font-size: 0.65rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
-.completed-title { font-family: var(--serif); font-size: 0.92rem; font-weight: 500; color: var(--ink); }
-.completed-detail { font-size: 0.75rem; color: var(--ink-faint); margin-top: 0.15rem; font-style: italic; }
-.revisit-link { flex-shrink: 0; font-size: 0.75rem; color: var(--ochre); text-decoration: none; font-family: var(--sans); transition: opacity 0.2s; }
-.revisit-link:hover { opacity: 0.7; }
+.start-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.2rem 1.5rem;
+  margin-top: 1.5rem;
+  background: var(--cream);
+  border: 1.5px solid var(--ochre-light);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.start-card:hover { border-color: var(--ochre); transform: translateX(3px); }
+.start-label {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ochre);
+}
+.start-title { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); }
+.start-meta { font-family: var(--sans); font-size: 0.84rem; color: var(--ink-muted); }
 
-.experience-list { display: flex; flex-direction: column; gap: 0.5rem; }
+.exp-list, .done-list { list-style: none; padding: 0; margin: 0; }
+.exp-list li { margin-bottom: 0.6rem; }
 
-.progress-bar-section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); }
-.progress-label { font-size: 0.78rem; color: var(--ink-faint); margin-bottom: 0.5rem; }
-.progress-track { height: 6px; background: var(--paper-warm); border-radius: 3px; overflow: hidden; }
-.progress-fill { height: 100%; background: var(--ochre); border-radius: 3px; transition: width 0.6s ease; }
+.exp {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1rem 1.35rem;
+  background: var(--cream);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.exp:hover { border-color: var(--ochre); transform: translateX(3px); }
+.exp.finished { background: transparent; }
+.exp-main { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.exp-title {
+  font-family: var(--serif);
+  font-size: 1.12rem;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.exp-check { color: var(--insight-green); font-size: 0.85rem; }
+.exp-short {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.exp-time {
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-faint);
+  white-space: nowrap;
+  padding-top: 0.25rem;
+}
 
-.page-footer { padding: 3rem 1.5rem; background: var(--ink); display: flex; justify-content: center; }
-.footer-inner { max-width: 640px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
-.footer-left { font-family: var(--serif); font-size: 0.85rem; font-weight: 400; color: rgba(244, 240, 234, 0.3); }
-.footer-right { display: flex; gap: 2rem; }
-.footer-link { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244, 240, 234, 0.25); text-decoration: none; transition: color 0.3s ease; }
-.footer-link:hover { color: rgba(244, 240, 234, 0.6); }
+.done-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.done-check { color: var(--insight-green); font-size: 0.85rem; }
+.done-title { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); flex: 1; }
+.done-again {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--ochre);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+.done-again:hover { border-bottom-color: var(--ochre); }
 
-@media (max-width: 480px) {
-  .page-container { padding: 3.5rem 1.25rem 3rem; }
-  .footer-inner { flex-direction: column; gap: 1.5rem; text-align: center; }
-  .completed-card { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
-  .revisit-link { align-self: flex-end; }
+.progress-block { margin-top: 3.5rem; }
+.progress-track { height: 2px; background: var(--paper-deep); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--ochre); transition: width 0.6s ease; }
+.progress-label {
+  margin-top: 0.75rem;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp:hover, .start-card:hover { transform: none; }
+}
+
+@media (max-width: 640px) {
+  .page-container { padding: 5rem 1.15rem 3rem; }
+  .exp { flex-direction: column; gap: 0.5rem; }
+  .exp-time { padding-top: 0; }
 }
 </style>

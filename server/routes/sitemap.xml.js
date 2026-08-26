@@ -1,4 +1,5 @@
 import { pageMeta, SITE_URL } from '../../app/utils/seo.js'
+import { EXPERIENCES } from '../../app/utils/experiences.js'
 
 /**
  * Sitemap generated from the same metadata the pages use, so a new experience
@@ -8,25 +9,10 @@ import { pageMeta, SITE_URL } from '../../app/utils/seo.js'
  * every crawler that followed it found nothing.
  */
 
-// Route path for each key in pageMeta. Anything not listed is intentionally
-// excluded: account pages are noindex, certificates are per-person.
-const ROUTES = {
+// Standalone pages. Experience URLs come from the catalogue below, so adding
+// one there puts it in the sitemap automatically.
+const STATIC_ROUTES = {
   home: '/',
-  exp01: '/experience/the-question',
-  exp02: '/experience/the-objection',
-  exp03: '/experience/flourishing',
-  exp04: '/experience/human-nature',
-  exp05: '/experience/human-agency',
-  pillarA: '/pillar/your-body-is-not-negotiable',
-  pillarB: '/pillar/your-time-is-your-life',
-  pillarC: '/pillar/what-you-built',
-  pillarD: '/pillar/the-method-is-the-message',
-  pillarE: '/pillar/cooperation-is-a-technology',
-  practice01: '/practice/political-footprint',
-  practice02: '/practice/persuasion-practice',
-  practice03: '/practice/the-conversation',
-  practice04: '/practice/respect-audit',
-  practice05: '/practice/design-a-solution',
   about: '/about',
   terms: '/terms',
   privacy: '/privacy'
@@ -46,7 +32,12 @@ const PRIORITY = {
 export default defineEventHandler((event) => {
   const lastmod = new Date().toISOString().split('T')[0]
 
-  const urls = Object.entries(ROUTES)
+  const routes = {
+    ...STATIC_ROUTES,
+    ...Object.fromEntries(EXPERIENCES.map((e) => [e.id, e.path]))
+  }
+
+  const urls = Object.entries(routes)
     .filter(([key]) => pageMeta[key])
     .map(([key, path]) => {
       const priority = PRIORITY[key] || '0.6'
