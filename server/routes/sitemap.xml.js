@@ -1,5 +1,8 @@
-import { pageMeta, SITE_URL } from '../../app/utils/seo.js'
-import { EXPERIENCES } from '../../app/utils/experiences.js'
+// Nuxt's ~ alias resolves to the app directory in both the dev server and the
+// production bundle. Relative paths only work in the bundle — they resolved to
+// /app/utils/... in dev and broke `nuxt dev` entirely.
+import { pageMeta, SITE_URL } from '~/utils/seo.js'
+import { EXPERIENCES } from '~/utils/experiences.js'
 
 /**
  * Sitemap generated from the same metadata the pages use, so a new experience
