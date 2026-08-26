@@ -51,6 +51,19 @@ describe('sitemap contents', () => {
   })
 })
 
+describe('social cards', () => {
+  it('has a card committed for every page', async () => {
+    const { readdirSync } = await import('node:fs')
+    const files = new Set(readdirSync('public/og'))
+    for (const key of Object.keys(pageMeta)) {
+      expect(files.has(`${key}.png`),
+        `no social card for "${key}" — run npm run og; a missing card is a 404 in the link preview`
+      ).toBe(true)
+    }
+    expect(files.has('default.png'), 'no fallback card').toBe(true)
+  })
+})
+
 describe('SEO metadata', () => {
   it('gives every page a description short enough to survive a search result', () => {
     for (const [key, meta] of Object.entries(pageMeta)) {

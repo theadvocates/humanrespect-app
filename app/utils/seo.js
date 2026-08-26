@@ -3,7 +3,9 @@
 
 export const SITE_URL = 'https://humanrespect.app'
 export const SITE_NAME = 'Human Respect'
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-default.png`
+// Fallback card. Per-page cards live at /og/<key>.png — see
+// scripts/generate-og.mjs.
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og/default.png`
 
 export const pageMeta = {
   home: {

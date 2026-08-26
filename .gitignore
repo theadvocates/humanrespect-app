@@ -51,3 +51,6 @@ __screenshots__/
 
 # Vercel
 .vercel
+
+# Fonts fetched by the OG generator; regenerated on demand.
+.fonts
