@@ -47,13 +47,19 @@ export default defineNuxtConfig({
       // PostHog project key. Public by design — it is write-only and ships in
       // the browser bundle. Analytics no-op entirely when it is unset.
       posthogKey: process.env.NUXT_PUBLIC_POSTHOG_KEY || '',
-      posthogHost: process.env.NUXT_PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+      posthogHost: process.env.NUXT_PUBLIC_POSTHOG_HOST || '/ingest',
       // Google Search Console verification token, if using the meta-tag method.
       googleSiteVerification: process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || ''
     }
   },
 
   routeRules: {
+    // Analytics served from our own domain. PostHog's own domains are on every
+    // blocker list, so a large share of requests never arrive. The order
+    // matters: the static rule must precede the catch-all.
+    '/ingest/static/**': { proxy: 'https://us-assets.i.posthog.com/static/**' },
+    '/ingest/**': { proxy: 'https://us.i.posthog.com/**' },
+
     // The account page reads session state, which only exists in the browser —
     // server-rendering it would always evaluate as signed-out and bounce the
     // user to sign-in. It is noindex, so nothing is lost by client-rendering.

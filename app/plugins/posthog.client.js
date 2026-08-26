@@ -36,7 +36,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const boot = () => import('posthog-js').then(({ default: posthog }) => {
     posthog.init(posthogKey, {
-      api_host: posthogHost || 'https://us.i.posthog.com',
+      // Same-origin, proxied by the /ingest route rules in nuxt.config.
+      // ui_host keeps toolbar and replay links pointing at PostHog itself.
+      api_host: posthogHost || '/ingest',
+      ui_host: 'https://us.posthog.com',
 
       // First-party storage only. Not a cookie, never sent cross-site.
       persistence: 'localStorage',

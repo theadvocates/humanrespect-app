@@ -16,6 +16,10 @@
 
       <p class="body-text"><strong>Basic traffic data.</strong> We use PostHog to understand how many people visit the site, which pages they read, and where traffic comes from. It runs without cookies — the anonymous ID it uses is the same one described above, kept in your browser's local storage and never shared with other sites. We don't record your screen, we don't build heatmaps, and we never transmit anything you type into the interactive questions.</p>
 
+      <p class="body-text"><strong>Where those requests go.</strong> We should be straightforward about one detail, because we'd rather you heard it from us. Analytics requests are sent to <code class="inline-code">humanrespect.app/ingest</code> and forwarded from there, rather than going to PostHog's own address. This is ordinary practice and it makes the numbers more accurate, but it has a consequence worth stating: a content blocker that blocks PostHog by name will no longer stop these requests, because they no longer carry PostHog's name.</p>
+
+      <p class="body-text">So that you keep a real choice: we honour your browser's <strong>Do Not Track</strong> setting, and when it's on we collect nothing at all. Blocking <code class="inline-code">humanrespect.app/ingest</code> also works and breaks nothing — the experiences run exactly the same either way. What we collect through that route is unchanged from what's described above: anonymous, first-party, never sold, never shared.</p>
+
       <p class="body-text"><strong>Account information.</strong> You don't need an account to use this site. If you create one, we store your email address so we can sign you in, and — if you sign in with Google — the name on your Google account, which we use only to put a name on a certificate. We never receive your Google password, and we ask Google for nothing beyond your email address and name.</p>
 
       <p class="body-text"><strong>Your progress, once you have an account.</strong> Signing in links the anonymous progress described above to your account so it follows you between devices. That means the choices you made in the experiences stop being purely anonymous to us and become associated with your email address. If you'd rather that didn't happen, simply don't create an account — everything on the site works without one.</p>
@@ -28,7 +32,7 @@
       <h2 class="section-heading">What we don't do</h2>
       <Divider />
 
-      <p class="body-text">We don't sell your data to anyone. We don't share it with advertisers. We don't use tracking cookies. We don't run retargeting campaigns. We don't use Google Analytics. We don't record your screen or replay your sessions. We honour your browser's Do Not Track setting. We don't build profiles that follow you across the internet.</p>
+      <p class="body-text">We don't route your data to advertisers. We don't sell your data to anyone. We don't share it with advertisers. We don't use tracking cookies. We don't run retargeting campaigns. We don't use Google Analytics. We don't record your screen or replay your sessions. We honour your browser's Do Not Track setting. We don't build profiles that follow you across the internet.</p>
 
       <p class="body-text">We don't gate any content behind email capture. Every experience on this site is fully accessible without signing up for anything.</p>
 
@@ -129,6 +133,13 @@ usePageSeo('privacy')
 
 <style scoped>
 .meta-note { margin-top: 2.5rem; font-size: 0.85rem; color: var(--ink-faint); }
+.inline-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.88em;
+  padding: 0.1em 0.35em;
+  background: var(--paper-deep);
+  border-radius: 3px;
+}
 
 .page {
   background: var(--paper);
