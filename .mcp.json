@@ -10,6 +10,14 @@
       "env": {
         "SUPABASE_ACCESS_TOKEN": "${SUPABASE_ACCESS_TOKEN}"
       }
+    },
+    "posthog-humanrespect": {
+      "command": "npx",
+      "args": ["-y", "@posthog/mcp@latest"],
+      "env": {
+        "POSTHOG_AUTH_HEADER": "Bearer ${POSTHOG_PERSONAL_API_KEY}",
+        "POSTHOG_API_BASE_URL": "https://us.posthog.com"
+      }
     }
   }
 }
