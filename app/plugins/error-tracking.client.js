@@ -15,30 +15,26 @@
  * lazily at report time rather than captured at registration.
  */
 
-// Identical errors fire repeatedly — a render loop can produce hundreds a
-// second. Reporting each one would drown the signal and burn quota.
-const seen = new Map()
-const WINDOW_MS = 60_000
-const MAX_PER_ERROR = 3
-const MAX_TOTAL = 25
-let totalReported = 0
-
-function shouldReport(signature) {
-  if (totalReported >= MAX_TOTAL) return false
-  const now = Date.now()
-  const hits = (seen.get(signature) || []).filter((t) => now - t < WINDOW_MS)
-  hits.push(now)
-  seen.set(signature, hits)
-  if (hits.length > MAX_PER_ERROR) return false
-  totalReported += 1
-  return true
-}
+import { createErrorThrottle } from '~/utils/errorThrottle'
 
 export default defineNuxtPlugin((nuxtApp) => {
+  const throttle = createErrorThrottle()
+
+  // The whole body is guarded. An error reporter that throws masks the very
+  // error it was called about and cascades into further unhandled rejections —
+  // which is exactly what happened here: the payload built `window.location`
+  // outside the try, and a listener firing during teardown threw
+  // ReferenceError: window is not defined.
   function report(kind, error, context = {}) {
+    try {
+      reportUnsafe(kind, error, context)
+    } catch (e) { /* never let reporting become the failure */ }
+  }
+
+  function reportUnsafe(kind, error, context = {}) {
     const message = String(error?.message || error || 'Unknown error')
     const signature = `${kind}:${message}`.slice(0, 200)
-    if (!shouldReport(signature)) return
+    if (!throttle.shouldReport(signature)) return
 
     const payload = {
       error_kind: kind,
@@ -46,7 +42,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       // Stacks are truncated: the top frames identify the fault, and full
       // traces from minified bundles are mostly noise.
       error_stack: String(error?.stack || '').split('\n').slice(0, 8).join('\n').slice(0, 1500),
-      page: window.location?.pathname,
+      // globalThis rather than window: this can run during teardown, where
+      // the window binding may already be gone.
+      page: globalThis?.location?.pathname ?? null,
       ...context
     }
 

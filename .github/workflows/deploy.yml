@@ -54,6 +54,10 @@ jobs:
       - name: Lint
         run: npx eslint .
 
+      # Runs before the deploy, so a broken build never reaches production.
+      - name: Test
+        run: npm test
+
       - name: Install Vercel CLI
         run: npm install --global vercel@59
 
