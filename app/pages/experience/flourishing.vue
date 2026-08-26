@@ -1,16 +1,29 @@
 <template>
-  <div class="exp-app" :class="{ 'dark-mode': isDark }">
-    <div class="exp-container">
-      <Transition name="screen-fade" mode="out-in">
-        <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" @select-conditions="handleConditions" @select-violations="handleViolations" />
-      </Transition>
+  <div>
+    <div class="exp-app" :class="{ 'dark-mode': isDark }">
+      <div class="exp-container">
+        <Transition name="screen-fade" mode="out-in">
+          <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" @select-conditions="handleConditions" @select-violations="handleViolations" />
+        </Transition>
+      </div>
     </div>
+
+    <ExperienceEssay
+      id="exp03"
+      :essay="essay"
+      :title="meta.title"
+      :path="meta.path"
+      :show-cue="currentScreen === 0"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch, provide } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
+import essay from '@/content/essays/exp03.js'
+import { EXPERIENCES } from '@/utils/experiences.js'
 
 import Opening from '@/components/experiences/exp03/Opening.vue'
 import BestPeriod from '@/components/experiences/exp03/BestPeriod.vue'
@@ -22,6 +35,8 @@ import TheBridge from '@/components/experiences/exp03/TheBridge.vue'
 
 definePageMeta({ name: 'exp03' })
 usePageSeo('exp03')
+
+const meta = EXPERIENCES.find((e) => e.id === 'exp03')
 
 const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
 const screenNames = ['opening','best-period','the-pattern','worst-period','three-domains','flourishing-principle','the-bridge']

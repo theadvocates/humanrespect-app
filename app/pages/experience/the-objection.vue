@@ -1,17 +1,27 @@
 <template>
-  <div class="exp-app" :class="{ 'dark-mode': isDark }">
-    <div class="exp-container">
-      <Transition name="screen-fade" mode="out-in">
-        <component
-          :is="currentComponent"
-          :key="screenKey"
-          @advance="advance"
-          @back="goBack"
-          @choose-objection="handleObjectionChoice"
-          @restart-with="restartWith"
-        />
-      </Transition>
+  <div>
+    <div class="exp-app" :class="{ 'dark-mode': isDark }">
+      <div class="exp-container">
+        <Transition name="screen-fade" mode="out-in">
+          <component
+            :is="currentComponent"
+            :key="screenKey"
+            @advance="advance"
+            @back="goBack"
+            @choose-objection="handleObjectionChoice"
+            @restart-with="restartWith"
+          />
+        </Transition>
+      </div>
     </div>
+
+    <ExperienceEssay
+      id="exp02"
+      :essay="essay"
+      :title="meta.title"
+      :path="meta.path"
+      :show-cue="currentScreen === 0"
+    />
   </div>
 </template>
 
@@ -19,6 +29,9 @@
 import { ref, computed, watch } from 'vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
+import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
+import essay from '@/content/essays/exp02.js'
+import { EXPERIENCES } from '@/utils/experiences.js'
 
 import Opening from '@/components/experiences/exp02/Opening.vue'
 import ChooseObjection from '@/components/experiences/exp02/ChooseObjection.vue'
@@ -31,6 +44,8 @@ import WhereNext from '@/components/experiences/exp02/WhereNext.vue'
 
 definePageMeta({ name: 'exp02' })
 usePageSeo('exp02')
+
+const meta = EXPERIENCES.find((e) => e.id === 'exp02')
 
 const journey = useJourneyStore()
 const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()

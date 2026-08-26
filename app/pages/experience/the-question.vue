@@ -1,15 +1,25 @@
 <template>
-  <div class="exp-app" :class="{ 'dark-mode': isDark }">
-    <div class="exp-container">
-      <Transition name="screen-fade" mode="out-in">
-        <component
-          :is="currentComponent"
-          :key="currentScreen"
-          @advance="advance"
-          @back="goBack"
-        />
-      </Transition>
+  <div>
+    <div class="exp-app" :class="{ 'dark-mode': isDark }">
+      <div class="exp-container">
+        <Transition name="screen-fade" mode="out-in">
+          <component
+            :is="currentComponent"
+            :key="currentScreen"
+            @advance="advance"
+            @back="goBack"
+          />
+        </Transition>
+      </div>
     </div>
+
+    <ExperienceEssay
+      id="exp01"
+      :essay="essay"
+      :title="meta.title"
+      :path="meta.path"
+      :show-cue="currentScreen === 0"
+    />
   </div>
 </template>
 
@@ -17,6 +27,9 @@
 import { ref, computed, provide, watch } from 'vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
+import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
+import essay from '@/content/essays/exp01.js'
+import { EXPERIENCES } from '@/utils/experiences.js'
 
 import Opening from '@/components/experiences/exp01/Opening.vue'
 import TheDisagreement from '@/components/experiences/exp01/TheDisagreement.vue'
@@ -29,6 +42,8 @@ import Invitation from '@/components/experiences/exp01/Invitation.vue'
 
 definePageMeta({ name: 'exp01' })
 usePageSeo('exp01')
+
+const meta = EXPERIENCES.find((e) => e.id === 'exp01')
 
 const journey = useJourneyStore()
 const { trackScreenView, trackCompletion } = useAnalytics()

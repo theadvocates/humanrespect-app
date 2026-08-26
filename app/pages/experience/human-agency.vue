@@ -1,21 +1,34 @@
 <template>
-  <div class="exp-app" :class="{ 'dark-mode': isDark }">
-    <div class="exp-container">
-      <Transition name="screen-fade" mode="out-in">
-        <component
-          :is="currentComponent"
-          :key="currentScreen"
-          @advance="advance"
-          @back="goBack"
-        />
-      </Transition>
+  <div>
+    <div class="exp-app" :class="{ 'dark-mode': isDark }">
+      <div class="exp-container">
+        <Transition name="screen-fade" mode="out-in">
+          <component
+            :is="currentComponent"
+            :key="currentScreen"
+            @advance="advance"
+            @back="goBack"
+          />
+        </Transition>
+      </div>
     </div>
+
+    <ExperienceEssay
+      id="exp05"
+      :essay="essay"
+      :title="meta.title"
+      :path="meta.path"
+      :show-cue="currentScreen === 0"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
+import essay from '@/content/essays/exp05.js'
+import { EXPERIENCES } from '@/utils/experiences.js'
 
 import Opening from '@/components/experiences/exp05/Opening.vue'
 import TheHire from '@/components/experiences/exp05/TheHire.vue'
@@ -27,6 +40,8 @@ import TheQuestion from '@/components/experiences/exp05/TheQuestion.vue'
 
 definePageMeta({ name: 'exp05' })
 usePageSeo('exp05')
+
+const meta = EXPERIENCES.find((e) => e.id === 'exp05')
 
 const { trackScreenView, trackCompletion } = useAnalytics()
 

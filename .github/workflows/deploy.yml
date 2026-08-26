@@ -54,6 +54,14 @@ jobs:
       - name: Lint
         run: npx eslint .
 
+      # The suite includes a check that boots this output and reads what the
+      # server actually sends, because the failure it guards against — an
+      # experience page rendering its Opening and nothing else — is invisible
+      # to every other kind of test. Vercel builds again remotely; this one is
+      # here so that check has something to run against.
+      - name: Build
+        run: npm run build
+
       # Runs before the deploy, so a broken build never reaches production.
       #
       # The database tests skip themselves unless SUPABASE_ACCESS_TOKEN is set,

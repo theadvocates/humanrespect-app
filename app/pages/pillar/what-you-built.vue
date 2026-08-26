@@ -1,21 +1,34 @@
 <template>
-  <div class="exp-app" :class="{ 'dark-mode': isDark }">
-    <div class="exp-container">
-      <Transition name="screen-fade" mode="out-in">
-        <component
-          :is="currentComponent"
-          :key="currentScreen"
-          @advance="advance"
-          @back="goBack"
-        />
-      </Transition>
+  <div>
+    <div class="exp-app" :class="{ 'dark-mode': isDark }">
+      <div class="exp-container">
+        <Transition name="screen-fade" mode="out-in">
+          <component
+            :is="currentComponent"
+            :key="currentScreen"
+            @advance="advance"
+            @back="goBack"
+          />
+        </Transition>
+      </div>
     </div>
+
+    <ExperienceEssay
+      id="pillarC"
+      :essay="essay"
+      :title="meta.title"
+      :path="meta.path"
+      :show-cue="currentScreen === 0"
+    />
   </div>
 </template>
 
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
+import essay from '@/content/essays/pillarC.js'
+import { EXPERIENCES } from '@/utils/experiences.js'
 
 import Opening from '@/components/experiences/pillarC/Opening.vue'
 import WhatYouveBuilt from '@/components/experiences/pillarC/WhatYouveBuilt.vue'
@@ -26,6 +39,8 @@ import TheQuestion from '@/components/experiences/pillarC/TheQuestion.vue'
 
 definePageMeta({ name: 'pillarC' })
 usePageSeo('pillarC')
+
+const meta = EXPERIENCES.find((e) => e.id === 'pillarC')
 
 const { trackScreenView, trackCompletion } = useAnalytics()
 

@@ -1,10 +1,20 @@
 <template>
-  <div class="exp-app" :class="{ 'dark-mode': isDark }">
-    <div class="exp-container">
-      <Transition name="screen-fade" mode="out-in">
-        <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" />
-      </Transition>
+  <div>
+    <div class="exp-app" :class="{ 'dark-mode': isDark }">
+      <div class="exp-container">
+        <Transition name="screen-fade" mode="out-in">
+          <component :is="currentComponent" :key="currentScreen" @advance="advance" @back="goBack" />
+        </Transition>
+      </div>
     </div>
+
+    <ExperienceEssay
+      id="practice03"
+      :essay="essay"
+      :title="meta.title"
+      :path="meta.path"
+      :show-cue="currentScreen === 0"
+    />
   </div>
 </template>
 
@@ -12,6 +22,9 @@
 import { computed, watch } from 'vue'
 import { useScreenNav } from '@/composables/useScreenNav'
 import { useAnalytics } from '@/composables/useAnalytics'
+import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
+import essay from '@/content/essays/practice03.js'
+import { EXPERIENCES } from '@/utils/experiences.js'
 
 import Opening from '@/components/experiences/practice03/Opening.vue'
 import TheFramework from '@/components/experiences/practice03/TheFramework.vue'
@@ -20,6 +33,8 @@ import TheInvitation from '@/components/experiences/practice03/TheInvitation.vue
 
 definePageMeta({ name: 'practice03' })
 usePageSeo('practice03')
+
+const meta = EXPERIENCES.find((e) => e.id === 'practice03')
 
 const screenNames = ['opening','the-framework','the-examples','the-invitation']
 const { currentScreen, advance, goBack } = useScreenNav(4, 'practice03', screenNames)
