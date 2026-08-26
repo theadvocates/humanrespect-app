@@ -60,7 +60,7 @@ const TIER_LABELS = {
 const { data: cert } = await useAsyncData(
   () => `certificate-${code.value}`,
   async () => {
-    const supabase = getSupabase()
+    const supabase = await getSupabase()
     if (!supabase) return null
     const { data, error } = await supabase.rpc('verify_certificate', { p_code: code.value })
     if (error || !data?.length) return null

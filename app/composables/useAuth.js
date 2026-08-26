@@ -29,7 +29,7 @@ export function useAuth() {
   }
 
   async function sendMagicLink(email) {
-    const supabase = getSupabase()
+    const supabase = await getSupabase()
     if (!supabase) throw new Error('Sign-in is not configured yet.')
 
     loading.value = true
@@ -45,7 +45,7 @@ export function useAuth() {
   }
 
   async function signInWithGoogle() {
-    const supabase = getSupabase()
+    const supabase = await getSupabase()
     if (!supabase) throw new Error('Sign-in is not configured yet.')
 
     const { error } = await supabase.auth.signInWithOAuth({
@@ -56,7 +56,7 @@ export function useAuth() {
   }
 
   async function signOut() {
-    const supabase = getSupabase()
+    const supabase = await getSupabase()
     if (!supabase) return
     await supabase.auth.signOut()
     user.value = null
@@ -67,7 +67,7 @@ export function useAuth() {
    * merging server-side if the account already has progress from elsewhere.
    */
   async function claimJourney() {
-    const supabase = getSupabase()
+    const supabase = await getSupabase()
     const journey = useJourneyStore()
     if (!supabase || !user.value || !journey.visitorId) return
 

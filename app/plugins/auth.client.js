@@ -5,7 +5,7 @@ import { getSupabase } from '@/lib/supabase'
  * Claims the anonymous journey whenever a sign-in completes.
  */
 export default defineNuxtPlugin(async () => {
-  const supabase = getSupabase()
+  const supabase = await getSupabase()
   if (!supabase) return
 
   const { user, claimJourney } = useAuth()

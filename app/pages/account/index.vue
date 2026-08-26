@@ -91,7 +91,7 @@ watchEffect(() => {
 })
 
 async function saveName() {
-  const supabase = getSupabase()
+  const supabase = await getSupabase()
   if (!supabase || !user.value) return
   const trimmed = name.value.trim()
   if (!trimmed) return
@@ -108,7 +108,7 @@ async function saveName() {
 }
 
 async function claimCertificate() {
-  const supabase = getSupabase()
+  const supabase = await getSupabase()
   if (!supabase) return
 
   issuing.value = true

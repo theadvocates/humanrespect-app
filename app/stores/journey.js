@@ -140,7 +140,7 @@ export const useJourneyStore = defineStore('journey', {
      */
     async syncToSupabase() {
       if (!this.visitorId) return
-      const supabase = getSupabase()
+      const supabase = await getSupabase()
       if (!supabase) return
       try {
         const { error } = await supabase.rpc('sync_journey', {
@@ -183,7 +183,7 @@ export const useJourneyStore = defineStore('journey', {
 
     async trackEvent(eventName, properties = {}) {
       if (import.meta.server || !this.visitorId) return
-      const supabase = getSupabase()
+      const supabase = await getSupabase()
       if (!supabase) return
       try {
         await supabase.rpc('record_event', {
