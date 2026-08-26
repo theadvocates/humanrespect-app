@@ -102,6 +102,9 @@ import { EXPERIENCES, TIERS, TIER_ORDER, byTier, totalMinutes } from '@/utils/ex
 definePageMeta({ name: 'your-journey' })
 usePageSeo('your-journey')
 
+// Personalised to the visitor; nothing here is useful in search results.
+useHead({ meta: [{ name: 'robots', content: 'noindex, follow' }] })
+
 const journey = useJourneyStore()
 
 const total = EXPERIENCES.length

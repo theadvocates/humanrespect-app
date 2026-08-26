@@ -108,6 +108,9 @@ import { objections } from '@/components/experiences/exp02/objectionData.js'
 definePageMeta({ name: 'milestone' })
 usePageSeo('milestone')
 
+// A completion state, meaningless without the progress that produced it.
+useHead({ meta: [{ name: 'robots', content: 'noindex, follow' }] })
+
 const journey = useJourneyStore()
 const el = ref(null)
 

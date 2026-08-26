@@ -9,7 +9,7 @@
 
     <div class="calc-inputs">
       <div class="calc-field">
-        <label class="calc-label">Your approximate annual income</label>
+        <label class="calc-label" for="calc-income">Your approximate annual income</label>
         <div class="input-row">
           <span class="input-prefix">$</span>
           <input

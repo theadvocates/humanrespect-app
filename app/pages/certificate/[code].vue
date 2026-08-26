@@ -95,6 +95,14 @@ const seoTitle = computed(() =>
     : 'Certificate'
 )
 
+// A certificate names a real person. It is meant to be shared by them, via a
+// link they choose to give out — not surfaced to anyone searching their name.
+// Verification still works; only discovery is prevented.
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+  link: [{ rel: 'canonical', href: `${SITE_URL}/certificate/${code.value}` }]
+})
+
 useSeoMeta({
   title: () => `${seoTitle.value} — Human Respect`,
   description: () =>

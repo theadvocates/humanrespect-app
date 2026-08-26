@@ -73,6 +73,9 @@ import Divider from '@/components/shared/Divider.vue'
 definePageMeta({ name: 'sign-in' })
 usePageSeo('sign-in')
 
+// A utility page; a sign-in form in search results helps nobody.
+useHead({ meta: [{ name: 'robots', content: 'noindex, follow' }] })
+
 const { sendMagicLink, signInWithGoogle, loading, isSignedIn } = useAuth()
 const journey = useJourneyStore()
 
