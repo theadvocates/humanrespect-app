@@ -90,6 +90,76 @@ export const PARTNERS = {
         meta: 'courses.learnliberty.org'
       }
     ]
+  },
+
+  ra: {
+    name: 'Respect America',
+    approved: false,
+    sources: ['ra', 'respectamerica'],
+    hosts: ['respectamerica.org'],
+    // Their site already speaks this philosophy, and their work is stories of
+    // real people hurt by government coercion, so the lines point at those.
+    intro: {
+      eyebrow: 'The Human Respect Test · with Respect America',
+      lead:
+        "You wouldn't use violence or theft on a neighbor to solve a problem. Find out whether that still holds when a vote, a law, or a politician does it for you."
+    },
+    results: {
+      consistent:
+        'Respect America tells the stories of people hurt when that standard is dropped, and of the voluntary solutions that worked instead.',
+      loophole: 'Respect America tells the stories of real people who ended up on the other side of that gap.',
+      weighing: 'The stories of real people hurt by the system make it easier to see where the line belongs.',
+      force:
+        'Before you settle on that, meet the real people on the receiving end of it, and what they found instead.'
+    },
+    cta: [
+      {
+        href: 'https://www.respectamerica.org/join-our-newsletter',
+        title: 'Get their stories by email',
+        meta: "Respect America's newsletter, every two weeks"
+      },
+      {
+        href: 'https://www.respectamerica.org/videos',
+        title: 'Watch their stories',
+        meta: 'respectamerica.org'
+      }
+    ]
+  },
+
+  asg: {
+    name: 'The Advocates for Self-Government',
+    approved: false,
+    sources: ['asg', 'advocates', 'theadvocates'],
+    hosts: ['theadvocates.org'],
+    // Their audience arrives from the World's Smallest Political Quiz, so the
+    // test is framed as the question underneath it, and sends people back.
+    intro: {
+      eyebrow: 'The Human Respect Test · with The Advocates',
+      lead:
+        "The World's Smallest Political Quiz shows where you stand on the issues. This test asks what sits underneath them: how far you'd go to get your way, and whether that changes when someone else does it for you."
+    },
+    results: {
+      consistent:
+        "The World's Smallest Political Quiz will show where that standard puts you on a map with more than left and right.",
+      loophole:
+        "Take the World's Smallest Political Quiz next, and notice which issues you'd hand to a vote, a law, or a leader.",
+      weighing:
+        "The World's Smallest Political Quiz puts your views on a map with room for more than left and right. See where you land.",
+      force:
+        "The World's Smallest Political Quiz will show where that places you on the political map, and which political types see it differently."
+    },
+    cta: [
+      {
+        href: 'https://www.theadvocates.org/quiz/',
+        title: "Take the World's Smallest Political Quiz",
+        meta: 'The original political quiz, since 1987'
+      },
+      {
+        href: 'https://www.theadvocates.org/political-type-comparison/',
+        title: 'Compare the five political types',
+        meta: 'theadvocates.org'
+      }
+    ]
   }
 }
 

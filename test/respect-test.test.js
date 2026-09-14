@@ -156,6 +156,8 @@ describe('partner versions', () => {
     expect(resolvePartner({ query: { utm_source: 'You-Are-The-Power' } })).toBe('yatp')
     expect(resolvePartner({ referrer: 'https://www.youarethepower.net/causes/' })).toBe('yatp')
     expect(resolvePartner({ referrer: 'https://join.studentsforliberty.org/' })).toBe('sfl')
+    expect(resolvePartner({ referrer: 'https://www.respectamerica.org/?gclid=abc' })).toBe('ra')
+    expect(resolvePartner({ query: { utm_source: 'theadvocates' } })).toBe('asg')
     // An explicit tag beats wherever the click came from.
     expect(resolvePartner({ query: { partner: 'sfl' }, referrer: 'https://youarethepower.net/' })).toBe('sfl')
   })
@@ -219,6 +221,6 @@ describe('partner versions', () => {
   it('leaves the default test untouched without a tag', async () => {
     const w = await mountSuspended(RespectTest, { route: '/test' })
     expect(w.text()).toContain('The Human Respect Test')
-    expect(w.text()).not.toMatch(/Students For Liberty|You Are The Power/)
+    for (const p of Object.values(PARTNERS)) expect(w.text()).not.toContain(p.name)
   })
 })
