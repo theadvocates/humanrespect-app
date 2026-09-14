@@ -117,6 +117,10 @@ const OVERRIDES = {
     headline: 'Think of someone you know who is wrong about something that matters.',
     meta: 'One minute · humanrespect.app'
   },
+  test: {
+    headline: 'Persuade or force? And does your answer change when someone else does the forcing?',
+    meta: 'Under a minute · humanrespect.app/test'
+  },
   about: { headline: 'Why this exists.', meta: 'humanrespect.app' },
   'your-journey': { headline: 'Fifteen experiences. None of them required.', meta: 'humanrespect.app' }
 }

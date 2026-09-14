@@ -16,6 +16,7 @@ import { EXPERIENCES } from '~/utils/experiences.js'
 // one there puts it in the sitemap automatically.
 const STATIC_ROUTES = {
   home: '/',
+  test: '/test',
   about: '/about',
   terms: '/terms',
   privacy: '/privacy'
@@ -25,6 +26,7 @@ const STATIC_ROUTES = {
 const PRIORITY = {
   home: '1.0',
   exp01: '0.9',
+  test: '0.9',
   exp02: '0.8',
   exp03: '0.8',
   about: '0.7',

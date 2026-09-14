@@ -39,6 +39,14 @@ describe('ShareLink', () => {
     }
   })
 
+  it('appends the tag to a path that already has a query string', async () => {
+    // The partner versions of the test share /test?partner=…; a second "?"
+    // would fold ref=share into the partner id and lose both.
+    const w = await mountSuspended(ShareLink, { props: { path: '/test?partner=sfl', source: 'test' } })
+    const href = w.findAll('a').map((a) => a.attributes('href')).find((h) => h.includes('x.com'))
+    expect(new URL(href).searchParams.get('url')).toBe('https://humanrespect.app/test?partner=sfl&ref=share')
+  })
+
   it('builds a valid X intent carrying the site URL', async () => {
     const w = await mountSuspended(ShareLink, { props: { source: 'test' } })
     const href = w.findAll('a').map((a) => a.attributes('href')).find((h) => h.includes('x.com'))

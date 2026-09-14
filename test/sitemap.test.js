@@ -12,7 +12,7 @@ import { pageMeta, SITE_URL } from '../app/utils/seo.js'
  * page added to the catalogue and forgotten in the sitemap fails here.
  */
 
-const STATIC_PAGES = ['home', 'about', 'terms', 'privacy']
+const STATIC_PAGES = ['home', 'test', 'about', 'terms', 'privacy']
 
 describe('sitemap contents', () => {
   it('has SEO metadata for every static page it lists', () => {
@@ -31,8 +31,8 @@ describe('sitemap contents', () => {
     }
   })
 
-  it('lists nineteen URLs — fifteen experiences plus four pages', () => {
-    expect(EXPERIENCES.length + STATIC_PAGES.length).toBe(19)
+  it('lists twenty URLs — fifteen experiences plus five pages', () => {
+    expect(EXPERIENCES.length + STATIC_PAGES.length).toBe(20)
   })
 
   it('excludes pages that must never be indexed', () => {
@@ -46,7 +46,7 @@ describe('sitemap contents', () => {
   })
 
   it('never emits a duplicate URL', () => {
-    const all = [...EXPERIENCES.map((e) => e.path), '/', '/about', '/terms', '/privacy']
+    const all = [...EXPERIENCES.map((e) => e.path), '/', '/test', '/about', '/terms', '/privacy']
     expect(new Set(all).size).toBe(all.length)
   })
 })

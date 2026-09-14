@@ -85,7 +85,12 @@ export default defineNuxtConfig({
     // user to sign-in. It is noindex, so nothing is lost by client-rendering.
     // /account/sign-in and /account/callback render fine without a session and
     // keep SSR.
-    '/account': { ssr: false }
+    '/account': { ssr: false },
+
+    // Rendered per request, never prerendered: partner links (?partner=,
+    // utm_source) change the intro, and a static file would serve every
+    // partner the default copy and then swap it in after hydration.
+    '/test': { prerender: false }
   },
 
   nitro: {

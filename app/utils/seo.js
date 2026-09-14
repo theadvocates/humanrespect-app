@@ -13,6 +13,11 @@ export const pageMeta = {
     description:
       'A series of interactive philosophical experiences exploring how voluntary cooperation relates to human flourishing.'
   },
+  test: {
+    title: 'Persuade or Force? A One-Minute Test',
+    description:
+      'Ten statements, under a minute. Measure how you advance what you believe in, directly and through the people who act for you, and see the gap between the two.'
+  },
   exp01: {
     title: 'The Question',
     description:

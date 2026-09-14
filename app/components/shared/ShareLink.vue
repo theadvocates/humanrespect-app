@@ -65,7 +65,7 @@ const canShareNatively = ref(false)
 
 // ?ref=share marks arrivals from the loop, so its actual contribution is
 // measurable rather than assumed.
-const url = computed(() => `${SITE_URL}${props.path}?ref=share`)
+const url = computed(() => `${SITE_URL}${props.path}${props.path.includes('?') ? '&' : '?'}ref=share`)
 const xUrl = computed(() =>
   `https://x.com/intent/post?text=${encodeURIComponent(props.text)}&url=${encodeURIComponent(url.value)}`)
 const emailUrl = computed(() =>
