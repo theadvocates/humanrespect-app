@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Practice · Self-Examination</span>
+    <ExperiencePlate id="practice01" dark class="opening-plate" />
     <h1 class="display-large headline">Your political<br><em>footprint.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">Most of us support more coercion than we realize — not out of malice, but because it's invisible. This exercise makes it visible.</p>
@@ -10,6 +11,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Practice · Awareness</span>
+    <ExperiencePlate id="practice04" dark class="opening-plate" />
     <h1 class="display-large headline">The respect<br><em>audit.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">For seven days, notice one moment each day where you chose persuasion over force — or where you were tempted to reach for force. That's it. Just notice.</p>
@@ -10,6 +11,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

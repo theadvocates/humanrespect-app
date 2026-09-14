@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Bodily Integrity</span>
+    <ExperiencePlate id="pillarA" dark class="opening-plate" />
     <h1 class="display-large headline">Your body is<br><em>not negotiable.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">Before you can dream, create, build, cooperate, or love — you must be safe in your own skin. Bodily integrity is the first domain of human flourishing, and the most viscerally understood.</p>
@@ -11,6 +12,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

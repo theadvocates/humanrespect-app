@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Voluntary Cooperation</span>
+    <ExperiencePlate id="pillarE" dark class="opening-plate" />
     <h1 class="display-large headline">
       Cooperation is<br><em>a technology.</em>
     </h1>
@@ -19,6 +20,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

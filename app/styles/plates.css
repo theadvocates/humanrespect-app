@@ -1,0 +1,69 @@
+/* ── Plates ──
+   The engraved illustrations (app/utils/plates.js, <Plate>). A plate sits on
+   cream paper inside a debossed plate mark, like an intaglio print, with a
+   caption set in the serif below. On a dark screen it prints in light ink. */
+:root {
+    --plate-ink: var(--ink);
+    --plate-spot: var(--ochre);
+    --plate-paper: var(--cream);
+}
+
+.plate { display: grid; gap: 0.7rem; width: 100%; margin: 0; }
+.plate-paper {
+    position: relative;
+    background: var(--plate-paper);
+    padding: 6%;
+    box-shadow: 0 0 0 1px rgba(30, 28, 25, 0.07), 0 1px 2px rgba(30, 28, 25, 0.05), 0 12px 30px -18px rgba(30, 28, 25, 0.35);
+}
+.plate-mark {
+    display: block;
+    box-shadow: inset 0 0 0 1px rgba(30, 28, 25, 0.13), inset 1px 1px 0 1px rgba(255, 255, 255, 0.75), inset -1px -1px 0 1px rgba(30, 28, 25, 0.05);
+}
+.plate-mark canvas { display: block; width: 100%; height: auto; }
+.plate-cap { font-family: var(--serif); font-size: 0.98rem; line-height: 1.4; color: var(--ink-muted); }
+.plate-cap b { font-weight: 500; font-variant: small-caps; letter-spacing: 0.06em; color: var(--ink-soft); }
+.plate-cap i { font-style: italic; }
+
+.plate.on-dark { --plate-ink: #E8E1D3; --plate-spot: var(--ochre-light); --plate-paper: #22223A; }
+.plate.on-dark .plate-paper { box-shadow: 0 0 0 1px rgba(240, 235, 227, 0.1), 0 14px 30px -16px rgba(0, 0, 0, 0.6); }
+.plate.on-dark .plate-mark { box-shadow: inset 0 0 0 1px rgba(240, 235, 227, 0.16), inset 1px 1px 0 1px rgba(255, 255, 255, 0.05), inset -1px -1px 0 1px rgba(0, 0, 0, 0.25); }
+.plate.on-dark .plate-cap { color: rgba(240, 235, 227, 0.55); }
+.plate.on-dark .plate-cap b { color: rgba(240, 235, 227, 0.8); }
+
+.plate.bare .plate-paper { padding: 0; background: none; box-shadow: none; }
+.plate.bare .plate-mark { box-shadow: none; }
+
+/* ── Printer's touches that go with the plates ── */
+
+/* A drop cap for the first paragraph of a piece of prose. */
+.dropcap::first-letter {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 3.9em;
+    line-height: 0.78;
+    float: left;
+    padding: 0.08em 0.12em 0 0;
+    color: var(--ochre);
+}
+
+/* A printer's ornament between sections: a rule with a small star. */
+.ornament { display: flex; align-items: center; gap: 0.9rem; margin: 2.6rem 0; color: var(--ochre); opacity: 0.55; }
+.ornament::before, .ornament::after { content: ''; flex: 1; height: 1px; background: currentColor; }
+.ornament svg { width: 14px; height: 14px; display: block; }
+
+/* Paper grain: a touch of tooth over the whole page, so it reads as a
+   printed thing rather than a flat colour. Pure CSS; no image file. */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.11 0 0 0 0 0.1 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body.dark-mode::before { mix-blend-mode: screen; opacity: 0.03; }
+
+/* Where the plates sit on the dark Opening screens. */
+.opening-plate { width: min(15.5rem, 62vw); margin: 0 auto 2.4rem; }

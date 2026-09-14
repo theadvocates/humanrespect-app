@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Experience 05 · The Philosophy of Human Respect</span>
+    <ExperiencePlate id="exp05" dark class="opening-plate" />
     <h1 class="display-large headline">Human<br><em>agency.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">If you hire someone to break into your neighbor's house and take their money, who is responsible for the theft? You are. The person you hired is your agent. You are the principal. The moral weight falls on both of you — but it begins with you.</p>
@@ -12,6 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

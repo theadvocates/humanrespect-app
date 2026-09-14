@@ -88,15 +88,23 @@
           </p>
 
           <p class="rt-result-name">{{ result.name }}</p>
-          <h2 class="rt-head rt-head-result">{{ result.head }}</h2>
-          <p v-for="(p, i) in result.body" :key="i" class="rt-body">{{ p }}</p>
-          <p v-if="partner" class="rt-body rt-partner">{{ partner.results[resultKey] }}</p>
+          <div class="rt-result-grid">
+            <div class="rt-result-text">
+              <h2 class="rt-head rt-head-result">{{ result.head }}</h2>
+              <p v-for="(p, i) in result.body" :key="i" class="rt-body">{{ p }}</p>
+              <p v-if="partner" class="rt-body rt-partner">{{ partner.results[resultKey] }}</p>
 
-          <p class="rt-map">
-            This test doesn't measure whether your values lean liberal or
-            conservative. Both carry good values that most people share, to some
-            degree. It measures how you'd advance yours.
-          </p>
+              <p class="rt-map">
+                This test doesn't measure whether your values lean liberal or
+                conservative. Both carry good values that most people share, to some
+                degree. It measures how you'd advance yours.
+              </p>
+            </div>
+            <!-- Each result has its plate, from the same set as the experiences. -->
+            <Plate :name="RESULT_PLATE[resultKey]" class="rt-plate" :alt="`${PLATE_TITLE[RESULT_PLATE[resultKey]]}, an engraving`">
+              <i>{{ PLATE_TITLE[RESULT_PLATE[resultKey]] }}.</i> {{ PLATE_NOTE[resultKey] }}
+            </Plate>
+          </div>
 
           <ShareLink
             class="rt-share"
@@ -143,9 +151,19 @@
 
 <script setup>
 import ShareLink from '@/components/shared/ShareLink.vue'
+import Plate from '@/components/shared/Plate.vue'
+import { RESULT_PLATE, PLATE_TITLE } from '@/utils/plates'
 import { ANSWERS, PARTS, ITEMS, RESULTS, score, classify } from '@/utils/respectTest'
 import { EXPERIENCES } from '@/utils/experiences'
 import { PARTNERS, resolvePartner, partnerHref } from '@/utils/testPartners'
+
+// One line under each result's plate.
+const PLATE_NOTE = {
+  consistent: 'Nobody made to sit.',
+  loophole: 'Same button, someone else\'s finger.',
+  weighing: 'Nothing settled yet.',
+  force: 'One ends the argument. Only one wins it.'
+}
 
 const SPLIT = ITEMS.findIndex((i) => i.part === 'others')
 
@@ -577,5 +595,22 @@ onBeforeUnmount(clearTimers)
   .rt { padding: 4.5rem 1.15rem 3rem; justify-content: flex-start; }
   .rt-meter { margin-bottom: 2.25rem; }
   .rt-statement { min-height: 5.2em; }
+}
+
+/* The result's plate hangs in the right margin on a wide screen, and drops
+   under the text on a narrow one. */
+.rt-result-grid {
+  display: grid;
+  grid-template-columns: 1fr 11rem;
+  gap: 2.5rem;
+  align-items: start;
+  margin-right: -13.5rem;
+  width: 100%;
+}
+.rt-result-text { min-width: 0; }
+@media (max-width: 1160px) { .rt-result-grid { margin-right: 0; } }
+@media (max-width: 680px) {
+  .rt-result-grid { grid-template-columns: 1fr; }
+  .rt-plate { width: min(12rem, 60vw); }
 }
 </style>

@@ -18,6 +18,12 @@
 
       <article class="essay-body">
         <template v-for="(section, s) in essay.sections" :key="s">
+          <!-- The experience's plate opens the essay like a chapter vignette;
+               a printer's mark separates the sections after it. -->
+          <ExperiencePlate v-if="s === 0" :id="id" class="essay-plate" />
+          <div v-else class="ornament" aria-hidden="true">
+            <svg viewBox="0 0 14 14"><path d="M7 0 L8.6 5.4 L14 7 L8.6 8.6 L7 14 L5.4 8.6 L0 7 L5.4 5.4 Z" fill="currentColor"/></svg>
+          </div>
           <h2 class="essay-heading">{{ section.heading }}</h2>
           <template v-for="(para, p) in section.body" :key="p">
             <!-- A **wrapped** paragraph is the one claim the section is built
@@ -25,7 +31,7 @@
             <blockquote v-if="isPullQuote(para)" class="essay-quote">
               {{ stripMarks(para) }}
             </blockquote>
-            <p v-else class="essay-para">{{ para }}</p>
+            <p v-else class="essay-para" :class="{ dropcap: s === 0 && p === 0 }">{{ para }}</p>
           </template>
         </template>
       </article>
@@ -48,6 +54,7 @@
 
 <script setup>
 import ShareLink from '@/components/shared/ShareLink.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 import { readingMinutes } from '@/utils/reading.js'
 
 const props = defineProps({
@@ -172,8 +179,20 @@ function trackCue() {
   margin: 2.75rem 0 1rem;
 }
 
-.essay-heading:first-child {
+.essay-heading:first-child,
+.essay-plate + .essay-heading {
   margin-top: 0;
+}
+
+/* The chapter plate sits in the text like a vignette in a book. */
+.essay-plate {
+  float: left;
+  width: 8.5rem;
+  margin: 0.35rem 2rem 1rem 0;
+}
+.essay-foot { clear: both; }
+@media (max-width: 640px) {
+  .essay-plate { width: 7rem; margin-right: 1.4rem; }
 }
 
 .essay-para {

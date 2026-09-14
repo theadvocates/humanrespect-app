@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Experience 02 · The Philosophy of Human Respect</span>
+    <ExperiencePlate id="exp03" dark class="opening-plate" />
     <h1 class="display-large headline">What<br><em>flourishing</em><br>actually means.</h1>
     <Divider :centered="true" />
     <p class="subtitle">You discovered that you already choose persuasion over force in your own life. Now let's look at why. Your own experience holds the evidence.</p>
@@ -13,6 +14,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 
 defineEmits(['advance'])
 const el = ref(null)

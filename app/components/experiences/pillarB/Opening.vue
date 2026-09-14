@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Temporal Integrity</span>
+    <ExperiencePlate id="pillarB" dark class="opening-plate" />
     <h1 class="display-large headline">
       Your time<br><em>is your life.</em>
     </h1>
@@ -19,6 +20,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

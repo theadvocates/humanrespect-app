@@ -15,7 +15,7 @@
           and a different one for politics.
         </h2>
 
-        <p class="explain-body">
+        <p class="explain-body dropcap">
           In your own relationships you already act on a principle you've
           probably never put into words: you don't get what you want by forcing
           the people you care about. You persuade them, or you live with the
@@ -35,12 +35,18 @@
           on the person being forced does not.
         </p>
 
-        <p class="explain-body">
-          The philosophy was articulated by Chris J. Rufer, founder of The
-          Morning Star Company, whose businesses have operated for decades
-          without managers, titles, or command hierarchy — an unusually literal
-          test of whether voluntary cooperation actually organises complex work.
-        </p>
+        <div class="explain-aside">
+          <p class="explain-body">
+            The philosophy was articulated by Chris J. Rufer, founder of The
+            Morning Star Company, whose businesses have operated for decades
+            without managers, titles, or command hierarchy — an unusually literal
+            test of whether voluntary cooperation actually organises complex work.
+          </p>
+          <Plate name="tomato" alt="A tomato, an engraving">
+            <i>A tomato.</i> Morning Star processes roughly 40% of California's
+            crop with no bosses at all.
+          </Plate>
+        </div>
 
         <h3 class="explain-sub">What you'll find here</h3>
 
@@ -92,6 +98,7 @@
 
 <script setup>
 import TheTurn from '@/components/turn/TheTurn.vue'
+import Plate from '@/components/shared/Plate.vue'
 
 definePageMeta({ name: 'home' })
 usePageSeo('home')
@@ -141,6 +148,22 @@ usePageSeo('home')
   margin: 0 0 1.4rem;
 }
 .explain-body strong { color: var(--ink); font-weight: 500; }
+
+/* The tomato hangs in the right margin beside the paragraph it belongs to,
+   and drops under it once there is no margin to hang in. */
+.explain-aside {
+  display: grid;
+  grid-template-columns: 1fr 10.5rem;
+  gap: 2.5rem;
+  align-items: start;
+  margin-right: -13rem;
+}
+.explain-aside .plate { margin-top: 0.3rem; }
+@media (max-width: 1160px) { .explain-aside { margin-right: 0; } }
+@media (max-width: 680px) {
+  .explain-aside { grid-template-columns: 1fr; }
+  .explain-aside .plate { width: min(12rem, 60vw); margin-bottom: 1.4rem; }
+}
 
 .explain-link {
   color: var(--ochre);

@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '~/styles/base.css',
     '~/styles/typography.css',
     '~/styles/animations.css',
+    '~/styles/plates.css',
     '~/styles/mobile.css'
   ],
 

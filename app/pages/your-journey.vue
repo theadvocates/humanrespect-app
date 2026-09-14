@@ -62,6 +62,7 @@
         <ul class="exp-list">
           <li v-for="e in byTier(tier)" :key="e.id">
             <NuxtLink :to="{ name: e.route }" class="exp" :class="{ finished: isDone(e.id) }">
+              <ExperiencePlate :id="e.id" bare class="exp-plate" />
               <span class="exp-main">
                 <span class="exp-title">
                   <span v-if="isDone(e.id)" class="exp-check" aria-hidden="true">✓</span>
@@ -96,6 +97,7 @@
 <script setup>
 import Divider from '@/components/shared/Divider.vue'
 import NewsletterSignup from '@/components/shared/NewsletterSignup.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 import { useJourneyStore } from '@/stores/journey'
 import { EXPERIENCES, TIERS, TIER_ORDER, byTier, totalMinutes } from '@/utils/experiences'
 
@@ -207,7 +209,10 @@ const heading = computed(() => {
 }
 .exp:hover { border-color: var(--ochre); transform: translateX(3px); }
 .exp.finished { background: transparent; }
-.exp-main { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; }
+.exp-main { display: flex; flex-direction: column; gap: 0.25rem; min-width: 0; flex: 1; }
+/* Each row opens with its plate, small and without the paper. */
+.exp-plate { flex: 0 0 4.4rem; width: 4.4rem; }
+.exp.finished .exp-plate { opacity: 0.6; }
 .exp-title {
   font-family: var(--serif);
   font-size: 1.12rem;
@@ -267,7 +272,9 @@ const heading = computed(() => {
 
 @media (max-width: 640px) {
   .page-container { padding: 5rem 1.15rem 3rem; }
-  .exp { flex-direction: column; gap: 0.5rem; }
-  .exp-time { padding-top: 0; }
+  .exp { flex-wrap: wrap; gap: 0.5rem 1rem; }
+  .exp-plate { flex-basis: 3.6rem; width: 3.6rem; }
+  .exp-main { flex: 1 1 60%; }
+  .exp-time { padding-top: 0; flex-basis: 100%; padding-left: 4.6rem; }
 }
 </style>

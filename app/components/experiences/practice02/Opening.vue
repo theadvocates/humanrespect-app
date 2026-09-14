@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Practice · Persuasion</span>
+    <ExperiencePlate id="practice02" dark class="opening-plate" />
     <h1 class="display-large headline">The persuasion<br><em>practice.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">Take something you feel strongly about. Now advance it using zero force. No laws. No mandates. No taxes. Just persuasion, cooperation, and creativity.</p>
@@ -10,6 +11,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

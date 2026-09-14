@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Practice · Construction</span>
+    <ExperiencePlate id="practice05" dark class="opening-plate" />
     <h1 class="display-large headline">Design a<br><em>voluntary solution.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">Pick a real problem in your community — not a national issue, something local and tangible — and design a solution that uses zero coercion.</p>
@@ -10,6 +11,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

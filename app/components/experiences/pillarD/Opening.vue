@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Pillar · The Human Respect Method</span>
+    <ExperiencePlate id="pillarD" dark class="opening-plate" />
     <h1 class="display-large headline">
       Your values aren't<br><em>the problem.</em>
     </h1>
@@ -19,6 +20,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

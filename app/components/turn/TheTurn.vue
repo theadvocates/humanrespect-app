@@ -1,5 +1,6 @@
 <template>
   <section class="turn" :aria-label="'The core question'">
+   <div class="turn-main">
     <!-- Progress: honest about how short this is. -->
     <div class="turn-meter" aria-hidden="true">
       <div v-for="i in BEATS" :key="i" class="meter-tick" :class="{ done: i <= beat + 1 }"/>
@@ -145,11 +146,17 @@
         <button class="restart" @click="restart">Start over</button>
       </div>
     </Transition>
+   </div>
+
+    <!-- The plate for the button stays put while the beats change beside it.
+         On a phone it follows the call to action rather than pushing it down. -->
+    <ExperiencePlate id="exp01" class="turn-plate" note="Press it and they simply comply." />
   </section>
 </template>
 
 <script setup>
 import ShareLink from '@/components/shared/ShareLink.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 
 const BEATS = 6
 
@@ -225,12 +232,20 @@ onMounted(() => {
 .turn {
   min-height: 100vh;
   min-height: 100dvh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 40rem;
+  display: grid;
+  grid-template-columns: minmax(0, 40rem) 21rem;
+  gap: 4.5rem;
+  align-items: center;
+  align-content: center;
+  max-width: 68rem;
   margin: 0 auto;
   padding: 5rem 1.5rem 4rem;
+}
+.turn-main { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
+.turn-plate { justify-self: end; }
+@media (max-width: 900px) {
+  .turn { grid-template-columns: 1fr; gap: 3rem; max-width: 40rem; }
+  .turn-plate { justify-self: start; width: min(15rem, 62vw); }
 }
 
 .turn-meter { display: flex; gap: 5px; margin-bottom: 3rem; }

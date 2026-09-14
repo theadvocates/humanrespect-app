@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Experience 03 · The Philosophy of Human Respect</span>
+    <ExperiencePlate id="exp02" dark class="opening-plate" />
     <h1 class="display-large headline">You have a <em>"but..."</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">You've seen the principle in your own relationships. You've confirmed it against your own flourishing. But you're not convinced it applies to the real world — with its complexity, its urgency, and its imperfect people. Good. A philosophy that can't survive your strongest objection isn't worth your time.</p>
@@ -12,6 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

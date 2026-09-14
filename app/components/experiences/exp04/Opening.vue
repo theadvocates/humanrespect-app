@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Experience 04 · The Philosophy of Human Respect</span>
+    <ExperiencePlate id="exp04" dark class="opening-plate" />
     <h1 class="display-large headline">The realist<br><em>objection.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">"Nice philosophy, but people aren't that good." You're right. They aren't. And that turns out to be the strongest argument for everything that follows.</p>
@@ -12,6 +13,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))

@@ -1,6 +1,7 @@
 <template>
   <div ref="el" class="opening stagger">
     <span class="overline">Pillar · Material Integrity</span>
+    <ExperiencePlate id="pillarC" dark class="opening-plate" />
     <h1 class="display-large headline">What you built<br><em>is who you were.</em></h1>
     <Divider :centered="true" />
     <p class="subtitle">Every object you own represents hours of your life. Every dollar saved represents mornings you got up and went to work. The cost of theft goes deeper than the object taken. And the cost of material insecurity extends to everything that never gets built.</p>
@@ -10,6 +11,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
+import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
 defineEmits(['advance'])
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
