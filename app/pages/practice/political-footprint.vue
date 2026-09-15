@@ -70,7 +70,7 @@ watch(currentScreen, (idx) => {
       gap: operates.value.length - supports.value.length
     })
   }
-})
+}, { immediate: true })
 
 function advance() {
   if (currentScreen.value === 1) {

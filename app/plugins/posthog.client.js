@@ -9,7 +9,8 @@ import { useJourneyStore } from '@/stores/journey'
  *   - no cookies: persistence is localStorage, first-party and same-origin,
  *     so nothing follows anyone between sites
  *   - no session recording and no heatmaps
- *   - inputs masked, so nothing anyone types is ever transmitted
+ *   - autocapture limited to link and button clicks, so nothing anyone
+ *     types is ever transmitted
  *   - identity is the existing anonymous visitorId, not a new tracking id,
  *     which also lines PostHog up with the journey data already in Supabase
  *
@@ -47,11 +48,21 @@ export default defineNuxtPlugin((nuxtApp) => {
       disable_surveys: true,
       enable_heatmaps: false,
 
-      // Autocapture is on for clicks and navigation, but never records what
-      // people type — the experiences ask personal questions.
-      autocapture: { dom_event_allowlist: ['click'] },
+      // Autocapture records clicks on links and buttons only. With no change
+      // or submit events and no inputs or textareas in the allowlist, nothing
+      // anyone types is ever read — the experiences ask personal questions.
+      // Button and link labels are site copy, so their text stays readable.
+      autocapture: {
+        dom_event_allowlist: ['click'],
+        element_allowlist: ['a', 'button']
+      },
+      capture_dead_clicks: false,
       mask_all_text: false,
       mask_all_element_attributes: false,
+
+      // Every visitor is identified with their journey id in loaded() below,
+      // before any queued event is flushed, so this changes no event's person.
+      person_profiles: 'identified_only',
 
       // Pageviews are sent manually below; the SPA router does not reload.
       capture_pageview: false,

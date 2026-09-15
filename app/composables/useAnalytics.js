@@ -1,4 +1,4 @@
-import { useJourneyStore } from '@/stores/journey'
+import { useJourneyStore, getTier } from '@/stores/journey'
 
 /**
  * Analytics, written to two places on purpose.
@@ -21,6 +21,10 @@ import { useJourneyStore } from '@/stores/journey'
 let screenEnteredAt = null
 let currentScreen = null
 let sessionStartedAt = null
+
+function isPlainObject(v) {
+  return v !== null && typeof v === 'object' && !Array.isArray(v)
+}
 
 export function useAnalytics() {
   const journey = useJourneyStore()
@@ -81,30 +85,53 @@ export function useAnalytics() {
     })
   }
 
+  /**
+   * An object answer is spread into top-level properties so PostHog can filter
+   * and break down on them (a nested `answer.partner` is not filterable).
+   * String and array answers stay under `answer`.
+   */
   function trackChoice(experienceId, questionId, answer) {
+    const spread = isPlainObject(answer) ? answer : { answer }
     capture('choice_made', {
-      experience: experienceId,
-      question: questionId,
-      answer,
       screen: currentScreen?.screen || null,
-      seconds_on_screen: secondsSince(screenEnteredAt)
-    })
-  }
-
-  function trackCompletion(experienceId, data = {}) {
-    capture('experience_completed', {
+      seconds_on_screen: secondsSince(screenEnteredAt),
+      ...spread,
       experience: experienceId,
-      seconds_on_screen: secondsSince(screenEnteredAt)
+      question: questionId
     })
-
-    // Journey state still needs updating — these are the store's own shapes.
-    if (experienceId === 'exp01') journey.completeExp01(data)
-    else if (experienceId === 'exp02') journey.completeExp02(data.objection, data.verdict)
-    else journey.markComplete(experienceId)
   }
 
-  function trackShare(method, experienceId) {
-    capture('share', { method, experience: experienceId })
+  /**
+   * Updates the journey, then sends exactly one experience_completed event
+   * carrying the completion data. A revisit is still recorded, tagged
+   * `repeat: true`, so completion counts can exclude it.
+   */
+  function trackCompletion(experienceId, data = {}) {
+    const repeat = journey.isCompleted(experienceId)
+
+    let tier
+    if (experienceId === 'exp01') {
+      journey.completeExp01(data)
+    } else if (experienceId === 'exp02') {
+      journey.completeExp02(data.objection ?? journey.exp02.chosenObjection, data.verdict ?? null)
+    } else {
+      tier = journey.markComplete(experienceId)
+    }
+
+    capture('experience_completed', {
+      ...data,
+      experience: experienceId,
+      tier: tier || getTier(experienceId),
+      total_completed: journey.visitor?.totalExperiences ?? null,
+      repeat,
+      seconds_on_screen: secondsSince(screenEnteredAt)
+    })
+  }
+
+  /** `source` is where the share happened (e.g. `test_result`). `experience`
+   * carries the same value for continuity with earlier events. */
+  function trackShare(method, source) {
+    capture('share', { method, source, experience: source })
   }
 
   function trackNewsletterSignup(source) {

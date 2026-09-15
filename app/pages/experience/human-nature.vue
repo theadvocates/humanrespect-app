@@ -70,7 +70,7 @@ useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) 
 watch(currentScreen, (idx) => {
   trackScreenView('exp04', screenNames[idx])
   if (idx === TOTAL_SCREENS - 1) trackCompletion('exp04')
-})
+}, { immediate: true })
 
 function advance() {
   if (currentScreen.value < TOTAL_SCREENS - 1) {

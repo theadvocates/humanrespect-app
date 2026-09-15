@@ -11,7 +11,7 @@ export function useScreenNav(totalScreens, experienceId = null, screenNames = []
     watch(currentScreen, (idx) => {
       const name = screenNames[idx] || `screen-${idx}`
       trackScreenView(experienceId, name)
-    })
+    }, { immediate: true }) // the opening screen counts too
   }
 
   function advance() {

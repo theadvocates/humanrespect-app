@@ -1,0 +1,36 @@
+# Supabase pauses free-tier projects after a week without activity, which takes
+# down sign-in, journey sync, and newsletter signups. This makes one tiny read
+# twice a week so the project never looks idle.
+#
+# The key below is the publishable (anon) key. It is already public in the
+# site's HTML and every table it can reach is protected by row-level security.
+name: Supabase keepalive
+
+on:
+  schedule:
+    - cron: '17 9 * * 1,4' # Mondays and Thursdays, 09:17 UTC
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Read one row through the REST API
+        env:
+          SUPABASE_URL: https://jnspwumpiqbfqlveduzz.supabase.co
+          SUPABASE_PUBLISHABLE_KEY: sb_publishable_vUoCFe_HXWXuYq9aTE37WQ_AmdYhn2G
+        run: |
+          status=$(curl -sS -o response.json -w '%{http_code}' \
+            --retry 3 --retry-delay 20 --retry-all-errors \
+            "$SUPABASE_URL/rest/v1/experiences?select=id&limit=1" \
+            -H "apikey: $SUPABASE_PUBLISHABLE_KEY" \
+            -H "Authorization: Bearer $SUPABASE_PUBLISHABLE_KEY")
+          echo "HTTP $status"
+          if [ "$status" != "200" ]; then
+            cat response.json
+            echo "::error::Supabase returned HTTP $status. The project may be paused; restore it from the dashboard."
+            exit 1
+          fi

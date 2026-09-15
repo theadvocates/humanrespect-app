@@ -55,7 +55,7 @@ const screenKey = computed(() => `${currentScreen.value}-${chosenIssue.value}`)
 watch(currentScreen, (idx) => {
   trackScreenView('pillarE', screenNames[idx])
   if (idx === TOTAL_SCREENS - 1) trackCompletion('pillarE', { issue: chosenIssue.value })
-})
+}, { immediate: true })
 
 useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) } })
 

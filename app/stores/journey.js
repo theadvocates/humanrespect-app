@@ -3,7 +3,7 @@ import { getSupabase } from '@/lib/supabase'
 
 const TIER_ORDER = { none: 0, foundation: 1, argument: 2, pillar: 3, practice: 4 }
 
-function getTier(expId) {
+export function getTier(expId) {
   if (['exp01', 'exp02', 'exp03'].includes(expId)) return 'foundation'
   if (['exp04', 'exp05'].includes(expId)) return 'argument'
   if (expId.startsWith('pillar')) return 'pillar'
@@ -62,7 +62,9 @@ export const useJourneyStore = defineStore('journey', {
     },
 
     completeExp02(objection, verdict = null) {
-      this.exp02.chosenObjection = objection
+      // The objection is chosen screens earlier; completion without one must
+      // not erase it.
+      if (objection) this.exp02.chosenObjection = objection
       this.exp02.completed = true
       this.exp02.completedAt = new Date().toISOString()
       if (objection && !this.exp02.exploredObjections.includes(objection)) {
@@ -84,11 +86,10 @@ export const useJourneyStore = defineStore('journey', {
         this.furthestTier = tier
       }
       this.persist()
-      this.trackEvent('experience_completed', {
-        experience: expId,
-        tier,
-        total_completed: this.visitor.totalExperiences
-      })
+      // No event here: useAnalytics.trackCompletion sends the single
+      // experience_completed event to both sinks. Emitting one here as well
+      // double-counted every completion in Supabase.
+      return tier
     },
 
     recordVisit() {

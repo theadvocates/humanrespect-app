@@ -73,13 +73,10 @@ useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) 
 watch(currentScreen, (idx) => {
   trackScreenView('exp02', screenNames[idx])
   if (idx === TOTAL_SCREENS - 1) {
+    // Completion keeps the objection chosen earlier; the store persists.
     trackCompletion('exp02')
-    if (!journey.exp02) journey.exp02 = {}
-    journey.exp02.completed = true
-    journey.exp02.completedAt = new Date().toISOString()
-    journey.persist()
   }
-})
+}, { immediate: true })
 
 function advance() {
   if (currentScreen.value < TOTAL_SCREENS - 1) {

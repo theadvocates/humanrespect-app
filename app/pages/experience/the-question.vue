@@ -25,7 +25,6 @@
 
 <script setup>
 import { ref, computed, provide, watch } from 'vue'
-import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
 import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
 import essay from '@/content/essays/exp01.js'
@@ -45,7 +44,6 @@ usePageSeo('exp01')
 
 const meta = EXPERIENCES.find((e) => e.id === 'exp01')
 
-const journey = useJourneyStore()
 const { trackScreenView, trackCompletion } = useAnalytics()
 
 const TOTAL_SCREENS = 8
@@ -82,11 +80,8 @@ watch(currentScreen, (idx) => {
       would_force: wouldForce.value,
       why_not: whyNot.value
     })
-    journey.exp01.completed = true
-    journey.exp01.completedAt = new Date().toISOString()
-    journey.persist()
   }
-})
+}, { immediate: true })
 
 function advance() {
   if (currentScreen.value < TOTAL_SCREENS - 1) {

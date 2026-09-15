@@ -56,7 +56,7 @@ const isDark = computed(() => currentScreen.value === 0)
 watch(currentScreen, (idx) => {
   trackScreenView('pillarD', screenNames[idx])
   if (idx === TOTAL_SCREENS - 1) trackCompletion('pillarD', { values: selectedValues.value, methods: methodAnswers.value })
-})
+}, { immediate: true })
 
 useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) } })
 
