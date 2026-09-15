@@ -10,7 +10,7 @@
     <p class="body-text">For some, the honest answer is "I don't see how." Not every problem has an obvious voluntary solution. But "it can't be done without force" and "I haven't seen it done without force" are different claims.</p>
 
     <ContentBlock variant="insight">
-      <p>People once said the same about mail, roads, schooling, and disaster relief. Each now has working voluntary versions alongside the government ones. The list of things that "require force" has been shrinking for centuries.</p>
+      <p>Private carriers deliver packages worldwide. Private toll roads and neighborhood roads exist. Private schools and homeschooling educate millions of children. Charities carry much of disaster relief. Each works alongside a government version that people once assumed was the only way.</p>
     </ContentBlock>
 
     <ContentBlock variant="principle">

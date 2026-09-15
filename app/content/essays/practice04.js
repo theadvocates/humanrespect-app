@@ -7,7 +7,7 @@ export default {
       body: [
         'Once a day, before bed, ask yourself one question: today, was there a moment where I chose persuasion when I could have reached for force — or a moment where I wished someone would be made to do what I wanted?',
         'Write down one line. That is the entire commitment. It takes under a minute and it does not require you to behave differently.',
-        'The reason it works is that the pattern is invisible until you go looking for it, and then it is difficult to stop seeing. Most people live an entire life without once noticing this particular shape in their own thinking, not because it is subtle but because nothing ever draws attention to it.'
+        'The reason it works is that the pattern is invisible until you go looking for it, and then it is difficult to stop seeing. It is possible to live an entire life without once noticing this particular shape in their own thinking, not because it is subtle but because nothing ever draws attention to it.'
       ]
     },
     {

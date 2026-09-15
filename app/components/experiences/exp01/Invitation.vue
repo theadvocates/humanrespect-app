@@ -8,7 +8,7 @@
     <p class="body-text-large">If persuasion works better than force in your closest relationships — if you already know this from a lifetime of experience — then why do we build our collective institutions on force?</p>
 
     <ContentBlock variant="insight">
-      <p>This question doesn't get answered in five minutes. It changes how you see every political argument, every policy debate, every disagreement about how society should work. The experiences that follow take your strongest objection seriously, then show the evidence — from your own life — for why force reliably diminishes flourishing and cooperation reliably builds it.</p>
+      <p>This question doesn't get answered in five minutes. It changes how you see every political argument, every policy debate, every disagreement about how society should work. The experiences that follow take your strongest objection seriously, then show the evidence — from your own life — for why force always diminishes flourishing and cooperation builds it.</p>
     </ContentBlock>
 
     <JourneyNav current="exp01" />

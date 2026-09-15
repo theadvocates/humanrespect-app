@@ -5,7 +5,7 @@
     <h2 class="display-medium">Was it harder than you expected?</h2>
     <Divider />
     <p class="body-text-large">If so, that's the point. Most of us were taught to reach for force first.</p>
-    <ContentBlock variant="insight"><p>Whatever you drafted, no one in it is forced. Everyone involved chose to be there.</p></ContentBlock>
+    <ContentBlock variant="insight"><p>If your draft held to the constraint, no one in it is forced. Everyone involved chose to be there.</p></ContentBlock>
     <ContentBlock variant="principle"><p>The next time you hear a political proposal, try this: strip out the force. What would the same goal look like through persuasion alone?</p></ContentBlock>
     <NewsletterSignup source="practice02_closing" headline="Keep practicing." description="Each week, one real political proposal and the question: what would this look like without force?" button-text="Subscribe" success-message="Welcome. The first one arrives this week." />
     <JourneyNav current="practice02" />

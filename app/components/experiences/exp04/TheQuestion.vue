@@ -14,7 +14,7 @@
     </ContentBlock>
 
     <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Voluntary systems have failure modes too. Free riders. Information asymmetry. Coordination problems. The philosophy does not claim these disappear. It claims that a system where bad actors are limited by the people willing to associate with them produces better outcomes than a system where bad actors can seize the apparatus of legal force and direct it against everyone.</p>
+      <p>Voluntary systems have failure modes too. Free riders. Information asymmetry. Coordination problems. The philosophy does not claim these disappear. It claims that a system where bad actors are limited by the people willing to deal with them produces better outcomes than one where bad actors can win the apparatus of legal force and direct it against everyone.</p>
     </ContentBlock>
 
     <NewsletterSignup variant="minimal" source="exp04_closing" headline="One question per week, applied to the real world." description="A short email examining the incentive structures behind real policies and institutions." button-text="Subscribe" />

@@ -10,7 +10,7 @@
     <p class="body-text">Consent is meaningful only when it is voluntary, informed, revocable, and free from coercion. Without these conditions, "consent" is just compliance wearing a mask.</p>
 
     <ScenarioBox label="Where this leads">
-      <p>This principle — that your body belongs to you and no one may use it without your genuine consent — is the one moral claim that virtually every human being accepts intuitively.</p>
+      <p>This principle, that no one may use your body without your genuine consent, is one of the few moral claims nearly everyone accepts without being taught.</p>
       <p>Children understand it before they understand government: <em>"Don't hit me. That's my body."</em></p>
       <p>The Philosophy of Human Respect simply asks: if this principle is true for individuals, does it stop being true when the one violating it wears a uniform, holds an office, or acts on behalf of a majority?</p>
     </ScenarioBox>

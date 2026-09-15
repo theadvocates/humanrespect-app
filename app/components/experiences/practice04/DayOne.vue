@@ -10,7 +10,7 @@
     <textarea v-model="observation" class="text-input" placeholder="Describe the moment. What happened? Did you lean toward force or persuasion?" rows="5"/>
 
     <ContentBlock v-if="observation.trim()" variant="insight">
-      <p>That's day one. Most people never look for this pattern in their own thinking. You just did.</p>
+      <p>That's day one. It is easy to go years without looking for this pattern in your own thinking. You just did.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

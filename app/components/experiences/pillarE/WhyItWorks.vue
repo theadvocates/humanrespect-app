@@ -10,17 +10,17 @@
     <div class="mechanisms">
       <div class="mechanism">
         <div class="mechanism-name">Feedback loops</div>
-        <p>Voluntary systems get immediate feedback. If a voluntary school is bad, families leave. If a voluntary charity wastes money, donors stop giving. Coercive systems insulate providers from consequences — bad government schools keep getting funded regardless.</p>
+        <p>Voluntary systems get immediate feedback. If a voluntary school is bad, families leave. If a voluntary charity wastes money, donors stop giving. Coercive systems insulate providers from consequences. A failing school funded by taxes usually keeps its funding, because the families who leave keep paying for it.</p>
       </div>
 
       <div class="mechanism">
         <div class="mechanism-name">Accountability</div>
-        <p>When participation is voluntary, providers must earn trust continuously. When participation is compulsory, providers can afford to be unresponsive. That is the difference between the DMV and the Apple Store.</p>
+        <p>When participation is voluntary, providers must earn trust continuously. When participation is compulsory, providers can afford to be unresponsive. Think of the difference between a business that has to win you back each month and an office you are required to visit.</p>
       </div>
 
       <div class="mechanism">
         <div class="mechanism-name">Innovation pressure</div>
-        <p>Competition between voluntary solutions drives constant improvement. Monopolies — whether corporate or governmental — stagnate. The reason open-source software evolves faster than government IT systems is the same reason markets outperform central planning.</p>
+        <p>Competition between voluntary solutions drives constant improvement. Monopolies, whether corporate or governmental, tend to stagnate, because nothing forces them to get better.</p>
       </div>
 
       <div class="mechanism">

@@ -7,8 +7,8 @@
     </h1>
     <Divider :centered="true" />
     <p class="subtitle">
-      Every moral framework talks about property. Every moral framework talks about
-      violence. Almost none talk about the resource that makes both of those matter —
+      Most moral frameworks talk about property. Most talk about violence. Few put
+      at the center the resource that makes both of those matter —
       the one resource you can never get back.
     </p>
     <button class="begin-btn" @click="$emit('advance')">

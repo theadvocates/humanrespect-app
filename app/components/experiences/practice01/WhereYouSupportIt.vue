@@ -21,7 +21,7 @@
       </button>
     </div>
 
-    <p class="tally">{{ supports.length }} of {{ operates.length }} areas you support</p>
+    <p class="tally">{{ supports.length }} of {{ operates.length }} supported</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

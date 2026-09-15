@@ -21,7 +21,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>In voluntary systems, a bad actor can only harm the people who choose to interact with them. In coercive systems, a bad actor with political power can harm millions who never chose to be subject to their authority. The question is not whether bad actors exist. They do. The question is which system limits the damage they can do.</p>
+      <p>In voluntary systems, a bad actor who deals honestly can only disappoint the people who choose to deal with them, and they can walk away. A bad actor who turns to violence or fraud can still be stopped. In coercive systems, a bad actor with political power can harm millions who never chose to be subject to their authority, and walking away is not an option. The question is not whether bad actors exist. They do. The question is which system limits the damage they can do.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

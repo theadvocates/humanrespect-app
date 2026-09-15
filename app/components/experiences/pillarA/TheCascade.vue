@@ -40,7 +40,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>Societies with high levels of violence are almost always poor. The most prosperous societies are the ones where physical safety is the norm. The relationship runs one way: safety produces trust, trust produces cooperation, cooperation produces prosperity.</p>
+      <p>Societies with high levels of violence are almost always poor. The most prosperous societies are the ones where physical safety is the norm. The order matters: safety makes trust possible, trust makes cooperation possible, and cooperation produces prosperity.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

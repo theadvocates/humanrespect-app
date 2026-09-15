@@ -10,7 +10,7 @@
     <p class="body-text">Every act of fraud feeds on trust. The scammer exploits the fact that most people deal honestly, and in doing so makes honest dealing more dangerous for everyone. When trust collapses, the cost of every interaction rises: more contracts, more lawyers, more verification, more suspicion.</p>
 
     <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Fraud is one area where the Philosophy of Human Respect admits that purely voluntary solutions are hard. Detecting and preventing fraud takes information, investigation, and sometimes enforcement. The philosophy argues these should be as voluntary as possible — private certification, reputation systems, voluntary arbitration — while acknowledging that protecting people from deception is one of the harder problems for a society without coercion.</p>
+      <p>Fraud is itself a taking, so stopping it and making victims whole is defense, not the kind of force the principle rules out. The hard part is practical. Detecting fraud takes information and investigation, and much of it is never caught. Certification, reputation, and arbitration help a great deal, and none of them catches everything. Protecting people from deception is one of the harder problems any society faces.</p>
     </ContentBlock>
 
     <p class="body-text">What doesn't change is the principle: fraud violates material integrity, damages flourishing, and erodes the trust that makes cooperation possible. A society aligned with Human Respect takes fraud seriously — not as a government prerogative, but as a threat to the social fabric that every community has an interest in preventing.</p>

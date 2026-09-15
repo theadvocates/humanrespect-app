@@ -33,7 +33,7 @@ export default {
       heading: 'The claim, stated plainly',
       body: [
         'The Philosophy of Human Respect makes one observation and follows it: the pattern you already rely on does not stop being true at scale.',
-        'Human flourishing reliably increases in environments of voluntary cooperation, and reliably decreases where coercion, violence, or the involuntary loss of time or property occur.',
+        'Happiness, harmony, and prosperity always decrease with the initiation of violence, or the taking of people\'s property or time through force or fraud. They grow where people cooperate voluntarily.',
         'This holds whether the force comes from a controlling partner, an overbearing employer, someone in your neighborhood, or a government elected by a comfortable majority. The mechanism changes. The paperwork changes. What happens inside the person being compelled does not.',
         'None of this settles any particular political question, and it is not offered as though it does. It is a question to carry rather than an answer to accept: if persuasion is the method you trust in every relationship where you can actually see the results, what is the argument for building our shared institutions on the other one?'
       ]

@@ -2,10 +2,10 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The pattern in your answer</p>
-    <h2 class="display-medium">You just described what scientists call human flourishing.</h2>
+    <h2 class="display-medium">You just described what researchers call human flourishing.</h2>
     <Divider />
 
-    <p class="body-text-large">The conditions you selected aren't random. They map to six pillars that researchers in psychology, neuroscience, economics, and philosophy have each arrived at on their own as the architecture of human well-being.</p>
+    <p class="body-text-large">The conditions you selected aren't random. They map closely to what researchers in psychology, economics, and philosophy keep finding when they study human well-being.</p>
 
     <div class="pillars">
       <div v-for="p in pillars" :key="p.id" class="pillar" :class="{ highlighted: isSelected(p.id) }">
@@ -19,10 +19,10 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>These aren't philosophical abstractions. They're the conditions that were present when <em>you</em> were at your best. And they're universal — every human being, across every culture and era, flourishes under these same conditions.</p>
+      <p>These aren't philosophical abstractions. They're the conditions that were present when <em>you</em> were at your best. And they are not peculiar to you. People in very different cultures and eras describe their best years in strikingly similar terms.</p>
     </ContentBlock>
 
-    <p class="body-text">This matters because it means flourishing is an observable, measurable pattern in human nature. And anything that systematically undermines these conditions systematically undermines human well-being.</p>
+    <p class="body-text">This matters because it means flourishing is a pattern you can observe, not a matter of taste. Anything that undermines these conditions undermines human well-being.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

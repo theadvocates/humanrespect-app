@@ -19,7 +19,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>Societies with stronger property norms consistently experience higher GDP, better environmental stewardship, stronger innovation, and deeper levels of trust. Material integrity is what makes societies wealthy, not a luxury they can afford once they already are.</p>
+      <p>Societies where property is secure tend to be wealthier, more innovative, and more trusting, and they tend to take better care of their land. Material integrity is what makes societies wealthy, not a luxury they can afford once they already are.</p>
     </ContentBlock>
 
     <p class="body-text">The things on the previous screen that you didn't build? In a society with stronger material integrity, more of them would exist. More businesses. More investments. More generosity. More risk-taking. More creation. The cost of material insecurity is measured in the world that doesn't get built.</p>

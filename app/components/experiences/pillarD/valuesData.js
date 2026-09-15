@@ -53,28 +53,28 @@ export const issues = [
   {
     id: 'poverty',
     label: 'Reducing poverty',
-    forceOption: 'Tax the wealthy to fund anti-poverty programs',
+    forceOption: 'Fund a guaranteed safety net through taxes',
     persuadeOption: 'Encourage voluntary charity, mutual aid, and economic opportunity',
     lean: 'progressive'
   },
   {
     id: 'education',
     label: 'Improving education',
-    forceOption: 'Mandate public schooling funded by compulsory taxes',
-    persuadeOption: 'Let families choose and fund education through voluntary means',
+    forceOption: 'Fund public schools through taxes and require attendance',
+    persuadeOption: 'Build schools, scholarships, and tutoring that families choose and people fund voluntarily',
     lean: 'progressive'
   },
   {
     id: 'drugs',
     label: 'Reducing drug abuse',
-    forceOption: 'Criminalize drug use and punish offenders',
-    persuadeOption: 'Fund voluntary treatment programs and address root causes through community support',
+    forceOption: 'Make hard drugs illegal and prosecute people who sell or use them',
+    persuadeOption: 'Support treatment people choose, and address root causes through families and communities',
     lean: 'conservative'
   },
   {
     id: 'morality',
     label: 'Maintaining moral standards',
-    forceOption: 'Legislate moral behavior and punish violations',
+    forceOption: 'Pass laws limiting gambling, pornography, and other vices that damage families',
     persuadeOption: 'Lead by example, teach values in families and communities, persuade through culture',
     lean: 'conservative'
   }

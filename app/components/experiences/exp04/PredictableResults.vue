@@ -2,10 +2,10 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The results</p>
-    <h2 class="display-medium">When you give flawed humans coercive power over other humans, the damage follows the same pattern every time.</h2>
+    <h2 class="display-medium">When you give flawed humans coercive power over other humans, the damage follows a pattern.</h2>
     <Divider />
 
-    <p class="body-text">Each of these is a story about one of the three domains of integrity you identified in your own life — body, resources, or time. In every case, the people with power did exactly what your model of human nature predicts.</p>
+    <p class="body-text">Each of these is a story about one of the three domains of integrity you identified in your own life — body, resources, or time. In every case, the people with power did what your model of human nature predicts. Each is a composite drawn from documented cases of its kind.</p>
 
     <div class="examples">
       <div v-for="ex in examples" :key="ex.id" class="example-card" :class="{ expanded: expanded === ex.id }" @click="toggleExpand(ex.id)">
@@ -25,7 +25,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>These are not failures of bad people. They are the predictable consequences of the incentive structure itself. Give any group of humans the power to write rules for others, take their property, or restrict their freedom — with minimal personal cost for getting it wrong — and these outcomes follow as reliably as water flows downhill.</p>
+      <p>These are not failures of bad people. They are what the incentive structure produces. Give any group of humans the power to write rules for others, take their property, or restrict their freedom, with little personal cost for getting it wrong, and you should expect these outcomes. The people on the receiving end always pay for them.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
@@ -53,8 +53,8 @@ const examples = [
     id: 'mandatory-min',
     title: 'The judge who couldn\'t judge',
     domain: 'Bodily integrity',
-    story: 'A first-time offender, a young father who made a single terrible decision, stands before a judge. The judge has read the case. She knows the circumstances — the man\'s addiction, his children, his employer who wants him back. She knows that a short sentence with treatment would give him a real chance. But her hands are tied. A mandatory minimum, written by legislators who never met this man and never will, requires her to sentence him to fifteen years.',
-    mechanism: 'The people who wrote the sentencing law will never see its consequences. They wrote it to appear "tough on crime" before an election. The judge who sees the human cost has no power to change it. The man\'s children will grow up without a father — not because justice required it, but because the incentives of the people who wrote the law had nothing to do with justice.',
+    story: 'A first-time offender, a young father who made a single terrible decision, stands before a judge. The judge has read the case. She knows the circumstances — the man\'s addiction, his children, his employer who wants him back. She knows that a short sentence with treatment would give him a real chance. But her hands are tied. A mandatory minimum, written by legislators who never met this man and never will, requires her to sentence him to ten years.',
+    mechanism: 'The people who wrote the sentencing law will never see its consequences. Voting to look tough on crime cost them nothing, and voting against it could cost them an election. The judge who sees the human cost has no power to change it. The man\'s children will grow up without a father, not because this judge thought justice required it, but because the people who decided never had to look at him.',
     prediction: 'Separate the people who write the rules from the people who live under them, and the rules will serve the rule-writers. This is what you said about human nature. Applied consistently, it predicts exactly this.'
   },
   {
@@ -70,7 +70,7 @@ const examples = [
     title: 'The children who needed protection from their protectors',
     domain: 'Bodily integrity + connection',
     story: 'A mother lets her nine-year-old walk three blocks to a park in a safe neighborhood. A stranger calls the police. Child protective services investigates. The children are temporarily removed while the case is processed. The mother — who has never harmed her children — spends four months navigating a bureaucratic system designed to protect children, fighting to get her own children back. During those months, the children live with strangers.',
-    mechanism: 'The caseworker followed protocol. The protocol was written by people who face consequences for under-reacting (a child harmed on their watch) but not for over-reacting (a family destroyed by excessive intervention). The incentive structure guarantees over-intervention — because the bureaucrat\'s career is at risk if they miss something, but no one\'s career is at risk if they tear apart a healthy family.',
+    mechanism: 'The caseworker followed protocol. The protocol was written by people who face consequences for under-reacting (a child harmed on their watch) but not for over-reacting (a family destroyed by excessive intervention). The incentive structure pushes toward over-intervention, because a caseworker\'s career is at risk if they miss something, and rarely at risk if they disrupt a healthy family.',
     prediction: 'You said people prioritize short-term rewards over long-term consequences. For the caseworker, the short-term reward is protecting their own career. The long-term consequence — a family traumatized, children who learn that authority figures can take them from their parents at any moment — falls on someone else entirely.'
   },
   {
@@ -78,7 +78,7 @@ const examples = [
     title: 'The volunteers who were told to stop helping',
     domain: 'Temporal integrity + cooperation',
     story: 'A hurricane devastates a coastal city. Within hours, hundreds of people with boats drive to the area and start pulling families out of flooded homes. Then official emergency management arrives and orders the volunteer rescuers to stop. They don\'t have proper credentials. Their boats haven\'t been inspected. They haven\'t completed the required safety training. While the paperwork is sorted out, people wait on rooftops.',
-    mechanism: 'The emergency management officials aren\'t malicious. They\'re following rules designed by people who prioritized institutional liability over human lives. The rules exist to protect the agency from lawsuits, not to protect the people drowning. When the incentive is "don\'t let anything happen that could be blamed on us," the rational response is to prevent anyone from acting without authorization — even when unauthorized action is saving lives.',
+    mechanism: 'The emergency management officials aren\'t malicious. They\'re following rules written to control liability and keep a rescue coordinated. Those are real concerns. But the rules answer to the agency first, and the people on rooftops have no say in them. When the incentive is "don\'t let anything happen that could be blamed on us," the rational response is to prevent anyone from acting without authorization — even when unauthorized action is saving lives.',
     prediction: 'You said good intentions frequently produce bad outcomes when the incentives are wrong. The people who wrote the emergency management regulations genuinely intended to ensure safe, coordinated rescue. The result was a system that stopped the fastest, most effective help from reaching the people who needed it.'
   },
   {
@@ -87,7 +87,7 @@ const examples = [
     domain: 'Temporal integrity + autonomy',
     story: 'A single mother on government assistance gets a job offer that would pay $2,400 more per year than her current income. She does the math. The raise would cost her $4,100 in lost benefits — housing subsidy, childcare assistance, food support. Taking the job would make her family poorer. So she turns it down. She\'s not lazy. She\'s trapped by a system that penalizes the very steps that would move her toward independence.',
     mechanism: 'The programs were designed by people who would never personally experience their structure. No legislator has ever had to calculate whether a raise would trigger a benefits cliff that leaves their children hungry. The perverse incentive — that earning more means losing more — exists because the people who designed it bear no cost when it fails. Their metric is "number of people served," not "number of people who escaped the need for service."',
-    prediction: 'You said people who gain power tend to use it to benefit themselves. The agencies that administer these programs grow their budgets based on the number of recipients. A program that successfully moved everyone to independence would eliminate its own funding. The institutional incentive is to manage poverty, not end it.'
+    prediction: 'You said people who gain power tend to use it to benefit themselves. The agencies that administer these programs are funded and staffed by the size of their caseload. A program that moved everyone to independence would shrink itself. Nobody has to be cynical for that incentive to shape what gets fixed and what doesn\'t.'
   }
 ]
 </script>

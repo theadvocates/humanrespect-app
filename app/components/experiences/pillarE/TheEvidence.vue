@@ -5,7 +5,7 @@
     <h2 class="display-medium">Voluntary cooperation is solving "impossible" problems right now.</h2>
     <Divider />
 
-    <p class="body-text">Each of these was once assumed to require compulsory funding, centralized control, or government mandates. Each one was solved by people who chose to cooperate.</p>
+    <p class="body-text">Each of these was once assumed to require compulsory funding, centralized control, or government mandates. Each one is being handled, at scale, by people who chose to cooperate.</p>
 
     <div class="examples">
       <div v-for="ex in examples" :key="ex.id" class="example-card">

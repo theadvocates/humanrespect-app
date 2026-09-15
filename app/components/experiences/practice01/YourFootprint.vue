@@ -9,15 +9,15 @@
     <div class="stats-row">
       <div class="stat">
         <div class="stat-number">{{ operates.length }}</div>
-        <div class="stat-label">areas where force operates</div>
+        <div class="stat-label">{{ operates.length === 1 ? 'area' : 'areas' }} where force operates</div>
       </div>
       <div class="stat">
         <div class="stat-number stat-green">{{ supports.length }}</div>
-        <div class="stat-label">areas you support</div>
+        <div class="stat-label">{{ supports.length === 1 ? 'area' : 'areas' }} you support</div>
       </div>
       <div class="stat">
         <div class="stat-number stat-ochre">{{ gap }}</div>
-        <div class="stat-label">areas of involuntary force</div>
+        <div class="stat-label">{{ gap === 1 ? 'area' : 'areas' }} of involuntary force</div>
       </div>
     </div>
 
@@ -103,7 +103,8 @@ function cellLabel(id) {
 }
 
 const categoryBreakdown = computed(() => {
-  return categories.map(cat => {
+  // A category with nothing marked would only show an empty bar and 0/0.
+  return categories.filter(cat => cat.items.some(i => operates.value.includes(i.id))).map(cat => {
     const ids = cat.items.map(i => i.id)
     const operatesCount = ids.filter(id => operates.value.includes(id)).length
     const supportsCount = ids.filter(id => supports.value.includes(id)).length

@@ -26,7 +26,7 @@ export default {
         'Go through the list once more, including the entries you endorse, and ask one question of each: could this be achieved without force? Through persuasion, voluntary funding, or people cooperating because they want the outcome?',
         'For some, the honest answer will be "I do not see how." That is a perfectly good answer, and worth more than a forced one.',
         '**But notice the difference between "this cannot be done voluntarily" and "I have not seen how it could be." Those are very different claims, and the first one gets made a great deal more often than it gets checked.**',
-        'People said the first about mail, roads, schooling, disaster relief, credit, and standards-setting. Each of those now has a functioning voluntary version running somewhere, alongside or instead of the compulsory one. The category of things that genuinely require force has been shrinking for a long time, mostly quietly.'
+        'People said the first about mail, roads, schooling, disaster relief, credit, and standards-setting. Each of those now has a functioning voluntary version running somewhere, alongside or instead of the compulsory one. Whether each could do more is an open question, and a question worth asking.'
       ]
     },
     {

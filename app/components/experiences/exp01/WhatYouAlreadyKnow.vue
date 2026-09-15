@@ -2,7 +2,7 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="8" />
     <p class="caption" style="margin-bottom: 1.5rem;">What you just demonstrated</p>
-    <h2 class="display-medium">{{ wouldForce === 'yes' ? 'You chose force. Most people don\'t.' : 'You already know that force doesn\'t work.' }}</h2>
+    <h2 class="display-medium">{{ wouldForce === 'yes' ? 'You chose force. That answer is worth examining.' : 'You already know what force costs.' }}</h2>
     <Divider />
 
     <template v-if="wouldForce === 'no'">
@@ -23,7 +23,7 @@
     </template>
 
     <template v-else>
-      <p class="body-text-large">Most people, when they think honestly about a specific person they care about, choose persuasion over force. The relationship matters too much. The resentment isn't worth it. The compliance isn't the same as agreement.</p>
+      <p class="body-text-large">Many people, thinking of a specific person they care about, choose persuasion over force. The relationship matters too much. The resentment isn't worth it. The compliance isn't the same as agreement.</p>
 
       <p class="body-text">Your answer is worth examining, though. What was it about this particular disagreement that made force feel justified? Was it the urgency of the situation? The certainty that you were right? The belief that the other person's resistance was harmful?</p>
 

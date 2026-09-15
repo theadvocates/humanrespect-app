@@ -10,7 +10,7 @@
     <p class="body-text">The Philosophy of Human Respect observes that this pattern scales. What's true between two people is true between two million.</p>
 
     <ContentBlock variant="principle">
-      <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>
+      <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the taking of people's property or time through force or fraud. They grow where people cooperate voluntarily.</p>
     </ContentBlock>
 
     <p class="body-text">This holds whether the force comes from a controlling partner, an authoritarian boss, a neighborhood bully, or a democratic government. The mechanism changes. The effect on the person being forced does not.</p>

@@ -5,7 +5,7 @@
     <h2 class="display-medium">Right now, who is being threatened with physical force on your behalf?</h2>
     <Divider />
 
-    <p class="body-text">You would never personally threaten any of these people. But the system you take part in does, every day, in your name. Check each situation where government agents use or threaten physical force to enforce a policy you support.</p>
+    <p class="body-text">You probably wouldn't personally threaten any of these people. But the system you take part in does, every day, in your name. Check each situation where government agents use or threaten physical force to enforce a policy you support.</p>
 
     <div class="situations">
       <button
@@ -25,7 +25,7 @@
 
     <div v-if="selected.length > 0" class="reflection">
       <ContentBlock variant="mirror">
-        <p>You checked {{ selected.length }} situations. In each one, a person who has used force on no one faces the threat of armed agents entering their home, restraining them, and putting them in a cage. You would never do this to them yourself. But you take part in a system that does it for you.</p>
+        <p>You checked {{ selected.length === 1 ? 'one situation' : selected.length + ' situations' }}. In each one, a person who has used force on no one faces the threat of armed agents entering their home, restraining them, and putting them in a cage. You would never do this to them yourself. But you take part in a system that does it for you.</p>
       </ContentBlock>
 
       <p class="body-text">The philosophy doesn't claim these people are all blameless, or that every law is unjust. It asks a simpler question: in each of these situations, is the threat of physical force actually necessary, or could the same goal be reached without it?</p>
@@ -50,13 +50,13 @@ const selected = ref([])
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 
 const situations = [
-  { id: 'drug-user', label: 'A person using marijuana in their own home', detail: 'Faces arrest, prosecution, and imprisonment in most jurisdictions.' },
+  { id: 'drug-user', label: 'A person using marijuana in their own home', detail: 'Where it remains illegal, faces arrest, prosecution, and possible jail.' },
   { id: 'tax-refuser', label: 'A person who refuses to pay taxes', detail: 'Faces wage garnishment, asset seizure, and eventually armed agents at their door.' },
   { id: 'unlicensed-worker', label: 'A person braiding hair or selling food without a license', detail: 'Faces fines, forced closure, and arrest for operating without government permission.' },
-  { id: 'raw-milk', label: 'A farmer selling raw milk to willing buyers', detail: 'In many states, faces raids by armed agents for a voluntary transaction between adults.' },
-  { id: 'homeschool', label: 'A parent educating their child outside approved methods', detail: 'In some jurisdictions, faces fines, custody threats, and truancy enforcement.' },
+  { id: 'raw-milk', label: 'A farmer selling raw milk to willing buyers', detail: 'In some states, faces fines, seizure, and even armed raids for a voluntary transaction between adults.' },
+  { id: 'homeschool', label: 'A parent educating their child outside approved methods', detail: 'In some jurisdictions, faces truancy charges, fines, and investigation.' },
   { id: 'building-code', label: 'A homeowner building a shed on their own property', detail: 'Without a permit, faces fines, forced demolition, and liens on their home.' },
-  { id: 'immigrant', label: 'A person who crossed a border to work and feed their family', detail: 'Faces detention, separation from children, and deportation by armed agents.' },
+  { id: 'immigrant', label: 'A person who crossed a border to work and feed their family', detail: 'Faces detention and deportation by armed agents, sometimes apart from their children.' },
   { id: 'gun-owner', label: 'A person possessing a firearm that violates a regulation', detail: 'Faces felony charges and imprisonment, though the firearm was never used against anyone.' },
 ]
 

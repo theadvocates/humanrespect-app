@@ -10,7 +10,7 @@
       <ContentBlock variant="insight">
         <p>You chose persuasion for every issue. You already apply the Human Respect Method consistently — you believe society should advance its goals through voluntary cooperation, not force.</p>
       </ContentBlock>
-      <p class="body-text-large">This puts you in a minority. Most people choose persuasion for issues where they disagree with the forced approach — and force for issues they care most about. You've avoided that trap.</p>
+      <p class="body-text-large">That is harder than it sounds. It is easy to choose persuasion for the goals you care less about and force for the ones you care about most. You didn't.</p>
     </template>
 
     <!-- ALL FORCE -->
@@ -33,7 +33,7 @@
       <p class="body-text-large">{{ mixedInsight }}</p>
 
       <ContentBlock variant="insight">
-        <p>This is the pattern the Philosophy of Human Respect is designed to reveal. Most people want <em>their</em> values advanced by whatever means necessary — and <em>other people's</em> values advanced only through persuasion. But you can't have it both ways. If you may force your priorities on others, they may force theirs on you.</p>
+        <p>This is the pattern the Philosophy of Human Respect is designed to reveal. It is natural to want <em>your</em> values backed by law, and <em>other people's</em> values advanced only through persuasion. But you can't have it both ways. If you may force your priorities on others, they may force theirs on you.</p>
       </ContentBlock>
     </template>
 
@@ -84,7 +84,7 @@ const mixedInsight = computed(() => {
   if (forceIssues.every(i => i.lean === 'conservative') && persuadeIssues.every(i => i.lean === 'progressive')) {
     return 'You chose force for conservative goals and persuasion for progressive ones. You want the government to enforce the values you agree with, but not the ones you don\'t.'
   }
-  return 'Notice which issues you chose force for, and which persuasion. Is there a pattern? Most people choose force for the goals they care about most, and persuasion for the ones they care about less.'
+  return 'Notice which issues you chose force for, and which persuasion. Is there a pattern? It is common to choose force for the goals you care about most, and persuasion for the ones you care about less.'
 })
 </script>
 

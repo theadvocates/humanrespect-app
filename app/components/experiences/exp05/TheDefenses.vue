@@ -45,17 +45,17 @@ const defenses = [
   {
     id: 'just-voting',
     claim: '"I was just voting. That\'s different from personally doing it."',
-    response: 'Hiring a hitman is "just making a phone call." Commissioning a theft is "just writing a check." The directness of the action doesn\'t determine the moral weight. What matters is whether you authorized the outcome. When you vote for a policy knowing it will be enforced through the threat of imprisonment, you authorize that enforcement. The ballot is the authorization.'
+    response: 'Paying for a burglary is "just writing a check," and nobody thinks that clears the person who wrote it. Distance from the act doesn\'t determine the moral weight. What matters is what you authorized. Your single vote rarely decides an election, and that is true. But a vote is still a statement of what you are willing to co-sign. When you vote for a policy knowing it will be enforced through fines and imprisonment, you are putting your name to that enforcement.'
   },
   {
     id: 'had-to',
     claim: '"I didn\'t have a choice — these are the only options on the ballot."',
-    response: 'A constrained choice is still a choice. When you choose between two candidates who both support coercive policies, you are choosing which form of force to authorize — not whether to authorize force at all. The system constrains your options, but the constraint doesn\'t erase your agency. A person who pulls a lever because a gun is at their head has reduced responsibility. A person who pulls a lever because the other levers are slightly worse does not.'
+    response: 'A constrained choice is still a choice. When you choose between two candidates who both support coercive policies, you are choosing which form of force to authorize — not whether to authorize force at all. The system constrains your options, but the constraint doesn\'t erase your agency. A person who pulls a lever because a gun is at their head has reduced responsibility. A person who pulls a lever because the other levers are slightly worse does not. And declining to co-sign either one is also on the ballot.'
   },
   {
     id: 'common-good',
     claim: '"I was voting for the common good."',
-    response: 'The person who hires someone to steal also believes they have a good reason — maybe they intend to give the money to charity. Every act of coercion in history has been justified by its beneficiaries. Good intentions don\'t transform the nature of the act. They explain why you authorized it. They don\'t change what you authorized.'
+    response: 'The person who hires someone to steal can also have a good reason. Maybe they plan to give the money to a family in need. Almost everyone who has used force on other people believed the cause justified it. Good intentions don\'t transform the nature of the act. They explain why you authorized it. They don\'t change what you authorized.'
   }
 ]
 </script>

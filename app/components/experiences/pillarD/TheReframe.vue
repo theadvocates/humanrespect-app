@@ -17,7 +17,7 @@
       <div class="society society-persuade">
         <div class="society-label">Society B: Persuasion</div>
         <p>Everyone holds their values just as deeply — but commits to advancing them only through conversation, example, voluntary cooperation, and creative problem-solving. No one forces anyone.</p>
-        <div class="society-result">Result: Diversity without conflict. People with different values coexist, learn from each other, and cooperate on shared goals. Trust grows. Innovation flourishes.</div>
+        <div class="society-result">Result: Disagreement without a war over the machinery of force. People with different values still argue, but they coexist, learn from each other, and cooperate on shared goals. Trust grows.</div>
       </div>
     </div>
 

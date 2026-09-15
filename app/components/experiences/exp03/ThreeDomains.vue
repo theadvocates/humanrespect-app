@@ -2,10 +2,10 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="4" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">The structure of what went wrong</p>
-    <h2 class="display-medium">Every violation you identified falls into one of three domains.</h2>
+    <h2 class="display-medium">Every hardship you identified touches one of three domains.</h2>
     <Divider />
 
-    <p class="body-text-large">The conditions that suppressed your flourishing weren't random. They attacked specific dimensions of your life — the same three dimensions that, when respected, make flourishing possible.</p>
+    <p class="body-text-large">The conditions that suppressed your flourishing weren't random. They hit specific dimensions of your life, the same three that make flourishing possible when they are secure. Not every hardship is someone's doing. Illness and bad luck happen. The principle is about the part other people do on purpose: violence, theft, and taking your time by force or fraud.</p>
 
     <div class="domains">
       <div class="domain" :class="{ active: hasBody }">
@@ -13,7 +13,7 @@
           <div class="domain-icon">I</div>
           <div>
             <div class="domain-name">Bodily Integrity</div>
-            <div class="domain-imperative">Respect the Body: Do not harm.</div>
+            <div class="domain-imperative">Respect the Body: Do not initiate violence.</div>
           </div>
         </div>
         <p class="domain-desc">Your body is the seat of all experience. When it is unsafe — when you face violence, threats, or the fear of harm — your nervous system shifts into survival mode. Creativity shuts down. Trust collapses. Long-term thinking becomes impossible. Safety is the precondition for everything else.</p>
@@ -37,7 +37,7 @@
           <div class="domain-icon">III</div>
           <div>
             <div class="domain-name">Temporal Integrity</div>
-            <div class="domain-imperative">Respect Time: Do not coerce.</div>
+            <div class="domain-imperative">Respect Time: Do not take it by force or fraud.</div>
           </div>
         </div>
         <p class="domain-desc">Time is the only truly non-renewable resource. It cannot be replaced, stored, or compensated. Every hour of coerced activity is an hour of life permanently redirected. When someone controls your time, they don't just inconvenience you — they consume the substance of your life.</p>
@@ -46,7 +46,7 @@
     </div>
 
     <ContentBlock variant="principle">
-      <p>These three domains — body, resources, and time — form the complete architecture of a human life. When all three are respected, people flourish. When any is violated, flourishing predictably declines.</p>
+      <p>Body, resources, and time are what a human life is made of. When other people respect all three, flourishing has room to grow. When anyone violates one by force or fraud, flourishing declines. Always.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

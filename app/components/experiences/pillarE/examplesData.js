@@ -5,7 +5,7 @@ export const cooperationExamples = [
     what: 'The largest encyclopedia in human history',
     how: 'Entirely volunteer-written and donation-funded. No government mandate. No compulsory participation. 60+ million articles in 300+ languages.',
     assumption: '"You can\'t create reliable public knowledge without institutional funding and professional oversight."',
-    reality: 'Volunteers produce and maintain information that is more accurate, more complete, and more current than any state-funded encyclopedia ever managed.'
+    reality: 'Volunteers maintain a reference far larger and more current than any encyclopedia before it, and studies comparing it with professional encyclopedias have found similar accuracy on many subjects.'
   },
   {
     id: 'software',
@@ -13,21 +13,21 @@ export const cooperationExamples = [
     what: 'The infrastructure that runs the internet',
     how: 'Linux, Apache, Python, Firefox, WordPress — created by volunteers and voluntary organizations. No one was forced to contribute. The result powers the majority of the world\'s servers.',
     assumption: '"Critical infrastructure requires centralized control and compulsory funding."',
-    reality: 'The most reliable, secure, and innovative infrastructure on earth was built by people who chose to build it.'
+    reality: 'Much of the infrastructure the internet runs on was built and is maintained by people and companies who chose to build it together.'
   },
   {
     id: 'disaster',
     name: 'Volunteer disaster response',
-    what: 'Faster and more effective than government in crisis',
-    how: 'The Cajun Navy during Hurricane Harvey. Volunteer firefighters protecting roughly two-thirds of US communities. Mutual aid networks during COVID. Community organizations consistently arrive before FEMA.',
+    what: 'Often first on the scene in a crisis',
+    how: 'The Cajun Navy during Hurricane Harvey. Volunteers make up about two-thirds of American firefighters. Mutual aid networks during COVID. Neighbors and local groups are often helping before federal agencies arrive.',
     assumption: '"Only government can coordinate large-scale emergency response."',
-    reality: 'Voluntary networks are consistently faster, more adaptive, and more personally responsive than bureaucratic agencies.'
+    reality: 'Voluntary networks are often faster, more adaptive, and more personally responsive than agencies that must wait for authorization.'
   },
   {
     id: 'arbitration',
     name: 'Private arbitration',
     what: 'Dispute resolution without government courts',
-    how: 'Billions of dollars in commercial disputes resolved annually through voluntary arbitration. Faster, cheaper, and more satisfactory to both parties than the court system.',
+    how: 'Billions of dollars in commercial disputes are resolved every year through arbitration the parties chose, usually faster and cheaper than going to court.',
     assumption: '"Justice requires government courts backed by state power."',
     reality: 'When both parties voluntarily agree to a process, resolution is faster, less adversarial, and more likely to preserve relationships.'
   },
@@ -37,7 +37,7 @@ export const cooperationExamples = [
     what: 'Voluntary generosity at scale',
     how: 'Americans gave $592.5 billion to charity in 2024 — from individuals, families, foundations, and corporations. All by choice, not compulsion. Community foundations, mutual aid societies, GoFundMe campaigns, religious charities.',
     assumption: '"Without forced redistribution, the poor would be abandoned."',
-    reality: 'Voluntary generosity has existed in every culture in history and consistently grows when people feel economically secure and socially connected.'
+    reality: 'Voluntary generosity appears in every culture on record, and it tends to grow when people feel economically secure and socially connected.'
   }
 ]
 

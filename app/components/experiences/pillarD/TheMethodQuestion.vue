@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The method question</p>
     <h2 class="display-medium">For each issue, how should society advance the goal?</h2>
     <Divider />
-    <p class="body-text">Everyone agrees these are worthwhile goals. The question is whether to pursue them through force or persuasion.</p>
+    <p class="body-text">People on the left and the right hold these goals sincerely. The question is whether to pursue them through force or persuasion.</p>
 
     <div class="issues">
       <div v-for="issue in allIssues" :key="issue.id" class="issue-block">

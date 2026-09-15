@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The question that remains</p>
     <h2 class="display-medium">What else might be possible?</h2>
     <Divider />
-    <p class="body-text-large">Voluntary cooperation built the world's largest encyclopedia, the infrastructure that runs the internet, and disaster response networks that outperform government agencies.</p>
+    <p class="body-text-large">Voluntary cooperation built the world's largest encyclopedia, the infrastructure that runs the internet, and disaster response networks that are often first on the scene.</p>
     <ContentBlock variant="principle"><p>If voluntary cooperation can do all of this — what else might it be capable of that we've never tried, because we assumed force was the only option?</p></ContentBlock>
     <ContentBlock variant="insight"><p>The Philosophy of Human Respect claims that the <em>trajectory</em> of cooperation points toward greater flourishing, while the trajectory of coercion points toward conflict, stagnation, and the slow erosion of human dignity.</p></ContentBlock>
 

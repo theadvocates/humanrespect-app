@@ -8,7 +8,7 @@
     <p class="body-text-large">In Experience 01, you encountered the principle as a claim. Now you can see where it comes from — not from ideology, but from the observable structure of human well-being.</p>
 
     <ContentBlock variant="principle">
-      <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>
+      <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the taking of people's property or time through force or fraud. They grow where people cooperate voluntarily.</p>
       <p style="margin-top: 1rem;">Therefore, the ethical foundation of society is the full respect for each person's body, resources, and time.</p>
     </ContentBlock>
 
@@ -17,7 +17,7 @@
     <p class="body-text">Including yours. The best period of your life had these conditions present. The worst period had them violated. That's not a coincidence — it's the pattern the principle describes.</p>
 
     <ContentBlock variant="insight">
-      <p>What makes this different from other moral frameworks is the grounding. This isn't "coercion is wrong because rights exist" — a claim that requires accepting a metaphysical premise. This is "coercion is wrong because it predictably damages human flourishing" — a claim you can test against your own experience and the evidence of every society in history.</p>
+      <p>What makes this different from other moral frameworks is the grounding. It doesn't ask you to accept a premise handed down from a theory. It makes a claim about cause and effect: force, theft, and violence always damage the conditions people need to do well. You can test that claim against your own life and against the history of the societies around you.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

@@ -2,10 +2,10 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="5" :total="7" />
     <p class="caption" style="margin-bottom: 1.5rem;">Translate the language</p>
-    <h2 class="display-medium">Political language obscures what you're actually authorizing. Translate it.</h2>
+    <h2 class="display-medium">Political language names the goal. Name the method.</h2>
     <Divider />
 
-    <p class="body-text">Each of these statements sounds reasonable. For each one, choose the translation that most accurately describes the force being authorized. They come from across the political spectrum on purpose — the philosophy doesn't take sides.</p>
+    <p class="body-text">Each of these statements names something people sincerely want. For each one, pick the sentence that describes the method: what happens to someone who doesn't go along. They come from across the political spectrum on purpose. The philosophy doesn't take sides.</p>
 
     <div class="translations">
       <div v-for="t in translations" :key="t.id" class="translation-block">
@@ -20,10 +20,10 @@
         </div>
         <div v-else class="translation-result">
           <div class="result-chosen" :class="{ correct: answers[t.id].correct, incorrect: !answers[t.id].correct }">
-            {{ answers[t.id].correct ? '✓' : '✗' }} {{ answers[t.id].correct ? 'Correct.' : 'Close, but not quite.' }}
+            {{ answers[t.id].correct ? 'That\'s the method.' : 'That\'s the goal, and it\'s a real one. The method is what the policy does to get there.' }}
           </div>
           <div class="result-actual">
-            <div class="result-label">The full translation:</div>
+            <div class="result-label">The goal and the method:</div>
             <p>{{ t.actual }}</p>
           </div>
         </div>
@@ -32,7 +32,7 @@
 
     <div v-if="allAnswered">
       <ContentBlock variant="insight">
-        <p>Notice that these translations cut across the political spectrum. Progressive policies use force. Conservative policies use force. The philosophy doesn't ask you to abandon your values. It asks you to see the method clearly — and then decide whether that method is consistent with what you know about how force affects human beings.</p>
+        <p>The goals on this list are good ones, and they come from the left and the right. Progressive policies use force. Conservative policies use force. The philosophy doesn't ask you to abandon your values. It asks you to see the method clearly — and then decide whether that method is consistent with what you know about how force affects human beings.</p>
       </ContentBlock>
     </div>
 
@@ -59,44 +59,43 @@ const translations = [
     id: 'healthcare',
     sanitized: 'I support universal healthcare.',
     options: [
-      { id: 'a', text: 'I want everyone to have access to a doctor.', correct: false },
-      { id: 'b', text: 'I authorize the seizure of earnings from every working person and penalties against anyone who provides or obtains care outside the approved system.', correct: true },
-      { id: 'c', text: 'I believe healthcare is a human right that society should guarantee.', correct: false },
+      { id: 'a', text: 'I want everyone to be able to see a doctor.', correct: false },
+      { id: 'b', text: 'I authorize taking part of every working person\'s earnings to pay for it, with penalties for anyone who refuses.', correct: true },
+      { id: 'c', text: 'I believe no one should go without care because they can\'t pay.', correct: false },
     ],
-    actual: 'I authorize armed agents to take a portion of every working person\'s earnings to fund a system designed by political actors. I authorize fines and imprisonment for anyone who provides medical care outside approved channels — including a doctor who charges less than the approved rate, or a patient who buys medication from abroad.'
+    actual: 'The goal is that no one goes without care. The method is taxation: a share of every working person\'s earnings, collected whether or not they agree with the plan, with penalties, seizure, and eventually prison for anyone who refuses. Most versions also set rules on what doctors may charge and who may practice, backed by the same enforcement.'
   },
   {
     id: 'drug-war',
     sanitized: 'I support the war on drugs.',
     options: [
       { id: 'a', text: 'I want to protect communities from the damage of addiction.', correct: false },
-      { id: 'b', text: 'I authorize armed raids on homes, imprisonment of people for possessing substances, and the destruction of families — over what people put in their own bodies.', correct: true },
-      { id: 'c', text: 'I believe certain substances are too dangerous to allow.', correct: false },
+      { id: 'b', text: 'I authorize arresting and imprisoning people for making, selling, or possessing certain substances.', correct: true },
+      { id: 'c', text: 'I believe some substances are too dangerous to be sold freely.', correct: false },
     ],
-    actual: 'I authorize armed agents to break into homes, cage human beings for years, and permanently destroy their employability, their families, and their futures — for the act of consuming a substance in private. I authorize this knowing that enforcement falls disproportionately on the poorest and most marginalized communities.'
+    actual: 'The goal is fewer lives wrecked by addiction. The method is searches, arrests, prosecution, and prison for people who make, sell, or use certain substances, including adults who have not threatened anyone. The enforcement has fallen hardest on poor neighborhoods.'
   },
   {
     id: 'rent-control',
     sanitized: 'I support rent control.',
     options: [
       { id: 'a', text: 'I want housing to be affordable for working families.', correct: false },
-      { id: 'b', text: 'I authorize the government to dictate what a property owner may charge for the use of their own building, with fines and legal action against anyone who asks for more.', correct: true },
-      { id: 'c', text: 'I believe landlords shouldn\'t be able to exploit tenants.', correct: false },
+      { id: 'b', text: 'I authorize penalties against owners who charge more than an approved rent, even when a tenant agrees to pay it.', correct: true },
+      { id: 'c', text: 'I believe tenants shouldn\'t be priced out of their own neighborhoods.', correct: false },
     ],
-    actual: 'I authorize the government to override voluntary agreements between property owners and tenants. If a landlord charges more than the approved rate — even if a tenant willingly agrees to pay it — I authorize fines, legal proceedings, and ultimately armed enforcement against the owner. The long-term result, documented across every city that has tried it: housing shortages, deteriorating buildings, and a black market that hurts the people the policy was meant to protect.'
+    actual: 'The goal is housing that working families can afford. The method is legal limits on what owners may charge, enforced through fines and lawsuits, even when owner and tenant would both agree to a different price. Economists on the left and the right have long warned that such limits shrink and age the supply of rental housing over time.'
   },
   {
     id: 'mandatory-min',
     sanitized: 'I support mandatory minimum sentences.',
     options: [
       { id: 'a', text: 'I want consistent justice that doesn\'t depend on which judge you get.', correct: false },
-      { id: 'b', text: 'I authorize the removal of judicial discretion, requiring judges to cage people for predetermined periods regardless of circumstances, remorse, or likelihood of rehabilitation.', correct: true },
-      { id: 'c', text: 'I believe criminals need to face real consequences.', correct: false },
+      { id: 'b', text: 'I authorize legislators to fix prison terms in advance and require judges to impose them, whatever the circumstances.', correct: true },
+      { id: 'c', text: 'I believe crimes should carry real consequences.', correct: false },
     ],
-    actual: 'I authorize legislators who will never meet the defendant to predetermine the sentence. I remove the power of the one person in the system who actually sees the human being — the judge — to exercise judgment. I authorize caging a first-time offender for the same duration as a career criminal, destroying families and producing people more likely to reoffend, because the system that was supposed to rehabilitate them did nothing but warehouse them.'
+    actual: 'The goal is equal treatment and real consequences. The method is a law requiring a judge to imprison someone for a set term, whatever the judge learns about the person in front of them. Legislators who will never meet the defendant decide the sentence, and the judge who does meet them cannot change it.'
   }
 ]
-
 const allAnswered = computed(() => Object.keys(answers.value).length === translations.length)
 
 function choose(translationId, optionId, correct) {

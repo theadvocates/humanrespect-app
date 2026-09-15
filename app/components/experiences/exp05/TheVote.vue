@@ -12,7 +12,7 @@
       <p>The politician is the intermediary. The police are the enforcement mechanism. But you — the voter — are the principal. You authorized it.</p>
     </ScenarioBox>
 
-    <p class="body-text">The mechanism is more complex. The chain of authority is longer. The language is more polished. But the structure is identical: one person authorizes force against another person's body, property, or time, carried out by an agent.</p>
+    <p class="body-text">The mechanism is more complex. The chain of authority is longer. The language is more polished. But the structure holds. Politicians are the personal agents of the voters who elect them. One person authorizes force against another person's body, property, or time, and an agent carries it out.</p>
 
     <ContentBlock variant="mirror">
       <p>In Experience 01, you recognized that you wouldn't use force to resolve a disagreement with someone you care about — because you know what force does to people. When you vote for a policy that will be enforced through the threat of fines, seizure, or imprisonment, you are authorizing that same force against people every bit as real as the person you were thinking about. The distance doesn't change the effect. It changes how easily you can look away.</p>

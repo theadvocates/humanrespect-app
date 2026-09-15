@@ -5,7 +5,7 @@ export const categories = [
     items: [
       { id: 'income-tax', label: 'Income tax', mechanism: 'Pay, or face penalties and eventually prison' },
       { id: 'property-tax', label: 'Property tax', mechanism: 'Pay, or your home is seized, even one you own outright' },
-      { id: 'sales-tax', label: 'Sales tax', mechanism: 'Added to every purchase; a business that does not collect it is shut down' },
+      { id: 'sales-tax', label: 'Sales tax', mechanism: 'Added to every purchase; a business that does not collect it is fined and can be shut down' },
       { id: 'social-security', label: 'Social Security / Medicare', mechanism: 'Taken from every paycheck; no way to opt out' },
     ]
   },
@@ -23,8 +23,8 @@ export const categories = [
     id: 'rules',
     label: 'Rules and regulations',
     items: [
-      { id: 'min-wage', label: 'Minimum wage laws', mechanism: 'Makes it a crime to agree to work for less' },
-      { id: 'drug-laws', label: 'Drug prohibition', mechanism: 'Prison for what you choose to consume' },
+      { id: 'min-wage', label: 'Minimum wage laws', mechanism: 'Makes it illegal to hire someone who agrees to work for less' },
+      { id: 'drug-laws', label: 'Drug prohibition', mechanism: 'Arrest and possible jail for what you choose to consume' },
       { id: 'licensing', label: 'Occupational licensing', mechanism: 'Government permission required to work in many trades' },
       { id: 'zoning', label: 'Zoning and building codes', mechanism: 'Limits on how you use property you own' },
       { id: 'regulations', label: 'Business regulations', mechanism: 'Comply, or face fines, closure, or prison' },

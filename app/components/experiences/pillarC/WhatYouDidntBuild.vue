@@ -54,7 +54,7 @@ const items = [
   { id: 'business', label: 'A business I thought about starting but didn\'t' },
   { id: 'investment', label: 'An investment I avoided because I wasn\'t sure the rules would stay stable' },
   { id: 'property', label: 'A property or home I didn\'t buy because of tax or regulatory burden' },
-  { id: 'career-risk', label: 'A career risk I didn\'t take because the safety net wasn\'t there' },
+  { id: 'career-risk', label: 'A career risk I didn\'t take because I couldn\'t afford to fail' },
   { id: 'generosity', label: 'A charitable gift I didn\'t make because I wasn\'t financially secure enough' },
   { id: 'project', label: 'A creative project I abandoned because it wouldn\'t pay enough after taxes and fees' },
   { id: 'savings', label: 'Savings I didn\'t build because too much of my income was already spoken for' },

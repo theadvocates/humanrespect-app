@@ -23,7 +23,7 @@
     </div>
 
     <ContentBlock variant="principle">
-      <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>
+      <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the taking of people's property or time through force or fraud. They grow where people cooperate voluntarily.</p>
     </ContentBlock>
 
     <p class="body-text">This is a strong claim. You might agree with the pattern but question whether it applies as broadly as the philosophy suggests. You might think there are exceptions important enough to justify force — situations where the cost of coercion is worth the benefit it produces.</p>

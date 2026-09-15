@@ -23,7 +23,7 @@
 
     <div v-if="allAnswered">
       <ContentBlock variant="principle">
-        <p>In every legal system and moral tradition people take seriously, the person who authorizes an action shares responsibility for it. Hiring someone to steal makes you a thief. Hiring someone to commit violence makes you complicit. The intermediary doesn't absorb your moral responsibility. It transfers through them.</p>
+        <p>Across legal systems and moral traditions, the person who authorizes an action shares responsibility for it. Hiring someone to steal makes you a thief. Hiring someone to commit violence makes you complicit. The intermediary doesn't absorb your moral responsibility. It transfers through them.</p>
       </ContentBlock>
     </div>
 
@@ -54,7 +54,7 @@ const scenarios = [
       { id: 'them', label: 'Only the person you hired' },
       { id: 'both', label: 'Both of you' }
     ],
-    note: 'Every court in every country would hold you responsible. You are the principal. The person you hired is your agent.'
+    note: 'The law in nearly every country treats you as a party to the burglary. You are the principal. The person you hired is your agent.'
   },
   {
     id: 'violence',
@@ -72,9 +72,9 @@ const scenarios = [
     options: [
       { id: 'six', label: 'The six who voted yes' },
       { id: 'hired', label: 'Only the person hired' },
-      { id: 'all', label: 'No one — it was a majority vote' }
+      { id: 'all', label: 'No one did wrong — a fair vote makes it legitimate' }
     ],
-    note: 'A vote doesn\'t change the nature of the act. Six people authorized taking money from four. The moral weight falls on those who voted for it.'
+    note: 'A fair vote settles who wins. It doesn\'t change what was won: permission to take money from four people who said no. If all ten had agreed beforehand to be bound by the vote, that would be a different case. Here, nobody asked the four. The moral weight falls on the six who authorized it and on the person who carried it out.'
   }
 ]
 

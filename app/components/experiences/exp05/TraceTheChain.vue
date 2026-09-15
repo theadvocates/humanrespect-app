@@ -42,7 +42,7 @@
 
       <div v-if="revealedSteps >= currentChain.length" class="chain-complete">
         <ContentBlock variant="mirror">
-          <p>That is the full chain. It begins with a vote and ends with armed agents and a cage. Every link exists because the link before it authorized it. The first link — the one that set the entire chain in motion — is a person who believed they were choosing something good.</p>
+          <p>That is the full chain. Most people comply long before the last link, which is why the last link is easy to forget. It is still what makes the first one work. Every link exists because the link before it authorized it. The first link, the one that set the entire chain in motion, is a person who believed they were choosing something good.</p>
         </ContentBlock>
       </div>
     </div>
@@ -81,42 +81,41 @@ const policies = [
 const chains = {
   'income-tax': [
     { actor: 'You (the voter)', action: 'Vote for a candidate who promises to fund programs through income taxation.' },
-    { actor: 'The legislature', action: 'Passes a tax law requiring citizens to surrender a percentage of their earnings.' },
+    { actor: 'The legislature', action: 'Passes a tax law requiring people to surrender a percentage of their earnings.' },
     { actor: 'The IRS', action: 'Sends a notice to your neighbor demanding payment.' },
-    { actor: 'Your neighbor', action: 'Believes the amount is unjust and declines to pay.' },
-    { actor: 'The IRS', action: 'Sends threatening letters. Imposes penalties. Garnishes wages. Places liens on property.' },
-    { actor: 'Your neighbor', action: 'Still refuses. All they have done is decline to hand over their earnings.' },
-    { actor: 'Federal agents', action: 'Arrive at your neighbor\'s home. Armed. They seize property, freeze bank accounts, or arrest your neighbor and put them in a cell.' },
+    { actor: 'Your neighbor', action: 'Believes the programs are wrong and declines to pay for them.' },
+    { actor: 'The IRS', action: 'Adds penalties and interest. Garnishes wages. Places a lien on the house. Empties the bank account.' },
+    { actor: 'Your neighbor', action: 'Still refuses. They have not threatened anyone. They have declined to hand over their earnings.' },
+    { actor: 'Prosecutors and marshals', action: 'Willful refusal is a crime. A court convicts. If your neighbor will not report to prison, armed marshals come to take them there.' },
   ],
   'drug-prohibition': [
     { actor: 'You (the voter)', action: 'Vote for a candidate who supports criminalizing drug possession.' },
     { actor: 'The legislature', action: 'Passes a law making possession of certain substances a felony.' },
     { actor: 'Police', action: 'Identify your neighbor as a suspected user based on a tip or a traffic stop.' },
-    { actor: 'A judge', action: 'Issues a warrant based on probable cause.' },
-    { actor: 'A SWAT team', action: 'Breaks down your neighbor\'s door before dawn. Weapons drawn. Flash grenades deployed. Children screaming.' },
-    { actor: 'Your neighbor', action: 'Is handcuffed on the floor of their own home, for something they used in private.' },
-    { actor: 'The court system', action: 'Prosecutes. Mandatory minimum: five years. Their career, their family, their children\'s stability — gone. Over what they put in their own body.' },
+    { actor: 'A judge', action: 'Issues a search warrant based on probable cause.' },
+    { actor: 'Officers', action: 'Serve the warrant at your neighbor\'s home, often at dawn, sometimes forcing the door with weapons drawn while the family is inside.' },
+    { actor: 'Your neighbor', action: 'Is handcuffed in their own home for possessing a substance they chose to use.' },
+    { actor: 'The court system', action: 'Prosecutes. Jail or probation follows, and a felony record follows for life: jobs they can\'t get, apartments they can\'t rent, loans they can\'t take out.' },
   ],
   'gun-regulation': [
     { actor: 'You (the voter)', action: 'Vote for a candidate who promises to ban certain firearms.' },
     { actor: 'The legislature', action: 'Passes a law requiring owners of newly prohibited weapons to surrender them.' },
     { actor: 'The government', action: 'Sends notices to registered owners: turn in your firearms by the deadline or face felony charges.' },
-    { actor: 'Your neighbor', action: 'A lifelong hunter and target shooter. Has never been in trouble with the law. Believes the ban is unjust, and refuses to comply.' },
-    { actor: 'Law enforcement', action: 'Obtains a warrant. Arrives at your neighbor\'s home to execute a search and seizure.' },
-    { actor: 'Your neighbor', action: 'Faces a choice: surrender property they\'ve owned legally for decades, or resist agents with guns who have come to take their guns.' },
-    { actor: 'The situation', action: 'Armed agents enforcing a policy against an armed citizen who has done nothing but keep what they own. The violence is built into the policy itself.' },
+    { actor: 'Your neighbor', action: 'A lifelong hunter and target shooter who has never threatened anyone. Believes the ban is wrong, and refuses to comply.' },
+    { actor: 'Law enforcement', action: 'Obtains a warrant. Arrives at your neighbor\'s home to search it and seize the weapons.' },
+    { actor: 'Your neighbor', action: 'Faces a choice: surrender property they\'ve owned legally for decades, or resist armed officers who have come to take it.' },
+    { actor: 'The situation', action: 'Armed agents enforcing a law against a citizen who has not threatened anyone. If your neighbor resists, the law\'s only answer is more force.' },
   ],
   'environmental': [
     { actor: 'You (the voter)', action: 'Vote for a candidate who promises stricter environmental protections.' },
     { actor: 'A regulatory agency', action: 'Issues new rules classifying a portion of your neighbor\'s land as protected wetland. They cannot build, farm, or develop it.' },
-    { actor: 'Your neighbor', action: 'A small farmer who bought this land with thirty years of savings. The protected portion is 60% of their property. Nobody asked them. Nobody compensated them.' },
-    { actor: 'Your neighbor', action: 'Plants crops on the restricted portion because their family depends on the income. They are not polluting. They are farming land they own.' },
-    { actor: 'The agency', action: 'Issues a cease-and-desist order and a fine of $75,000 per day of violation.' },
-    { actor: 'Your neighbor', action: 'Cannot afford the fine. Cannot afford a lawyer to fight it. Cannot sell the now-worthless land.' },
-    { actor: 'Federal agents', action: 'Arrive to enforce the order. Your neighbor\'s life savings, their land, and potentially their freedom are taken — for farming their own property.' },
+    { actor: 'Your neighbor', action: 'A small farmer who bought this land with thirty years of savings. The protected portion is 60% of it. They were not asked, and rules like this rarely come with compensation.' },
+    { actor: 'Your neighbor', action: 'Plants crops on the restricted portion because the family depends on the income. The agency says farming there damages the wetland. Your neighbor says it is their land.' },
+    { actor: 'The agency', action: 'Issues a cease-and-desist order. Civil penalties under federal water law can exceed $60,000 per day of violation.' },
+    { actor: 'Your neighbor', action: 'Cannot afford the penalties or a lawyer to fight them. Cannot sell the restricted land for anything like what they paid.' },
+    { actor: 'The courts', action: 'Order the penalties paid and the land restored. If your neighbor still refuses, the court can seize assets or jail them for contempt.' },
   ]
 }
-
 const currentChain = computed(() => chains[chosenPolicy.value] || [])
 
 function choosePolicy(id) {

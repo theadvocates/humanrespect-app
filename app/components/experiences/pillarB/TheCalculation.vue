@@ -36,14 +36,14 @@
           >
           <span class="input-suffix">%</span>
         </div>
-        <p class="calc-hint">Most working Americans pay 25–40% across all taxes combined.</p>
+        <p class="calc-hint">Many working Americans pay somewhere between 20% and 35% across all taxes combined.</p>
       </div>
     </div>
 
     <div v-if="hoursPerYear" class="result-block">
       <div class="result-number">{{ hoursPerYear.toLocaleString() }}</div>
       <div class="result-label">hours of your life per year</div><div style="font-size:0.72rem;color:var(--ink-faint);font-style:italic;margin-top:0.5rem">Based on a standard 40-hour work week.</div>
-      <div class="result-context">That's <strong>{{ weeksPerYear }} full work weeks</strong> — spent earning money that goes to someone else's priorities, not yours.</div>
+      <div class="result-context">That's <strong>{{ weeksPerYear }} full work {{ weeksPerYear === 1 ? 'week' : 'weeks' }}</strong> — spent earning money whose use is decided for you, whether or not you agree.</div>
 
       <div class="lifetime-row">
         <div class="lifetime-stat">

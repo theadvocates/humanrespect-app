@@ -8,7 +8,7 @@
     <p class="body-text-large">In Experience 01, you encountered the principle as a claim. Now you can see where it comes from — not from ideology, but from the observable structure of human well-being.</p>
 
     <ContentBlock variant="principle">
-      <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>
+      <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the taking of people's property or time through force or fraud. They grow where people cooperate voluntarily.</p>
       <p style="margin-top: 1rem;">Therefore, the ethical foundation of society is the full respect for each person's body, resources, and time.</p>
     </ContentBlock>
 
@@ -17,7 +17,7 @@
     <p class="body-text">Including yours. The best period of your life had these conditions present. The worst period had them violated. That's the pattern the principle describes.</p>
 
     <ContentBlock variant="insight">
-      <p>Other moral frameworks ground the case against coercion in the existence of natural rights — which requires accepting a metaphysical premise. The Philosophy of Human Respect grounds it in the predictable damage coercion does to flourishing — a claim you can test against your own experience and the evidence of every society in history.</p>
+      <p>Most cases against coercion ask you to accept a theory first. The Philosophy of Human Respect grounds it in cause and effect: coercion, theft, and violence always damage the conditions people need to flourish. You can test that against your own experience and the history of the societies around you.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

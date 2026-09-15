@@ -1,6 +1,6 @@
 export default {
   standfirst:
-    'Most moral frameworks argue that coercion is wrong because rights exist. This one argues something narrower and more testable: that coercion predictably damages the conditions people need to do well.',
+    'Most arguments against coercion ask you to accept a theory first. This one makes a claim you can check: that coercion always damages the conditions people need to do well.',
   sections: [
     {
       heading: 'Two periods of your own life',
@@ -33,10 +33,10 @@ export default {
       heading: 'Why the grounding matters',
       body: [
         'Here is where this framework differs from the ones it resembles.',
-        'The usual case against coercion runs through rights: you may not do this to a person because persons possess rights, and rights are a kind of thing that exists. That argument works if you already accept the metaphysics and does very little if you do not — which is why arguments between people who accept it and people who do not tend to go nowhere.',
-        '**This argument runs through consequences instead: coercion is objectionable because it predictably damages the conditions human beings need. That is a claim about cause and effect, and claims about cause and effect can be checked.**',
+        'The usual case against coercion starts from a theory about what people are owed. That argument works if you already accept the theory and does very little if you do not, which is why arguments between people who accept it and people who do not tend to go nowhere.',
+        '**This argument runs through consequences instead: coercion, theft, and violence always damage the conditions human beings need. That is a claim about cause and effect, and claims about cause and effect can be checked.**',
         'It is the same category of statement as "plants grow toward light" or "trust lowers the cost of doing business." You can test it against history, against the research, and against the two chapters of your own life you just thought about.',
-        'It is a strong claim, and it should be treated as one. You might accept the pattern and still think there are exceptions large enough to justify force — situations where the damage coercion does is worth what it buys. That is exactly the right place to push, and it is a serious enough objection that it deserves to be taken up on its own rather than waved away here.'
+        'It is a strong claim, and it should be treated as one. You might accept the pattern and still think the damage coercion does is sometimes worth what it buys. That is exactly the right place to push, and it is a serious enough objection that it deserves to be taken up on its own rather than waved away here.'
       ]
     }
   ]
