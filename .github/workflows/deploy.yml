@@ -84,3 +84,11 @@ jobs:
             --token=${{ secrets.VERCEL_TOKEN }})
           echo "Deployed to $URL"
           echo "Deployed to $URL" >> "$GITHUB_STEP_SUMMARY"
+
+      # Asks Bing and the other IndexNow engines to fetch the pages now rather
+      # than on their own schedule. Production only, and a failure here never
+      # fails the deploy: the site is already live by this point.
+      - name: Notify search engines
+        if: github.ref == 'refs/heads/main'
+        continue-on-error: true
+        run: node scripts/indexnow.mjs
