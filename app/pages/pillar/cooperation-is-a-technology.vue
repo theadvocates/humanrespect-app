@@ -21,6 +21,7 @@
 <script setup>
 import { ref, computed, watch, provide } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useStepHistory } from '@/composables/useStepHistory'
 import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
 import essay from '@/content/essays/pillarE.js'
 import { EXPERIENCES } from '@/utils/experiences.js'
@@ -42,7 +43,7 @@ const screenNames = ['opening','the-evidence','why-it-works','design-your-own','
 
 const TOTAL_SCREENS = 6
 const currentScreen = ref(0)
-const history = ref([0])
+const steps = useStepHistory(currentScreen, { id: 'pillarE' })
 const chosenIssue = ref(null)
 
 provide('chosenIssue', chosenIssue)
@@ -60,17 +61,16 @@ watch(currentScreen, (idx) => {
 useHead({ bodyAttrs: { class: computed(() => (isDark.value ? 'dark-mode' : '')) } })
 
 function advance() {
-  if (currentScreen.value < TOTAL_SCREENS - 1) { currentScreen.value++; history.value.push(currentScreen.value); window.scrollTo(0, 0) }
+  if (currentScreen.value < TOTAL_SCREENS - 1) { currentScreen.value++; window.scrollTo(0, 0) }
 }
 function goBack() {
-  if (history.value.length > 1) { history.value.pop(); currentScreen.value = history.value[history.value.length - 1]; window.scrollTo(0, 0) }
+  steps.back()
 }
 function handleIssue(id) { chosenIssue.value = id; trackChoice('pillarE', 'issue', id) }
 function restartWith(id) {
   chosenIssue.value = id
   trackChoice('pillarE', 'issue-restart', id)
   currentScreen.value = 3
-  history.value = [0, 1, 2, 3]
   window.scrollTo(0, 0)
 }
 </script>

@@ -178,6 +178,7 @@ import { RESULT_PLATE, PLATE_TITLE } from '@/utils/plates'
 import { ANSWERS, PARTS, ITEMS, RESULTS, TEST_VERSION, score, classify, describeScore, parseShared, sharedResultPath } from '@/utils/respectTest'
 import { EXPERIENCES } from '@/utils/experiences'
 import { PARTNERS, resolvePartner, partnerHref } from '@/utils/testPartners'
+import { useStepHistory } from '@/composables/useStepHistory'
 
 // One line under each result's plate.
 const PLATE_NOTE = {
@@ -236,6 +237,28 @@ const startedAt = ref(null)
 let timers = []
 
 const item = computed(() => ITEMS[index.value])
+
+// The whole test as one number for browser history: 0 is the intro, 1–10 the
+// statements, 11 the result. Back from the result returns to the last
+// statement with the answers still there.
+const RESULT_STEP = ITEMS.length + 1
+const step = computed({
+  get: () => (stage.value === 'intro' ? 0 : stage.value === 'questions' ? index.value + 1 : RESULT_STEP),
+  set: (n) => {
+    if (n <= 0) {
+      stage.value = 'intro'
+      index.value = 0
+    } else if (n < RESULT_STEP) {
+      stage.value = 'questions'
+      index.value = n - 1
+    } else {
+      stage.value = 'result'
+      clearTimers()
+      phase.value = 3
+    }
+  }
+})
+const steps = useStepHistory(step, { id: 'test' })
 const scores = computed(() => score(answers.value))
 const resultKey = computed(() => classify(scores.value))
 const result = computed(() => RESULTS[resultKey.value])
@@ -306,7 +329,7 @@ function answer(id) {
 }
 
 function back() {
-  if (index.value > 0) index.value -= 1
+  if (index.value > 0 && !steps.back()) index.value -= 1
 }
 
 function finish() {
@@ -348,6 +371,7 @@ function clearTimers() {
 }
 
 function restart() {
+  steps.reset()
   clearTimers()
   answers.value = {}
   index.value = 0

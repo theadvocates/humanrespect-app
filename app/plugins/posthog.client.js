@@ -89,7 +89,10 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Nuxt's router does not trigger page loads, so pageviews are explicit.
   const router = useRouter()
-  router.afterEach((to) => {
+  router.afterEach((to, from) => {
+    // A back swipe between steps of one page is a router pop to the same URL.
+    // It is recorded as a screen_view with direction 'back', not a pageview.
+    if (from.matched.length && to.fullPath === from.fullPath) return
     nuxtApp.runWithContext(() => {
       proxy.capture('$pageview', {
         $current_url: window.location.origin + to.fullPath,

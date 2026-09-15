@@ -176,6 +176,8 @@
         <button class="restart" @click="restart">Start over</button>
       </div>
     </Transition>
+
+    <button v-if="beat > 0 && beat < BEATS - 1" class="restart turn-back" @click="goBack">← Back</button>
    </div>
 
     <!-- The plate for the button stays put while the beats change beside it.
@@ -187,6 +189,7 @@
 <script setup>
 import ShareLink from '@/components/shared/ShareLink.vue'
 import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
+import { useStepHistory } from '@/composables/useStepHistory'
 
 const BEATS = 6
 
@@ -209,6 +212,8 @@ const beat = ref(0)
 const wouldPress = ref(false)
 const reasons = ref([])
 const startedAt = ref(null)
+
+const steps = useStepHistory(beat, { id: 'turn' })
 
 const pickedReasons = computed(() => REASONS.filter((r) => reasons.value.includes(r.id)))
 const cared = computed(() => reasons.value.includes('care'))
@@ -241,7 +246,12 @@ function toggle(id) {
   else reasons.value.splice(i, 1)
 }
 
+function goBack() {
+  if (!steps.back()) beat.value = Math.max(0, beat.value - 1)
+}
+
 function restart() {
+  steps.reset()
   beat.value = 0
   reasons.value = []
   startedAt.value = Date.now()
@@ -467,6 +477,7 @@ onMounted(() => {
   padding: 0 0 2px;
 }
 .restart:hover { color: var(--ink-muted); border-bottom-color: var(--border-subtle); }
+.turn-back { align-self: flex-start; }
 
 /* Motion between beats only — never gating the first paint. */
 .beat-enter-active, .beat-leave-active { transition: opacity 0.3s ease, transform 0.3s ease; }

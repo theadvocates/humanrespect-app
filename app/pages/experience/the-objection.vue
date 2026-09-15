@@ -29,6 +29,7 @@
 import { ref, computed, watch } from 'vue'
 import { useJourneyStore } from '@/stores/journey'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useStepHistory } from '@/composables/useStepHistory'
 import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
 import essay from '@/content/essays/exp02.js'
 import { EXPERIENCES } from '@/utils/experiences.js'
@@ -52,7 +53,7 @@ const { trackScreenView, trackChoice, trackCompletion } = useAnalytics()
 
 const TOTAL_SCREENS = 8
 const currentScreen = ref(0)
-const history = ref([0])
+const steps = useStepHistory(currentScreen, { id: 'exp02' })
 
 const screenComponents = [
   Opening, ChooseObjection, Steelman, Response,
@@ -81,17 +82,12 @@ watch(currentScreen, (idx) => {
 function advance() {
   if (currentScreen.value < TOTAL_SCREENS - 1) {
     currentScreen.value++
-    history.value.push(currentScreen.value)
     window.scrollTo(0, 0)
   }
 }
 
 function goBack() {
-  if (history.value.length > 1) {
-    history.value.pop()
-    currentScreen.value = history.value[history.value.length - 1]
-    window.scrollTo(0, 0)
-  }
+  steps.back()
 }
 
 function handleObjectionChoice(key) {
@@ -104,7 +100,6 @@ function handleObjectionChoice(key) {
 function restartWith(key) {
   handleObjectionChoice(key)
   currentScreen.value = 2
-  history.value = [0, 1, 2]
   window.scrollTo(0, 0)
 }
 </script>

@@ -26,6 +26,7 @@
 <script setup>
 import { ref, computed, provide, watch } from 'vue'
 import { useAnalytics } from '@/composables/useAnalytics'
+import { useStepHistory } from '@/composables/useStepHistory'
 import ExperienceEssay from '@/components/shared/ExperienceEssay.vue'
 import essay from '@/content/essays/exp04.js'
 import { EXPERIENCES } from '@/utils/experiences.js'
@@ -47,7 +48,7 @@ const { trackScreenView, trackCompletion } = useAnalytics()
 
 const TOTAL_SCREENS = 7
 const currentScreen = ref(0)
-const history = ref([0])
+const steps = useStepHistory(currentScreen, { id: 'exp04' })
 const selectedTraits = ref([])
 
 provide('selectedTraits', selectedTraits)
@@ -75,17 +76,12 @@ watch(currentScreen, (idx) => {
 function advance() {
   if (currentScreen.value < TOTAL_SCREENS - 1) {
     currentScreen.value++
-    history.value.push(currentScreen.value)
     window.scrollTo(0, 0)
   }
 }
 
 function goBack() {
-  if (history.value.length > 1) {
-    history.value.pop()
-    currentScreen.value = history.value[history.value.length - 1]
-    window.scrollTo(0, 0)
-  }
+  steps.back()
 }
 </script>
 

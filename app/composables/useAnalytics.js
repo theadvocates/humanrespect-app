@@ -21,6 +21,12 @@ import { useJourneyStore, getTier } from '@/stores/journey'
 let screenEnteredAt = null
 let currentScreen = null
 let sessionStartedAt = null
+// Set by useStepHistory just before a step changes because of the browser's
+// back or forward button, so the next screen events say which way it went.
+let pendingDirection = null
+export function noteNavDirection(direction) {
+  pendingDirection = direction
+}
 
 function isPlainObject(v) {
   return v !== null && typeof v === 'object' && !Array.isArray(v)
@@ -66,12 +72,18 @@ export function useAnalytics() {
   function trackScreenView(experienceId, screenId, extra = {}) {
     if (import.meta.server) return
 
+    // 'back' when the browser's back button brought this screen up, so drop-off
+    // and time-on-screen charts can tell a retreat from progress.
+    const direction = pendingDirection || 'forward'
+    pendingDirection = null
+
     if (currentScreen && currentScreen.screen !== screenId) {
       capture('screen_left', {
         experience: currentScreen.experience,
         screen: currentScreen.screen,
         seconds_on_screen: secondsSince(screenEnteredAt),
-        advanced_to: screenId
+        advanced_to: screenId,
+        direction
       })
     }
 
@@ -81,6 +93,7 @@ export function useAnalytics() {
     capture('screen_view', {
       experience: experienceId,
       screen: screenId,
+      direction,
       ...extra
     })
   }
