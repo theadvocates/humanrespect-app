@@ -97,6 +97,46 @@ describe('the Turn', () => {
     expect(echoes.join(' ')).not.toMatch(/trust/i)
   })
 
+  it('offers caring about the person as a reason, and answers it honestly', async () => {
+    const w = await mountSuspended(TheTurn)
+    await clickText(w, "Yes, I've got one")
+    await clickText(w, "No, I wouldn't")
+
+    const care = w.findAll('.reason').find((r) => r.text().includes('I care about them'))
+    expect(care, 'the most common honest reason is missing').toBeTruthy()
+    await care.trigger('click')
+    await clickText(w, 'Continue')
+
+    // The reveal must not claim the visitor didn't say what they just said.
+    expect(w.text()).not.toContain('Not one of those is')
+    expect(w.text()).toContain("someone you can't stand")
+  })
+
+  it('sets caring aside, but still echoes the other reasons', async () => {
+    const w = await mountSuspended(TheTurn)
+    await clickText(w, "Yes, I've got one")
+    await clickText(w, "No, I wouldn't")
+    const reasons = w.findAll('.reason')
+    await reasons[1].trigger('click')
+    await reasons.find((r) => r.text().includes('I care about them')).trigger('click')
+    await clickText(w, 'Continue')
+
+    expect(w.text()).not.toContain('Not one of those is')
+    expect(w.text()).toContain('You said you care about them')
+    const echoes = w.findAll('.echo').map((e) => e.text())
+    expect(echoes).toEqual(['Force produces compliance, not agreement.'])
+  })
+
+  it('does not claim every law is force', async () => {
+    const w = await mountSuspended(TheTurn)
+    await clickText(w, "Yes, I've got one")
+    await clickText(w, "No, I wouldn't")
+    await w.findAll('.reason')[0].trigger('click')
+    await clickText(w, 'Continue')
+    await clickText(w, 'Go on')
+    expect(w.text()).not.toMatch(/every law you support/i)
+  })
+
   it('will not let the visitor continue without choosing a reason', async () => {
     const w = await mountSuspended(TheTurn)
     await clickText(w, "Yes, I've got one")

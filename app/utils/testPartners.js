@@ -128,7 +128,9 @@ export const PARTNERS = {
 
   asg: {
     name: 'The Advocates for Self-Government',
-    approved: false,
+    // Our own organization; approved 2026-09-14 so the theadvocates.org
+    // placements land on this version.
+    approved: true,
     sources: ['asg', 'advocates', 'theadvocates'],
     hosts: ['theadvocates.org'],
     // Their audience arrives from the World's Smallest Political Quiz, so the

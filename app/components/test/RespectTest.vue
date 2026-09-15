@@ -14,6 +14,12 @@
       <div v-if="stage === 'intro'" key="intro" class="step">
         <p class="rt-eyebrow">{{ introPartner?.intro.eyebrow || 'The Human Respect Test' }}</p>
         <h1 class="rt-head">Persuade or force?</h1>
+        <p v-if="shared" class="rt-shared">
+          Whoever sent you this scored <strong>{{ shared.directly }}</strong> when
+          it's up to them and <strong>{{ shared.others }}</strong> when someone
+          acts for them: <em>{{ RESULTS[shared.key].name }}</em>. Take it, then
+          compare.
+        </p>
         <p v-if="introPartner" class="rt-body">{{ introPartner.intro.lead }}</p>
         <p v-else class="rt-body">
           When you want to change something, there are only a few ways to get it
@@ -83,11 +89,27 @@
         </div>
 
         <div class="reveal-late">
+          <p class="rt-legend">
+            100 means you'd persuade every time. 0 means you'd force every time.
+            On your own, you'd {{ describeScore(scores.directly) }}. Through a
+            vote, a law, or a leader, you'd {{ describeScore(scores.others) }}.
+          </p>
+
           <p v-if="scores.gap > 0" class="rt-gap">
             Your gap: <strong>{{ scores.gap }} points</strong>
           </p>
 
+          <p v-if="shared" class="rt-compare">
+            The person who sent you this: {{ shared.directly }} on their own,
+            {{ shared.others }} through others<template v-if="shared.gap > 0">, a gap of {{ shared.gap }}</template>.
+            <template v-if="shared.key === resultKey">You landed in the same place.</template>
+            <template v-else>They landed on <em>{{ RESULTS[shared.key].name }}</em>.</template>
+          </p>
+
           <p class="rt-result-name">{{ result.name }}</p>
+          <p v-if="landedShare !== null" class="rt-stat">
+            {{ landedShare }}% of the {{ stats.total.toLocaleString('en-US') }} people who've taken this test landed here.
+          </p>
           <div class="rt-result-grid">
             <div class="rt-result-text">
               <h2 class="rt-head rt-head-result">{{ result.head }}</h2>
@@ -108,9 +130,9 @@
 
           <ShareLink
             class="rt-share"
-            :path="partnerId ? `/test?partner=${partnerId}` : '/test'"
+            :path="sharePath"
             source="test_result"
-            prompt="Send it to someone and compare your gaps."
+            prompt="Send your result to someone who'd answer differently."
             :text="shareText"
             subject="Persuade or force? A one-minute test"
           />
@@ -153,7 +175,7 @@
 import ShareLink from '@/components/shared/ShareLink.vue'
 import Plate from '@/components/shared/Plate.vue'
 import { RESULT_PLATE, PLATE_TITLE } from '@/utils/plates'
-import { ANSWERS, PARTS, ITEMS, RESULTS, score, classify } from '@/utils/respectTest'
+import { ANSWERS, PARTS, ITEMS, RESULTS, TEST_VERSION, score, classify, describeScore, parseShared, sharedResultPath } from '@/utils/respectTest'
 import { EXPERIENCES } from '@/utils/experiences'
 import { PARTNERS, resolvePartner, partnerHref } from '@/utils/testPartners'
 
@@ -194,6 +216,18 @@ const introPartner = urlPartnerId ? PARTNERS[urlPartnerId] : null
 const partnerId = ref(urlPartnerId)
 const partner = computed(() => (partnerId.value ? PARTNERS[partnerId.value] : null))
 
+// Someone's result, carried in the link they sent.
+const shared = parseShared(route.query)
+
+// How the result compares with everyone else's. Only shown once the sample is
+// big enough to mean something; the endpoint returns nothing below that.
+const stats = ref(null)
+const landedShare = computed(() => {
+  const n = stats.value?.counts?.[resultKey.value]
+  if (!stats.value?.total || n === undefined) return null
+  return Math.round((n / stats.value.total) * 100)
+})
+
 const stage = ref('intro')
 const index = ref(0)
 const answers = ref({})
@@ -228,8 +262,18 @@ const gapStyle = computed(() => {
   return { left: Math.min(a, b) + '%', width: Math.abs(a - b) + '%' }
 })
 
-const shareText = computed(() =>
-  `I scored ${scores.value.directly} for persuasion when it's up to me, and ${scores.value.others} when someone else acts for me. Where do you land? It takes under a minute:`)
+const sharePath = computed(() => {
+  const path = sharedResultPath({ key: resultKey.value, ...scores.value })
+  return partnerId.value ? `${path}&partner=${partnerId.value}` : path
+})
+
+const shareText = computed(() => {
+  const { directly, others } = scores.value
+  const name = result.value.name
+  return directly > others
+    ? `I'd persuade, not force: ${directly} out of 100 on my own. Through a vote, a law, or a leader, I dropped to ${others}. "${name}." Where do you land?`
+    : `Persuade or force? I scored ${directly} out of 100 on my own and ${others} through a vote, a law, or a leader. "${name}." Where do you land?`
+})
 
 /** Near either end a centred label would hang off the page; anchor it inward. */
 function edge(at) {
@@ -267,8 +311,9 @@ function back() {
 
 function finish() {
   stage.value = 'result'
-  track('result', { result: resultKey.value, ...scores.value })
+  track('result', { result: resultKey.value, ...scores.value, version: TEST_VERSION, shared_from: shared?.key || null })
   reveal()
+  loadStats()
 }
 
 function reveal() {
@@ -287,6 +332,14 @@ function reveal() {
     setTimeout(() => { phase.value = 2 }, 1450),
     setTimeout(() => { phase.value = 3 }, 2450)
   ]
+}
+
+async function loadStats() {
+  try {
+    stats.value = await $fetch('/api/test-stats')
+  } catch (e) {
+    stats.value = null
+  }
 }
 
 function clearTimers() {
@@ -531,6 +584,33 @@ onBeforeUnmount(clearTimers)
   margin: 0 0 1.75rem;
 }
 .rt-gap strong { color: var(--concede-warm); font-weight: 600; }
+
+.rt-legend,
+.rt-compare,
+.rt-stat {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--ink-muted);
+  margin: 0 0 1.25rem;
+  max-width: 36rem;
+}
+.rt-compare em,
+.rt-shared em { font-style: italic; color: var(--ink); }
+.rt-stat { margin-top: -0.4rem; font-size: 0.85rem; }
+
+.rt-shared {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--ochre);
+  background: var(--paper-warm);
+  margin: 0 0 1.5rem;
+  max-width: 36rem;
+}
+.rt-shared strong { color: var(--ink); font-weight: 600; }
 
 .rt-result-name {
   font-family: var(--sans);

@@ -22,6 +22,7 @@ import satori from 'satori'
 import { Resvg } from '@resvg/resvg-js'
 import { EXPERIENCES } from '../app/utils/experiences.js'
 import { pageMeta } from '../app/utils/seo.js'
+import { RESULTS } from '../app/utils/respectTest.js'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 const ROOT = join(HERE, '..')
@@ -149,6 +150,18 @@ async function main() {
     }), fonts, `${key}.png`)
     n += 1
     console.log(`  ${key}.png — ${(override.headline || meta.title).slice(0, 54)}`)
+  }
+
+  // One card per test result, for shared result links (/test?r=loophole…).
+  // The scores differ per person; the card carries the result's own claim.
+  for (const [key, r] of Object.entries(RESULTS)) {
+    total += await render(card({
+      eyebrow: `Persuade or force? · ${r.name}`,
+      headline: r.head,
+      meta: 'Where do you land? Under a minute · humanrespect.app/test'
+    }), fonts, `test-${key}.png`)
+    n += 1
+    console.log(`  test-${key}.png — ${r.head.slice(0, 54)}`)
   }
 
   // Fallback for anything without its own card.

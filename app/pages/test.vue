@@ -26,8 +26,8 @@
           The two halves are matched, topic by topic, so the difference between
           your scores is a real measurement: how much more comfortable you are
           with force once you've delegated it. The <strong>Philosophy of Human
-          Respect</strong> holds that the difference shouldn't exist. Force,
-          theft, and violence reliably reduce happiness, harmony, and prosperity,
+          Respect</strong> holds that the difference shouldn't exist. Coercion,
+          theft, and violence always reduce happiness, harmony, and prosperity,
           and none of that changes with whose hand is on them. If you ask
           someone to act for you, what they do is on you.
         </p>
@@ -50,8 +50,21 @@
 <script setup>
 import RespectTest from '@/components/test/RespectTest.vue'
 
+import { RESULTS, parseShared } from '@/utils/respectTest'
+import { SITE_URL } from '@/utils/seo'
+
 definePageMeta({ name: 'test' })
-usePageSeo('test')
+
+// A link carrying someone's result unfurls as that result, so the preview in
+// a group chat reads as a person's answer rather than an advert for a quiz.
+const shared = parseShared(useRoute().query)
+usePageSeo('test', shared
+  ? {
+      title: `"${RESULTS[shared.key].name}": ${shared.directly} on my own, ${shared.others} through others`,
+      description: 'Persuade or force? Ten statements, under a minute. See where you land, and whether your answer changes when someone else does the forcing.',
+      image: `${SITE_URL}/og/test-${shared.key}.png`
+    }
+  : {})
 </script>
 
 <style scoped>

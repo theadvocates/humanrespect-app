@@ -67,18 +67,44 @@
 
       <!-- ── 4. The turn ───────────────────────────────────────────────── -->
       <div v-else-if="beat === 3" key="turn" class="beat">
-        <h2 class="turn-head">Now look at what you didn't say.</h2>
-        <ul class="echo-list">
-          <li v-for="r in pickedReasons" :key="r.id" class="echo">{{ r.echo }}</li>
-        </ul>
-        <p class="turn-body">
-          Not one of those is <em>because I care about them</em>. Every reason you
-          gave is about what force does — to them, to you, to the chance that
-          you're the one who's wrong.
-        </p>
-        <p class="turn-body turn-emphasis">
-          They'd all still be true if you couldn't stand the person.
-        </p>
+        <!-- Caring about the person is a real reason, and the reveal must not
+             pretend nobody gives it. It gets set aside honestly, and the rest
+             of the argument is made without it. -->
+        <template v-if="caredOnly">
+          <h2 class="turn-head">Now picture someone you can't stand.</h2>
+          <p class="turn-body">
+            Caring about someone is a real reason. So take it away. Same
+            disagreement, same button, but this time it's a person you don't
+            like at all. Would pressing it be fine then?
+          </p>
+          <p class="turn-body">
+            They would still comply without agreeing. They would still resent
+            it. And you would still lose the chance to find out you were the one
+            who was wrong. None of that depends on how you feel about them.
+          </p>
+          <p class="turn-body turn-emphasis">
+            What force does doesn't change with who it's pointed at.
+          </p>
+        </template>
+        <template v-else>
+          <h2 class="turn-head">{{ cared ? 'Now set one reason aside.' : "Now look at what you didn't say." }}</h2>
+          <ul class="echo-list">
+            <li v-for="r in echoedReasons" :key="r.id" class="echo">{{ r.echo }}</li>
+          </ul>
+          <p v-if="cared" class="turn-body">
+            You said you care about them, and that's real. But look at the other
+            reasons you gave. Every one of them is about what force does: to
+            them, to you, to the chance that you're the one who's wrong.
+          </p>
+          <p v-else class="turn-body">
+            Not one of those is <em>because I care about them</em>. Every reason you
+            gave is about what force does: to them, to you, to the chance that
+            you're the one who's wrong.
+          </p>
+          <p class="turn-body turn-emphasis">
+            They'd all still be true if you couldn't stand the person.
+          </p>
+        </template>
         <button class="turn-btn" @click="advance('turn')">Go on <span aria-hidden="true">→</span></button>
       </div>
 
@@ -86,10 +112,14 @@
       <div v-else-if="beat === 4" key="pivot" class="beat">
         <h2 class="turn-head">So here's the harder part.</h2>
         <p class="turn-body">
-          You already press it. Not with your own hand — you delegate. Every law
-          you support is that button, pointed at people who never agreed to it and
-          who are every bit as certain they're right as the person you were just
-          thinking about.
+          If you've ever voted for a party, you've almost certainly pressed it.
+          Not with your own hand. You chose someone to press it for you.
+        </p>
+        <p class="turn-body">
+          Left and right both hold good values, and both promise to advance them
+          the same way: by making the people who disagree pay for it, do it, or
+          live by it. Those people never agreed, and they are every bit as
+          certain they're right as the person you were just thinking about.
         </p>
         <p class="turn-body turn-emphasis">
           The button doesn't change because someone else's finger is on it.
@@ -166,7 +196,10 @@ const REASONS = [
   { id: 'resent', text: "They'd resent me for it", echo: 'Force breeds resentment.' },
   { id: 'wrong', text: 'I might be the one who\'s wrong', echo: 'Force removes the correction that disagreement provides.' },
   { id: 'hollow', text: "Winning that way isn't really winning", echo: 'Force wins the argument and loses the point.' },
-  { id: 'trust', text: "They'd never fully trust me again", echo: 'Force erodes trust.' }
+  { id: 'trust', text: "They'd never fully trust me again", echo: 'Force erodes trust.' },
+  // Last, so it doesn't lead the list. It is the honest answer for many
+  // people, and the reveal used to claim nobody gave it.
+  { id: 'care', text: 'I care about them too much', echo: 'I care about them.' }
 ]
 
 const emit = defineEmits(['progress'])
@@ -178,6 +211,10 @@ const reasons = ref([])
 const startedAt = ref(null)
 
 const pickedReasons = computed(() => REASONS.filter((r) => reasons.value.includes(r.id)))
+const cared = computed(() => reasons.value.includes('care'))
+const caredOnly = computed(() => cared.value && reasons.value.length === 1)
+// Caring is answered in prose; the echoes are what force does.
+const echoedReasons = computed(() => pickedReasons.value.filter((r) => r.id !== 'care'))
 
 function track(name, props = {}) {
   trackChoice('turn', name, { ...props, beat: beat.value, seconds: elapsed() })

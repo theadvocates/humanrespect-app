@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime'
 import RespectTest from '../app/components/test/RespectTest.vue'
-import { ITEMS, RESULTS, score, classify } from '../app/utils/respectTest.js'
+import { ITEMS, RESULTS, score, classify, parseShared, sharedResultPath, describeScore } from '../app/utils/respectTest.js'
 import { PARTNERS, resolvePartner, partnerHref } from '../app/utils/testPartners.js'
 
 /**
@@ -26,6 +26,10 @@ mockNuxtImport('useAnalytics', () => () => ({
 }))
 
 const allAs = (fn) => Object.fromEntries(ITEMS.map((i) => [i.id, fn(i)]))
+// The answer that scores toward persuasion, which is Disagree on reversed items.
+const persuade = (i) => (i.keyed === 'force' ? 'disagree' : 'agree')
+const force = (i) => (i.keyed === 'force' ? 'agree' : 'disagree')
+const label = (id) => id.charAt(0).toUpperCase() + id.slice(1)
 
 describe('scoring', () => {
   it('matches every "directly" item with a "through others" item on the same topic', () => {
@@ -36,11 +40,25 @@ describe('scoring', () => {
     expect(o).toEqual(d)
   })
 
-  it('scores agree 20, maybe 10, disagree 0, to 100 per half', () => {
-    expect(score(allAs(() => 'agree'))).toEqual({ directly: 100, others: 100, gap: 0 })
+  it('scores 20 points per persuasion answer, to 100 per half', () => {
+    expect(score(allAs(persuade))).toEqual({ directly: 100, others: 100, gap: 0 })
     expect(score(allAs(() => 'maybe'))).toEqual({ directly: 50, others: 50, gap: 0 })
-    expect(score(allAs(() => 'disagree'))).toEqual({ directly: 0, others: 0, gap: 0 })
-    expect(score(allAs((i) => (i.part === 'directly' ? 'agree' : 'maybe'))).gap).toBe(50)
+    expect(score(allAs(force))).toEqual({ directly: 0, others: 0, gap: 0 })
+    expect(score(allAs((i) => (i.part === 'directly' ? persuade(i) : 'maybe'))).gap).toBe(50)
+  })
+
+  it('does not reward agreeing with everything', () => {
+    // Version 1 keyed every statement toward persuasion, so "Agree" ten times
+    // was a perfect score. The reversed items make that a middling one.
+    const agreeable = score(allAs(() => 'agree'))
+    expect(agreeable.directly).toBeLessThan(70)
+    expect(agreeable.others).toBeLessThan(70)
+  })
+
+  it('reverses the same topics in both halves, so the halves stay matched', () => {
+    const reversed = (part) => ITEMS.filter((i) => i.part === part && i.keyed === 'force').map((i) => i.id.slice(2))
+    expect(reversed('directly').length).toBeGreaterThanOrEqual(2)
+    expect(reversed('others')).toEqual(reversed('directly'))
   })
 
   it('classifies the four corners', () => {
@@ -50,6 +68,35 @@ describe('scoring', () => {
     expect(classify({ directly: 50, others: 50 })).toBe('weighing')
     // Rare, but possible: stricter about delegated force than one's own.
     expect(classify({ directly: 40, others: 90 })).toBe('weighing')
+  })
+})
+
+describe('shared results', () => {
+  it('round-trips a result through its link', () => {
+    const r = { key: 'loophole', directly: 90, others: 40 }
+    const query = Object.fromEntries(new URL('https://x' + sharedResultPath(r)).searchParams)
+    expect(parseShared(query)).toEqual({ ...r, gap: 50 })
+  })
+
+  it('ignores links whose numbers could not produce the result they name', () => {
+    expect(parseShared({ r: 'consistent', d: '20', o: '10' })).toBeNull()
+    expect(parseShared({ r: 'loophole', d: '95', o: '40' })).toBeNull()
+    expect(parseShared({ r: 'loophole', d: '900', o: '40' })).toBeNull()
+    expect(parseShared({ r: 'nonsense', d: '90', o: '40' })).toBeNull()
+    expect(parseShared({})).toBeNull()
+  })
+
+  it('has a preview image for every result', async () => {
+    const { existsSync } = await import('node:fs')
+    for (const key of Object.keys(RESULTS)) {
+      expect(existsSync(`public/og/test-${key}.png`), key).toBe(true)
+    }
+  })
+
+  it('describes every point on the scale in words', () => {
+    for (let n = 0; n <= 100; n += 10) expect(describeScore(n)).toBeTruthy()
+    expect(describeScore(100)).toMatch(/persuade/)
+    expect(describeScore(0)).toMatch(/force/)
   })
 })
 
@@ -64,7 +111,13 @@ describe('copy', () => {
     expect(everything).not.toMatch(/\b(a|no|the|my|their) right\b|\brights\b/)
     // Harm-principle framing reads as classical liberalism, which the rules
     // name as the tell that something is not Human Respect.
-    expect(everything).not.toMatch(/harming anyone|peaceful person|non-aggression/)
+    expect(everything).not.toMatch(/harming anyone|harmed no one|peaceful person|non-aggression/)
+  })
+
+  it('states the principle at full strength, not hedged', () => {
+    expect(everything).not.toMatch(/reliably|tends to|often reduce/)
+    const principled = Object.values(RESULTS).filter((r) => r.body.join(' ').includes('always reduce'))
+    expect(principled.length).toBeGreaterThanOrEqual(3)
   })
 
   it('does not name parties or ideologies in the statements', () => {
@@ -96,7 +149,7 @@ describe('the test', () => {
     for (let n = 0; n < ITEMS.length; n++) {
       expect(w.text()).toContain(ITEMS[n].text)
       expect(w.text()).toContain(`${n + 1} of 10`)
-      await click(w, n < 5 ? 'Agree' : 'Disagree')
+      await click(w, label(n < 5 ? persuade(ITEMS[n]) : force(ITEMS[n])))
     }
 
     expect(w.text()).toContain('Your result')
@@ -106,6 +159,18 @@ describe('the test', () => {
     expect(w.text()).toContain(RESULTS.loophole.head)
     // The share belongs at the reveal, and must carry the scores with it.
     expect(w.text()).toContain('Copy link')
+    expect(w.text()).toContain("100 means you'd persuade every time")
+  })
+
+  it('shows who sent the link, and compares at the end', async () => {
+    const w = await mountSuspended(RespectTest, { route: '/test?r=loophole&d=90&o=40' })
+    expect(w.text()).toContain('Whoever sent you this scored 90')
+    expect(w.text()).toContain(RESULTS.loophole.name)
+
+    await click(w, 'Start')
+    for (let n = 0; n < ITEMS.length; n++) await click(w, label(persuade(ITEMS[n])))
+    expect(w.text()).toContain('The person who sent you this: 90 on their own, 40 through others, a gap of 50')
+    expect(w.text()).toContain(RESULTS.consistent.head)
   })
 
   it('announces the switch to the second half', async () => {
@@ -125,7 +190,7 @@ describe('the test', () => {
     expect(w.find('.rt-answer.picked').text()).toBe('Disagree')
 
     await click(w, 'Agree')
-    for (let n = 1; n < ITEMS.length; n++) await click(w, 'Agree')
+    for (let n = 1; n < ITEMS.length; n++) await click(w, label(persuade(ITEMS[n])))
     expect(w.text()).toContain(RESULTS.consistent.head)
     expect(w.text()).not.toContain('Your gap')
   })
@@ -142,7 +207,7 @@ describe('the test', () => {
     expect(screens).toContain('result')
 
     const result = captured.find((c) => c.type === 'choice' && c.question === 'result')
-    expect(result.props).toMatchObject({ result: 'weighing', directly: 50, others: 50, gap: 0 })
+    expect(result.props).toMatchObject({ result: 'weighing', directly: 50, others: 50, gap: 0, version: 2 })
     expect(captured.every((c) => c.experience === 'test')).toBe(true)
   })
 })
@@ -205,7 +270,7 @@ describe('partner versions', () => {
     await click(w, 'Start')
     for (let n = 0; n < ITEMS.length; n++) {
       expect(w.text(), 'partners must not get different statements').toContain(ITEMS[n].text)
-      await click(w, n < 5 ? 'Agree' : 'Disagree')
+      await click(w, label(n < 5 ? persuade(ITEMS[n]) : force(ITEMS[n])))
     }
 
     expect(w.text()).toContain(RESULTS.loophole.head)
