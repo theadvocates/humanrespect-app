@@ -21,7 +21,7 @@ export const pageMeta = {
   exp01: {
     title: 'The Question',
     description:
-      'You already know that force damages relationships. This experience helps you see the principle you live by — and why we abandon it at scale.'
+      "Most people won't force someone they know to agree with them. This experience traces that principle — and asks why we abandon it at scale."
   },
   exp02: {
     title: 'The Objection',
@@ -80,7 +80,7 @@ export const pageMeta = {
   },
   practice04: {
     title: 'The Respect Audit',
-    description: 'Track where you choose persuasion vs. force for seven days.'
+    description: 'Notice where you choose persuasion and where you choose force, for seven days.'
   },
   practice05: {
     title: 'Design a Voluntary Solution',

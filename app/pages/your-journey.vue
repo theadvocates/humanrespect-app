@@ -20,7 +20,7 @@
           <span class="start-meta">About a minute · no account needed</span>
         </NuxtLink>
         <p class="body-text intro-note">
-          Or skip ahead — the full catalogue is below. Nothing is gated and
+          Or skip ahead — the full catalog is below. Nothing is gated and
           nothing has to be done in order.
         </p>
       </div>
@@ -53,9 +53,9 @@
         </div>
       </template>
 
-      <!-- The full catalogue, always visible. Grouping is by commitment rather
+      <!-- The full catalog, always visible. Grouping is by commitment rather
            than by the old abstract tier names, and every card carries its real
-           time cost — an unlabelled one is what makes people bail. -->
+           time cost — an unlabeled one is what makes people bail. -->
       <div v-for="tier in TIER_ORDER" :key="tier" class="section">
         <h2 class="section-heading">{{ TIERS[tier].label }}</h2>
         <p class="section-note">{{ TIERS[tier].note }}</p>

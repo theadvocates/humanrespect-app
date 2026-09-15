@@ -6,7 +6,7 @@ export default {
       heading: 'Why the objections come first',
       body: [
         'A philosophy that only presents the parts of its argument that hold up is not making an argument. It is advertising.',
-        'So here are the four strongest objections people actually raise, put in the form a thoughtful opponent would put them, along with the response and — this is the part that matters — the point at which the response runs out.'
+        'So here are the four strongest objections people actually raise, stated the way a thoughtful opponent would state them, with the response and — this is the part that matters — the point where the response runs out.'
       ]
     },
     {
@@ -20,8 +20,8 @@ export default {
     {
       heading: '"People are suffering right now. They cannot wait for voluntary action"',
       body: [
-        'The objection: a child is hungry today. Someone is dying of a treatable illness today. These people cannot wait while you wait for enough strangers to be persuaded to help. Compulsory funding produces a guaranteed response. Hopeful cooperation produces a maybe. When the stakes are a human life, a maybe is not good enough.',
-        'The response is that compulsory systems are also not guarantees; they are promises, and their delivery record is mixed in ways that are well documented. Aid gets captured, misdirected, and spent on administration. Meanwhile voluntary systems — mutual aid networks, religious and community organisations, disaster response — routinely reach people faster than official channels, because they are not waiting for authorisation.',
+        'The objection: a child is hungry today. Someone is dying of a treatable illness today. They cannot wait for enough strangers to be persuaded to help. Compulsory funding produces a guaranteed response. Hopeful cooperation produces a maybe. When the stakes are a human life, a maybe is not good enough.',
+        'The response is that compulsory systems are also not guarantees; they are promises, and their delivery record is mixed in ways that are well documented. Aid gets captured, misdirected, and spent on administration. Meanwhile voluntary systems — mutual aid networks, religious and community organizations, disaster response — routinely reach people faster than official channels, because they are not waiting for authorization.',
         'What is conceded: this is where the philosophy has to be most careful. In any transition from compulsory to voluntary provision, some people who currently receive help would face disruption. The philosophy cannot promise that nobody falls through a gap during that transition, and an argument that promised it would not be worth believing. The claim is directional, not immediate: that a system where help is chosen tends to be more responsive, and more durable, than one where it is extracted.'
       ]
     },
@@ -36,8 +36,8 @@ export default {
     {
       heading: '"Without enforcement, the powerful will exploit the weak"',
       body: [
-        'The objection: history is unambiguous. When centralised authority weakens, the vacuum fills — with warlords, monopolists, feudal lords, slaveholders. Government force is a blunt instrument, but it is the best thing humanity has built for stopping stronger people from preying on weaker ones. Remove it and you do not get voluntary cooperation. You get a different and worse force.',
-        'The response is that the objection is right about the danger and possibly wrong about the remedy. Concentrating coercive power in a single institution does not remove the risk that the powerful exploit the weak; it centralises the prize. The apparatus of legal force, once built, is available to whoever wins control of it, and the historical record of that competition is not reassuring either.',
+        'The objection: history is unambiguous. When centralized authority weakens, the vacuum fills — with warlords, monopolists, feudal lords, slaveholders. Government force is a blunt instrument, but it is the best thing humanity has built for stopping stronger people from preying on weaker ones. Remove it and you do not get voluntary cooperation. You get a different and worse force.',
+        'The response is that the objection is right about the danger and possibly wrong about the remedy. Concentrating coercive power in a single institution does not remove the risk that the powerful exploit the weak; it centralizes the prize. The apparatus of legal force, once built, is available to whoever wins control of it, and the historical record of that competition is not reassuring either.',
         '**In a voluntary system, someone who behaves badly can harm the people who choose to deal with them. In a coercive one, someone who behaves badly and wins an election can harm everyone.**',
         'What is conceded: this is the hardest question the philosophy faces, and it does not have a clean answer. In the immediate absence of enforcement, some people would exploit others. The philosophy does not deny it. It argues that the proposed cure — one institution holding a monopoly on legitimate violence — has a failure mode of its own, and that the failure mode is larger.'
       ]
@@ -45,7 +45,7 @@ export default {
     {
       heading: 'What is left',
       body: [
-        'None of the four responses close their objection completely, and the concessions above are not throat-clearing. They mark the actual edges of the argument.',
+        'None of the four responses closes its objection completely, and the concessions above are not throat-clearing. They mark the actual edges of the argument.',
         'That is the honest position. The philosophy does not claim to have airtight answers to every objection; it claims to be a better framework than the alternative, and it asks to be judged on that comparison rather than against perfection.',
         'The useful thing to do with an objection that was only partly answered is not to file it as settled. It is to carry it, and watch whether the world starts looking different.'
       ]

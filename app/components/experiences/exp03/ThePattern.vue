@@ -5,7 +5,7 @@
     <h2 class="display-medium">You just described what scientists call human flourishing.</h2>
     <Divider />
 
-    <p class="body-text-large">The conditions you selected aren't random. They map to six pillars that researchers across psychology, neuroscience, economics, and philosophy have independently identified as the architecture of human well-being.</p>
+    <p class="body-text-large">The conditions you selected aren't random. They map to six pillars that researchers in psychology, neuroscience, economics, and philosophy have each arrived at on their own as the architecture of human well-being.</p>
 
     <div class="pillars">
       <div v-for="p in pillars" :key="p.id" class="pillar" :class="{ highlighted: isSelected(p.id) }">

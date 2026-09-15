@@ -56,4 +56,4 @@ them. That sets the register:
 
 `minutes` is an honest estimate at ~220 words per minute, rounded up. It is
 shown before the essay for the same reason the experiences show theirs: an
-unlabelled time cost is what makes a short read feel expensive.
+unlabeled time cost is what makes a short read feel expensive.

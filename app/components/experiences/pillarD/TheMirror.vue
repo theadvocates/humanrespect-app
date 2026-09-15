@@ -33,7 +33,7 @@
       <p class="body-text-large">{{ mixedInsight }}</p>
 
       <ContentBlock variant="insight">
-        <p>This is the pattern the Philosophy of Human Respect is designed to reveal. Most people want <em>their</em> values advanced by whatever means necessary — and <em>other people's</em> values advanced only through persuasion. But you can't have it both ways. If you claim the right to force your priorities on others, you've given them the right to force theirs on you.</p>
+        <p>This is the pattern the Philosophy of Human Respect is designed to reveal. Most people want <em>their</em> values advanced by whatever means necessary — and <em>other people's</em> values advanced only through persuasion. But you can't have it both ways. If you may force your priorities on others, they may force theirs on you.</p>
       </ContentBlock>
     </template>
 
@@ -84,7 +84,7 @@ const mixedInsight = computed(() => {
   if (forceIssues.every(i => i.lean === 'conservative') && persuadeIssues.every(i => i.lean === 'progressive')) {
     return 'You chose force for conservative goals and persuasion for progressive ones. You want the government to enforce the values you agree with, but not the ones you don\'t.'
   }
-  return 'Notice which issues you chose force for and which you chose persuasion. Is there a pattern? Most people choose force for the goals they care about most — and persuasion for the goals they\'re less invested in.'
+  return 'Notice which issues you chose force for, and which persuasion. Is there a pattern? Most people choose force for the goals they care about most, and persuasion for the ones they care about less.'
 })
 </script>
 

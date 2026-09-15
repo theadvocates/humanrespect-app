@@ -20,7 +20,7 @@ const props = defineProps({
   name: { type: String, required: true },
   alt: { type: String, default: '' },
   dark: { type: Boolean, default: false },
-  // No paper or plate mark: just the drawing, for small catalogue tiles.
+  // No paper or plate mark: just the drawing, for small catalog tiles.
   bare: { type: Boolean, default: false }
 })
 

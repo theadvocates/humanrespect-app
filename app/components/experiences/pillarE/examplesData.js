@@ -5,7 +5,7 @@ export const cooperationExamples = [
     what: 'The largest encyclopedia in human history',
     how: 'Entirely volunteer-written and donation-funded. No government mandate. No compulsory participation. 60+ million articles in 300+ languages.',
     assumption: '"You can\'t create reliable public knowledge without institutional funding and professional oversight."',
-    reality: 'Voluntary contributors produce and maintain more accurate, more comprehensive, and more current information than any state-funded encyclopedia ever did.'
+    reality: 'Volunteers produce and maintain information that is more accurate, more complete, and more current than any state-funded encyclopedia ever managed.'
   },
   {
     id: 'software',
@@ -104,7 +104,7 @@ export const appliedIssues = [
       'Private security cooperatives funded by residents',
       'Restorative justice circles and community mediation',
       'Technology-enabled safety networks (apps, cameras, communication)',
-      'Addressing root causes through voluntary mentorship and opportunity creation'
+      'Voluntary mentorship and job creation that reach the root causes'
     ]
   }
 ]

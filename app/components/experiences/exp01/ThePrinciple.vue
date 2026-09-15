@@ -7,7 +7,7 @@
 
     <p class="body-text-large">You didn't need a philosophy to tell you that force damages relationships, erodes trust, and produces compliance instead of cooperation. You already knew. You demonstrate it every day.</p>
 
-    <p class="body-text">The Philosophy of Human Respect simply observes that this pattern scales. What's true between two people is true between two million.</p>
+    <p class="body-text">The Philosophy of Human Respect observes that this pattern scales. What's true between two people is true between two million.</p>
 
     <ContentBlock variant="principle">
       <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>

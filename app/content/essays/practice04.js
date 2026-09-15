@@ -15,7 +15,7 @@ export default {
       body: [
         'Not just violence. Most of the daily instances are quieter than that, and they are the ones worth catching.',
         'Wishing a law would make someone behave differently. Wanting a rule that punishes a person who irritated you. Supporting a policy funded by people who did not agree to fund it. Hoping some authority would step in and compel a change you could not persuade anyone into. The thought "there ought to be a law," which arrives so smoothly that it rarely registers as a thought at all.',
-        'It shows up outside politics too, and often more clearly: in parenting, in management, in how you handle a housemate or a colleague or a family member who will not do the thing you are sure they should do.'
+        'It shows up outside politics too, and often more clearly: in parenting, in management, in how you handle a roommate or a coworker or a family member who will not do the thing you are sure they should do.'
       ]
     },
     {
@@ -32,7 +32,7 @@ export default {
         'The observations stop requiring effort somewhere around the third or fourth day, and start arriving on their own.',
         '**By the end of the week you will see the force-or-persuasion question in places you did not expect it, and that will not be the philosophy talking. It will be your own record, in your own handwriting.**',
         'This is the point of doing it as a practice rather than reading about it. A framework you were told about is something you can agree with and forget by the weekend. A pattern you found seven times in your own life is not.',
-        'The Philosophy of Human Respect is not adopted in a moment, and there is no version of this where you finish a page and hold a new position. It gets discovered gradually, by people who started noticing something.'
+        'Nobody adopts the Philosophy of Human Respect in a moment, and you do not finish a page and find yourself holding a new position. People discover it gradually, after they start noticing something in their own lives.'
       ]
     }
   ]

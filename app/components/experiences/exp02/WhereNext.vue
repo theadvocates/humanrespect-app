@@ -17,7 +17,7 @@
         <span class="foundation-number">02</span>
         <div>
           <div class="foundation-title">The evidence</div>
-          <p class="foundation-desc">Your own flourishing confirmed it: safety, autonomy, and opportunity are the conditions. Violations of body, resources, and time are what destroys them.</p>
+          <p class="foundation-desc">Your own flourishing points the same way: safety, autonomy, and opportunity are the conditions. Violations of body, resources, and time are what destroy them.</p>
         </div>
       </div>
       <div class="foundation-item">

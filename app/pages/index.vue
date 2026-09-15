@@ -31,7 +31,7 @@
           in conditions of voluntary cooperation, and reliably decreases where
           coercion, violence, or the involuntary loss of time or property occur.
           The mechanism changes — a controlling partner, an authoritarian
-          employer, a neighbourhood bully, a democratic majority — but the effect
+          employer, a neighborhood bully, a democratic majority — but the effect
           on the person being forced does not.
         </p>
 
@@ -40,7 +40,7 @@
             The philosophy was articulated by Chris J. Rufer, founder of The
             Morning Star Company, whose businesses have operated for decades
             without managers, titles, or command hierarchy — an unusually literal
-            test of whether voluntary cooperation actually organises complex work.
+            test of whether voluntary cooperation can organize complex work.
           </p>
           <Plate name="tomato" alt="A tomato, an engraving">
             <i>A tomato.</i> Morning Star processes roughly 40% of California's

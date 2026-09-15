@@ -2,9 +2,9 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Pass 1 of 2</p>
-    <h2 class="display-medium">Where does government force currently operate in your life?</h2>
+    <h2 class="display-medium">Where does government force operate in your life?</h2>
     <Divider />
-    <p class="body-text">This isn't about whether you agree with these policies. Just identify where force — the threat of fines, seizure, or imprisonment — is the enforcement mechanism.</p>
+    <p class="body-text">This isn't about whether you agree with these policies. Just mark the ones that touch your life and are enforced by force: the threat of fines, seizure, or prison.</p>
 
     <div class="categories">
       <div v-for="cat in categories" :key="cat.id" class="category">
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <p class="tally">{{ operates.length }} of {{ totalItems }} areas identified</p>
+    <p class="tally">{{ operates.length }} of {{ totalItems }} areas marked</p>
 
     <NavBar :can-go-back="true" :disable-continue="operates.length === 0" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

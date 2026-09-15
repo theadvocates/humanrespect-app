@@ -15,7 +15,7 @@
 
       <div class="mechanism">
         <div class="mechanism-name">Accountability</div>
-        <p>When participation is voluntary, providers must earn trust continuously. When participation is compulsory, providers can afford to be unresponsive. This is why the DMV experience differs from the Apple Store experience.</p>
+        <p>When participation is voluntary, providers must earn trust continuously. When participation is compulsory, providers can afford to be unresponsive. That is the difference between the DMV and the Apple Store.</p>
       </div>
 
       <div class="mechanism">
@@ -25,7 +25,7 @@
 
       <div class="mechanism">
         <div class="mechanism-name">Trust-building</div>
-        <p>Coercion erodes trust. Cooperation builds it. Every successful voluntary interaction strengthens the social fabric. Every act of compulsion weakens it. Over time, this difference compounds dramatically.</p>
+        <p>Coercion erodes trust. Cooperation builds it. Every successful voluntary interaction strengthens the social fabric. Every act of compulsion weakens it. Over time, the difference compounds.</p>
       </div>
 
       <div class="mechanism">

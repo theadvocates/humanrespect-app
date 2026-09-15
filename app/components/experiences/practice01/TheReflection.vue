@@ -5,13 +5,13 @@
     <h2 class="display-medium">Pick one. Just one.</h2>
     <Divider />
 
-    <p class="body-text-large">Pick one area from your footprint — ideally one you marked as involuntary — and spend this week exploring voluntary alternatives. Not arguing about it online. Not trying to convince anyone. Just researching: has anyone solved this without force?</p>
+    <p class="body-text-large">Pick one area from your footprint, ideally one you marked as involuntary, and spend this week looking into voluntary alternatives. Not arguing about it online. Not convincing anyone. Just finding out: has anyone solved this without force?</p>
 
     <ContentBlock variant="insight">
-      <p>Your political footprint shifts one conscious choice at a time. Not through revolution, but through the quiet decision to question force in one more area of life.</p>
+      <p>Your political footprint changes one choice at a time — not by revolution, but by quietly questioning force in one more area of life.</p>
     </ContentBlock>
 
-    <NewsletterSignup source="practice01_closing" headline="Keep practicing." description="A weekly email with one real-world situation and the question: force or persuasion? Plus what other people designed as voluntary solutions." button-text="I'm in" success-message="Welcome. The first situation arrives this week." />
+    <NewsletterSignup source="practice01_closing" headline="Keep practicing." description="One real situation a week, and the question: force or persuasion? Plus the voluntary solutions other people have designed." button-text="Subscribe" success-message="Welcome. The first situation arrives this week." />
     <JourneyNav current="practice01" />
   </div>
 </template>

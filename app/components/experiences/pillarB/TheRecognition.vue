@@ -5,7 +5,7 @@
     <h2 class="display-medium">Every mandate is a claim on your life.</h2>
     <Divider />
 
-    <p class="body-text-large">Once you see time as the fundamental human resource, forms of coercion that seemed routine begin to look different.</p>
+    <p class="body-text-large">Once you see time as the fundamental human resource, forms of coercion that seemed routine start to look different.</p>
 
     <div class="recognitions">
       <div class="recognition-item">

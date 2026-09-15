@@ -15,7 +15,7 @@ export default {
       heading: 'Notice what your reasons have in common',
       body: [
         'Ask people why not, and the answers arrive fast and without much variation. It would wreck the relationship. They would resent me. They would comply without ever changing their mind. I would not trust myself with that kind of power. It would make me into something I do not want to be.',
-        'Every one of those is a claim about what force does to a human being. Not a claim about rights, or law, or political philosophy. An observation about consequences — about what happens to trust, to willingness, to the quality of what comes afterwards.',
+        'Every one of those is a claim about what force does to a human being. Not a claim about law or political theory. An observation about consequences: what happens to trust, to willingness, to the quality of what comes afterward.',
         'You did not read this anywhere. You learned it by living among other people and watching what worked. You have run the experiment thousands of times, in your family and your friendships and your work, and the result has been consistent enough that you no longer bother to check.',
         '**Persuasion builds something. Force produces compliance, which looks like the same thing right up until you need the person to want it.**'
       ]
@@ -34,8 +34,8 @@ export default {
       body: [
         'The Philosophy of Human Respect makes one observation and follows it: the pattern you already rely on does not stop being true at scale.',
         'Human flourishing reliably increases in environments of voluntary cooperation, and reliably decreases where coercion, violence, or the involuntary loss of time or property occur.',
-        'This holds whether the force comes from a controlling partner, an overbearing employer, someone in your neighbourhood, or a government elected by a comfortable majority. The mechanism changes. The paperwork changes. What happens inside the person being compelled does not.',
-        'None of this settles any particular political question, and it is not offered as though it does. It is a question you carry rather than an answer you accept: if persuasion is the method you trust in every relationship where you can actually observe the results, what is the argument for building our collective institutions on the other one?'
+        'This holds whether the force comes from a controlling partner, an overbearing employer, someone in your neighborhood, or a government elected by a comfortable majority. The mechanism changes. The paperwork changes. What happens inside the person being compelled does not.',
+        'None of this settles any particular political question, and it is not offered as though it does. It is a question to carry rather than an answer to accept: if persuasion is the method you trust in every relationship where you can actually see the results, what is the argument for building our shared institutions on the other one?'
       ]
     }
   ]

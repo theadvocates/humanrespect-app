@@ -19,7 +19,7 @@
     </ContentBlock>
 
     <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Voluntary alternatives to {{ issueData?.label?.toLowerCase() }} are not yet as large-scale or well-funded as their government counterparts. This is partly because government programs crowd out voluntary alternatives — when people are already taxed for a service, they're less likely to fund it voluntarily too. The question isn't whether voluntary approaches are currently as big, but whether they <em>could</em> grow to meet the need if the compulsory alternatives were gradually phased out.</p>
+      <p>Voluntary alternatives for {{ issueData?.label?.toLowerCase() }} are not yet as large or as well funded as their government counterparts. That is partly because government programs crowd them out: when people are already taxed for a service, they're less likely to fund it voluntarily too. The question isn't whether voluntary approaches are as big today, but whether they <em>could</em> grow to meet the need if the compulsory versions were gradually phased out.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

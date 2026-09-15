@@ -19,7 +19,7 @@
           <div class="discovery-num">01</div>
           <div class="discovery-content">
             <div class="discovery-title">The gap</div>
-            <p v-if="journey.exp01?.wouldForce === 'no'" class="discovery-desc">You already knew that force damages relationships. You chose persuasion — and articulated why. The question is why we abandon that principle at scale.</p>
+            <p v-if="journey.exp01?.wouldForce === 'no'" class="discovery-desc">You chose persuasion over force, and you said why. The question is why we abandon that principle at scale.</p>
             <p v-else class="discovery-desc">You examined how you handle real disagreements and what happens when force enters the picture.</p>
           </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="discovery">
           <div class="discovery-num">02</div>
           <div class="discovery-content">
-            <div class="discovery-title">The grounding</div>
+            <div class="discovery-title">The objection</div>
             <p v-if="journey.exp02.chosenObjection" class="discovery-desc">You chose "{{ objectionTitle }}" and saw it steelmanned, responded to, and honestly conceded.</p>
             <p v-else class="discovery-desc">You tested the philosophy against your strongest objection.</p>
           </div>
@@ -59,7 +59,7 @@
 
         <div class="path-section">
           <div class="path-label">Arguments</div>
-          <p class="path-desc">Standalone arguments that deepen the case. Why human nature is the argument <em>for</em> the philosophy. Why you bear moral responsibility for the force you authorize.</p>
+          <p class="path-desc">Standalone arguments that deepen the case. Why human nature is the argument <em>for</em> the philosophy. Why the force you authorize is yours.</p>
         </div>
 
         <div class="path-section">

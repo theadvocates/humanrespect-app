@@ -4,8 +4,8 @@
     <p class="caption" style="margin-bottom: 1.5rem;">Your issue</p>
     <h2 class="display-medium">What issue do you care most about?</h2>
     <Divider />
-    <p class="body-text">It could be anything — poverty, education, climate, healthcare, community safety, moral standards, immigration. The more passionately you feel about it, the better this exercise works.</p>
-    <textarea v-model="issue" class="text-input" placeholder="Describe the issue you care about most..." rows="4"/>
+    <p class="body-text">Anything: poverty, education, climate, healthcare, safety, moral standards, immigration. The more strongly you feel about it, the better this works.</p>
+    <textarea v-model="issue" class="text-input" placeholder="The issue, in a sentence or two" rows="4"/>
     <NavBar :can-go-back="true" :disable-continue="!issue.trim()" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

@@ -4,7 +4,7 @@
     <ExperiencePlate id="practice05" dark class="opening-plate" />
     <h1 class="display-large headline">Design a<br><em>voluntary solution.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">Pick a real problem in your community — not a national issue, something local and tangible — and design a solution that uses zero coercion.</p>
+    <p class="subtitle">Pick a real problem where you live — not a national issue, something local and concrete — and design a solution that uses no force at all.</p>
     <button class="begin-btn" @click="$emit('advance')">Begin <span class="arrow">→</span></button>
   </div>
 </template>

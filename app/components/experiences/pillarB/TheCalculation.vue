@@ -36,7 +36,7 @@
           >
           <span class="input-suffix">%</span>
         </div>
-        <p class="calc-hint">Most working Americans pay 25-40% across all taxes combined.</p>
+        <p class="calc-hint">Most working Americans pay 25–40% across all taxes combined.</p>
       </div>
     </div>
 

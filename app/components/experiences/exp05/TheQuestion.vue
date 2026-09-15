@@ -12,7 +12,7 @@
     </ContentBlock>
 
     <ContentBlock variant="concession" label="What the philosophy does not ask">
-      <p>It does not ask you to stop participating in democracy. It does not ask you to feel guilty for past votes. It asks you to carry one question into every political decision you make from now on: "Am I willing to authorize force against a peaceful person for this?" If the answer is yes, own it with open eyes. If the answer is no, find another way.</p>
+      <p>It does not ask you to stop participating in democracy. It does not ask you to feel guilty for past votes. It asks you to carry one question into every political decision you make from now on: "Am I willing to have someone forced to do this my way?" If the answer is yes, own it with open eyes. If the answer is no, find another way.</p>
     </ContentBlock>
 
     <NewsletterSignup variant="minimal" source="exp05_closing" headline="One question per week, applied to real policy." description="A short email translating a real political proposal into the force it authorizes. No spin. Just the chain of authority, made visible." button-text="Subscribe" />

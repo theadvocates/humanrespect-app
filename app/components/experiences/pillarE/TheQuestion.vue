@@ -16,7 +16,7 @@
       </PathCard>
     </div>
 
-    <NewsletterSignup variant="minimal" source="pillarE_closing" headline="One question per week, applied to the real world." description="A short email exploring how the force/persuasion question plays out in actual situations." button-text="Subscribe" />
+    <NewsletterSignup variant="minimal" source="pillarE_closing" headline="One question per week, applied to the real world." description="A short email on how the force-or-persuasion question plays out in real situations." button-text="Subscribe" />
     <JourneyNav current="pillarE" />
     <p class="body-text" style="text-align: center; margin-top: 3rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
   </div>

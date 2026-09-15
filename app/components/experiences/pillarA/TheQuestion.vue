@@ -5,9 +5,9 @@
     <h2 class="display-medium">If physical safety is the precondition for flourishing...</h2>
     <Divider />
     <ContentBlock variant="principle"><p>...what does that mean for institutions whose primary tool is the threat of force?</p></ContentBlock>
-    <p class="body-text-large">Every law is ultimately backed by the threat of physical enforcement. Every tax carries the implicit promise: comply, or men with guns will eventually come.</p>
+    <p class="body-text-large">Every law is ultimately backed by the threat of physical enforcement. Every tax carries an unspoken promise: comply, or armed agents will eventually come.</p>
     <ContentBlock variant="insight"><p>A society aligned with Human Respect must design systems that protect bodies and restore safety <em>without</em> becoming a source of the fear they're meant to prevent.</p></ContentBlock>
-    <NewsletterSignup variant="minimal" source="pillarA_closing" headline="One question per week, applied to the real world." description="A short email exploring how the force/persuasion question plays out in actual situations." button-text="Subscribe" />
+    <NewsletterSignup variant="minimal" source="pillarA_closing" headline="One question per week, applied to the real world." description="A short email on how the force-or-persuasion question plays out in real situations." button-text="Subscribe" />
     <JourneyNav current="pillarA" />
     <p class="body-text" style="text-align: center; margin-top: 3rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
   </div>

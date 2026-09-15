@@ -1,14 +1,14 @@
 <template>
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="3" :total="4" />
-    <p class="caption" style="margin-bottom: 1.5rem;">The most powerful tool</p>
+    <p class="caption" style="margin-bottom: 1.5rem;">The best tool</p>
     <h2 class="display-medium">Share the experience, not the argument.</h2>
     <Divider />
-    <p class="body-text-large">A conclusion someone reaches themselves is a hundred times more powerful than one you handed them. Share <strong>Experience 01</strong> and let them discover the gap on their own.</p>
+    <p class="body-text-large">A conclusion someone reaches on their own holds far better than one you handed them. Share the one-minute question on the home page and let them find the gap themselves.</p>
     <div class="share-block">
-      <button class="share-btn" @click="copyLink">{{ copied ? 'Copied!' : 'Copy link to humanrespect.app' }}</button>
+      <button class="share-btn" @click="copyLink">{{ copied ? 'Link copied' : 'Copy link to humanrespect.app' }}</button>
     </div>
-    <NewsletterSignup source="practice03_closing" headline="Keep practicing." description="Weekly conversation fuel — one real situation, the force/persuasion question applied, and ideas from others who are having these conversations too." button-text="I'm in" success-message="Welcome. Conversation fuel arrives this week." />
+    <NewsletterSignup source="practice03_closing" headline="Keep practicing." description="One real situation a week, the force-or-persuasion question applied to it, and what others having these conversations have learned." button-text="Subscribe" success-message="Welcome. The first one arrives this week." />
     <JourneyNav current="practice03" />
   </div>
 </template>

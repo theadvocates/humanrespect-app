@@ -1,10 +1,10 @@
 <template>
   <div ref="el" class="opening stagger">
-    <span class="overline">Experience 03 · The Philosophy of Human Respect</span>
+    <span class="overline">Experience 02 · The Philosophy of Human Respect</span>
     <ExperiencePlate id="exp02" dark class="opening-plate" />
     <h1 class="display-large headline">You have a <em>"but..."</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">You've seen the principle in your own relationships. You've confirmed it against your own flourishing. But you're not convinced it applies to the real world — with its complexity, its urgency, and its imperfect people. Good. A philosophy that can't survive your strongest objection isn't worth your time.</p>
+    <p class="subtitle">You've seen the principle in your own relationships. But you're not convinced it applies to the real world — with its complexity, its urgency, and its imperfect people. Good. A philosophy that can't survive your strongest objection isn't worth your time.</p>
     <button class="begin-btn" @click="$emit('advance')">
       Choose your objection <span class="arrow">→</span>
     </button>

@@ -14,7 +14,7 @@ export default {
     {
       heading: 'The conditions are not a matter of opinion',
       body: [
-        'Researchers in psychology, neuroscience, economics, and philosophy have arrived at overlapping lists of what human beings need in order to do well, working from different methods and largely independently: safety, autonomy, connection, competence, purpose, and the ability to plan.',
+        'Researchers in psychology, neuroscience, economics, and philosophy, working with different methods and largely independently, have arrived at overlapping lists of what human beings need in order to do well: safety, autonomy, connection, competence, purpose, and the ability to plan.',
         'What is striking is not the list. It is that the list turns out to be the same list ordinary people produce when asked about their own best years, without any of the vocabulary.',
         'It also holds across cultures and centuries in a way that most claims about human beings do not. People disagree profoundly about what a good life consists of. They disagree much less about the conditions under which one becomes possible.'
       ]
@@ -26,7 +26,7 @@ export default {
         'The body. When you are unsafe — actual violence, or a credible enough threat of it — your nervous system moves into a mode built for surviving the next ten minutes. That mode is expensive. The parts of you responsible for planning, creativity, patience, and trust go partly offline. This is not weakness or a failure of character; it is the design working as intended, and the cost is that in that state you cannot build anything.',
         'Resources. When what you have is insecure, you stop investing and start concealing. Long-range plans stop being worth making. Generosity contracts, because generosity is something secure people find easy and insecure people find dangerous.',
         'Time. When your hours are directed by someone else, the loss is unlike the other two, because time is the one thing that cannot be restored. Money can be re-earned. Property can be rebuilt. An hour that was spent on someone else\'s priorities is simply gone from the total you were given.',
-        'Body, resources, time. Between them they cover the whole surface of a life. Respect all three and people tend to flourish. Violate any one and flourishing declines in ways that are visible long before anyone can articulate why.'
+        'Body, resources, time. Between them they cover the whole surface of a life. Leave all three alone and people tend to flourish. Take any one and flourishing declines in ways that are visible long before anyone can say why.'
       ]
     },
     {

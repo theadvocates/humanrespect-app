@@ -4,7 +4,7 @@
     <ExperiencePlate id="practice01" dark class="opening-plate" />
     <h1 class="display-large headline">Your political<br><em>footprint.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">Most of us support more coercion than we realize — not out of malice, but because it's invisible. This exercise makes it visible.</p>
+    <p class="subtitle">Most of us support more force than we realize — not out of malice, but because it's hard to see. This exercise makes it visible.</p>
     <button class="begin-btn" @click="$emit('advance')">Begin <span class="arrow">→</span></button>
   </div>
 </template>

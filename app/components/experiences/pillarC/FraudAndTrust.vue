@@ -7,10 +7,10 @@
 
     <p class="body-text-large">Fraud steals more than resources. It steals time spent in trust, cognitive attention misdirected by lies, and the opportunity cost of false belief. But its deepest damage is to the infrastructure of cooperation itself.</p>
 
-    <p class="body-text">Every act of fraud is parasitism on trust. The scammer exploits the fact that most people operate honestly — and in doing so, makes honest operation more dangerous for everyone. When trust collapses, the cost of every interaction rises: more contracts, more lawyers, more verification, more suspicion.</p>
+    <p class="body-text">Every act of fraud feeds on trust. The scammer exploits the fact that most people deal honestly, and in doing so makes honest dealing more dangerous for everyone. When trust collapses, the cost of every interaction rises: more contracts, more lawyers, more verification, more suspicion.</p>
 
     <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Fraud is one area where even the Philosophy of Human Respect acknowledges the difficulty of purely voluntary solutions. Detecting and preventing fraud requires information, investigation, and sometimes enforcement. The philosophy argues that these functions should be as voluntary and non-coercive as possible — private certification, reputation systems, voluntary arbitration — but acknowledges that protecting people from deception is one of the harder problems in a non-coercive society.</p>
+      <p>Fraud is one area where the Philosophy of Human Respect admits that purely voluntary solutions are hard. Detecting and preventing fraud takes information, investigation, and sometimes enforcement. The philosophy argues these should be as voluntary as possible — private certification, reputation systems, voluntary arbitration — while acknowledging that protecting people from deception is one of the harder problems for a society without coercion.</p>
     </ContentBlock>
 
     <p class="body-text">What doesn't change is the principle: fraud violates material integrity, damages flourishing, and erodes the trust that makes cooperation possible. A society aligned with Human Respect takes fraud seriously — not as a government prerogative, but as a threat to the social fabric that every community has an interest in preventing.</p>

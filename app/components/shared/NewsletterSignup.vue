@@ -20,7 +20,7 @@
         </button>
       </div>
       <p v-if="error" class="error-msg">{{ error }}</p>
-      <p class="privacy-note">No spam. No selling data. Unsubscribe anytime. We respect your time — it's kind of our whole thing.</p>
+      <p class="privacy-note">No spam. We never sell your address. Unsubscribe anytime.</p>
     </div>
     <div v-else class="newsletter-success">
       <p class="success-msg">{{ successMessage }}</p>
@@ -35,7 +35,7 @@ import { useJourneyStore } from '@/stores/journey'
 
 const props = defineProps({
   headline: { type: String, default: 'The questions don\'t stop here.' },
-  description: { type: String, default: 'One short email per week applying the Philosophy of Human Respect to a real situation. No selling. No spam. Just the question, applied.' },
+  description: { type: String, default: 'One short email a week, applying the Philosophy of Human Respect to a real situation.' },
   buttonText: { type: String, default: 'Subscribe' },
   successMessage: { type: String, default: 'You\'re in. Watch for your first email.' },
   source: { type: String, default: 'unknown' },

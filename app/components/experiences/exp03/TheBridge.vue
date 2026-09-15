@@ -28,7 +28,7 @@
 
     <p class="body-text">This is a strong claim. You might agree with the pattern but question whether it applies as broadly as the philosophy suggests. You might think there are exceptions important enough to justify force — situations where the cost of coercion is worth the benefit it produces.</p>
 
-    <p class="body-text">Good. The next experience takes your strongest objection seriously.</p>
+    <p class="body-text">Good. The next experience takes the hardest objection of all seriously: people as they actually are.</p>
 
     <NewsletterSignup
       variant="minimal"

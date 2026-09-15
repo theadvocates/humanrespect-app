@@ -40,15 +40,15 @@
     </div>
 
     <ContentBlock v-if="gap > 0" variant="mirror">
-      <p>{{ gap }} areas of your life involve government force that you don't actually endorse. That's a measurement, not a political position. These are places where someone else's priorities are being imposed on you through the threat of punishment.</p>
+      <p>{{ gap }} {{ gap === 1 ? 'area' : 'areas' }} of your life {{ gap === 1 ? 'involves' : 'involve' }} government force you don't endorse. That's a measurement, not a political position. In each one, someone else's priorities are imposed on you under threat of punishment.</p>
     </ContentBlock>
 
     <ContentBlock v-if="gap === 0 && supports.length > 0" variant="mirror">
-      <p>You support every area of force you identified. That's a consistent position. The question the philosophy raises: for each one, could the same goal be achieved through voluntary cooperation instead?</p>
+      <p>You support every area of force you marked. That's a consistent position. The question the philosophy asks of each one: could the same goal be reached through voluntary cooperation instead?</p>
     </ContentBlock>
 
     <ContentBlock v-if="supports.length === 0 && operates.length > 0" variant="mirror">
-      <p>You identified {{ operates.length }} areas where force operates but don't endorse any of them. Your entire political footprint is involuntary. You already see the scope of the problem the philosophy describes.</p>
+      <p>You marked {{ operates.length }} {{ operates.length === 1 ? 'area' : 'areas' }} where force operates and endorse none of them. Your whole political footprint is involuntary. That is the scope of what the philosophy describes.</p>
     </ContentBlock>
 
     <!-- Per-category breakdown -->

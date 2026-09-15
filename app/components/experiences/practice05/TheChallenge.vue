@@ -6,7 +6,7 @@
     <Divider />
     <p class="body-text-large">You just designed a voluntary solution to a real problem. The question is whether you'll take the first step.</p>
     <ContentBlock variant="principle"><p>You don't need permission. You don't need a law. You need one conversation with one other person who cares about the same problem. Start there.</p></ContentBlock>
-    <NewsletterSignup source="practice05_closing" headline="Keep building." description="Each week, we share one voluntary solution someone actually built — real people solving real problems without force. Get inspired, then build your own." button-text="I'm in" success-message="Welcome. Real solutions, weekly." />
+    <NewsletterSignup source="practice05_closing" headline="Keep building." description="One voluntary solution a week that someone actually built — real people solving real problems without force." button-text="Subscribe" success-message="Welcome. The first one arrives this week." />
     <JourneyNav current="practice05" />
     <p class="body-text" style="text-align: center; margin-top: 3rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>
   </div>

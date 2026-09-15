@@ -20,9 +20,9 @@
       <h2 class="section-heading">The Philosophy</h2>
       <Divider />
 
-      <p class="body-text">The Philosophy of Human Respect begins with an observation about human nature: every person possesses three domains of integrity, their body, their resources, and their time. When these domains are respected, people flourish. When they're violated through violence, theft, or coercion, flourishing predictably declines.</p>
+      <p class="body-text">The Philosophy of Human Respect begins with an observation about human nature: every person has three domains of integrity: their body, their resources, and their time. When these domains are respected, people flourish. When they're violated through violence, theft, or coercion, flourishing predictably declines.</p>
 
-      <p class="body-text">This pattern is grounded in psychology, neuroscience, economics, and the lived experience of every human being. You can test it against your own life: the best periods had safety, autonomy, and opportunity present. The worst periods had one or more of those domains under attack.</p>
+      <p class="body-text">The pattern shows up in psychology, neuroscience, economics, and ordinary experience. You can test it against your own life: the best periods had safety, autonomy, and opportunity. The worst had one or more of those domains under attack.</p>
 
       <p class="body-text">From this foundation emerges a principle:</p>
 
@@ -38,7 +38,7 @@
       <h2 class="section-heading">What this site is</h2>
       <Divider />
 
-      <p class="body-text">humanrespect.app is a series of interactive experiences designed to help you discover the Philosophy of Human Respect through your own reasoning. Not by being told what to think, but by examining what you already believe.</p>
+      <p class="body-text">humanrespect.app is a series of interactive experiences that let you work out the Philosophy of Human Respect through your own reasoning. Not by being told what to think, but by examining what you already believe.</p>
 
       <p class="body-text">Each experience uses questions, scenarios, and reflections to surface insights about the relationship between force, cooperation, and human flourishing. There are no scores, no grades, no personality types. Just your own thinking, reflected back to you.</p>
 
@@ -50,9 +50,9 @@
       <h2 class="section-heading">The philosopher</h2>
       <Divider />
 
-      <p class="body-text">The Philosophy of Human Respect was articulated by Chris J. Rufer, founder of The Morning Star Company and a lifelong advocate for voluntary cooperation. Drawing on decades of observation about human nature and social systems, Rufer identified that sustainable solutions to social challenges come not from forcing values on others, but from persuading people to cooperate voluntarily.</p>
+      <p class="body-text">The Philosophy of Human Respect was articulated by Chris J. Rufer, founder of The Morning Star Company and a lifelong advocate for voluntary cooperation. After decades of watching how people and organizations actually work, Rufer concluded that lasting solutions to social problems come from persuading people to cooperate, not from forcing values on them.</p>
 
-      <p class="body-text">The philosophy builds on insights from psychology, neuroscience, self-determination theory, and economics. But its core claim is simple enough for a child to understand: don't hurt people, don't take their stuff, and don't waste their time.</p>
+      <p class="body-text">The philosophy draws on psychology, neuroscience, self-determination theory, and economics. Its core claim is simple enough for a child to understand: don't hurt people, don't take their stuff, and don't waste their time.</p>
 
       <!-- THE PROOF -->
       <h2 class="section-heading">The proof</h2>
@@ -66,7 +66,7 @@
 
       <p class="body-text">The result: a one-truck operation that grew into a global market leader processing roughly 40% of California's tomato crop, all without anyone being told what to do by a boss.</p>
 
-      <p class="body-text">The Philosophy of Human Respect is not an armchair theory. It's the articulation of principles that have been tested in a real business, with real people, for over fifty years.</p>
+      <p class="body-text">The Philosophy of Human Respect is not an armchair theory. Its principles have been tested in a real business, with real people, for over fifty years.</p>
 
       <!-- CONTACT -->
       <h2 class="section-heading">Contact</h2>

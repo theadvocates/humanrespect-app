@@ -23,7 +23,7 @@ export default {
       heading: 'Two societies, identical except in method',
       body: [
         'Imagine two places with the same people, the same values, the same disagreements. The only difference is how disputes get settled.',
-        'In the first, everyone tries to capture political power and use it to impose their values on everyone else. Elections become winner-take-all, because they are. Whoever wins compels the losers to fund and obey policies they campaigned against. The predictable result is permanent conflict, deepening resentment, and an electoral cycle in which every contest is existential — because for the losing side it more or less is.',
+        'In the first, everyone tries to capture political power and use it to impose their values on everyone else. Every election is winner-take-all. Whoever wins compels the losers to fund and obey policies they campaigned against. The predictable result is permanent conflict, deepening resentment, and an electoral cycle in which every contest feels existential, because for the losing side it more or less is.',
         'In the second, people hold their values just as strongly but advance them only through argument, example, voluntary association, and building the thing they want to see. Nobody compels anyone. The result is a great deal of visible disagreement and much less damage from it, because losing an argument costs you the argument rather than your autonomy.',
         'Nothing about the values changed between those two places. Only the method did. And that one change is the difference between a machine that manufactures conflict and one that manufactures cooperation.'
       ]

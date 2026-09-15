@@ -1,6 +1,6 @@
 <template>
   <div ref="el" class="opening stagger">
-    <span class="overline">Experience 02 · The Philosophy of Human Respect</span>
+    <span class="overline">Experience 03 · The Philosophy of Human Respect</span>
     <ExperiencePlate id="exp03" dark class="opening-plate" />
     <h1 class="display-large headline">What<br><em>flourishing</em><br>actually means.</h1>
     <Divider :centered="true" />

@@ -45,23 +45,23 @@ const journey = useJourneyStore()
 const allExperiences = [
   // Foundation (sequential)
   { name: 'exp01', title: 'The Question', desc: 'A thought experiment that reveals the gap between personal and political morality.', revisitDesc: 'Revisit the thought experiment that started everything.', tier: 'foundation', order: 1 },
-  { name: 'exp03', title: 'What Flourishing Means', desc: 'The empirical grounding for the principle, traced through your own life experience.', revisitDesc: 'Revisit the Three Domains framework.', tier: 'foundation', order: 2 },
-  { name: 'exp02', title: 'The Objection', desc: 'Test the philosophy against your strongest pushback. It gets steelmanned and honestly conceded.', revisitDesc: 'Try a different objection or revisit your original one.', tier: 'foundation', order: 3 },
+  { name: 'exp03', title: 'What Flourishing Actually Means', desc: 'The empirical grounding for the principle, traced through your own life.', revisitDesc: 'Revisit the three domains.', tier: 'foundation', order: 2 },
+  { name: 'exp02', title: 'The Objection', desc: 'Test the philosophy against your strongest pushback. It gets steelmanned, answered, and honestly conceded.', revisitDesc: 'Try a different objection, or revisit your original one.', tier: 'foundation', order: 3 },
   // Arguments (any order after foundation)
   { name: 'exp04', title: 'The Realist Objection', desc: 'People are flawed. That is the strongest argument for voluntary cooperation over concentrated power.', revisitDesc: 'Revisit the incentive argument against coercive systems.', tier: 'argument', order: 4 },
   { name: 'exp05', title: 'Human Agency', desc: 'If you hire someone to steal, you bear responsibility. What changes when the intermediary is a government?', revisitDesc: 'Revisit the agency argument and the chain of authorization.', tier: 'argument', order: 5 },
   // Pillars (any order)
-  { name: 'pillarA', title: 'Bodily Integrity', desc: 'Why safety is the precondition for all flourishing. Who faces force in your name?', revisitDesc: 'Revisit the first domain of human integrity.', tier: 'pillar', order: 6 },
-  { name: 'pillarB', title: 'Temporal Integrity', desc: 'Time as the irreplaceable substance of life. How many hours do you give to taxes?', revisitDesc: 'Revisit the tax-hours calculation.', tier: 'pillar', order: 7 },
-  { name: 'pillarC', title: 'Material Integrity', desc: 'Property as crystallized time. What have you not built because of insecurity?', revisitDesc: 'Revisit material integrity and the cost of insecurity.', tier: 'pillar', order: 8 },
-  { name: 'pillarD', title: 'The Human Respect Method', desc: 'Your values are not the problem. The question is force or persuasion.', revisitDesc: 'Revisit the values exercise and the method question.', tier: 'pillar', order: 9 },
-  { name: 'pillarE', title: 'Cooperation as Technology', desc: 'Real evidence that voluntary cooperation solves problems people assume require force.', revisitDesc: 'Explore voluntary alternatives for a different issue.', tier: 'pillar', order: 10 },
+  { name: 'pillarA', title: 'Your Body Is Not Negotiable', desc: 'Why physical safety is the precondition for everything else. Who faces force in your name?', revisitDesc: 'Revisit the first domain of human integrity.', tier: 'pillar', order: 6 },
+  { name: 'pillarB', title: 'Your Time Is Your Life', desc: 'Time as the irreplaceable substance of a life. How many hours of yours are taken?', revisitDesc: 'Revisit the hours calculation.', tier: 'pillar', order: 7 },
+  { name: 'pillarC', title: 'What You Built Is Who You Were', desc: 'Property as crystallized time. What have you not built because of insecurity?', revisitDesc: 'Revisit material integrity and the cost of insecurity.', tier: 'pillar', order: 8 },
+  { name: 'pillarD', title: 'The Method Is the Message', desc: "Your values aren't the problem. The question is force or persuasion.", revisitDesc: 'Revisit the values exercise and the method question.', tier: 'pillar', order: 9 },
+  { name: 'pillarE', title: 'Cooperation Is a Technology', desc: 'Evidence that voluntary cooperation solves problems people assume require force.', revisitDesc: 'Explore voluntary alternatives for a different issue.', tier: 'pillar', order: 10 },
   // Practices (any order)
-  { name: 'practice01', title: 'Political Footprint', desc: 'Map where force operates in your life vs. where you support it.', revisitDesc: 'See if your footprint has changed.', tier: 'practice', order: 11 },
-  { name: 'practice02', title: 'Persuasion Practice', desc: 'Draft a persuasion-only approach to an issue you care about.', revisitDesc: 'Try a different issue this time.', tier: 'practice', order: 12 },
-  { name: 'practice03', title: 'The Conversation', desc: 'A framework for discussing Human Respect with someone who disagrees.', revisitDesc: 'Refresh the four-move framework.', tier: 'practice', order: 13 },
-  { name: 'practice04', title: 'Respect Audit', desc: 'Notice force vs. persuasion in your daily life for 7 days.', revisitDesc: 'Start another 7-day observation cycle.', tier: 'practice', order: 14 },
-  { name: 'practice05', title: 'Design a Solution', desc: 'Pick a real problem. Solve it with zero coercion.', revisitDesc: 'Design a solution for a different problem.', tier: 'practice', order: 15 },
+  { name: 'practice01', title: 'Your Political Footprint', desc: 'Map where force operates in your life, and where you support it.', revisitDesc: 'See if your footprint has changed.', tier: 'practice', order: 11 },
+  { name: 'practice02', title: 'The Persuasion Practice', desc: 'Draft a persuasion-only approach to an issue you care about.', revisitDesc: 'Try a different issue this time.', tier: 'practice', order: 12 },
+  { name: 'practice03', title: 'The Conversation', desc: 'A framework for raising Human Respect with someone who disagrees.', revisitDesc: 'Refresh the four-move framework.', tier: 'practice', order: 13 },
+  { name: 'practice04', title: 'The Respect Audit', desc: 'Notice where you choose persuasion and where you choose force, for seven days.', revisitDesc: 'Start another seven-day observation.', tier: 'practice', order: 14 },
+  { name: 'practice05', title: 'Design a Voluntary Solution', desc: 'Pick a real problem in your community. Solve it without coercion.', revisitDesc: 'Design a solution for a different problem.', tier: 'practice', order: 15 },
 ]
 
 function isCompleted(name) {

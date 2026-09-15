@@ -16,7 +16,7 @@ export default {
       heading: 'Property is time in a durable form',
       body: [
         'Look at anything you own and ask what it actually is.',
-        'A chair is somebody\'s hours. A dollar is exchanged effort, held in a form that lets you move it around. A house is a decade of getting up in the morning and going to work. A business is years of risk and attention and judgement that could have gone somewhere else and did not.',
+        'A chair is somebody\'s hours. A dollar is exchanged effort, held in a form that lets you move it around. A house is a decade of getting up in the morning and going to work. A business is years of risk and attention and judgment that could have gone somewhere else and did not.',
         'None of these are only objects. They are hours of a life converted into a form that outlasts the hours.',
         '**When someone takes your property, they are not taking a thing. They are spending a part of your life that has already been lived, on something you did not choose.**',
         'This is why theft feels disproportionate to its cash value, and why people who have been robbed describe it in language that sounds excessive for the sum involved. They are not being irrational about money. They are being accurate about time.'
@@ -34,10 +34,10 @@ export default {
     {
       heading: 'The question this leaves',
       body: [
-        'Societies need coordination. Nothing here says otherwise, and any argument that pretended coordination were unnecessary would deserve to be dismissed quickly.',
+        'Societies need coordination. Nothing here says otherwise, and any argument that pretends coordination is unnecessary deserves to be dismissed quickly.',
         'The open question is narrower, and harder: does coordination have to be compulsory? Where a thing genuinely must be done together, is the only available mechanism one that takes people\'s hours without asking, or is that simply the mechanism we reached for first and have not seriously revisited?',
         'That question does not resolve itself by being asked. But it changes shape once time is on the table. A policy that would be an obvious imposition if it demanded four weeks of your life directly is often the same policy, described in money.',
-        'If your time is your life, and nobody has a claim on your life — then the question of who has a claim on your time stops being a technical one.'
+        'If your time is your life, and nobody has a claim on your life, then the question of who has a claim on your time stops being a technical one.'
       ]
     }
   ]

@@ -9,7 +9,7 @@
     <div class="steps">
       <div class="step"><div class="step-num">1</div><div><div class="step-title">Affirm their values</div><p>"I think compassion for the poor is genuinely important" or "I agree that personal responsibility matters." Start where they are, not where you want them to be.</p></div></div>
       <div class="step"><div class="step-num">2</div><div><div class="step-title">Ask the method question</div><p>"We agree on the goal. I'm curious — do you think the best way to achieve it is through government force, or through voluntary cooperation?" Don't answer it for them. Let them sit with it.</p></div></div>
-      <div class="step"><div class="step-num">3</div><div><div class="step-title">Introduce the personal test</div><p>"Would you personally do what you're asking the government to do? Would you go to your neighbor's house and take their money for this cause?" If they say no, ask why the government doing it feels different.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-title">Ask the personal test</div><p>"Would you personally do what you're asking the government to do? Would you go to your neighbor's house and take their money for this cause?" If they say no, ask why the government doing it feels different.</p></div></div>
       <div class="step"><div class="step-num">4</div><div><div class="step-title">Leave the question open</div><p>Don't push for agreement. Say: "I don't have all the answers either. But I think that question — force or persuasion — is worth thinking about." Then let it rest.</p></div></div>
     </div>
 

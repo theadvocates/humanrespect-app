@@ -2,7 +2,7 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="1" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">What you care about</p>
-    <h2 class="display-medium">Which of these values resonate with you?</h2>
+    <h2 class="display-medium">Which of these values matter to you?</h2>
     <Divider />
     <p class="body-text">There are no wrong answers. All of these are genuine, positive values that guide real people's lives. Select the ones that feel most important to you.</p>
 

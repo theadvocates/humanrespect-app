@@ -4,7 +4,7 @@
     <ExperiencePlate id="practice03" dark class="opening-plate" />
     <h1 class="display-large headline">The<br><em>conversation.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">A framework for discussing the Philosophy of Human Respect with someone who disagrees with you politically — without arguing, converting, or losing the relationship.</p>
+    <p class="subtitle">A way to talk about the Philosophy of Human Respect with someone who disagrees with you politically — without arguing, converting, or losing the relationship.</p>
     <button class="begin-btn" @click="$emit('advance')">Begin <span class="arrow">→</span></button>
   </div>
 </template>

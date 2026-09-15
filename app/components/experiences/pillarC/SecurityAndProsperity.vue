@@ -13,7 +13,7 @@
         <p>People conceal wealth instead of investing it. They avoid long-term planning. They become less generous, restrict cooperation, and increase defensive behavior. Innovation slows because the rewards of risk can be seized.</p>
       </div>
       <div class="contrast-block secure">
-        <div class="contrast-label">When property is respected</div>
+        <div class="contrast-label">When property is secure</div>
         <p>People plan for the future. They invest, build, create, share, and take risks. They are more generous, because secure people give more freely. The result: innovation, prosperity, and deepening social trust.</p>
       </div>
     </div>
@@ -22,7 +22,7 @@
       <p>Societies with stronger property norms consistently experience higher GDP, better environmental stewardship, stronger innovation, and deeper levels of trust. Material integrity is what makes societies wealthy, not a luxury they can afford once they already are.</p>
     </ContentBlock>
 
-    <p class="body-text">The things you identified on the previous screen that you didn't build? In a society with stronger material integrity, more of those things would exist. More businesses. More investments. More generosity. More risk-taking. More creation. The cost of material insecurity is measured in the world that doesn't get built.</p>
+    <p class="body-text">The things on the previous screen that you didn't build? In a society with stronger material integrity, more of them would exist. More businesses. More investments. More generosity. More risk-taking. More creation. The cost of material insecurity is measured in the world that doesn't get built.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

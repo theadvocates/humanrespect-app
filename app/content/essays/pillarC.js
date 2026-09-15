@@ -16,7 +16,7 @@ export default {
       body: [
         'The interesting damage does not require an actual theft. It is done by the possibility of one.',
         'Ask people whether they have ever held back — not started the business, not made the investment, not bought the equipment, not improved the property — because they were not confident they would keep the result. Most have a list, and most have never counted it as a cost of anything.',
-        'Economists have names for the aggregate: dead capital, and regime uncertainty. When holdings are insecure, people conceal rather than invest, avoid long horizons, cooperate less, and give less. Generosity in particular is something secure people find easy and insecure people find reckless.',
+        'Economists have names for the sum of it: dead capital, regime uncertainty. When holdings are insecure, people conceal rather than invest, avoid long horizons, cooperate less, and give less. Generosity in particular is something secure people find easy and insecure people find reckless.',
         '**Every item on that list is something that could have existed and does not. A business that would have employed people. A risk that would have paid. Multiply it by everyone who ran the same calculation and you have the actual price of insecurity, which nobody ever sees, because you cannot look at what was never made.**'
       ]
     },
@@ -24,7 +24,7 @@ export default {
       heading: 'And what security does',
       body: [
         'The inverse is equally predictable. Where people trust that what they build stays theirs, they plan further out, invest more, take more risk, and share more freely.',
-        'Across countries and across centuries, stronger property norms track with higher output, better stewardship of land and resources, more innovation, and higher measured trust. The relationship runs in the direction that is easy to get backwards: material security is largely what makes societies wealthy, rather than a luxury they buy once they already are.'
+        'Across countries and across centuries, stronger property norms track with higher output, better stewardship of land and resources, more innovation, and higher measured trust. The relationship runs in the direction that is easy to get backward: material security is largely what makes societies wealthy, not a luxury they buy once they already are.'
       ]
     },
     {
@@ -32,7 +32,7 @@ export default {
       body: [
         'Fraud is theft conducted by deception, and it does damage that a simple theft does not.',
         'It takes resources, but it also takes time spent in misplaced trust and attention aimed at a lie. Its deepest cost is to the infrastructure of cooperation itself: every fraud is parasitic on the fact that most people are honest, and every fraud makes honesty a little more expensive for everyone else.',
-        'This is one of the places where the philosophy has to concede difficulty rather than assert a solution. Detecting and deterring fraud takes information, investigation, and sometimes enforcement. The argument is that these should be as voluntary as they can be — private certification, reputation systems, voluntary arbitration, insurance — while acknowledging plainly that protecting people from deception is among the harder problems for a non-coercive society, and that the voluntary tools currently available are not obviously sufficient.'
+        'This is one of the places where the philosophy has to concede difficulty rather than assert a solution. Detecting and deterring fraud takes information, investigation, and sometimes enforcement. The argument is that these should be as voluntary as they can be: private certification, reputation systems, voluntary arbitration, insurance. It should also be said plainly that protecting people from deception is among the harder problems for a non-coercive society, and that the voluntary tools available today are not obviously enough.'
       ]
     },
     {

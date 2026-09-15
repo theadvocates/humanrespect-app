@@ -5,7 +5,7 @@
     <h2 class="display-medium">We don't end with an answer. We end with a question.</h2>
     <Divider />
 
-    <p class="body-text-large">You came in with an objection. You've seen it taken seriously, responded to, and the limits of that response honestly acknowledged. Now there's a question left.</p>
+    <p class="body-text-large">You came in with an objection. You've seen it taken seriously, answered, and the limits of that answer acknowledged. One question is left.</p>
 
     <ContentBlock variant="principle">
       <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->

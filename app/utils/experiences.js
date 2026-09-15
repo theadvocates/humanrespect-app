@@ -8,7 +8,7 @@
  * does. Everything that needs to know about an experience reads this.
  *
  * `minutes` is an honest estimate, not a floor. It is shown to people before
- * they commit, because an unlabelled time cost is the thing that makes a five
+ * they commit, because an unlabeled time cost is the thing that makes a five
  * minute exercise feel expensive.
  */
 
@@ -112,7 +112,7 @@ export const EXPERIENCES = [
     route: 'pillarC',
     path: '/pillar/what-you-built',
     title: 'What You Built Is Who You Were',
-    short: 'Property as crystallised time, and what insecurity actually costs.',
+    short: 'Property as crystallized time, and what insecurity actually costs.',
     tier: 'pillar',
     order: 3,
     minutes: 7

@@ -37,7 +37,7 @@
 
     <div v-if="wouldForce === 'yes'" class="followup">
       <ContentBlock variant="mirror">
-        <p>That's honest. Hold onto that answer. The philosophy has something specific to say about what happens when force becomes the go-to method for resolving disagreements, even when the person using it believes they're right.</p>
+        <p>That's honest. Hold onto that answer. The philosophy has something specific to say about what happens when force becomes the way disagreements get settled, even when the person using it believes they're right.</p>
       </ContentBlock>
     </div>
 
@@ -72,7 +72,7 @@ const reasons = [
   { id: 'belief', label: 'It wouldn\'t have changed what they actually believe' },
   { id: 'respect', label: 'It feels wrong to override someone I respect' },
   { id: 'cost', label: 'The long-term cost isn\'t worth the short-term win' },
-  { id: 'wrong', label: 'Using force on someone who hasn\'t harmed me is simply wrong' },
+  { id: 'wrong', label: 'It would be wrong to force them, even if I\'m right' },
 ]
 
 function choose(value) {

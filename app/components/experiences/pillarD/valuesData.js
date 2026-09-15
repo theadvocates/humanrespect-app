@@ -20,7 +20,7 @@ export const values = [
   {
     id: 'inclusion',
     label: 'Inclusion and diversity',
-    desc: 'All people should be welcomed and respected.',
+    desc: 'All people should be welcomed and treated with dignity.',
     lean: 'progressive'
   },
   {
@@ -37,7 +37,7 @@ export const values = [
   },
   {
     id: 'tradition',
-    label: 'Respect for tradition and heritage',
+    label: 'Tradition and heritage',
     desc: 'Time-tested institutions and customs carry wisdom.',
     lean: 'conservative'
   },

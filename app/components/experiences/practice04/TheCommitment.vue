@@ -5,9 +5,9 @@
     <h2 class="display-medium">Six more days.</h2>
     <Divider />
     <p class="body-text-large">Before bed each night this week, take 60 seconds to notice one moment where force and persuasion were in play.</p>
-    <ContentBlock variant="insight"><p>By the end of seven days, you'll see the force/persuasion question everywhere. That's not the philosophy talking. That's your own observation.</p></ContentBlock>
-    <ContentBlock variant="principle"><p>The Philosophy of Human Respect is not adopted in a moment. You discover it gradually, as you notice the pattern in your own daily life.</p></ContentBlock>
-    <NewsletterSignup source="practice04_closing" headline="Keep noticing." description="One email per week with a real situation to apply the audit to. Think of it as your weekly prompt." button-text="I'm in" success-message="Welcome. Your first weekly prompt arrives soon." />
+    <ContentBlock variant="insight"><p>By day seven you'll start seeing the question everywhere. That isn't the philosophy talking; it's your own observation.</p></ContentBlock>
+    <ContentBlock variant="principle"><p>Nobody adopts the Philosophy of Human Respect in a moment. You find it gradually, by noticing the pattern in your own days.</p></ContentBlock>
+    <NewsletterSignup source="practice04_closing" headline="Keep noticing." description="One email a week with a real situation to run the audit on." button-text="Subscribe" success-message="Welcome. The first one arrives this week." />
     <JourneyNav current="practice04" />
   </div>
 </template>

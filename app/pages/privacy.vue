@@ -16,9 +16,9 @@
 
       <p class="body-text"><strong>Basic traffic data.</strong> We use PostHog to understand how many people visit the site, which pages they read, and where traffic comes from. It runs without cookies — the anonymous ID it uses is the same one described above, kept in your browser's local storage and never shared with other sites. We don't record your screen, we don't build heatmaps, and we never transmit anything you type into the interactive questions.</p>
 
-      <p class="body-text"><strong>Where those requests go.</strong> We should be straightforward about one detail, because we'd rather you heard it from us. Analytics requests are sent to <code class="inline-code">humanrespect.app/ingest</code> and forwarded from there, rather than going to PostHog's own address. This is ordinary practice and it makes the numbers more accurate, but it has a consequence worth stating: a content blocker that blocks PostHog by name will no longer stop these requests, because they no longer carry PostHog's name.</p>
+      <p class="body-text"><strong>Where those requests go.</strong> One detail we'd rather you heard from us. Analytics requests are sent to <code class="inline-code">humanrespect.app/ingest</code> and forwarded from there, rather than going to PostHog's own address. This is ordinary practice and it makes the numbers more accurate, but it has a consequence worth stating: a content blocker that blocks PostHog by name will no longer stop these requests, because they no longer carry PostHog's name.</p>
 
-      <p class="body-text">So that you keep a real choice: we honour your browser's <strong>Do Not Track</strong> setting, and when it's on we collect nothing at all. Blocking <code class="inline-code">humanrespect.app/ingest</code> also works and breaks nothing — the experiences run exactly the same either way. What we collect through that route is unchanged from what's described above: anonymous, first-party, never sold, never shared.</p>
+      <p class="body-text">So that you keep a real choice: we honor your browser's <strong>Do Not Track</strong> setting, and when it's on we collect nothing at all. Blocking <code class="inline-code">humanrespect.app/ingest</code> also works and breaks nothing — the experiences run exactly the same either way. What we collect through that route is unchanged from what's described above: anonymous, first-party, never sold, never shared.</p>
 
       <p class="body-text"><strong>Account information.</strong> You don't need an account to use this site. If you create one, we store your email address so we can sign you in, and — if you sign in with Google — the name on your Google account, which we use only to put a name on a certificate. We never receive your Google password, and we ask Google for nothing beyond your email address and name.</p>
 
@@ -32,7 +32,7 @@
       <h2 class="section-heading">What we don't do</h2>
       <Divider />
 
-      <p class="body-text">We don't route your data to advertisers. We don't sell your data to anyone. We don't share it with advertisers. We don't use tracking cookies. We don't run retargeting campaigns. We don't use Google Analytics. We don't record your screen or replay your sessions. We honour your browser's Do Not Track setting. We don't build profiles that follow you across the internet.</p>
+      <p class="body-text">We don't sell your data to anyone or share it with advertisers. We don't use tracking cookies or run retargeting campaigns. We don't use Google Analytics. We don't record your screen or replay your sessions. We honor your browser's Do Not Track setting. We don't build profiles that follow you across the internet.</p>
 
       <p class="body-text">We don't gate any content behind email capture. Every experience on this site is fully accessible without signing up for anything.</p>
 
@@ -42,7 +42,7 @@
 
       <p class="body-text">Honest answer: because we want to know if the philosophy is landing.</p>
 
-      <p class="body-text">If 80% of visitors drop off at the same screen, that screen needs rewriting. If one objection path resonates more than others, that tells us something about what people are actually thinking. If the Pillar on Temporal Integrity has twice the completion rate of the one on Material Integrity, we should understand why.</p>
+      <p class="body-text">If 80% of visitors drop off at the same screen, that screen needs rewriting. If one objection gets chosen far more than the others, that tells us what people are actually thinking. If one pillar has twice the completion rate of another, we should understand why.</p>
 
       <p class="body-text">We track engagement to make the experiences better. That's it.</p>
 
@@ -50,7 +50,7 @@
       <h2 class="section-heading">Your choices</h2>
       <Divider />
 
-      <p class="body-text">You can use this entire site without giving us any personal information. Your anonymous usage data helps us improve, but if you prefer not to contribute even that, a standard ad blocker will prevent the analytics scripts from loading. The experiences will still work perfectly.</p>
+      <p class="body-text">You can use this entire site without giving us any personal information. Your anonymous usage data helps us improve, but if you prefer not to contribute even that, a standard ad blocker will stop the analytics scripts from loading. The experiences still work.</p>
 
       <p class="body-text">If you subscribed to the newsletter and want to unsubscribe, every email includes an unsubscribe link. If you want your email removed from our database entirely, send a request to <a href="mailto:hello@humanrespect.app" class="text-link">hello@humanrespect.app</a> and we'll delete it.</p>
 
@@ -102,7 +102,7 @@
       <h2 class="section-heading">The short version</h2>
       <Divider />
 
-      <p class="body-text">We collect anonymous data to improve the site. We collect your email only if you give it to us. We don't sell anything to anyone. We respect your time, your attention, and your privacy. It's kind of our whole philosophy.</p>
+      <p class="body-text">We collect anonymous data to improve the site. We collect your email only if you give it to us. We don't sell anything to anyone. We don't waste your time or your attention. That's the whole philosophy, applied to us.</p>
 
       <p class="body-text" style="margin-top: 2rem;">Questions? <a href="mailto:hello@humanrespect.app" class="text-link">hello@humanrespect.app</a></p>
 

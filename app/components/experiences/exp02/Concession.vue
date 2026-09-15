@@ -5,7 +5,7 @@
     <h2 class="display-medium">What the philosophy can't claim.</h2>
     <Divider />
 
-    <p class="body-text-large">A philosophy that only gives you the strong parts of its argument and hides the difficult parts isn't trustworthy. So here's what intellectual honesty requires us to say.</p>
+    <p class="body-text-large">A philosophy that shows you only the strong parts of its argument and hides the difficult ones isn't trustworthy. So here is the part that has to be said.</p>
 
     <ContentBlock variant="concession" label="The honest concession">
       <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->

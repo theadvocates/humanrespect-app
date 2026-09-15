@@ -5,7 +5,7 @@
     <h2 class="display-medium">Did the response address your objection?</h2>
     <Divider />
 
-    <p class="body-text">Be honest. This isn't a test — it's information that helps us understand where the philosophy's arguments are strong and where they need work.</p>
+    <p class="body-text">Be honest. This isn't a test. It tells us where the argument is strong and where it needs work.</p>
 
     <div class="verdict-options">
       <button
@@ -23,7 +23,7 @@
     <div v-if="verdict" class="verdict-response">
       <p v-if="verdict === 'addressed'" class="body-text" style="font-style: italic; color: var(--insight-green);">That's worth noting. The next experiences explore the implications — what the principle means for your body, your time, your resources, and how you relate to political systems.</p>
       <p v-else-if="verdict === 'partial'" class="body-text" style="font-style: italic; color: var(--ochre);">Partial is honest. The philosophy doesn't claim to have airtight answers to every objection. It claims to have a better framework than the alternative. The parts that didn't land are worth carrying as open questions.</p>
-      <p v-else class="body-text" style="font-style: italic; color: var(--concede-warm);">That's important feedback. If the response didn't address your concern, the philosophy has work to do on this front. You might find that a different objection path resonates differently — or you might find that this is a genuine limit of the framework.</p>
+      <p v-else class="body-text" style="font-style: italic; color: var(--concede-warm);">That's important feedback. If the response didn't address your concern, the philosophy has work to do here. A different objection might land differently — or this may be a real limit of the framework.</p>
     </div>
 
     <NavBar :can-go-back="true" :disable-continue="!verdict" @back="$emit('back')" @continue="$emit('advance')" />

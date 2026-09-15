@@ -40,7 +40,7 @@
             <div class="domain-imperative">Respect Time: Do not coerce.</div>
           </div>
         </div>
-        <p class="domain-desc">Time is the only truly non-renewable resource. It cannot be replaced, replenished, stored, or compensated. Every moment of coerced activity is a moment of life permanently redirected. When someone controls your time, they don't just inconvenience you — they consume the irreplaceable substance of your existence.</p>
+        <p class="domain-desc">Time is the only truly non-renewable resource. It cannot be replaced, stored, or compensated. Every hour of coerced activity is an hour of life permanently redirected. When someone controls your time, they don't just inconvenience you — they consume the substance of your life.</p>
         <div v-if="hasTime" class="domain-yours">You experienced this.</div>
       </div>
     </div>

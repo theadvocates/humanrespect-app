@@ -4,7 +4,7 @@
     <ExperiencePlate id="pillarA" dark class="opening-plate" />
     <h1 class="display-large headline">Your body is<br><em>not negotiable.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">Before you can dream, create, build, cooperate, or love — you must be safe in your own skin. Bodily integrity is the first domain of human flourishing, and the most viscerally understood.</p>
+    <p class="subtitle">Before you can create, build, cooperate, or love, you have to be safe in your own skin. Bodily integrity is the first domain of human flourishing, and the one everyone understands in their gut.</p>
     <button class="begin-btn" @click="$emit('advance')">Continue <span class="arrow">→</span></button>
   </div>
 </template>

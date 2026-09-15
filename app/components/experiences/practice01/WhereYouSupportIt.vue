@@ -2,9 +2,9 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="6" />
     <p class="caption" style="margin-bottom: 1.5rem;">Pass 2 of 2</p>
-    <h2 class="display-medium">Now: which of these do you actually support?</h2>
+    <h2 class="display-medium">Now, which of these do you actually support?</h2>
     <Divider />
-    <p class="body-text">You identified {{ operates.length }} areas where government force operates in your life. Now look at each one and ask: do I believe this <em>should</em> be enforced through force? Check only the ones you genuinely endorse.</p>
+    <p class="body-text">You marked {{ operates.length }} {{ operates.length === 1 ? 'area' : 'areas' }} where government force operates in your life. For each one, ask: <em>should</em> this be enforced by force? Check only the ones you genuinely endorse.</p>
 
     <div class="items">
       <button
@@ -21,7 +21,7 @@
       </button>
     </div>
 
-    <p class="tally">{{ supports.length }} of {{ operates.length }} areas supported</p>
+    <p class="tally">{{ supports.length }} of {{ operates.length }} areas you support</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

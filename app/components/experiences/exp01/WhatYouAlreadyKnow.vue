@@ -55,7 +55,7 @@ const allReasons = [
   { id: 'belief', label: 'It wouldn\'t have changed what they actually believe' },
   { id: 'cost', label: 'The long-term cost isn\'t worth the short-term win' },
   { id: 'respect', label: 'It feels wrong to override someone I respect' },
-  { id: 'wrong', label: 'Using force on someone who hasn\'t harmed me is simply wrong' },
+  { id: 'wrong', label: 'It would be wrong to force them, even if I\'m right' },
 ]
 
 const selectedReasons = computed(() =>

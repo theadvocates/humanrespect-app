@@ -4,7 +4,7 @@
     <ExperiencePlate id="practice02" dark class="opening-plate" />
     <h1 class="display-large headline">The persuasion<br><em>practice.</em></h1>
     <Divider :centered="true" />
-    <p class="subtitle">Take something you feel strongly about. Now advance it using zero force. No laws. No mandates. No taxes. Just persuasion, cooperation, and creativity.</p>
+    <p class="subtitle">Take something you feel strongly about, and advance it without force. No laws, no mandates, no taxes. Just persuasion, cooperation, and creativity.</p>
     <button class="begin-btn" @click="$emit('advance')">Begin <span class="arrow">→</span></button>
   </div>
 </template>

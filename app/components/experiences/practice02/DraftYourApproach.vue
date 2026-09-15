@@ -2,19 +2,19 @@
   <div ref="el" class="screen-inner stagger">
     <StepDots :current="2" :total="4" />
     <p class="caption" style="margin-bottom: 1.5rem;">The constraint</p>
-    <h2 class="display-medium">Now solve it — with zero coercion.</h2>
+    <h2 class="display-medium">Now solve it without force.</h2>
     <Divider />
-    <p class="body-text-large">No taxes. No regulations. No penalties. No government mandates. Only persuasion, voluntary cooperation, and creative problem-solving.</p>
+    <p class="body-text-large">No taxes, regulations, penalties, or mandates. Only persuasion, voluntary cooperation, and creative problem-solving.</p>
 
     <ScenarioBox label="Your tools">
-      <p><strong>Conversation</strong> — talking to people, sharing ideas, changing minds through dialogue.</p>
+      <p><strong>Conversation</strong> — talking with people and changing minds.</p>
       <p><strong>Voluntary funding</strong> — donations, crowdfunding, subscriptions, membership fees.</p>
-      <p><strong>Community organizing</strong> — bringing people together who share the goal.</p>
-      <p><strong>Market solutions</strong> — building products or services that address the problem.</p>
-      <p><strong>Leading by example</strong> — demonstrating the change you want to see.</p>
+      <p><strong>Community organizing</strong> — bringing together the people who share the goal.</p>
+      <p><strong>Market solutions</strong> — building a product or service that solves the problem.</p>
+      <p><strong>Leading by example</strong> — doing it yourself, where others can see.</p>
     </ScenarioBox>
 
-    <textarea v-model="approach" class="text-input" placeholder="How would you address your issue using only these tools?" rows="6"/>
+    <textarea v-model="approach" class="text-input" placeholder="How would you advance your issue with only these tools?" rows="6"/>
     <NavBar :can-go-back="true" :disable-continue="!approach.trim()" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

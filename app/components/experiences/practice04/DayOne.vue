@@ -4,13 +4,13 @@
     <p class="caption" style="margin-bottom: 1.5rem;">Start now</p>
     <h2 class="display-medium">Your first observation — right now.</h2>
     <Divider />
-    <p class="body-text-large">Think about <em>today</em>. Was there a moment — even a small one — where the question of force vs. persuasion was present?</p>
+    <p class="body-text-large">Think about <em>today</em>. Was there a moment, even a small one, where force or persuasion was in play?</p>
     <p class="body-text">Maybe a conversation about politics. A frustration with a coworker. A news story that made you angry. A parenting moment. A business decision. A thought about what "should" be required.</p>
 
     <textarea v-model="observation" class="text-input" placeholder="Describe the moment. What happened? Did you lean toward force or persuasion?" rows="5"/>
 
     <ContentBlock v-if="observation.trim()" variant="insight">
-      <p>That's day one. You noticed. Most people go their entire lives without seeing this pattern in their own thinking. You just started.</p>
+      <p>That's day one. Most people never look for this pattern in their own thinking. You just did.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

@@ -96,8 +96,8 @@
 
               <p class="rt-map">
                 This test doesn't measure whether your values lean liberal or
-                conservative. Both carry good values that most people share, to some
-                degree. It measures how you'd advance yours.
+                conservative. Both hold good values, and most people share some of
+                each. It measures how you'd advance yours.
               </p>
             </div>
             <!-- Each result has its plate, from the same set as the experiences. -->

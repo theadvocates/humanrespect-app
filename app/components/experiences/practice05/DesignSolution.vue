@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">Your design</p>
     <h2 class="display-medium">Design a solution using only voluntary means.</h2>
     <Divider />
-    <p class="body-text">Consider these questions as you design:</p>
+    <p class="body-text">Questions to work through as you go:</p>
 
     <div class="prompts">
       <div class="prompt"><strong>Who cares about this problem?</strong> Who else in your community would want to help solve it?</div>
@@ -14,7 +14,7 @@
       <div class="prompt"><strong>What's the first step?</strong> Not the whole plan — just the first action you'd take this week.</div>
     </div>
 
-    <textarea v-model="solution" class="text-input" placeholder="Describe your voluntary solution..." rows="6"/>
+    <textarea v-model="solution" class="text-input" placeholder="Your solution, in a few sentences" rows="6"/>
     <NavBar :can-go-back="true" :disable-continue="!solution.trim()" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

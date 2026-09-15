@@ -5,7 +5,7 @@
     <h2 class="display-medium">Political language obscures what you're actually authorizing. Translate it.</h2>
     <Divider />
 
-    <p class="body-text">Each of these statements sounds reasonable. For each one, choose the translation that most accurately describes the force being authorized. These span the political spectrum deliberately — the philosophy doesn't take sides.</p>
+    <p class="body-text">Each of these statements sounds reasonable. For each one, choose the translation that most accurately describes the force being authorized. They come from across the political spectrum on purpose — the philosophy doesn't take sides.</p>
 
     <div class="translations">
       <div v-for="t in translations" :key="t.id" class="translation-block">
@@ -70,7 +70,7 @@ const translations = [
     sanitized: 'I support the war on drugs.',
     options: [
       { id: 'a', text: 'I want to protect communities from the damage of addiction.', correct: false },
-      { id: 'b', text: 'I authorize armed raids on homes, imprisonment of people for possessing substances, and the destruction of families — for choices that directly harmed no one else.', correct: true },
+      { id: 'b', text: 'I authorize armed raids on homes, imprisonment of people for possessing substances, and the destruction of families — over what people put in their own bodies.', correct: true },
       { id: 'c', text: 'I believe certain substances are too dangerous to allow.', correct: false },
     ],
     actual: 'I authorize armed agents to break into homes, cage human beings for years, and permanently destroy their employability, their families, and their futures — for the act of consuming a substance in private. I authorize this knowing that enforcement falls disproportionately on the poorest and most marginalized communities.'
