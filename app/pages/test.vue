@@ -39,7 +39,7 @@
         </p>
 
         <div class="explain-paths">
-          <NuxtLink to="/" class="explain-cta">Try the one-minute argument <span aria-hidden="true">→</span></NuxtLink>
+          <NuxtLink to="/" class="explain-cta">The question behind this test <span aria-hidden="true">→</span></NuxtLink>
           <NuxtLink to="/about" class="explain-cta explain-cta-quiet">Why this exists</NuxtLink>
         </div>
       </div>

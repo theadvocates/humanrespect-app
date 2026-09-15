@@ -49,8 +49,9 @@
         <h3 class="explain-sub">What you'll find here</h3>
 
         <p class="explain-body">
-          A one-minute question, a one-minute
-          <NuxtLink to="/test" class="explain-link">test</NuxtLink>, and fifteen
+          A one-minute question (the one above), a ten-statement
+          <NuxtLink to="/test" class="explain-link">test</NuxtLink> that measures
+          where you stand, and fifteen
           interactive experiences, none of them required. The
           <NuxtLink :to="{ name: 'exp02' }" class="explain-link">objection</NuxtLink>
           takes four, and exists because the first response most people have is

@@ -192,7 +192,7 @@ const SPLIT = ITEMS.findIndex((i) => i.part === 'others')
 
 const minutes = Object.fromEntries(EXPERIENCES.map((e) => [e.path, e.minutes]))
 const PATH = {
-  turn: { to: '/', title: 'The one-minute version of the argument', meta: '1 minute · the question behind this test' },
+  turn: { to: '/', title: 'The question behind this test', meta: '1 minute · a thought experiment on the home page' },
   agency: { to: '/experience/human-agency', title: 'If you hire someone to steal, who stole?', meta: 'on delegating force' },
   conversation: { to: '/practice/the-conversation', title: 'Talking with someone who takes the loophole', meta: 'a practice' },
   objection: { to: '/experience/the-objection', title: 'Hang on — I have an objection', meta: 'the strongest case against' },
