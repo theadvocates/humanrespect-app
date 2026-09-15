@@ -118,7 +118,7 @@ function emitAndAdvance() {
 .condition-card.selected .condition-check {
   background: var(--ochre);
   border-color: var(--ochre);
-  color: white;
+  color: var(--on-accent);
 }
 
 .condition-text {

@@ -110,6 +110,6 @@ function handleContinue() {
 .reason-card:hover { border-color: var(--ochre); }
 .reason-card.selected { border-color: var(--ochre); background: var(--ochre-faint); }
 .reason-check { flex-shrink: 0; width: 18px; height: 18px; border: 1.5px solid var(--border-subtle); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--ochre); margin-top: 1px; transition: all 0.2s; }
-.reason-card.selected .reason-check { background: var(--ochre); border-color: var(--ochre); color: white; }
+.reason-card.selected .reason-check { background: var(--ochre); border-color: var(--ochre); color: var(--on-accent); }
 .reason-label { flex: 1; }
 </style>

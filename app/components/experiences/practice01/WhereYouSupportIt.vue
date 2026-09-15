@@ -57,7 +57,7 @@ function toggle(id) {
 .item-card:hover { border-color: var(--insight-green); }
 .item-card.selected { border-color: var(--insight-green); background: var(--insight-bg); }
 .item-check { flex-shrink: 0; width: 18px; height: 18px; border: 1.5px solid var(--border-subtle); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--insight-green); margin-top: 0px; transition: all 0.2s; }
-.item-card.selected .item-check { background: var(--insight-green); border-color: var(--insight-green); color: white; }
+.item-card.selected .item-check { background: var(--insight-green); border-color: var(--insight-green); color: var(--on-accent); }
 .item-content { flex: 1; }
 .item-label { display: block; font-weight: 500; font-size: 0.88rem; }
 .tally { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--ink-muted); font-style: italic; }

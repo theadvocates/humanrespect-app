@@ -51,13 +51,20 @@ function print() {
   printPlate(ctx, props.name, colors)
 }
 
+// A plate is printed onto a canvas, so a theme change needs a reprint.
+function reprint() { printed = ''; print() }
+
 onMounted(() => {
   print()
+  window.addEventListener('themechange', reprint)
   if (typeof ResizeObserver !== 'undefined') {
     observer = new ResizeObserver(() => requestAnimationFrame(print))
     observer.observe(canvas.value)
   }
 })
-onBeforeUnmount(() => observer?.disconnect())
+onBeforeUnmount(() => {
+  observer?.disconnect()
+  window.removeEventListener('themechange', reprint)
+})
 watch(() => [props.name, props.dark], () => { printed = ''; print() })
 </script>

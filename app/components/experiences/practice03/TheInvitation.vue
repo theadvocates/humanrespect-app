@@ -30,6 +30,6 @@ function copyLink() {
 <style scoped>
 .screen-inner { padding: 0 0.5rem; }
 .share-block { text-align: center; margin: 2rem 0; }
-.share-btn { padding: 0.85rem 2rem; background: var(--ochre); color: white; border: none; border-radius: 100px; font-family: var(--sans); font-size: 0.9rem; cursor: pointer; transition: all 0.25s ease; -webkit-tap-highlight-color: transparent; }
+.share-btn { padding: 0.85rem 2rem; background: var(--ochre); color: var(--on-accent); border: none; border-radius: 100px; font-family: var(--sans); font-size: 0.9rem; cursor: pointer; transition: all 0.25s ease; -webkit-tap-highlight-color: transparent; }
 .share-btn:hover { background: var(--ochre-deep); transform: translateY(-1px); }
 </style>

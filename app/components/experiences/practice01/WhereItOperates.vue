@@ -62,7 +62,7 @@ function toggle(id) {
 .item-card:hover { border-color: var(--ochre); }
 .item-card.selected { border-color: var(--ochre); background: var(--ochre-faint); }
 .item-check { flex-shrink: 0; width: 18px; height: 18px; border: 1.5px solid var(--border-subtle); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--ochre); margin-top: 2px; transition: all 0.2s; }
-.item-card.selected .item-check { background: var(--ochre); border-color: var(--ochre); color: white; }
+.item-card.selected .item-check { background: var(--ochre); border-color: var(--ochre); color: var(--on-accent); }
 .item-content { flex: 1; }
 .item-label { display: block; font-weight: 500; font-size: 0.88rem; }
 .item-mechanism { display: block; font-size: 0.72rem; color: var(--ink-faint); margin-top: 0.1rem; }

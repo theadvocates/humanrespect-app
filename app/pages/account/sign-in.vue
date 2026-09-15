@@ -142,7 +142,7 @@ async function handleGoogle() {
   cursor: pointer;
   transition: border-color var(--transition), background var(--transition);
 }
-.google-button:hover:not(:disabled) { border-color: var(--ink-faint); background: #fff; }
+.google-button:hover:not(:disabled) { border-color: var(--ink-faint); background: var(--cream); }
 .google-button:disabled { opacity: 0.5; cursor: default; }
 .google-mark { width: 18px; height: 18px; flex-shrink: 0; }
 

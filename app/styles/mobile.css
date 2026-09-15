@@ -31,7 +31,7 @@
 
     .body-text,
     .body-text-large {
-        font-size: 0.95rem !important;
+        font-size: 1rem !important;
         line-height: 1.75 !important;
     }
 
@@ -43,7 +43,7 @@
     }
 
     .caption {
-        font-size: 0.72rem !important;
+        font-size: 0.76rem !important;
     }
 }
 
@@ -68,7 +68,7 @@
     }
 
     .content-block p {
-        font-size: 0.92rem !important;
+        font-size: 1rem !important;
     }
 }
 

@@ -9,11 +9,14 @@
   >
     <div class="nav-inner">
       <router-link :to="wordmarkDest" class="nav-wordmark">Human Respect</router-link>
-      <div v-if="!isExperience" class="nav-links">
-        <router-link to="/about" class="nav-link">About</router-link>
-        <router-link v-if="isSignedIn" to="/account" class="nav-link">Account</router-link>
-        <router-link v-else-if="hasProgress" to="/account/sign-in" class="nav-link">Save progress</router-link>
-        <router-link v-else to="/account/sign-in" class="nav-link">Sign in</router-link>
+      <div class="nav-links">
+        <template v-if="!isExperience">
+          <router-link to="/about" class="nav-link">About</router-link>
+          <router-link v-if="isSignedIn" to="/account" class="nav-link">Account</router-link>
+          <router-link v-else-if="hasProgress" to="/account/sign-in" class="nav-link">Save progress</router-link>
+          <router-link v-else to="/account/sign-in" class="nav-link">Sign in</router-link>
+        </template>
+        <ThemeToggle />
       </div>
     </div>
   </nav>
@@ -23,6 +26,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useJourneyStore } from '@/stores/journey'
+import ThemeToggle from '@/components/shared/ThemeToggle.vue'
 
 const route = useRoute()
 const journey = useJourneyStore()
@@ -39,8 +43,6 @@ const isExperience = computed(() => {
          path.startsWith('/practice/')
 })
 
-const isHome = computed(() => route.path === '/')
-
 const hasProgress = computed(() => {
   return journey.exp01?.completed || journey.exp02?.completed ||
     (journey.completions && Object.keys(journey.completions).length > 0) ||
@@ -52,15 +54,17 @@ const wordmarkDest = computed(() => {
   return '/'
 })
 
+// The nav, and the theme toggle in it, stay in place. On a phone inside an
+// experience it tucks away while reading down and returns on the way up, but
+// never at the very top of the page.
 const shouldHide = computed(() => {
-  if (isHome.value && !scrolled.value) return true
-  if (isExperience.value && isMobile.value) return !scrollingUp.value
+  if (isExperience.value && isMobile.value) return scrolled.value && !scrollingUp.value
   return false
 })
 
 function handleScroll() {
   const currentY = window.scrollY
-  scrolled.value = currentY > 200
+  scrolled.value = currentY > 120
   scrollingUp.value = currentY < lastScrollY.value && currentY > 60
   lastScrollY.value = currentY
 }
@@ -95,7 +99,7 @@ onUnmounted(() => {
 .nav-inner { max-width: 960px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
 .nav-wordmark { font-family: var(--serif); font-size: 0.9rem; font-weight: 500; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s ease; }
 .nav-wordmark:hover { color: var(--ink); }
-.nav-links { display: flex; gap: 1.5rem; }
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
 .nav-link { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s ease; }
 .nav-link:hover { color: var(--ink-muted); }
 
@@ -107,29 +111,34 @@ onUnmounted(() => {
   -webkit-backdrop-filter: blur(8px);
   box-shadow: 0 1px 0 var(--border-subtle);
 }
-:global(body.dark-mode) .site-nav:not(.minimal) { background: #1A1A2E; }
 
 .nav-hidden { opacity: 0; transform: translateY(-100%); pointer-events: none; }
 .nav-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 
-.site-nav.minimal { opacity: 0.3; }
-.site-nav.minimal:hover { opacity: 0.8; }
+.site-nav.minimal .nav-wordmark { opacity: 0.6; }
+.site-nav.minimal:hover .nav-wordmark { opacity: 1; }
 
 @media (max-width: 680px) {
-  .site-nav.minimal { opacity: 1; background: rgba(244, 240, 234, 0.92); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 0.6rem 1rem; }
+  .site-nav.minimal { background: var(--paper); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); padding: 0.6rem 1rem; }
   .site-nav.minimal .nav-wordmark { font-size: 0.8rem; color: var(--ink-muted); }
 }
 
-:global(body.dark-mode) .nav-wordmark { color: rgba(240, 235, 227, 0.3); }
-:global(body.dark-mode) .nav-wordmark:hover { color: rgba(240, 235, 227, 0.65); }
-:global(body.dark-mode) .nav-link { color: rgba(240, 235, 227, 0.2); }
-:global(body.dark-mode) .nav-link:hover { color: rgba(240, 235, 227, 0.5); }
-@media (max-width: 680px) {
-  :global(body.dark-mode) .site-nav.minimal { background: rgba(26, 26, 46, 0.92); }
-}
 @media (max-width: 480px) {
   .site-nav { padding: 0.6rem 1rem; }
   .nav-wordmark { font-size: 0.82rem; }
   .nav-links { gap: 1rem; }
+}
+</style>
+
+<!-- Unscoped: Vue's :global() swallows the rest of a scoped selector, so
+     these dark-screen rules never applied when they lived in the block above. -->
+<style>
+html body.dark-mode .site-nav.site-nav { background: var(--bg-dark); box-shadow: none; }
+body.dark-mode .site-nav .nav-wordmark { color: rgba(240, 235, 227, 0.45); }
+body.dark-mode .site-nav .nav-wordmark:hover { color: rgba(240, 235, 227, 0.8); }
+body.dark-mode .site-nav .nav-link { color: rgba(240, 235, 227, 0.5); }
+body.dark-mode .site-nav .nav-link:hover { color: rgba(240, 235, 227, 0.85); }
+@media (min-width: 681px) {
+  html body.dark-mode .site-nav.site-nav.minimal { background: transparent; }
 }
 </style>

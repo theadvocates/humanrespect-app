@@ -125,7 +125,7 @@ async function submit() {
   font-family: var(--sans);
   font-size: 0.9rem;
   color: var(--ink);
-  background: white;
+  background: var(--cream);
   outline: none;
   transition: border-color 0.2s;
 }
@@ -136,7 +136,7 @@ async function submit() {
 .submit-btn {
   padding: 0.75rem 1.5rem;
   background: var(--ochre);
-  color: white;
+  color: var(--on-accent);
   border: none;
   border-radius: var(--radius);
   font-family: var(--sans);

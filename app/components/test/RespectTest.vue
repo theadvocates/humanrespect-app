@@ -482,7 +482,7 @@ onBeforeUnmount(clearTimers)
   transition: border-color 0.2s ease, background 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 }
-.rt-answer:hover { border-color: var(--ochre); background: #fff; }
+.rt-answer:hover { border-color: var(--ochre); background: var(--cream); }
 .rt-answer.picked { border-color: var(--ochre); color: var(--ochre); }
 
 .rt-back {

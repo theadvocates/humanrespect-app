@@ -125,7 +125,7 @@ const hasTime = computed(() =>
 
 .domain.active .domain-icon {
   background: var(--ochre);
-  color: white;
+  color: var(--on-accent);
 }
 
 .domain-name {

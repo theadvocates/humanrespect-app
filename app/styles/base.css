@@ -91,16 +91,11 @@ a {
 
 /* ── Mobile Optimization ── */
 
+/* Phones used to drop to 15px, which put body copy near 14px on an iPhone,
+   below the 17px iOS itself uses for reading. Declared here, after the 18px
+   base above, so it wins. */
 @media (max-width: 680px) {
-    html {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-    html {
-        font-size: 15px;
-    }
+    html { font-size: 17px; }
 }
 
 /* Reduced motion is handled once, at the end of mobile.css — the last

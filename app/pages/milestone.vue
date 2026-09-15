@@ -141,7 +141,7 @@ const objectionTitle = computed(() => {
 .path-label { font-family: var(--serif); font-size: 0.95rem; font-weight: 500; color: var(--ink); margin-bottom: 0.25rem; }
 .path-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; margin: 0; }
 
-.page-footer { padding: 3rem 1.5rem; background: var(--ink); display: flex; justify-content: center; }
+.page-footer { padding: 3rem 1.5rem; background: var(--night); display: flex; justify-content: center; }
 .footer-inner { max-width: 640px; width: 100%; display: flex; justify-content: space-between; align-items: center; }
 .footer-left { font-family: var(--serif); font-size: 0.85rem; font-weight: 400; color: rgba(244, 240, 234, 0.3); }
 .footer-right { display: flex; gap: 2rem; }

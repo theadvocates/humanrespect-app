@@ -112,7 +112,7 @@ function emitAndAdvance() {
 }
 
 .value-card.selected .value-check {
-  background: var(--ochre); border-color: var(--ochre); color: white;
+  background: var(--ochre); border-color: var(--ochre); color: var(--on-accent);
 }
 
 .value-content { flex: 1; }

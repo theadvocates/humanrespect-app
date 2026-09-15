@@ -5,6 +5,7 @@
 
 <script setup>
 import SiteNav from '@/components/shared/SiteNav.vue'
+import { THEME_BOOT_SCRIPT } from '@/composables/useTheme'
 
 // Google Search Console verification, when the meta-tag method is used.
 // Records where people were when they left — the signal that shows which
@@ -24,6 +25,12 @@ onMounted(() => {
       referrer: document.referrer || null
     })
   }
+})
+
+// Sets the theme before first paint, so a dark-mode visitor never sees a
+// flash of the light page. See useTheme.
+useHead({
+  script: [{ key: 'theme-boot', innerHTML: THEME_BOOT_SCRIPT, tagPosition: 'head' }]
 })
 
 const { googleSiteVerification } = useRuntimeConfig().public

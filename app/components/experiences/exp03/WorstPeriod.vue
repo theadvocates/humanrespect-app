@@ -122,7 +122,7 @@ function emitAndAdvance() {
 .violation-card.selected .violation-check {
   background: var(--concede-warm);
   border-color: var(--concede-warm);
-  color: white;
+  color: var(--on-accent);
 }
 
 .violation-content { flex: 1; }

@@ -67,6 +67,6 @@ function handleContinue() {
 .method-card:hover { border-color: var(--ochre); }
 .method-card.selected { border-color: var(--ochre); background: var(--ochre-faint); }
 .method-check { flex-shrink: 0; width: 18px; height: 18px; border: 1.5px solid var(--border-subtle); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--ochre); margin-top: 2px; transition: all 0.2s; }
-.method-card.selected .method-check { background: var(--ochre); border-color: var(--ochre); color: white; }
+.method-card.selected .method-check { background: var(--ochre); border-color: var(--ochre); color: var(--on-accent); }
 .method-label { flex: 1; font-size: 0.88rem; }
 </style>

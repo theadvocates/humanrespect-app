@@ -379,7 +379,7 @@ onMounted(() => {
   cursor: pointer;
   transition: border-color 0.25s ease, background 0.25s ease;
 }
-.turn-choice:hover { border-color: var(--ochre); background: #fff; }
+.turn-choice:hover { border-color: var(--ochre); background: var(--cream); }
 
 .reason-list { list-style: none; padding: 0; margin: 0.5rem 0 0; width: 100%; }
 .reason-list li { margin-bottom: 0.6rem; }
@@ -479,7 +479,7 @@ onMounted(() => {
 }
 
 @media (max-width: 640px) {
-  .turn { padding: 2.5rem 1.15rem 3rem; }
+  .turn { padding: 4.25rem 1.15rem 3rem; }
   .turn-choices { flex-direction: column; align-items: stretch; }
   .turn-choice { text-align: center; }
 }

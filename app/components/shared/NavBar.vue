@@ -59,7 +59,7 @@ function handleBack() {
   font-family: var(--serif);
   font-size: 0.95rem;
   font-weight: 500;
-  color: white;
+  color: var(--on-accent);
   background: var(--ochre);
   border: none;
   border-radius: 100px;

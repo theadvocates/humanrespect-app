@@ -71,7 +71,7 @@ function handleContinue() {
 .trait-card:hover { border-color: var(--ochre); }
 .trait-card.selected { border-color: var(--ochre); background: var(--ochre-faint); }
 .trait-check { flex-shrink: 0; width: 18px; height: 18px; border: 1.5px solid var(--border-subtle); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: var(--ochre); margin-top: 2px; transition: all 0.2s; }
-.trait-card.selected .trait-check { background: var(--ochre); border-color: var(--ochre); color: white; }
+.trait-card.selected .trait-check { background: var(--ochre); border-color: var(--ochre); color: var(--on-accent); }
 .trait-content { flex: 1; }
 .trait-label { display: block; font-size: 0.88rem; }
 </style>

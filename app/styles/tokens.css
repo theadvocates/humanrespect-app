@@ -34,6 +34,11 @@
     --concede-bg: #F3ECE5;
 
     --border-subtle: #E5E0D8;
+
+    /* Text on a filled accent (a selected check, an ochre button). */
+    --on-accent: #FFFFFF;
+    /* Surfaces that stay dark in both themes: page footers. */
+    --night: #1E1C19;
     --shadow-soft: 0 2px 20px rgba(45, 42, 38, 0.06);
     --shadow-hover: 0 4px 30px rgba(45, 42, 38, 0.12);
     --radius: 8px;
@@ -44,10 +49,48 @@
     --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* ── Dark theme ──
+   Set by the toggle in the site nav (or the visitor's system setting until
+   they choose), as data-theme on <html> before first paint. Everything that
+   reads these tokens follows; the experiences' Opening screens were already
+   dark and stay as they are. */
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --ink: #EDE7DD;
+    --ink-soft: #D5CEC2;
+    --ink-muted: #ADA698;
+    --ink-faint: #A29B8E;
+    --paper: #17171F;
+    --paper-warm: #1D1D27;
+    --paper-deep: #2A2A36;
+    --cream: #22222D;
+    --bg-dark: #101018;
+
+    --ochre: #C4A56A;
+    --ochre-deep: #D6BA85;
+    --ochre-faint: rgba(196, 165, 106, 0.12);
+
+    --insight-green: #8CC2AB;
+    --insight-bg: #1B2A25;
+    --mirror-blue: #AEBBDA;
+    --mirror-bg: #20263A;
+    --concede-warm: #D9A57F;
+    --concede-bg: #2B221C;
+
+    --border-subtle: #2F2F3B;
+    --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.35);
+    --shadow-hover: 0 4px 30px rgba(0, 0, 0, 0.5);
+
+    --on-accent: #17171F;
+    --night: #101018;
+}
+
 /* ── Base ── */
 html {
     font-size: 18px;
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
@@ -72,15 +115,6 @@ body.dark-mode {
     --ink-faint: #A09B92;
     --ochre: var(--ochre-light);
     --ochre-deep: var(--ochre-light);
-}
-
-/* ── Responsive base font ── */
-@media (max-width: 680px) {
-    html { font-size: 16px; }
-}
-
-@media (max-width: 480px) {
-    html { font-size: 15px; }
 }
 
 /* ── Global reset helpers ── */

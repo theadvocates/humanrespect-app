@@ -160,7 +160,7 @@ usePageSeo('about')
 /* Footer */
 .page-footer {
   padding: 3rem 1.5rem;
-  background: var(--ink);
+  background: var(--night);
   display: flex;
   justify-content: center;
 }
