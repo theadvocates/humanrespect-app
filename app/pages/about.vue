@@ -27,7 +27,7 @@
       <p class="body-text">From this foundation emerges a principle:</p>
 
       <ContentBlock variant="principle">
-        <p>Human flourishing reliably increases in environments of voluntary cooperation and reliably decreases in environments where coercion, violence, or involuntary loss of time or property occur.</p>
+        <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the theft of property or time through force or fraud. Always.</p>
       </ContentBlock>
 
       <p class="body-text">The implications reach further than you'd expect. Most people already live by this principle in their personal lives. They don't steal from neighbors. They don't threaten coworkers. They solve problems through conversation and voluntary agreement.</p>
@@ -40,7 +40,7 @@
 
       <p class="body-text">humanrespect.app is a series of interactive experiences that let you work out the Philosophy of Human Respect through your own reasoning. Not by being told what to think, but by examining what you already believe.</p>
 
-      <p class="body-text">Each experience uses questions, scenarios, and reflections to surface insights about the relationship between force, cooperation, and human flourishing. There are no scores, no grades, no personality types. Just your own thinking, reflected back to you.</p>
+      <p class="body-text">Each experience uses questions, scenarios, and reflections to surface insights about the relationship between force, cooperation, and human flourishing. The experiences keep no scores, no grades, and no personality types. Just your own thinking, reflected back to you. The one-minute test is the exception: it gives you two numbers and says plainly what they mean.</p>
 
       <p class="body-text">The experiences are organized in three tiers: a foundation sequence that introduces the core ideas, a set of deeper explorations into specific dimensions of the philosophy, and a practice layer that helps you apply the ideas to your own life.</p>
 
@@ -64,7 +64,7 @@
 
       <p class="body-text">Morning Star calls this Mission Focused Self-Management. Colleagues define their own roles, negotiate responsibilities directly with each other, make purchasing decisions in consultation with peers, and set their own compensation through a process of peer evaluation. Conflicts are resolved through direct conversation, not top-down authority. Harvard Business School has studied the model. So have researchers in organizational behavior around the world.</p>
 
-      <p class="body-text">The result: a one-truck operation that grew into a global market leader processing roughly 40% of California's tomato crop, all without anyone being told what to do by a boss.</p>
+      <p class="body-text">The result: a one-truck operation that grew into one of the world's largest tomato processors, without anyone being told what to do by a boss.</p>
 
       <p class="body-text">The Philosophy of Human Respect is not an armchair theory. Its principles have been tested in a real business, with real people, for over fifty years.</p>
 

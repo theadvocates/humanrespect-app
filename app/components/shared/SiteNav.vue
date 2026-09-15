@@ -99,6 +99,16 @@ onUnmounted(() => {
 .nav-link { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; transition: color 0.2s ease; }
 .nav-link:hover { color: var(--ink-muted); }
 
+/* A solid ground, so the links never sit on top of the text scrolling
+   beneath them. */
+.site-nav:not(.minimal) {
+  background: var(--paper);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 0 var(--border-subtle);
+}
+:global(body.dark-mode) .site-nav:not(.minimal) { background: #1A1A2E; }
+
 .nav-hidden { opacity: 0; transform: translateY(-100%); pointer-events: none; }
 .nav-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 

@@ -280,9 +280,20 @@ onMounted(() => {
 }
 .turn-main { display: flex; flex-direction: column; justify-content: center; min-width: 0; }
 .turn-plate { justify-self: end; }
+/* Stacked, the section is taller than a phone screen, so centering it in
+   100dvh only pushes the first beat down. Start at the top instead, and set
+   the caption beside the plate rather than under a half-width image. */
 @media (max-width: 900px) {
-  .turn { grid-template-columns: 1fr; gap: 3rem; max-width: 40rem; }
-  .turn-plate { justify-self: start; width: min(15rem, 62vw); }
+  .turn {
+    grid-template-columns: 1fr; gap: 3rem; max-width: 40rem;
+    min-height: 0; align-content: start; align-items: start;
+  }
+  .turn-plate {
+    justify-self: stretch;
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    align-items: end;
+    gap: 1.1rem;
+  }
 }
 
 .turn-meter { display: flex; gap: 5px; margin-bottom: 3rem; }
@@ -468,7 +479,7 @@ onMounted(() => {
 }
 
 @media (max-width: 640px) {
-  .turn { padding: 4.5rem 1.15rem 3rem; }
+  .turn { padding: 2.5rem 1.15rem 3rem; }
   .turn-choices { flex-direction: column; align-items: stretch; }
   .turn-choice { text-align: center; }
 }

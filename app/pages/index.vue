@@ -16,23 +16,21 @@
         </h2>
 
         <p class="explain-body dropcap">
-          In your own relationships you already act on a principle you've
-          probably never put into words: you don't get what you want by forcing
-          the people you care about. You persuade them, or you live with the
-          disagreement. You know — from experience, not from theory — that force
-          produces compliance rather than agreement, and that it costs you the
-          relationship in the process.
+          With the people in your own life, you already act on a principle
+          you've probably never put into words: you don't get your way by
+          forcing them. You persuade them, or you live with the disagreement.
+          You know from experience, not from theory, that force gets compliance
+          rather than agreement, and that it costs you something every time.
         </p>
 
         <p class="explain-body">
-          The <strong>Philosophy of Human Respect</strong> makes a single
-          observation about that: the pattern scales. What holds between two
-          people holds between two million. Human flourishing reliably increases
-          in conditions of voluntary cooperation, and reliably decreases where
-          coercion, violence, or the involuntary loss of time or property occur.
-          The mechanism changes — a controlling partner, an authoritarian
-          employer, a neighborhood bully, a democratic majority — but the effect
-          on the person being forced does not.
+          The <strong>Philosophy of Human Respect</strong> says that isn't a
+          matter of manners, and it doesn't stop where your own life ends.
+          Coercion, theft, and violence always reduce happiness, harmony, and
+          prosperity. Always. That holds between two people and between two
+          million. Whose hand is on the force changes: a controlling partner, a
+          neighborhood bully, a law passed by a majority. What it does to the
+          person being forced does not.
         </p>
 
         <div class="explain-aside">
@@ -43,16 +41,17 @@
             test of whether voluntary cooperation can organize complex work.
           </p>
           <Plate name="tomato" alt="A tomato, an engraving">
-            <i>A tomato.</i> Morning Star processes roughly 40% of California's
-            crop with no bosses at all.
+            <i>A tomato.</i> Morning Star grew into one of the world's largest
+            tomato processors without a single boss.
           </Plate>
         </div>
 
         <h3 class="explain-sub">What you'll find here</h3>
 
         <p class="explain-body">
-          Fifteen interactive experiences, arranged so that none of them is
-          required. The question above takes a minute. The
+          A one-minute question, a one-minute
+          <NuxtLink to="/test" class="explain-link">test</NuxtLink>, and fifteen
+          interactive experiences, none of them required. The
           <NuxtLink :to="{ name: 'exp02' }" class="explain-link">objection</NuxtLink>
           takes four, and exists because the first response most people have is
           resistance — so it argues the strongest case <em>against</em> the
@@ -71,9 +70,10 @@
         </p>
 
         <p class="explain-body">
-          There is no score, no personality type, and no answer key. Nothing is
-          gated behind an email address. The experiences are designed to surface
-          what you already believe and then ask one question about it.
+          The test gives you two numbers and says plainly what they mean. The
+          experiences keep no score and hand out no personality type. Nothing is
+          gated behind an email address. Each one surfaces what you already
+          believe, then asks one question about it.
         </p>
 
         <div class="explain-paths">
@@ -160,9 +160,16 @@ usePageSeo('home')
 }
 .explain-aside .plate { margin-top: 0.3rem; }
 @media (max-width: 1160px) { .explain-aside { margin-right: 0; } }
+/* On a phone the caption sits beside the plate, so the plate doesn't hang
+   at the left edge with a blank half-screen next to it. */
 @media (max-width: 680px) {
-  .explain-aside { grid-template-columns: 1fr; }
-  .explain-aside .plate { width: min(12rem, 60vw); margin-bottom: 1.4rem; }
+  .explain-aside { grid-template-columns: 1fr; gap: 0.5rem; }
+  .explain-aside :deep(.plate) {
+    grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+    align-items: end;
+    gap: 1.1rem;
+    margin-bottom: 1.8rem;
+  }
 }
 
 .explain-link {
