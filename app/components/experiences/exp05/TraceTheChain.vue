@@ -18,11 +18,12 @@
     </div>
 
     <div v-if="chosenPolicy" class="chain">
+      <!-- Only the revealed links are in the layout; the hidden ones would
+           otherwise hold their height and push the button down the page. -->
       <div
-        v-for="(step, idx) in currentChain"
-        :key="idx"
+        v-for="(step, idx) in currentChain.slice(0, revealedSteps)"
+        :key="`${chosenPolicy}-${idx}`"
         class="chain-step"
-        :class="{ revealed: revealedSteps > idx }"
       >
         <div class="chain-num">{{ idx + 1 }}</div>
         <div class="chain-content">
@@ -139,8 +140,12 @@ function revealNext() {
 .policy-btn.selected { border-color: var(--ochre); background: var(--ochre-faint); color: var(--ink); font-weight: 500; }
 
 .chain { margin: 2rem 0; }
-.chain-step { display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem 0; opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
-.chain-step.revealed { opacity: 1; transform: translateY(0); }
+.chain-step { display: flex; gap: 1rem; align-items: flex-start; padding: 0.75rem 0; animation: chain-in 0.4s ease both; }
+@keyframes chain-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) { .chain-step { animation: none; } }
 .chain-num { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; background: var(--ochre-faint); color: var(--ochre); font-family: var(--serif); font-size: 0.75rem; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 .chain-actor { font-family: var(--serif); font-size: 0.88rem; font-weight: 500; color: var(--ink); margin-bottom: 0.1rem; }
 .chain-action { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; margin: 0; }

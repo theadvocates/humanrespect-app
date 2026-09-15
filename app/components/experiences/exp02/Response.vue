@@ -6,7 +6,9 @@
     <Divider />
 
     <div class="response-flow">
-      <div v-for="(para, idx) in obj.response" :key="idx" class="response-block" :class="{ visible: idx <= currentPara }">
+      <!-- Only the paragraphs read so far are in the layout; hidden ones would
+           hold their height and leave a blank gap above the nav. -->
+      <div v-for="(para, idx) in obj.response.slice(0, currentPara + 1)" :key="idx" class="response-block">
         <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->
         <div class="response-para" v-html="para"/>
 
@@ -99,8 +101,12 @@ function react(idx, reactionId) {
 <style scoped>
 .screen-inner { padding: 0 0.5rem; }
 .response-flow { margin: 1.5rem 0; }
-.response-block { margin-bottom: 1.5rem; opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
-.response-block.visible { opacity: 1; transform: translateY(0); }
+.response-block { margin-bottom: 1.5rem; animation: block-in 0.4s ease both; }
+@keyframes block-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) { .response-block { animation: none; } }
 .response-para { font-size: 0.92rem; line-height: 1.75; color: var(--ink-muted); padding: 1rem 1.25rem; background: var(--cream); border-radius: var(--radius); border: 1px solid var(--border-subtle); }
 .response-para :deep(em) { color: var(--ink); font-style: italic; }
 

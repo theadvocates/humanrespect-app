@@ -173,18 +173,25 @@ PLATES.button = (E) => {
   pushButton(E, 50, 100)
   // The bell jar: an outline, a few reflections on the left, a breath of
   // shadow on the right, and a knob on top.
-  const dome = new Path2D()
-  dome.moveTo(20, 100); dome.lineTo(20, 52); dome.ellipse(50, 52, 30, 26, 0, Math.PI, Math.PI * 2, false); dome.lineTo(80, 100); dome.closePath()
+  // The glass is an open outline — sides and crown only. Closing it would put
+  // a straight line across the bottom where there is nothing but the rim.
+  const glass = new Path2D()
+  glass.moveTo(20, 100); glass.lineTo(20, 52); glass.ellipse(50, 52, 30, 26, 0, Math.PI, Math.PI * 2, false); glass.lineTo(80, 100)
+  const dome = new Path2D(glass); dome.closePath()
   E.hatch(dome, { angle: 90, gap: 2.6, w: 0.32, alpha: 0.32, bend: 1.2, grad: [3.2, 0.9], region: [58, 26, 24, 74] })
   E.clip(E.rect(20, 26, 22, 74), () => {
     for (const k of [0.9, 0.82]) {
       E.ctx.save(); E.ctx.translate(50, 76); E.ctx.scale(k, k); E.ctx.translate(-50, -76)
-      E.stroke(dome, { w: 0.45 / k, alpha: 0.5 })
+      E.stroke(glass, { w: 0.45 / k, alpha: 0.5 })
       E.ctx.restore()
     }
   })
-  E.stroke(dome, { w: 0.8 })
-  E.stroke(E.ellipse(50, 100, 30, 6), { w: 0.6, alpha: 0.8 })
+  E.stroke(glass, { w: 0.8 })
+  // The rim: the back edge is seen through the glass, the front edge is not.
+  const rimBack = new Path2D(); rimBack.ellipse(50, 100, 30, 6, 0, Math.PI, Math.PI * 2, false)
+  const rimFront = new Path2D(); rimFront.ellipse(50, 100, 30, 6, 0, 0, Math.PI, false)
+  E.stroke(rimBack, { w: 0.45, alpha: 0.35 })
+  E.stroke(rimFront, { w: 0.8 })
   E.line(48, 27.5, 52, 27.5, { w: 0.6 })
   const knob = E.circle(50, 24, 3.4)
   E.fill(knob, E.paper); E.hatch(knob, { angle: 45, gap: 0.9, grad: [3, 0.6], region: [46.6, 20.6, 6.8, 6.8] }); E.stroke(knob, { w: 0.6 })
