@@ -1,8 +1,9 @@
 /**
  * Newsletter subscription endpoint.
  *
- * Runs server-side so the Buttondown API key is never shipped to the browser.
- * Writes to Supabase (when configured) and Buttondown; succeeds if either does.
+ * Runs server-side so the Resend API key is never shipped to the browser.
+ * Writes to Supabase (when configured) and to a Resend audience; succeeds if
+ * either does.
  */
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const MAX_PER_WINDOW = 5
@@ -63,7 +64,7 @@ export default defineEventHandler(async (event) => {
 
   const results = await Promise.allSettled([
     saveToSupabase(config, { email, source, visitorId }),
-    saveToButtondown(config, { email, source, visitorId, furthestTier })
+    saveToResend(config, { email, source, visitorId, furthestTier })
   ])
 
   const anySucceeded = results.some((r) => r.status === 'fulfilled')
@@ -104,24 +105,22 @@ async function saveToSupabase(config, { email, source, visitorId }) {
   }
 }
 
-async function saveToButtondown(config, { email, source, visitorId, furthestTier }) {
-  const apiKey = config.buttondownApiKey
-  if (!apiKey) throw new Error('buttondown not configured')
+// Adds the address to the Resend audience that broadcasts go out to. Resend
+// has no per-contact tags, so where the signup came from is kept in Supabase.
+async function saveToResend(config, { email }) {
+  const apiKey = config.resendApiKey
+  const audienceId = config.resendAudienceId
+  if (!apiKey || !audienceId) throw new Error('resend not configured')
 
-  const res = await fetch('https://api.buttondown.com/v1/subscribers', {
+  const res = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
     method: 'POST',
-    headers: { Authorization: `Token ${apiKey}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      email_address: email,
-      tags: [source],
-      metadata: { visitor_id: visitorId, furthest_tier: furthestTier, source }
-    })
+    headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, unsubscribed: false })
   })
 
-  // 409 = already subscribed.
-  if (res.status === 409) return
+  // Resend treats a repeat address as an update, so a duplicate is not an error.
   if (!res.ok) {
     const detail = await res.text().catch(() => '')
-    throw new Error(`buttondown ${res.status}: ${detail.slice(0, 200)}`)
+    throw new Error(`resend ${res.status}: ${detail.slice(0, 200)}`)
   }
 }

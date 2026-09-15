@@ -38,7 +38,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Server-only — never exposed to the client bundle.
-    buttondownApiKey: process.env.BUTTONDOWN_API_KEY || '',
+    resendApiKey: process.env.RESEND_API_KEY || '',
+    resendAudienceId: process.env.RESEND_AUDIENCE_ID || '',
     supabaseServiceKey: process.env.SUPABASE_SERVICE_KEY || '',
 
     public: {

@@ -11,7 +11,7 @@ Live at **[humanrespect.app](https://humanrespect.app)**.
 - **[Nuxt 4](https://nuxt.com)** (Vue 3) — server-rendered, file-based routing
 - **[Pinia](https://pinia.vuejs.org)** — journey/progress state
 - **[Supabase](https://supabase.com)** — progress sync, event analytics, subscribers
-- **[Buttondown](https://buttondown.com)** — newsletter, called server-side only
+- **[Resend](https://resend.com)** — newsletter audience, called server-side only
 
 ## Content structure
 
@@ -63,7 +63,8 @@ Requires Node 20.19+ or 22.12+.
 | `NUXT_PUBLIC_SITE_URL` | yes | Canonical/OG URL base |
 | `NUXT_PUBLIC_SUPABASE_URL` | yes | Supabase project URL |
 | `NUXT_PUBLIC_SUPABASE_ANON_KEY` | yes | Supabase anon key (RLS-protected) |
-| `BUTTONDOWN_API_KEY` | **no** | Newsletter API key — server only |
+| `RESEND_API_KEY` | **no** | Resend API key — server only |
+| `RESEND_AUDIENCE_ID` | **no** | The Resend audience newsletter signups join — server only |
 | `SUPABASE_SERVICE_KEY` | **no** | Service-role key — server only |
 
 **Never prefix a secret with `NUXT_PUBLIC_`.** Anything public is compiled into

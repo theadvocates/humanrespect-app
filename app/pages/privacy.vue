@@ -62,7 +62,7 @@
 
       <p class="body-text">We run this site on services built by other companies. Each of them processes some data on our behalf, and none of them are permitted to use it for their own purposes:</p>
 
-      <p class="body-text"><strong>Vercel</strong> hosts the site and processes the ordinary request information any web server sees. <strong>Supabase</strong> stores accounts, progress, and newsletter addresses. <strong>PostHog</strong> receives the anonymous usage data. <strong>Google</strong> is involved only if you choose to sign in with Google. <strong>Buttondown</strong> sends the newsletter, if you subscribe to it.</p>
+      <p class="body-text"><strong>Vercel</strong> hosts the site and processes the ordinary request information any web server sees. <strong>Supabase</strong> stores accounts, progress, and newsletter addresses. <strong>PostHog</strong> receives the anonymous usage data. <strong>Google</strong> is involved only if you choose to sign in with Google. <strong>Resend</strong> sends the newsletter, if you subscribe to it.</p>
 
       <p class="body-text">These services store data on servers in the United States. If you're reading this from elsewhere, that means your data is transferred there.</p>
 
