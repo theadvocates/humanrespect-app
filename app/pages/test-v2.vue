@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RespectTest />
+    <RespectTest variant="map" base-path="/test-v2" />
 
     <TestExplain />
   </div>
@@ -13,10 +13,17 @@ import TestExplain from '@/components/test/TestExplain.vue'
 import { RESULTS, parseShared } from '@/utils/respectTest'
 import { SITE_URL } from '@/utils/seo'
 
-definePageMeta({ name: 'test' })
+/**
+ * The same test with a different reveal: the two scores become the axes of a
+ * map, and the gap is the drop below the diagonal. Statements, scoring and
+ * results are shared with /test, so nothing here changes what a score means.
+ *
+ * A trial, alongside the original rather than in place of it. Kept out of
+ * search so the two pages don't compete for the same query; the canonical
+ * stays on this page so a shared map result unfurls as the map.
+ */
+definePageMeta({ name: 'test-v2' })
 
-// A link carrying someone's result unfurls as that result, so the preview in
-// a group chat reads as a person's answer rather than an advert for a quiz.
 const shared = parseShared(useRoute().query)
 usePageSeo('test', shared
   ? {
@@ -25,4 +32,5 @@ usePageSeo('test', shared
       image: `${SITE_URL}/og/test-${shared.key}.png`
     }
   : {})
+useHead({ meta: [{ name: 'robots', content: 'noindex, follow' }] })
 </script>

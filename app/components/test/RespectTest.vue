@@ -65,7 +65,17 @@
       <div v-else key="result" class="step">
         <p class="rt-eyebrow">Your result</p>
 
+        <GapMap
+          v-if="variant === 'map'"
+          class="scale"
+          :class="`phase-${phase}`"
+          :directly="scores.directly"
+          :others="scores.others"
+          :phase="phase"
+          :crowd="stats?.grid || null"
+        />
         <div
+          v-else
           class="scale"
           :class="`phase-${phase}`"
           role="img"
@@ -128,6 +138,8 @@
             </Plate>
           </div>
 
+          <GapRows v-if="variant === 'map'" :answers="answers" />
+
           <ShareLink
             class="rt-share"
             :path="sharePath"
@@ -174,11 +186,27 @@
 <script setup>
 import ShareLink from '@/components/shared/ShareLink.vue'
 import Plate from '@/components/shared/Plate.vue'
+import GapMap from '@/components/test/GapMap.vue'
+import GapRows from '@/components/test/GapRows.vue'
 import { RESULT_PLATE, PLATE_TITLE } from '@/utils/plates'
 import { ANSWERS, PARTS, ITEMS, RESULTS, TEST_VERSION, score, classify, describeScore, parseShared, sharedResultPath } from '@/utils/respectTest'
 import { EXPERIENCES } from '@/utils/experiences'
 import { PARTNERS, resolvePartner, partnerHref } from '@/utils/testPartners'
 import { useStepHistory } from '@/composables/useStepHistory'
+
+/**
+ * `variant` picks the picture at the reveal: the original line with two
+ * markers, or the map, where the two scores are axes and the gap is a drop
+ * below the diagonal. Statements, scoring and results are identical either
+ * way, so a score from one is comparable with a score from the other.
+ * `basePath` is the page a shared result links back to, so a map result
+ * unfurls as the map.
+ */
+const props = defineProps({
+  variant: { type: String, default: 'line' },
+  basePath: { type: String, default: '/test' }
+})
+const { variant } = props
 
 // One line under each result's plate.
 const PLATE_NOTE = {
@@ -286,7 +314,7 @@ const gapStyle = computed(() => {
 })
 
 const sharePath = computed(() => {
-  const path = sharedResultPath({ key: resultKey.value, ...scores.value })
+  const path = sharedResultPath({ key: resultKey.value, ...scores.value }, props.basePath)
   return partnerId.value ? `${path}&partner=${partnerId.value}` : path
 })
 
@@ -311,8 +339,8 @@ function elapsed() {
   return startedAt.value ? Math.round((Date.now() - startedAt.value) / 1000) : 0
 }
 
-function track(name, props = {}) {
-  trackChoice('test', name, { ...props, partner: partnerId.value, seconds: elapsed() })
+function track(name, extra = {}) {
+  trackChoice('test', name, { ...extra, partner: partnerId.value, variant, seconds: elapsed() })
 }
 
 function start() {
@@ -587,6 +615,8 @@ onBeforeUnmount(clearTimers)
 
 .phase-0 .marker { opacity: 0; }
 .phase-1 .marker-others { opacity: 0; }
+/* The map draws its own reveal; only the line uses the track margins. */
+.scale.gm { margin: 0.5rem 0 1.5rem; }
 
 .scale-ends {
   display: flex;

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { mountSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime'
 import RespectTest from '../app/components/test/RespectTest.vue'
-import { ITEMS, RESULTS, score, classify, parseShared, sharedResultPath, describeScore } from '../app/utils/respectTest.js'
+import { ITEMS, RESULTS, TOPICS, score, byTopic, classify, parseShared, sharedResultPath, describeScore } from '../app/utils/respectTest.js'
 import { PARTNERS, resolvePartner, partnerHref } from '../app/utils/testPartners.js'
 
 /**
@@ -209,6 +209,84 @@ describe('the test', () => {
     const result = captured.find((c) => c.type === 'choice' && c.question === 'result')
     expect(result.props).toMatchObject({ result: 'weighing', directly: 50, others: 50, gap: 0, version: 2 })
     expect(captured.every((c) => c.experience === 'test')).toBe(true)
+  })
+})
+
+describe('scores by topic', () => {
+  it('has one topic per matched pair, in the order the statements are asked', () => {
+    const asked = ITEMS.filter((i) => i.part === 'directly').map((i) => i.id.slice(2))
+    expect(TOPICS.map((t) => t.key)).toEqual(asked)
+  })
+
+  it('adds up to the two headline scores, whatever the answers', () => {
+    const answers = allAs((i) => (i.part === 'directly' ? persuade(i) : 'maybe'))
+    const rows = byTopic(answers)
+    expect(rows).toHaveLength(5)
+    expect(rows.reduce((n, r) => n + r.directly, 0)).toBe(score(answers).directly)
+    expect(rows.reduce((n, r) => n + r.others, 0)).toBe(score(answers).others)
+    for (const r of rows) expect(r.gap).toBe(r.directly - r.others)
+  })
+
+  it('puts the exception on the topic where it was made', () => {
+    // Persuasion everywhere, except money through others.
+    const answers = allAs(persuade)
+    answers['o-money'] = 'agree'
+    const rows = byTopic(answers)
+    expect(rows.find((r) => r.key === 'money')).toMatchObject({ directly: 20, others: 0, gap: 20 })
+    expect(rows.filter((r) => r.gap !== 0).map((r) => r.key)).toEqual(['money'])
+  })
+
+  it('scores an unanswered item as force, like score() does', () => {
+    expect(byTopic({}).every((r) => r.directly === 0 && r.others === 0)).toBe(true)
+  })
+})
+
+describe('the map version', () => {
+  beforeEach(() => { captured.length = 0 })
+
+  it('reveals the two scores as a map, then the topic rows, on its own page', async () => {
+    const w = await mountSuspended(RespectTest, {
+      props: { variant: 'map', basePath: '/test-v2' },
+      route: '/test-v2'
+    })
+    expect(w.find('.gm-svg').exists()).toBe(false)
+    await click(w, 'Start')
+    for (let n = 0; n < ITEMS.length; n++) await click(w, label(n < 5 ? persuade(ITEMS[n]) : force(ITEMS[n])))
+
+    expect(w.text()).toContain('Your result')
+    const map = w.find('.gm-svg')
+    expect(map.exists()).toBe(true)
+    expect(map.attributes('aria-label')).toContain('100 across and 0 up')
+    expect(map.text()).toContain('gap 100')
+    expect(w.find('.marker-you').exists()).toBe(false)
+    expect(w.text()).toContain('Your gap: 100 points')
+    expect(w.text()).toContain(RESULTS.loophole.head)
+
+    // One row per topic, each showing the drop.
+    const rows = w.findAll('.gr-row:not(.gr-head)')
+    expect(rows).toHaveLength(5)
+    expect(rows.map((r) => r.find('.gr-gap').text())).toEqual(['+20', '+20', '+20', '+20', '+20'])
+    expect(w.text()).toContain('Where the gap opened')
+
+    // The share link comes back to the map, and the event says which picture was shown.
+    expect(w.find('.rt-share').text()).toContain('Copy link')
+    const x = w.find('a[href^="https://x.com"]').attributes('href')
+    expect(decodeURIComponent(x)).toContain('https://humanrespect.app/test-v2?r=loophole&d=100&o=0')
+    const result = captured.find((c) => c.type === 'choice' && c.question === 'result')
+    expect(result.props).toMatchObject({ result: 'loophole', variant: 'map' })
+  })
+
+  it('leaves the original page exactly as it was', async () => {
+    const w = await mountSuspended(RespectTest)
+    await click(w, 'Start')
+    for (let n = 0; n < ITEMS.length; n++) await click(w, 'Maybe')
+    expect(w.find('.marker-you').exists()).toBe(true)
+    expect(w.find('.gm-svg').exists()).toBe(false)
+    expect(w.find('.gr').exists()).toBe(false)
+    const x = w.find('a[href^="https://x.com"]').attributes('href')
+    expect(decodeURIComponent(x)).toContain('https://humanrespect.app/test?r=weighing&d=50&o=50')
+    const result = captured.find((c) => c.type === 'choice' && c.question === 'result')
+    expect(result.props).toMatchObject({ variant: 'line' })
   })
 })
 

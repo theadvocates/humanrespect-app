@@ -70,6 +70,35 @@ export function score(answers) {
   return { directly, others, gap: directly - others }
 }
 
+/**
+ * The five topics, one per matched pair, in the order the statements are
+ * asked. Each result row on the map version is one of these: the "directly"
+ * item and the "others" item on the same topic, scored side by side.
+ */
+export const TOPICS = [
+  { key: 'goal', name: 'A goal', note: 'getting people on board' },
+  { key: 'money', name: 'Money', note: 'making people pay' },
+  { key: 'time', name: 'Time', note: 'making people work' },
+  { key: 'values', name: 'Values', note: 'stopping a bad choice' },
+  { key: 'acid', name: 'The acid test', note: 'willing and slow, or made to and fast' }
+]
+
+/**
+ * Scores by topic: for each pair, the points toward persuasion on the
+ * "directly" item, the points on the "through others" item, and the gap
+ * between them. Adding the five `directly` values gives `score().directly`,
+ * and the same for `others`, so the rows always sum to the headline numbers.
+ */
+export function byTopic(answers) {
+  return TOPICS.map((t) => {
+    const d = ITEMS.find((i) => i.id === `d-${t.key}`)
+    const o = ITEMS.find((i) => i.id === `o-${t.key}`)
+    const directly = pointsFor(d, answers[d.id])
+    const others = pointsFor(o, answers[o.id])
+    return { ...t, directly, others, gap: directly - others }
+  })
+}
+
 /** What a number on the scale means, in words, for the result screen. */
 export function describeScore(n) {
   if (n >= 90) return 'persuade, every time'
@@ -132,8 +161,8 @@ export function classify({ directly, others }) {
  * couldn't produce) is ignored, so a hand-edited link can't put words in
  * someone's mouth.
  */
-export function sharedResultPath({ key, directly, others }) {
-  return `/test?r=${key}&d=${directly}&o=${others}`
+export function sharedResultPath({ key, directly, others }, basePath = '/test') {
+  return `${basePath}?r=${key}&d=${directly}&o=${others}`
 }
 
 export function parseShared(query = {}) {
