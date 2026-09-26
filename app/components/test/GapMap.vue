@@ -51,8 +51,8 @@
       <line class="axis" :x1="L" :y1="T + S" :x2="L + S" :y2="T + S" />
       <line class="axis" :x1="L" :y1="T" :x2="L" :y2="T + S" />
       <g class="ticks">
-        <text v-for="v in [0, 50, 100]" :key="`x${v}`" :x="x(v)" :y="T + S + 15" text-anchor="middle">{{ v }}</text>
-        <text v-for="v in [0, 50, 100]" :key="`y${v}`" :x="L - 8" :y="y(v) + 4" text-anchor="end">{{ v }}</text>
+        <text v-for="v in [0, 50, 100]" :key="`x${v}`" :x="x(v)" :y="T + S + 26" text-anchor="middle">{{ v }}</text>
+        <text v-for="v in [0, 50, 100]" :key="`y${v}`" :x="L - 20" :y="y(v) + 4" text-anchor="end">{{ v }}</text>
       </g>
       <text class="axis-label" :x="L" :y="H - 8">Force</text>
       <text class="axis-label" :x="L + S" :y="H - 8" text-anchor="end">Persuade</text>
@@ -112,7 +112,8 @@ const props = defineProps({
 })
 
 // Plot geometry: a square of S, with room for tick numbers on the left and
-// the axis titles below and beside.
+// the axis titles below and beside. Tick numbers sit 26px below and 20px
+// left of the plot so the "You" dot and its 16px halo clear them at a corner.
 const L = 62
 const T = 18
 const S = 340
