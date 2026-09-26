@@ -22,8 +22,6 @@
       </button>
     </div>
 
-    <p v-if="selectedTraits.length >= 3" class="body-text" style="margin-top: 1.5rem;">You selected {{ selectedTraits.length }} traits. Hold onto this list. We're going to apply it somewhere specific.</p>
-
     <NavBar :can-go-back="true" :disable-continue="selectedTraits.length < 2" @back="$emit('back')" @continue="handleContinue" />
   </div>
 </template>

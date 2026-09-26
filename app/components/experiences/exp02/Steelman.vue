@@ -5,8 +5,6 @@
     <h2 class="display-medium">{{ obj.title }}</h2>
     <Divider />
 
-    <p class="body-text-large">Before responding, we need to state your objection in its strongest form. Not a caricature. The real argument, as a thoughtful person would make it.</p>
-
     <ContentBlock variant="mirror" label="Your objection, at its strongest">
       <p>{{ obj.steelman }}</p>
     </ContentBlock>
@@ -32,8 +30,6 @@
       <p class="body-text" style="margin-top: 1rem;">What's the stronger version?</p>
       <textarea v-model="strengthening" class="strengthen-input" placeholder="My real objection is..." rows="3"/>
     </div>
-
-    <p v-if="fairness" class="body-text" style="margin-top: 1.5rem; font-style: italic; color: var(--ink-faint);">We're going to engage with the strongest version of this objection — because that's the only version worth responding to.</p>
 
     <NavBar :can-go-back="true" :disable-continue="!fairness" @back="$emit('back')" @continue="handleContinue" />
   </div>

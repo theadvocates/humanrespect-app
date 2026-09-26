@@ -21,10 +21,8 @@
 
     <p class="body-text-large">Politicians are not a separate species. They are drawn from the same population you just described. They carry the same traits into office. The difference is that now those traits operate inside a system that rewards them with other people's money, shields them from the consequences of their decisions, and makes it extraordinarily difficult to hold them accountable.</p>
 
-    <p class="body-text">Your observations about human nature don't pause at the door of a government building. If anything, the incentive structure inside that building makes every trait you identified worse — because the costs fall on people who never agreed to bear them.</p>
-
     <ContentBlock variant="principle">
-      <p>If human beings cannot be trusted to manage their own lives through voluntary cooperation, they certainly cannot be trusted to manage other people's lives through coercive authority. The flaws that make freedom risky make concentrated power dangerous.</p>
+      <p>If human beings cannot be trusted to manage their own lives through voluntary cooperation, they certainly cannot be trusted to manage other people's lives through coercive authority. Voluntary systems put the same flaws to work: competition, reputation, and the customer's freedom to walk away turn self-interest into service. Concentrated power removes every one of those checks.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

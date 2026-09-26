@@ -4,13 +4,13 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The four moves</p>
     <h2 class="display-medium">A conversation, not a debate.</h2>
     <Divider />
-    <p class="body-text">The goal is to plant a question they'll keep thinking about. Four moves, in order.</p>
+    <p class="body-text">The goal is to plant a question they'll keep thinking about.</p>
 
     <div class="steps">
-      <div class="step"><div class="step-num">1</div><div><div class="step-title">Affirm their values</div><p>"I think compassion for the poor is genuinely important" or "I agree that personal responsibility matters." Start where they are, not where you want them to be.</p></div></div>
+      <div class="step"><div class="step-num">1</div><div><div class="step-title">Affirm their values</div><p>"I think compassion for the poor is genuinely important" or "I agree that personal responsibility matters."</p></div></div>
       <div class="step"><div class="step-num">2</div><div><div class="step-title">Ask the method question</div><p>"We agree on the goal. I'm curious — do you think the best way to achieve it is through government force, or through voluntary cooperation?" Don't answer it for them. Let them sit with it.</p></div></div>
-      <div class="step"><div class="step-num">3</div><div><div class="step-title">Ask the personal test</div><p>"Would you personally do what you're asking the government to do? Would you go to your neighbor's house and take their money for this cause?" If they say no, ask why the government doing it feels different.</p></div></div>
-      <div class="step"><div class="step-num">4</div><div><div class="step-title">Leave the question open</div><p>Don't push for agreement. Say: "I don't have all the answers either. But I think that question — force or persuasion — is worth thinking about." Then let it rest.</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><div class="step-title">Ask the personal test</div><p>"Would you personally do what you're asking the government to do? Would you go to your neighbor's house and take their money for this cause?" If they say no, ask why the government doing it feels different. If they say "we voted" or "I get services for it": a vote changes who authorizes the force, not what it does to the person, and hiring an agent doesn't transfer the responsibility.</p></div></div>
+      <div class="step"><div class="step-num">4</div><div><div class="step-title">Leave the question open</div><p>Don't push for agreement. Say: "I've come to think force always costs more than it delivers. If you find a case where it didn't, I want to hear it." Then let it rest.</p></div></div>
     </div>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

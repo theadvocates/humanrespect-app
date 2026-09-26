@@ -29,7 +29,7 @@
     </div>
 
     <ContentBlock variant="insight">
-      <p>Economists call this "dead capital" and "regime uncertainty." When property is insecure, people invest less, build less, share less, and take fewer risks. The cost is invisible because you can't see what was never created. But it compounds across millions of people and entire generations.</p>
+      <p>Economists call this "dead capital" and "regime uncertainty." When property is insecure, people invest less, build less, share less, and take fewer risks.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

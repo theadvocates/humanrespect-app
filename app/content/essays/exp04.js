@@ -26,7 +26,7 @@ export default {
         'The second is that these same people, once elected or appointed, will restrain themselves, resist the incentives in front of them, and use coercive authority on behalf of strangers rather than themselves.',
         '**Politicians are not drawn from a different species. They are drawn from the population you just described, and they take every trait on your list through the door with them.**',
         'What changes on the far side of that door is not the character of the people. It is the incentive structure — one that now rewards those traits with other people\'s money, insulates them from the consequences of being wrong, and makes accountability slow, indirect, and rare.',
-        'Your observations about human nature do not pause at the entrance to a government building. If people cannot be trusted to run their own lives through voluntary agreement, they are a strange choice to run everyone else\'s through legal force.'
+        'If people cannot be trusted to run their own lives through voluntary agreement, they are a strange choice to run everyone else\'s through legal force.'
       ]
     },
     {
@@ -36,7 +36,7 @@ export default {
         'Coercive systems reward political maneuvering, push costs onto whoever is least able to resist, and concentrate authority in the hands of whoever wins the contest to hold it. Once the stakes are high enough, that contest becomes permanent, which is a fair description of the last several decades.',
         'Voluntary systems reward people for serving others well enough that others keep choosing them. Costs stay closer to whoever created them. Authority is spread across an enormous number of small decisions rather than a few large ones.',
         'The decisive difference is in the reach of a bad actor. Someone dishonest in a voluntary system can hurt the people who chose to deal with them, which is a real harm with a real limit. Someone dishonest who has captured the machinery of legal force can hurt millions who never chose anything.',
-        'It would be dishonest to stop there without saying that voluntary systems have failure modes of their own. Free riding is real. Information asymmetry is real. Some coordination problems are genuinely hard to solve without a rule that binds everyone. The philosophy does not claim these vanish. It claims that a structure where bad actors are limited by who is willing to associate with them fails more gracefully than one where bad actors can seize an apparatus built for compulsion and aim it wherever they like.'
+        'Voluntary systems have failure modes of their own, and each has a voluntary answer. Free riding is handled by assurance contracts, clubs, and bundling, and compulsory systems have free riders of their own: everyone who consumes what others were forced to fund. Information asymmetry is handled by warranties, reputation, and brands, and a distant administrator faces the same asymmetry at a scale where nobody can check. Coordination is what prices and standards bodies do for billions of strangers every day. The claim is that a structure where bad actors are limited by who is willing to associate with them fails more gracefully than one where bad actors can seize an apparatus built for compulsion and aim it wherever they like.'
       ]
     }
   ]

@@ -23,7 +23,7 @@ export default {
       body: [
         '"We agree on the goal. I\'m curious — do you think the best way to get there is through government force, or through voluntary cooperation?"',
         'Then let it sit. Do not answer it for them, and do not fill the pause. The question is doing the work, and it only works if they are the one who answers it.',
-        'Most people have never separated the two questions before. They have spent years arguing about goals with people who share their method, and the distinction can be genuinely new to them.'
+        'Most people have never separated the two questions before. They have spent years arguing about goals with people who share their method.'
       ]
     },
     {
@@ -31,16 +31,16 @@ export default {
       body: [
         '"Would you do it yourself? Would you go to your neighbor\'s house and take the money for this?"',
         'Almost everyone says no. Then the only question left is the useful one: what is it about the government doing it that makes it different?',
-        'That question has real answers, and some of them are decent — scale, coordination, the free-rider problem, democratic authorization. Let them make those arguments. You are not there to defeat them; you are there to make sure the question gets asked out loud, which for most people it never has been.'
+        'That question has real answers, and each has a reply. Scale and coordination: most of what they did today was cooperation with strangers they will never meet, coordinated by nobody. Free riders: assurance contracts fund a thing only once enough people have committed, and nobody rides free on what has not been built. Democratic authorization: a majority cannot hand its agent a power none of its members has; if one neighbor may not take the money, ten thousand neighbors voting cannot make it so. Let them raise these. You are not there to defeat them; you are there to make sure the question gets asked out loud.'
       ]
     },
     {
       heading: 'Move four: leave it open',
       body: [
         'Do not push for agreement. Do not summarize. Do not wrap it up.',
-        '"I don\'t have all the answers here either. But I think that question — force or persuasion — is worth thinking about." And then change the subject.',
+        '"I think that question — force or persuasion — is the one worth thinking about." And then change the subject.',
         '**The move that ruins this conversation is the one where you win it. A question someone is still turning over is worth more than a concession they made to end the discussion.**',
-        'Most people will not agree immediately, and that is the expected outcome rather than a failure. You planted something. It grows on its own schedule, and usually not while you are watching.'
+        'Most people will not agree immediately. You planted something. It grows on its own schedule, and usually not while you are watching.'
       ]
     },
     {

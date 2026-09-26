@@ -46,7 +46,7 @@ const allExperiences = [
   // Foundation (sequential)
   { name: 'exp01', title: 'The Question', desc: 'A thought experiment that reveals the gap between personal and political morality.', revisitDesc: 'Revisit the thought experiment that started everything.', tier: 'foundation', order: 1 },
   { name: 'exp03', title: 'What Flourishing Actually Means', desc: 'The empirical grounding for the principle, traced through your own life.', revisitDesc: 'Revisit the three domains.', tier: 'foundation', order: 2 },
-  { name: 'exp02', title: 'The Objection', desc: 'Test the philosophy against your strongest pushback. It gets steelmanned, answered, and honestly conceded.', revisitDesc: 'Try a different objection, or revisit your original one.', tier: 'foundation', order: 3 },
+  { name: 'exp02', title: 'The Objection', desc: 'Test the philosophy against your strongest pushback. It gets steelmanned and answered.', revisitDesc: 'Try a different objection, or revisit your original one.', tier: 'foundation', order: 3 },
   // Arguments (any order after foundation)
   { name: 'exp04', title: 'The Realist Objection', desc: 'People are flawed. That is the strongest argument for voluntary cooperation over concentrated power.', revisitDesc: 'Revisit the incentive argument against coercive systems.', tier: 'argument', order: 4 },
   { name: 'exp05', title: 'Human Agency', desc: 'If you hire someone to steal, you bear responsibility. What changes when the intermediary is a government?', revisitDesc: 'Revisit the agency argument and the chain of authorization.', tier: 'argument', order: 5 },

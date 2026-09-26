@@ -17,8 +17,8 @@
       </div>
     </div>
 
-    <ContentBlock variant="concession" label="The honest complexity">
-      <p>Moral responsibility in a democracy exists on a spectrum. You didn't design the system. You were born into it. You may have voted against the specific policy. The philosophy acknowledges this. But it insists that the spectrum runs from "fully responsible" to "complicit by participation" — not from "responsible" to "innocent." Living within a coercive system and benefiting from it doesn't make you evil. But it doesn't make you uninvolved.</p>
+    <ContentBlock variant="concession" label="Where the spectrum runs">
+      <p>You didn't design the system, and you may have voted against the policy. Responsibility does run on a spectrum. But it runs from "fully responsible" to "complicit by participation" — not from "responsible" to "innocent." Being born into a coercive system doesn't make you evil. Continuing to authorize it is a choice.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
@@ -45,7 +45,7 @@ const defenses = [
   {
     id: 'just-voting',
     claim: '"I was just voting. That\'s different from personally doing it."',
-    response: 'Paying for a burglary is "just writing a check," and nobody thinks that clears the person who wrote it. Distance from the act doesn\'t determine the moral weight. What matters is what you authorized. Your single vote rarely decides an election, and that is true. But a vote is still a statement of what you are willing to co-sign. When you vote for a policy knowing it will be enforced through fines and imprisonment, you are putting your name to that enforcement.'
+    response: 'Paying for a burglary is "just writing a check," and nobody thinks that clears the person who wrote it. Distance from the act doesn\'t determine the moral weight. What matters is what you authorized. Your single vote rarely decides an election, and that is true. But a policy passes only as the sum of votes like yours, and no one in a mob is excused because their share wasn\'t decisive. When you vote for a policy knowing it will be enforced through fines and imprisonment, you are putting your name to that enforcement.'
   },
   {
     id: 'had-to',
@@ -55,7 +55,7 @@ const defenses = [
   {
     id: 'common-good',
     claim: '"I was voting for the common good."',
-    response: 'The person who hires someone to steal can also have a good reason. Maybe they plan to give the money to a family in need. Almost everyone who has used force on other people believed the cause justified it. Good intentions don\'t transform the nature of the act. They explain why you authorized it. They don\'t change what you authorized.'
+    response: 'The person who hires someone to steal can also have a good reason. Maybe they plan to give the money to a family in need. Almost everyone who has used force on other people believed the cause justified it. Good intentions explain why you authorized it. They don\'t change what you authorized, or what it does. Force aimed at the common good reliably undermines it: benefits cliffs that punish a raise, rent control that shrinks the housing it was meant to protect, programs that crowd out the mutual aid that came before them.'
   }
 ]
 </script>

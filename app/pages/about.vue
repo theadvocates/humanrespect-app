@@ -8,13 +8,13 @@
 
       <p class="body-text-large">We live in an era of permanent political conflict. Left against right. Progressive against conservative. Every election is a battle, every policy debate a war, every disagreement a threat.</p>
 
-      <p class="body-text-large">But the conflict may not actually be about values.</p>
+      <p class="body-text-large">The conflict isn't about values. It's about method.</p>
 
       <p class="body-text">Most people share the same fundamental drive: to live well, to care for the people they love, to build something meaningful, and to be left in peace to do it. Progressive and conservative values are both genuine expressions of that drive. The real divide is not <em>what</em> people want. It's <em>how</em> they propose to get it.</p>
 
       <p class="body-text">And almost everyone, on every side, has settled on the same method: force. Capture political power. Pass laws. Compel compliance. Punish dissent. Use the machinery of government to impose your values on people who didn't choose them.</p>
 
-      <p class="body-text">The Philosophy of Human Respect asks a different question: <em>What if we advanced our values through persuasion and voluntary cooperation instead?</em></p>
+      <p class="body-text">The Philosophy of Human Respect says that method defeats the values it serves. Force reduces happiness, harmony, and prosperity whoever holds it and whatever it is for.</p>
 
       <!-- THE PHILOSOPHY -->
       <h2 class="section-heading">The Philosophy</h2>
@@ -30,9 +30,9 @@
         <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the theft of property or time through force or fraud. Always.</p>
       </ContentBlock>
 
-      <p class="body-text">The implications reach further than you'd expect. Most people already live by this principle in their personal lives. They don't steal from neighbors. They don't threaten coworkers. They solve problems through conversation and voluntary agreement.</p>
+      <p class="body-text">Most people already live by this principle in their personal lives. They don't steal from neighbors. They don't threaten coworkers. They solve problems through conversation and voluntary agreement.</p>
 
-      <p class="body-text">The philosophy simply asks: can we extend that same principle to how we organize society?</p>
+      <p class="body-text">The principle already holds at scale. Force does the same thing to a person whether a neighbor or a legislature authorizes it. The only question is whether we stop exempting politics.</p>
 
       <!-- WHAT THIS SITE IS -->
       <h2 class="section-heading">What this site is</h2>
@@ -42,7 +42,7 @@
 
       <p class="body-text">Each experience uses questions, scenarios, and reflections to surface insights about the relationship between force, cooperation, and human flourishing. The experiences keep no scores, no grades, and no personality types. Just your own thinking, reflected back to you. The one-minute test is the exception: it gives you two numbers and says plainly what they mean.</p>
 
-      <p class="body-text">The experiences are organized in three tiers: a foundation sequence that introduces the core ideas, a set of deeper explorations into specific dimensions of the philosophy, and a practice layer that helps you apply the ideas to your own life.</p>
+      <p class="body-text">The experiences come in four tiers: three that build the core case, standalone arguments for the harder version, five pillars that take each domain in depth, and practices that apply it to your own life.</p>
 
       <p class="body-text">Everything on this site is free. No ads, no paywalls, no data sold to third parties.</p>
 
@@ -74,7 +74,7 @@
 
       <p class="body-text">Questions, thoughts, or disagreements are welcome at <a href="mailto:hello@humanrespect.app" class="text-link">hello@humanrespect.app</a>.</p>
 
-      <p class="body-text">We mean that. If you went through one of the experiences and found a flaw in the reasoning, an objection we didn't address, or a place where the philosophy falls short, we want to hear it. A philosophy that can't withstand honest criticism isn't worth promoting.</p>
+      <p class="body-text">We mean that. If you went through one of the experiences and found a flaw in the reasoning, an objection we didn't address, or a place where you think it falls short, we want to hear it. A philosophy that can't withstand honest criticism isn't worth promoting.</p>
 
       <!-- CTA -->
       <div style="margin-top: 3rem;">

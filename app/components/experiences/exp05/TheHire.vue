@@ -74,7 +74,7 @@ const scenarios = [
       { id: 'hired', label: 'Only the person hired' },
       { id: 'all', label: 'No one did wrong — a fair vote makes it legitimate' }
     ],
-    note: 'A fair vote settles who wins. It doesn\'t change what was won: permission to take money from four people who said no. If all ten had agreed beforehand to be bound by the vote, that would be a different case. Here, nobody asked the four. The moral weight falls on the six who authorized it and on the person who carried it out.'
+    note: 'A fair vote settles who wins. It doesn\'t change what was won: permission to take money from four people who said no. Nobody agreed in advance to be bound, here or in the real version: no one signed such a contract, and staying where your home and work are is not consent when leaving costs you both. The moral weight falls on the six who authorized it and on the person who carried it out.'
   }
 ]
 

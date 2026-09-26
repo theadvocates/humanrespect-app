@@ -5,8 +5,6 @@
     <h2 class="display-medium">Did the response address your objection?</h2>
     <Divider />
 
-    <p class="body-text">Be honest. This isn't a test. It tells us where the argument is strong and where it needs work.</p>
-
     <div class="verdict-options">
       <button
         v-for="v in verdictOptions"
@@ -21,9 +19,9 @@
     </div>
 
     <div v-if="verdict" class="verdict-response">
-      <p v-if="verdict === 'addressed'" class="body-text" style="font-style: italic; color: var(--insight-green);">That's worth noting. The next experiences explore the implications — what the principle means for your body, your time, your resources, and how you relate to political systems.</p>
-      <p v-else-if="verdict === 'partial'" class="body-text" style="font-style: italic; color: var(--ochre);">Partial is honest. The philosophy doesn't claim to have airtight answers to every objection. It claims to have a better framework than the alternative. The parts that didn't land are worth carrying as open questions.</p>
-      <p v-else class="body-text" style="font-style: italic; color: var(--concede-warm);">That's important feedback. If the response didn't address your concern, the philosophy has work to do here. A different objection might land differently — or this may be a real limit of the framework.</p>
+      <p v-if="verdict === 'addressed'" class="body-text" style="font-style: italic; color: var(--insight-green);">The next experiences explore what the principle means for your body, your time, your resources, and how you relate to political systems.</p>
+      <p v-else-if="verdict === 'partial'" class="body-text" style="font-style: italic; color: var(--ochre);">The principle holds either way. Which part didn't land? Name it, and take it into the next experience — it is probably the version of your objection that matters most.</p>
+      <p v-else class="body-text" style="font-style: italic; color: var(--concede-warm);">The principle holds. The response may have missed your version of the objection, and that is the version worth answering. The next experiences come at it from other directions.</p>
     </div>
 
     <NavBar :can-go-back="true" :disable-continue="!verdict" @back="$emit('back')" @continue="$emit('advance')" />

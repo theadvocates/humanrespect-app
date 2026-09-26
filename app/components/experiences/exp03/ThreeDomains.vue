@@ -17,7 +17,7 @@
           </div>
         </div>
         <p class="domain-desc">Your body is the seat of all experience. When it is unsafe — when you face violence, threats, or the fear of harm — your nervous system shifts into survival mode. Creativity shuts down. Trust collapses. Long-term thinking becomes impossible. Safety is the precondition for everything else.</p>
-        <div v-if="hasBody" class="domain-yours">You experienced this.</div>
+        <div v-if="hasBody" class="domain-yours">You marked this.</div>
       </div>
 
       <div class="domain" :class="{ active: hasResources }">
@@ -29,7 +29,7 @@
           </div>
         </div>
         <p class="domain-desc">Your property is crystallized time — the physical form of hours, days, and years of effort. When resources are taken or destabilized, you lose not just things but the capacity to plan, build, and shape your future. Material security is the quiet engine of flourishing.</p>
-        <div v-if="hasResources" class="domain-yours">You experienced this.</div>
+        <div v-if="hasResources" class="domain-yours">You marked this.</div>
       </div>
 
       <div class="domain" :class="{ active: hasTime }">
@@ -41,7 +41,7 @@
           </div>
         </div>
         <p class="domain-desc">Time is the only truly non-renewable resource. It cannot be replaced, stored, or compensated. Every hour of coerced activity is an hour of life permanently redirected. When someone controls your time, they don't just inconvenience you — they consume the substance of your life.</p>
-        <div v-if="hasTime" class="domain-yours">You experienced this.</div>
+        <div v-if="hasTime" class="domain-yours">You marked this.</div>
       </div>
     </div>
 

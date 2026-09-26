@@ -15,8 +15,6 @@
 
     <p class="body-text">This holds whether the force comes from a controlling partner, an authoritarian boss, a neighborhood bully, or a democratic government. The mechanism changes. The effect on the person being forced does not.</p>
 
-    <p class="body-text">The next experience explores the evidence for this — not from political theory, but from your own life. The conditions that were present when you were at your best, and the violations that were present when you were at your worst.</p>
-
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

@@ -5,8 +5,6 @@
     <h2 class="display-medium">Voluntary approaches to {{ issueData?.label?.toLowerCase() }} — already working.</h2>
     <Divider />
 
-    <p class="body-text-large">These aren't theoretical. Each of these approaches exists right now, somewhere in the world, producing real results without coercion.</p>
-
     <div v-if="issueData" class="alternatives">
       <div v-for="(approach, i) in issueData.voluntaryApproaches" :key="i" class="alternative-item">
         <span class="alt-number">{{ String(i + 1).padStart(2, '0') }}</span>
@@ -18,8 +16,8 @@
       <p>Notice what these have in common: every participant chose to be there. Every dollar was given voluntarily. Every provider must earn continued support through results. And every solution can be improved, adapted, or replaced without a political battle.</p>
     </ContentBlock>
 
-    <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Voluntary alternatives for {{ issueData?.label?.toLowerCase() }} are not yet as large or as well funded as their government counterparts. That is partly because government programs crowd them out: when people are already taxed for a service, they're less likely to fund it voluntarily too. The question isn't whether voluntary approaches are as big today, but whether they <em>could</em> grow to meet the need if the compulsory versions were gradually phased out.</p>
+    <ContentBlock variant="insight" label="The record">
+      <p>Voluntary alternatives for {{ issueData?.label?.toLowerCase() }} are smaller than the compulsory programs. Size isn't a result. It's what taxing everyone for one version and crowding out the rest produces. Look at the record instead. Real spending per pupil has risen sharply for decades while test scores stayed flat. The poverty rate was already falling fast before the War on Poverty and has barely moved since the early 1970s. Before the New Deal, fraternal and mutual-aid societies covered a large share of working families. The question isn't whether voluntary approaches could grow. It's whether the compulsory ones deliver.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

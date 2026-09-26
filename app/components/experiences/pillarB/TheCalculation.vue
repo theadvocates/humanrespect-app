@@ -5,7 +5,7 @@
     <h2 class="display-medium">How many hours of your life go to taxes each year?</h2>
     <Divider />
 
-    <p class="body-text-large">Not the money. The <em>hours</em>. The irreplaceable hours of your one life. Let's find out.</p>
+    <p class="body-text-large">Not the money. The <em>hours</em>. The irreplaceable hours of your one life.</p>
 
     <div class="calc-inputs">
       <div class="calc-field">

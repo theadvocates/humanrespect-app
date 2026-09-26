@@ -5,8 +5,6 @@
     <h2 class="display-medium">What happens when people trust that they can keep what they build?</h2>
     <Divider />
 
-    <p class="body-text-large">Material security changes behavior in predictable ways. When people trust that their property is safe, they act differently than when they don't.</p>
-
     <div class="contrast">
       <div class="contrast-block insecure">
         <div class="contrast-label">When property is insecure</div>
@@ -22,7 +20,7 @@
       <p>Societies where property is secure tend to be wealthier, more innovative, and more trusting, and they tend to take better care of their land. Material integrity is what makes societies wealthy, not a luxury they can afford once they already are.</p>
     </ContentBlock>
 
-    <p class="body-text">The things on the previous screen that you didn't build? In a society with stronger material integrity, more of them would exist. More businesses. More investments. More generosity. More risk-taking. More creation. The cost of material insecurity is measured in the world that doesn't get built.</p>
+    <p class="body-text">Insecurity doesn't only come from thieves. Civil asset forfeiture lets police keep cash and cars from people never charged with a crime. In <em>Kelo v. New London</em>, the Supreme Court let a city take homes so a private developer could build on the land; the development never came. Whoever carries out the taking, the cost lands the same.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

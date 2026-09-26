@@ -15,20 +15,18 @@
         </div>
       </div>
 
-      <p class="body-text">Every one of these is a statement about what happens to human beings when force replaces persuasion. Relationships break. Resentment grows. Beliefs don't change. Trust erodes. The long-term costs outweigh the short-term gains.</p>
+      <p class="body-text">Every one of these is a statement about what happens to human beings when force replaces persuasion.</p>
 
       <ContentBlock variant="insight">
-        <p>You didn't learn this from a philosophy book. You learned it from living among other human beings. You've run this experiment thousands of times — in your family, your friendships, your workplace — and you've arrived at the same conclusion every time: persuasion builds. Force diminishes.</p>
+        <p>You've run this experiment thousands of times — in your family, your friendships, your workplace — and you've arrived at the same conclusion every time: persuasion builds. Force diminishes.</p>
       </ContentBlock>
     </template>
 
     <template v-else>
-      <p class="body-text-large">Many people, thinking of a specific person they care about, choose persuasion over force. The relationship matters too much. The resentment isn't worth it. The compliance isn't the same as agreement.</p>
-
-      <p class="body-text">Your answer is worth examining, though. What was it about this particular disagreement that made force feel justified? Was it the urgency of the situation? The certainty that you were right? The belief that the other person's resistance was harmful?</p>
+      <p class="body-text-large">What made force feel justified here? Usually it is urgency, certainty, or the belief that the other person's resistance was itself doing harm.</p>
 
       <ContentBlock variant="mirror">
-        <p>Hold onto those reasons. They're the same reasons people give for using political force: urgency, certainty, and the belief that resistance to the right answer is itself a form of harm. The question the philosophy raises is whether those reasons produce good outcomes — for the person being forced, and for the relationship between you.</p>
+        <p>Those are the same reasons people give for political force, and they are exactly the moments when force does the most damage. The person you overrode complies and resents you; their mind does not change. And certainty is often wrong, which is why the cost of being wrong by force is so much higher than the cost of being wrong by argument.</p>
       </ContentBlock>
     </template>
 

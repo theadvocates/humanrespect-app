@@ -28,7 +28,7 @@
           <div class="discovery-num">02</div>
           <div class="discovery-content">
             <div class="discovery-title">The objection</div>
-            <p v-if="journey.exp02.chosenObjection" class="discovery-desc">You chose "{{ objectionTitle }}" and saw it steelmanned, responded to, and honestly conceded.</p>
+            <p v-if="journey.exp02.chosenObjection" class="discovery-desc">You chose "{{ objectionTitle }}" and saw it steelmanned and answered.</p>
             <p v-else class="discovery-desc">You tested the philosophy against your strongest objection.</p>
           </div>
         </div>
@@ -47,7 +47,7 @@
         <Divider :centered="true" />
 
         <ContentBlock variant="principle">
-          <p>Not agreement. Not conversion. Not a political identity. Just a question you carry with you: in this situation, am I reaching for force or persuasion? And could the outcome be better if I chose differently?</p>
+          <p>Not agreement. Not conversion. Not a political identity. Just a question you carry with you: in this situation, what is force costing, and what would persuasion get instead?</p>
         </ContentBlock>
       </div>
 
@@ -55,7 +55,7 @@
         <h2 class="display-medium" style="text-align: center;">Three paths forward.</h2>
         <Divider :centered="true" />
 
-        <p class="body-text">The foundation is complete. From here, the philosophy opens up in three directions.</p>
+        <p class="body-text">From here, the philosophy opens up in three directions.</p>
 
         <div class="path-section">
           <div class="path-label">Arguments</div>

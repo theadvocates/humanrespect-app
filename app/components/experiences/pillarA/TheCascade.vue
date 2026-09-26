@@ -34,13 +34,13 @@
         <div class="cascade-num">4</div>
         <div>
           <div class="cascade-title">Prosperity</div>
-          <p>Without trust, cooperation costs more. Every interaction requires contracts, verification, protection. Innovation slows. Investment dries up. The economy of a community runs on trust, and violence drains the tank.</p>
+          <p>Strangers cooperate without trusting each other, through prices, contracts, reputation, and repeat dealing. Violence destroys the security those rest on. Deals shrink to people you can watch. Investment leaves. Innovation slows.</p>
         </div>
       </div>
     </div>
 
     <ContentBlock variant="insight">
-      <p>Societies with high levels of violence are almost always poor. The most prosperous societies are the ones where physical safety is the norm. The order matters: safety makes trust possible, trust makes cooperation possible, and cooperation produces prosperity.</p>
+      <p>Societies with high levels of violence are almost always poor. The prosperous ones are where physical safety is the norm. Safety makes cooperation possible, cooperation produces prosperity, and trust is what cooperation leaves behind. The cascade runs the same when the violence comes from the state — a raid, a war, aggressive policing. The uniform changes nothing for the people underneath it.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

@@ -7,14 +7,14 @@
 
     <p class="body-text-large">Could this be done without force? Could the same goal be reached through persuasion, voluntary funding, or people working together?</p>
 
-    <p class="body-text">For some, the honest answer is "I don't see how." Not every problem has an obvious voluntary solution. But "it can't be done without force" and "I haven't seen it done without force" are different claims.</p>
+    <p class="body-text">For some, the answer will be "I don't see how." Voluntary solutions aren't designed in advance. They emerge from people who each know something a planner can't. And a tax-funded version crowds out the alternatives, because everyone is already paying for it. Their absence is evidence of crowding out, not impossibility.</p>
 
     <ContentBlock variant="insight">
-      <p>Private carriers deliver packages worldwide. Private toll roads and neighborhood roads exist. Private schools and homeschooling educate millions of children. Charities carry much of disaster relief. Each works alongside a government version that people once assumed was the only way.</p>
+      <p>Private carriers deliver packages worldwide. Private roads exist. Private schools and homeschooling educate millions of children. Charities carry much of disaster relief. Each often beats the government version on cost and service, which is why people choose it while still paying for both.</p>
     </ContentBlock>
 
     <ContentBlock variant="principle">
-      <p>The philosophy doesn't ask you to oppose everything on your list. It asks you to hold each one up to the light and ask: is force really necessary here, or have I just never looked for the alternative?</p>
+      <p>Each item on your list costs happiness, harmony, and prosperity. The question isn't whether the goal is good. It's what the force is costing, and what the voluntary version would be.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

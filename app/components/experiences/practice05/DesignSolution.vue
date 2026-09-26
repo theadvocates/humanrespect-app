@@ -8,7 +8,7 @@
 
     <div class="prompts">
       <div class="prompt"><strong>Who cares about this problem?</strong> Who else in your community would want to help solve it?</div>
-      <div class="prompt"><strong>How would you fund it?</strong> Donations, crowdfunding, business sponsorship, membership fees, bake sales?</div>
+      <div class="prompt"><strong>How would you fund it?</strong> Fees for service, membership dues, a social enterprise, mutual insurance, an endowment, pledges that collect only once enough people join?</div>
       <div class="prompt"><strong>How would you organize it?</strong> A neighborhood group, a nonprofit, an informal coalition, a social media campaign?</div>
       <div class="prompt"><strong>How would you sustain it?</strong> What keeps people engaged and contributing over time?</div>
       <div class="prompt"><strong>What's the first step?</strong> Not the whole plan — just the first action you'd take this week.</div>

@@ -67,7 +67,7 @@ const props = defineProps({
   path: { type: String, required: true },
   sharePrompt: {
     type: String,
-    default: 'If the argument held up, send it to someone who would push back.'
+    default: 'Send it to someone who would push back.'
   },
   /** True while the Opening screen is showing. Gates the scroll cue. */
   showCue: { type: Boolean, default: false }

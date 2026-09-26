@@ -5,7 +5,7 @@
     <h2 class="display-medium">Political language names the goal. Name the method.</h2>
     <Divider />
 
-    <p class="body-text">Each of these statements names something people sincerely want. For each one, pick the sentence that describes the method: what happens to someone who doesn't go along. They come from across the political spectrum on purpose. The philosophy doesn't take sides.</p>
+    <p class="body-text">Each of these statements names something people sincerely want. For each one, pick the sentence that describes the method: what happens to someone who doesn't go along.</p>
 
     <div class="translations">
       <div v-for="t in translations" :key="t.id" class="translation-block">
@@ -32,7 +32,7 @@
 
     <div v-if="allAnswered">
       <ContentBlock variant="insight">
-        <p>The goals on this list are good ones, and they come from the left and the right. Progressive policies use force. Conservative policies use force. The philosophy doesn't ask you to abandon your values. It asks you to see the method clearly — and then decide whether that method is consistent with what you know about how force affects human beings.</p>
+        <p>The goals on this list are good ones, and they come from the left and the right. Progressive policies use force. Conservative policies use force. The values are not the problem. The method is, and it works against the goal, as each record above shows. Every goal here has a voluntary route — persuasion, exchange, mutual aid — and none of those puts your neighbor in the enforcement chain.</p>
       </ContentBlock>
     </div>
 
@@ -63,7 +63,7 @@ const translations = [
       { id: 'b', text: 'I authorize taking part of every working person\'s earnings to pay for it, with penalties for anyone who refuses.', correct: true },
       { id: 'c', text: 'I believe no one should go without care because they can\'t pay.', correct: false },
     ],
-    actual: 'The goal is that no one goes without care. The method is taxation: a share of every working person\'s earnings, collected whether or not they agree with the plan, with penalties, seizure, and eventually prison for anyone who refuses. Most versions also set rules on what doctors may charge and who may practice, backed by the same enforcement.'
+    actual: 'The goal is that no one goes without care. The method is taxation: a share of every working person\'s earnings, collected whether or not they agree with the plan, with penalties, seizure, and eventually prison for anyone who refuses. Most versions also set rules on what doctors may charge and who may practice, backed by the same enforcement. The record: care rationed by waiting list instead of price. The voluntary precedent: lodge practice, where mutual-aid societies contracted doctors for a flat yearly fee their working members could afford.'
   },
   {
     id: 'drug-war',
@@ -73,7 +73,7 @@ const translations = [
       { id: 'b', text: 'I authorize arresting and imprisoning people for making, selling, or possessing certain substances.', correct: true },
       { id: 'c', text: 'I believe some substances are too dangerous to be sold freely.', correct: false },
     ],
-    actual: 'The goal is fewer lives wrecked by addiction. The method is searches, arrests, prosecution, and prison for people who make, sell, or use certain substances, including adults who have not threatened anyone. The enforcement has fallen hardest on poor neighborhoods.'
+    actual: 'The goal is fewer lives wrecked by addiction. The method is searches, arrests, prosecution, and prison for people who make, sell, or use certain substances, including adults who have not threatened anyone. The enforcement has fallen hardest on poor neighborhoods. The record: prohibition pushes supply toward whatever is most potent per ounce smuggled, and overdose deaths rose through decades of enforcement.'
   },
   {
     id: 'rent-control',
@@ -93,7 +93,7 @@ const translations = [
       { id: 'b', text: 'I authorize legislators to fix prison terms in advance and require judges to impose them, whatever the circumstances.', correct: true },
       { id: 'c', text: 'I believe crimes should carry real consequences.', correct: false },
     ],
-    actual: 'The goal is equal treatment and real consequences. The method is a law requiring a judge to imprison someone for a set term, whatever the judge learns about the person in front of them. Legislators who will never meet the defendant decide the sentence, and the judge who does meet them cannot change it.'
+    actual: 'The goal is equal treatment and real consequences. The method is a law requiring a judge to imprison someone for a set term, whatever the judge learns about the person in front of them. Legislators who will never meet the defendant decide the sentence, and the judge who does meet them cannot change it. The record: longer sentences deter little, and the discretion doesn\'t vanish. It moves to prosecutors, who choose which charge to file and trade it for guilty pleas.'
   }
 ]
 const allAnswered = computed(() => Object.keys(answers.value).length === translations.length)

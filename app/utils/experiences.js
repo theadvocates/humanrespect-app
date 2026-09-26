@@ -48,7 +48,7 @@ export const EXPERIENCES = [
     route: 'exp02',
     path: '/experience/the-objection',
     title: 'The Objection',
-    short: 'Pick your strongest objection. It gets steelmanned, answered, and where it lands, honestly conceded.',
+    short: 'Pick your strongest objection. It gets steelmanned and answered.',
     tier: 'foundation',
     order: 2,
     minutes: 8

@@ -36,7 +36,7 @@ export default {
         'A line has to be drawn here or the argument collapses into pacifism, which is a different position and not this one.',
         'Protecting bodily integrity sometimes requires force. Stopping an attacker, restraining someone who is being violent, defending against invasion — the philosophy permits all of these, because each responds to a violation already underway. The distinction is between initiating force and answering it.',
         'This matters for what follows, because every law is ultimately backed by physical enforcement. Not metaphorically: at the end of a long enough chain of non-compliance, people arrive who are authorized to put a body in a locked room. Most laws never get that far, but that is the mechanism they rest on.',
-        'Which leaves a design problem rather than a slogan. A society organized around human respect still has to protect bodies and restore safety, without becoming a source of the fear it exists to prevent. That is a hard problem and it is not solved by asserting it.'
+        'Which leaves a design problem rather than a slogan: a society organized around human respect still has to protect bodies and restore safety without becoming a source of the fear it exists to prevent. The line that solves it is the one already drawn. Force that answers a violation is permitted. Force that initiates one is not, whoever carries it out.'
       ]
     }
   ]

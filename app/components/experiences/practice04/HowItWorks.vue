@@ -16,8 +16,6 @@
       <p>Wishing a law would make someone behave differently. Wanting a rule to punish someone who annoyed you. Supporting a policy that takes money from people who didn't agree. Hoping authority would compel someone to change. Thinking "there ought to be a law."</p>
     </ScenarioBox>
 
-    <p class="body-text">You don't have to change anything. Just <em>notice</em>. The pattern only becomes visible once you start looking for it.</p>
-
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>
 </template>

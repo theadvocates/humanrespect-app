@@ -140,7 +140,7 @@ export const RESULTS = {
     name: 'Force on the table',
     head: "When the goal matters enough, you're willing to make people go along.",
     body: [
-      "You're consistent. You'd use force yourself, and you'd use it through others. That's more honest than most.",
+      "You'd use force yourself, and you'd use it through others. Consistency isn't correctness. The cost lands either way.",
       'The Principle of Human Respect says it will cost you the very thing you want. Coercion, theft, and violence always reduce happiness, harmony, and prosperity, even when the goal is a good one.',
       'Two things worth testing. Picture the people you disagree with most holding that same power, pointed at you. Then think of the last time something was taken from you by force. Did it leave you better off?'
     ]

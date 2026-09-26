@@ -31,7 +31,7 @@ export default {
       body: [
         'Three failure points show up in almost every draft, and they are worth checking for before you decide the exercise proved anything.',
         'The plan depends on everyone caring. It will not work, and it does not have to. Voluntary efforts run on the small minority who care intensely, not on general agreement. That is a lower bar than a majority — which is what the coercive version needs.',
-        'The plan is really a campaign to get the coercive version passed. Advocacy for a law is not a voluntary solution to the problem; it is a voluntary route to compulsion. That may still be what you want, but notice that you did not complete the exercise.',
+        'The plan is really a campaign to get the coercive version passed. Advocacy for a law is not a voluntary solution to the problem; it is a voluntary route to compulsion, and it means you did not complete the exercise.',
         'The plan has no answer for month four. Enthusiasm is abundant at the start and gone by the end of the first quarter. Whatever keeps the thing alive after that — a subscription, a small paid role, a schedule, an institution that outlives the founders — is the part that decides whether any of it happened.'
       ]
     },
@@ -40,7 +40,7 @@ export default {
       body: [
         'Whatever you drafted, it has a property the coercive version does not: nobody in it is compelled. Every participant chose to be there, every contribution was given, and every part of it can be changed or abandoned without a political fight.',
         'The habit worth keeping is small. Next time you encounter a political proposal — including one you support — strip the force out of it and ask what the same goal looks like through persuasion alone.',
-        'Sometimes there is no good answer. That is a real result and worth knowing. More often there is one, and it has simply never been asked for.'
+        'Sometimes there is no good answer yet. That is a real result, and it is not the same as "force works." It means the voluntary version has never been designed, while the coercive one has been rehearsed ten thousand times. More often there is an answer, and it has simply never been asked for.'
       ]
     }
   ]

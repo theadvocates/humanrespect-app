@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The question that remains</p>
     <h2 class="display-medium">What is a system built on compulsory participation?</h2>
     <Divider />
-    <p class="body-text-large">If time is the most fundamental human resource — the irreplaceable substance of your one life — and if coercion is the involuntary redirection of that time toward goals you didn't choose...</p>
+    <p class="body-text-large">If time is the substance of your one life, and coercion redirects it toward goals you didn't choose...</p>
     <ContentBlock variant="principle"><p>...then a political system that operates by taking people's time without their individual consent is consuming the very substance of human life.</p></ContentBlock>
     <p class="body-text">This doesn't make the people in government evil. It means the <em>system</em> is misaligned with what human beings actually need to flourish.</p>
     <div class="closing-question-block"><p class="closing-question">If your time is your life, and no one may take your life, then who may take your time?</p></div>

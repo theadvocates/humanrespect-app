@@ -41,7 +41,7 @@ export default {
       body: [
         'The philosophy does not ask you to stop voting, and it does not ask you to feel guilty about anything you have already done.',
         'It asks for one question to be carried into every political decision from here on: am I willing to send someone to use force on a neighbor for this?',
-        'Sometimes the honest answer will be yes. Some things may be worth it, and there is no dishonesty in saying so — only in saying so without noticing what is being said.',
+        'You will be tempted to answer yes, most strongly on the issue you care most about. Notice what the yes accepts: that people at the far end of the chain lose property, time, and sometimes their liberty, and that the loss is charged to your account. A good cause does not remove that cost. It only makes it easier not to look at.',
         'When the answer is no, the useful thing is not guilt. It is to go looking for the version that does not require it.'
       ]
     }

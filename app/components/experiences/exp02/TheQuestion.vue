@@ -5,14 +5,10 @@
     <h2 class="display-medium">We don't end with an answer. We end with a question.</h2>
     <Divider />
 
-    <p class="body-text-large">You came in with an objection. You've seen it taken seriously, answered, and the limits of that answer acknowledged. One question is left.</p>
-
     <ContentBlock variant="principle">
       <!-- eslint-disable-next-line vue/no-v-html -- content is authored in a local data file, never user input. Revisit if it ever comes from a CMS. -->
       <p v-html="obj.question"/>
     </ContentBlock>
-
-    <p class="body-text">This isn't rhetorical. It's a question worth sitting with — maybe for a few days. The philosophy doesn't ask you to accept it today. It asks you to carry the question and see if the world starts looking different.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

@@ -21,7 +21,7 @@ export const cooperationExamples = [
     what: 'Often first on the scene in a crisis',
     how: 'The Cajun Navy during Hurricane Harvey. Volunteers make up about two-thirds of American firefighters. Mutual aid networks during COVID. Neighbors and local groups are often helping before federal agencies arrive.',
     assumption: '"Only government can coordinate large-scale emergency response."',
-    reality: 'Voluntary networks are often faster, more adaptive, and more personally responsive than agencies that must wait for authorization.'
+    reality: 'After Katrina, the official response turned away volunteers and supplies while private logistics and churches delivered first. Voluntary networks don\'t wait for authorization.'
   },
   {
     id: 'arbitration',
@@ -37,7 +37,7 @@ export const cooperationExamples = [
     what: 'Voluntary generosity at scale',
     how: 'Americans gave $592.5 billion to charity in 2024 — from individuals, families, foundations, and corporations. All by choice, not compulsion. Community foundations, mutual aid societies, GoFundMe campaigns, religious charities.',
     assumption: '"Without forced redistribution, the poor would be abandoned."',
-    reality: 'Voluntary generosity appears in every culture on record, and it tends to grow when people feel economically secure and socially connected.'
+    reality: 'Before the New Deal, fraternal and mutual-aid societies insured a large share of working families against sickness and death. Private relief still reaches disasters first. And government spending on a cause crowds out giving to it: the programs didn\'t fill a void, they displaced what was there.'
   }
 ]
 
@@ -46,7 +46,7 @@ export const appliedIssues = [
     id: 'education',
     label: 'Education',
     problem: 'Many children receive inadequate education, especially in disadvantaged communities.',
-    forceSolution: 'Compulsory public schooling funded by property taxes.',
+    forceSolution: 'Compulsory public schooling funded by property taxes. Real spending per pupil has risen for decades; test scores have stayed flat.',
     voluntaryApproaches: [
       'Scholarship funds and community-sponsored tuition',
       'Homeschool cooperatives and microschools',
@@ -59,7 +59,7 @@ export const appliedIssues = [
     id: 'healthcare',
     label: 'Healthcare',
     problem: 'Healthcare is expensive and inaccessible for many people.',
-    forceSolution: 'Government-mandated insurance funded by taxes.',
+    forceSolution: 'Government-mandated insurance funded by taxes. The mandates have multiplied, and so have the costs.',
     voluntaryApproaches: [
       'Health-sharing ministries and mutual aid health cooperatives',
       'Direct primary care (monthly subscription, no insurance middleman)',
@@ -72,7 +72,7 @@ export const appliedIssues = [
     id: 'poverty',
     label: 'Poverty',
     problem: 'People fall into cycles of poverty that are difficult to escape.',
-    forceSolution: 'Tax-funded welfare programs with eligibility requirements.',
+    forceSolution: 'Tax-funded welfare programs with eligibility requirements. The poverty rate was already falling fast before the War on Poverty and has barely moved since the early 1970s; the eligibility cliffs now penalize earning more.',
     voluntaryApproaches: [
       'Mutual aid societies (historically provided insurance, healthcare, and support)',
       'Microfinance and community lending circles',
@@ -85,7 +85,7 @@ export const appliedIssues = [
     id: 'environment',
     label: 'Environment',
     problem: 'Industrial activity damages ecosystems and threatens public health.',
-    forceSolution: 'Government regulations and penalties for pollution.',
+    forceSolution: 'Government regulations and penalties for pollution. Government is itself a major polluter (the most contaminated sites in the country include federal weapons plants and military bases), and regulators get captured by the industries they oversee.',
     voluntaryApproaches: [
       'Land trusts and conservation easements (voluntary preservation)',
       'Consumer pressure and boycotts driving corporate change',
@@ -98,7 +98,7 @@ export const appliedIssues = [
     id: 'safety',
     label: 'Community safety',
     problem: 'Crime threatens people\'s safety and property.',
-    forceSolution: 'Government police forces funded by taxes.',
+    forceSolution: 'Government police forces funded by taxes. Roughly half of murders go unsolved, and private security guards already outnumber police.',
     voluntaryApproaches: [
       'Neighborhood watch and community patrol programs',
       'Private security cooperatives funded by residents',

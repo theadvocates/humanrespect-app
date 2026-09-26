@@ -26,7 +26,7 @@ export const pageMeta = {
   exp02: {
     title: 'The Objection',
     description:
-      'Pick your strongest objection to voluntary cooperation. It gets steelmanned, responded to, and honestly conceded.'
+      'Pick your strongest objection to voluntary cooperation. It gets steelmanned and answered.'
   },
   exp03: {
     title: 'What Flourishing Actually Means',

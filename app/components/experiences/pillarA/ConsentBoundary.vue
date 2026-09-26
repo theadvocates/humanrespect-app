@@ -15,7 +15,7 @@
       <p>The Philosophy of Human Respect simply asks: if this principle is true for individuals, does it stop being true when the one violating it wears a uniform, holds an office, or acts on behalf of a majority?</p>
     </ScenarioBox>
 
-    <ContentBlock variant="concession" label="The honest tension">
+    <ContentBlock variant="principle" label="The line">
       <p>Protecting bodily integrity sometimes requires the use of defensive force. Stopping an attacker, restraining a violent person, defending against invasion — these are uses of force that the philosophy permits, because they respond to a violation already initiated by someone else. The line runs between <em>initiated</em> force and <em>defensive</em> force.</p>
     </ContentBlock>
 

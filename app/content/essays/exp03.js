@@ -7,8 +7,7 @@ export default {
       body: [
         'Think of the best sustained stretch of your life. Not a good afternoon — a chapter, a year or more, when things were genuinely working and you felt like the version of yourself you were supposed to be.',
         'Then think of the hardest sustained stretch. Not a bad week. A bad chapter.',
-        'Almost everyone who does this exercise carefully finds the same shape in the answers. The good period had physical safety, some real control over how the days went, relationships that were not under strain, and the sense that effort would lead somewhere. The bad period had at least one of those under attack.',
-        'This is not a personality test and it does not sort people into types. It is closer to noticing that everyone gets cold in the same weather.'
+        'Almost everyone who does this exercise carefully finds the same shape in the answers. The good period had physical safety, some real control over how the days went, relationships that were not under strain, and the sense that effort would lead somewhere. The bad period had at least one of those under attack.'
       ]
     },
     {
@@ -32,11 +31,10 @@ export default {
     {
       heading: 'Why the grounding matters',
       body: [
-        'Here is where this framework differs from the ones it resembles.',
         'The usual case against coercion starts from a theory about what people are owed. That argument works if you already accept the theory and does very little if you do not, which is why arguments between people who accept it and people who do not tend to go nowhere.',
         '**This argument runs through consequences instead: coercion, theft, and violence always damage the conditions human beings need. That is a claim about cause and effect, and claims about cause and effect can be checked.**',
         'It is the same category of statement as "plants grow toward light" or "trust lowers the cost of doing business." You can test it against history, against the research, and against the two chapters of your own life you just thought about.',
-        'It is a strong claim, and it should be treated as one. You might accept the pattern and still think the damage coercion does is sometimes worth what it buys. That is exactly the right place to push, and it is a serious enough objection that it deserves to be taken up on its own rather than waved away here.'
+        'It is a strong claim. You may accept the pattern and still think the damage is sometimes worth what force buys. Before you do, notice who does that arithmetic. The person weighing the cost is never the person who pays it, and only the visible side gets counted: the program that was funded, never the business that was not started, the plan that was not made, the hour that was not returned. A trade looks worth it when someone else pays and the bill is never itemized.'
       ]
     }
   ]

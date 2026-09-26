@@ -25,10 +25,10 @@
 
     <div v-if="selected.length > 0" class="reflection">
       <ContentBlock variant="mirror">
-        <p>You checked {{ selected.length === 1 ? 'one situation' : selected.length + ' situations' }}. In each one, a person who has used force on no one faces the threat of armed agents entering their home, restraining them, and putting them in a cage. You would never do this to them yourself. But you take part in a system that does it for you.</p>
+        <p>You checked {{ selected.length === 1 ? 'one situation' : selected.length + ' situations' }}. In each one, a person who has used force on no one faces the threat of armed agents entering their home, restraining them, and putting them in a cage.</p>
       </ContentBlock>
 
-      <p class="body-text">The philosophy doesn't claim these people are all blameless, or that every law is unjust. It asks a simpler question: in each of these situations, is the threat of physical force actually necessary, or could the same goal be reached without it?</p>
+      <p class="body-text">You may think some of these people are wrong. It doesn't matter. Force against someone who has forced no one reduces happiness, harmony, and prosperity, whatever the goal. And each of these policies fails on its own terms: the drugs still sell, the milk still changes hands, the border still gets crossed. The force adds only a cage and a record.</p>
     </div>
 
     <NavBar :can-go-back="true" :disable-continue="selected.length === 0" @back="$emit('back')" @continue="$emit('advance')" />

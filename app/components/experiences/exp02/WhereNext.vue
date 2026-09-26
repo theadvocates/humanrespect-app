@@ -24,12 +24,10 @@
         <span class="foundation-number">03</span>
         <div>
           <div class="foundation-title">The stress test</div>
-          <p class="foundation-desc">You chose your strongest objection and saw it engaged with honestly — including the limits of the response.</p>
+          <p class="foundation-desc">You put your strongest objection to the principle, hard parts included, and it held.</p>
         </div>
       </div>
     </div>
-
-    <p class="body-text">You can explore another objection, or continue deeper into the philosophy.</p>
 
     <div v-if="otherObjections.length > 0" class="other-objections">
       <p class="caption" style="margin-bottom: 0.75rem;">Try a different objection</p>

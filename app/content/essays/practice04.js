@@ -7,7 +7,7 @@ export default {
       body: [
         'Once a day, before bed, ask yourself one question: today, was there a moment where I chose persuasion when I could have reached for force — or a moment where I wished someone would be made to do what I wanted?',
         'Write down one line. That is the entire commitment. It takes under a minute and it does not require you to behave differently.',
-        'The reason it works is that the pattern is invisible until you go looking for it, and then it is difficult to stop seeing. It is possible to live an entire life without once noticing this particular shape in their own thinking, not because it is subtle but because nothing ever draws attention to it.'
+        'It is possible to live an entire life without once noticing this particular shape in your own thinking, not because it is subtle but because nothing ever draws attention to it.'
       ]
     },
     {
@@ -15,6 +15,7 @@ export default {
       body: [
         'Not just violence. Most of the daily instances are quieter than that, and they are the ones worth catching.',
         'Wishing a law would make someone behave differently. Wanting a rule that punishes a person who irritated you. Supporting a policy funded by people who did not agree to fund it. Hoping some authority would step in and compel a change you could not persuade anyone into. The thought "there ought to be a law," which arrives so smoothly that it rarely registers as a thought at all.',
+        'Each of these is the same act. You would not take the money or compel the behavior yourself, so you reach for someone who will. Asking an agent to do it changes nothing for the person it lands on. The mechanism changes; what happens to the person being forced does not, and the responsibility for what the agent does travels back to whoever sent them.',
         'It shows up outside politics too, and often more clearly: in parenting, in management, in how you handle a roommate or a coworker or a family member who will not do the thing you are sure they should do.'
       ]
     },
@@ -22,8 +23,7 @@ export default {
       heading: 'Start tonight',
       body: [
         'Think about today specifically. A conversation that turned political. A frustration with someone at work. A news story that made you angry, and what you found yourself wishing would happen to the people in it. A moment with a child. A decision about how strictly to enforce something.',
-        'There will be one. There nearly always is; the question is only whether you were looking.',
-        'That is day one, and it is the hardest one. The rest is repetition.'
+        'There will be one. That is day one, and it is the hardest one. The rest is repetition.'
       ]
     },
     {
@@ -31,8 +31,7 @@ export default {
       body: [
         'The observations stop requiring effort somewhere around the third or fourth day, and start arriving on their own.',
         '**By the end of the week you will see the force-or-persuasion question in places you did not expect it, and that will not be the philosophy talking. It will be your own record, in your own handwriting.**',
-        'This is the point of doing it as a practice rather than reading about it. A framework you were told about is something you can agree with and forget by the weekend. A pattern you found seven times in your own life is not.',
-        'Nobody adopts the Philosophy of Human Respect in a moment, and you do not finish a page and find yourself holding a new position. People discover it gradually, after they start noticing something in their own lives.'
+        'This is the point of doing it as a practice rather than reading about it. An argument you were told about is something you can agree with and forget by the weekend. A pattern you found seven times in your own life is not, and nobody adopts the Philosophy of Human Respect any other way.'
       ]
     }
   ]

@@ -5,8 +5,6 @@
     <h2 class="display-medium">Every mandate is a claim on your life.</h2>
     <Divider />
 
-    <p class="body-text-large">Once you see time as the fundamental human resource, forms of coercion that seemed routine start to look different.</p>
-
     <div class="recognitions">
       <div class="recognition-item">
         <div class="recognition-surface">A tax</div>
@@ -35,11 +33,11 @@
       </div>
     </div>
 
-    <ContentBlock variant="concession" label="The honest acknowledgment">
+    <ContentBlock variant="principle" label="The line">
       <p>This doesn't mean every claim on your time is unjust. You voluntarily trade time for wages. You choose to spend time on relationships, community, and obligations you value. The moral line runs between <em>choosing</em> how to spend your time and having that choice <em>made for you by someone else under threat of punishment</em>.</p>
     </ContentBlock>
 
-    <p class="body-text">Society needs coordination. The question is whether that coordination must come through coercion — the involuntary seizure of life-hours — or whether it can emerge from voluntary cooperation, where every participant has chosen to contribute their time.</p>
+    <p class="body-text">Society needs coordination. It has it. Prices and voluntary exchange coordinate billions of strangers every day, none of them ordered to. Coerced coordination fails because no planner holds the knowledge those billions of choices carry. It doesn't add coordination. It replaces the kind that works with the kind that can't see.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

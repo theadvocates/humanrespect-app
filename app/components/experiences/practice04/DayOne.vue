@@ -5,7 +5,7 @@
     <h2 class="display-medium">Your first observation — right now.</h2>
     <Divider />
     <p class="body-text-large">Think about <em>today</em>. Was there a moment, even a small one, where force or persuasion was in play?</p>
-    <p class="body-text">Maybe a conversation about politics. A frustration with a coworker. A news story that made you angry. A parenting moment. A business decision. A thought about what "should" be required.</p>
+    <p class="body-text">Maybe a conversation about politics. A frustration with a coworker. A thought about what "should" be required.</p>
 
     <textarea v-model="observation" class="text-input" placeholder="Describe the moment. What happened? Did you lean toward force or persuasion?" rows="5"/>
 

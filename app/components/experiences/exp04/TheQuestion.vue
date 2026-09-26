@@ -7,14 +7,14 @@
 
     <p class="body-text-large">One where flawed people compete to control the machinery of force — and the losers live under the winners' rules.</p>
 
-    <p class="body-text-large">Or one where flawed people compete to earn each other's trust — and no one has the authority to impose their will on everyone else.</p>
+    <p class="body-text-large">Or one where flawed people get what they want only by serving each other — where reputation, contracts, and profit and loss make honesty pay, and no one can impose their will on everyone else.</p>
 
     <ContentBlock variant="principle">
       <p>The Philosophy of Human Respect is not a bet on human goodness. It is a system designed for human beings as they actually are — self-interested, imperfect, and responsive to incentives. It succeeds not by assuming the best in people, but by building a structure where even self-interest produces cooperation instead of exploitation.</p>
     </ContentBlock>
 
-    <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Voluntary systems have failure modes too. Free riders. Information asymmetry. Coordination problems. The philosophy does not claim these disappear. It claims that a system where bad actors are limited by the people willing to deal with them produces better outcomes than one where bad actors can win the apparatus of legal force and direct it against everyone.</p>
+    <ContentBlock variant="concession" label="The standard objections">
+      <p>Free riders, information asymmetry, coordination problems. Voluntary systems answer each without force: assurance contracts, clubs, and bundling; reputation, warranties, and brands; norms and standards bodies. Coercive systems have all three in worse form: voters who free-ride on everyone else's attention, officials who know less about your life than you do, and coordination by decree with no way to learn it is wrong.</p>
     </ContentBlock>
 
     <NewsletterSignup variant="minimal" source="exp04_closing" headline="One question per week, applied to the real world." description="A short email examining the incentive structures behind real policies and institutions." button-text="Subscribe" />

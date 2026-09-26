@@ -23,19 +23,19 @@ export default {
       ]
     },
     {
-      heading: 'The honest limits',
+      heading: 'Why they look small',
       body: [
-        'Voluntary alternatives to most government functions are currently smaller and worse funded than their compulsory counterparts. That is true and it should be said first, not buried.',
-        'Part of the reason is crowding out — people already taxed for a service are markedly less inclined to fund a second version of it voluntarily, which is a real effect and not an excuse invented for the occasion. But part of it is simply that these things are smaller, and pointing at a mutual aid network and a national health system as though they were comparable would be silly.',
+        'Voluntary alternatives to most government functions are smaller today than their compulsory counterparts. Ask why.',
+        'Part of the reason is crowding out — people already taxed for a service are markedly less inclined to fund a second version of it voluntarily. The larger part is history. Fraternal societies and lodges insured millions of working people against sickness, death, and unemployment, with the lodge doctor on retainer, before governments took over the work. Scale was reached, and then displaced.',
         '**The question is not whether voluntary approaches are as large today. It is whether they could grow into the space if the compulsory version were not occupying it.**',
-        'That question does not have a proven answer. It has evidence pointing in a direction, and a fair amount of history where the compulsory version arrived after the voluntary one was already working and then displaced it.'
+        'The history answers it. In case after case the compulsory version arrived after the voluntary one was already working, taxed its members to pay for the replacement, and then pointed at the shrinking remainder as proof it could never have worked.'
       ]
     },
     {
       heading: 'What has not been tried',
       body: [
         'Notice what the examples above have in common. Everyone participating chose to. Every contribution was given rather than collected. Every provider has to keep earning the support they get. And any of it can be improved, forked, or abandoned without winning a political fight first.',
-        'The philosophy\'s claim is directional rather than triumphant: cooperation trends toward flourishing, and coercion trends toward conflict, stagnation, and the slow erosion of the assumption that other people are worth dealing with.',
+        'The philosophy\'s claim is the one the principle states: happiness, harmony, and prosperity always decrease where force, theft, and fraud are introduced, and they grow where cooperation is chosen. Coercion produces conflict, stagnation, and the slow erosion of the assumption that other people are worth dealing with.',
         'Which leaves the more interesting question. If voluntary cooperation built the encyclopedia, the network, and the disaster response — what else might it be capable of that nobody has attempted, because it was assumed from the start that force was the only way?'
       ]
     }

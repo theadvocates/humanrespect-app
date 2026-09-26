@@ -7,7 +7,7 @@ export default {
       body: [
         'Think of something you worked hard to earn. A home, a car, a savings account, a business, a tool you use every day.',
         'Now stop counting it in money and count it in mornings. The times you got up when you did not want to. The evenings you worked instead of resting. The years of patience that turned into the sum that turned into the thing.',
-        'That object is time in durable form. It is a stretch of your life converted into something that outlasts the stretch.',
+        'That object is time in durable form.',
         'Property does a specific job in a life: it bridges effort already spent and possibilities not yet taken. It stores what you have done so that it can pay for what you do next. Which is why taking it is not only a loss of a thing — it consumes hours already lived and narrows the range of what remains.'
       ]
     },
@@ -28,19 +28,18 @@ export default {
       ]
     },
     {
-      heading: 'Fraud, and an honest difficulty',
+      heading: 'Fraud, and what answers it',
       body: [
         'Fraud is theft conducted by deception, and it does damage that a simple theft does not.',
         'It takes resources, but it also takes time spent in misplaced trust and attention aimed at a lie. Its deepest cost is to the infrastructure of cooperation itself: every fraud is parasitic on the fact that most people are honest, and every fraud makes honesty a little more expensive for everyone else.',
-        'This is one of the places where the philosophy has to concede difficulty rather than assert a solution. Detecting and deterring fraud takes information, investigation, and sometimes enforcement. The argument is that these should be as voluntary as they can be: private certification, reputation systems, voluntary arbitration, insurance. It should also be said plainly that protecting people from deception is among the harder problems for a non-coercive society, and that the voluntary tools available today are not obviously enough.'
+        'Fraud is a violation, and restitution against it is defense, not coercion; the principle forbids initiating force, not answering it. The voluntary tools for deterring it are not a hope. Credit bureaus, testing laboratories, escrow, chargebacks, reviews, and private arbitration already do most of the work of keeping strangers honest, and they answer to the people they fail. The regulator answers to nobody, which is how the agency charged with catching Madoff was warned for a decade and did nothing while he ran the largest Ponzi scheme on record.'
       ]
     },
     {
       heading: 'The question this leaves',
       body: [
-        'If property is time in durable form, and time is the substance of a life, then taking property without individual consent is taking life-hours. That is not a rhetorical flourish; it is what the chain of reasoning produces if each link holds.',
-        'Which puts a hard question on the table about taxation of legitimately earned property, and a harder one about what voluntary funding of shared things would actually look like in practice.',
-        'The philosophy does not claim that transition is simple, and it does not have a worked plan. The claim is directional: that the honest response to a system built on compulsory taking is to look seriously for voluntary alternatives, rather than to assume none exist because none have been needed.'
+        'If property is time in durable form, and time is the substance of a life, then taking property without individual consent is taking life-hours. That is not a rhetorical flourish; it is what the chain of reasoning produces.',
+        'Which puts a hard question on the table about taxation, and a harder one about voluntary funding of shared things. The second already has answers. Lifeboat rescue along the whole British coast has run on donations since 1824, and many of England\'s early lighthouses, the textbook public good, were built by private owners and paid for by tolls at port. The honest response to a system built on compulsory taking is to look for the voluntary route, not to assume none exists because none has been needed.'
       ]
     }
   ]

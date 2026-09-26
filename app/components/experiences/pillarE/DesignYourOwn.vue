@@ -5,8 +5,6 @@
     <h2 class="display-medium">Pick a problem you care about.</h2>
     <Divider />
 
-    <p class="body-text-large">The real test of any philosophy is whether it works when applied to the issues that matter to you. Choose one.</p>
-
     <div class="issues">
       <button
         v-for="issue in appliedIssues"
@@ -28,7 +26,7 @@
         <p>{{ chosenIssueData.forceSolution }}</p>
       </ContentBlock>
 
-      <p class="body-text">Before we show you what voluntary alternatives look like, take a moment: can you think of a way to address this problem through persuasion and voluntary cooperation alone? No taxes. No mandates. No penalties. Just people choosing to help.</p>
+      <p class="body-text">Voluntary doesn't mean charity. It includes markets, profit, competition, and self-interest: the provider who posts prices, the insurer who pays for prevention because it's cheaper, the builder liable for what falls down, the school that must win families back each year. It rules out one thing: making people pay or comply.</p>
     </div>
 
     <NavBar

@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">What you care about</p>
     <h2 class="display-medium">Which of these values matter to you?</h2>
     <Divider />
-    <p class="body-text">There are no wrong answers. All of these are genuine, positive values that guide real people's lives. Select the ones that feel most important to you.</p>
+    <p class="body-text">All of these are genuine values that guide real people's lives. Select the ones that matter most to you.</p>
 
     <div class="values-grid">
       <button
@@ -24,8 +24,8 @@
 
     <ContentBlock v-if="selected.length >= 2" variant="insight">
       <p v-if="hasBoth">You selected values from both progressive and conservative traditions. That's not a contradiction — it's human. Most people hold a mix.</p>
-      <p v-else-if="leansProg">Your values lean progressive. That's a genuine expression of what you believe matters. The question ahead is <em>how</em> to advance them.</p>
-      <p v-else>Your values lean conservative. That's a genuine expression of what you believe matters. The question ahead is <em>how</em> to advance them.</p>
+      <p v-else-if="leansProg">Your values lean progressive. The question ahead is <em>how</em> to advance them.</p>
+      <p v-else>Your values lean conservative. The question ahead is <em>how</em> to advance them.</p>
     </ContentBlock>
 
     <NavBar

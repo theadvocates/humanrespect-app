@@ -16,12 +16,12 @@
       </div>
       <div class="compare-block voluntary">
         <div class="compare-label">Voluntary systems</div>
-        <p>Reward people for serving others well enough that others choose to pay them. Internalize costs to the people who create them. Distribute power across millions of individual decisions. Replace the war for control with competition to earn trust.</p>
+        <p>Reward people for serving others well enough that others choose to pay them. Internalize costs to the people who create them. Distribute power across millions of individual decisions. Replace the war for control with markets where reputation and repeat dealing make honesty pay.</p>
       </div>
     </div>
 
     <ContentBlock variant="insight">
-      <p>In voluntary systems, a bad actor who deals honestly can only disappoint the people who choose to deal with them, and they can walk away. A bad actor who turns to violence or fraud can still be stopped. In coercive systems, a bad actor with political power can harm millions who never chose to be subject to their authority, and walking away is not an option. The question is not whether bad actors exist. They do. The question is which system limits the damage they can do.</p>
+      <p>A bad actor who turns to violence or fraud is answered with force, and the principle allows it: it forbids initiating force, not stopping it. Courts and arbitration, restitution, insurance, and security exist for exactly this. A bad actor with political power harms millions who never chose them, and walking away is not an option. The question is not whether bad actors exist. They do. The question is which system limits the damage they can do.</p>
     </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />

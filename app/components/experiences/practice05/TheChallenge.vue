@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">The real question</p>
     <h2 class="display-medium">Will you actually do it?</h2>
     <Divider />
-    <p class="body-text-large">You just designed a voluntary solution to a real problem. The question is whether you'll take the first step.</p>
+    <p class="body-text-large">You've designed it. The question is whether you'll take the first step.</p>
     <ContentBlock variant="principle"><p>You don't need permission. You don't need a law. You need one conversation with one other person who cares about the same problem. Start there.</p></ContentBlock>
     <NewsletterSignup source="practice05_closing" headline="Keep building." description="One voluntary solution a week that someone actually built — real people solving real problems without force." button-text="Subscribe" success-message="Welcome. The first one arrives this week." />
     <JourneyNav current="practice05" />

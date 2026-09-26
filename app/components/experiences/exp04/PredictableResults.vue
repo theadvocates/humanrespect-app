@@ -5,7 +5,7 @@
     <h2 class="display-medium">When you give flawed humans coercive power over other humans, the damage follows a pattern.</h2>
     <Divider />
 
-    <p class="body-text">Each of these is a story about one of the three domains of integrity you identified in your own life — body, resources, or time. In every case, the people with power did what your model of human nature predicts. Each is a composite drawn from documented cases of its kind.</p>
+    <p class="body-text">The house is Kelo v. New London: the Supreme Court let a city take homes for a private development that was never built. The rescuers are Katrina: volunteers with boats turned back for lacking credentials. The benefits cliff is measured in study after study. Names and details are composites. The mechanisms are the record.</p>
 
     <div class="examples">
       <div v-for="ex in examples" :key="ex.id" class="example-card" :class="{ expanded: expanded === ex.id }" @click="toggleExpand(ex.id)">
@@ -61,7 +61,7 @@ const examples = [
     id: 'seized-home',
     title: 'The house that wasn\'t for sale',
     domain: 'Material integrity',
-    story: 'A woman has lived in her house for forty years. She raised her children there. Her husband died there. The city decides her neighborhood would generate more tax revenue as a shopping center. They invoke eminent domain — the legal power to take private property for "public use." She doesn\'t want to sell. The amount they offer doesn\'t cover a comparable home. It doesn\'t matter. The city takes her house, demolishes it, and hands the land to a private developer. The shopping center is never built. The lot sits empty for a decade.',
+    story: 'A woman has lived in her house for forty years. She raised her children there. Her husband died there. The city decides her neighborhood would generate more tax revenue as a private development. They invoke eminent domain — the legal power to take private property for "public use." She doesn\'t want to sell. The amount they offer doesn\'t cover a comparable home. It doesn\'t matter. The city takes her house, demolishes it, and hands the land to a private developer. The development is never built. The lot sits empty for a decade.',
     mechanism: 'The developer who lobbied for the project had everything to gain and nothing to lose. The city officials who approved it would benefit from higher tax revenue projections. The woman who lost her home had no leverage against either. Her property — forty years of her life made physical — was taken by people who had the legal power to do it and the political incentive to use it.',
     prediction: 'You said people favor their own group and act in their own interest. The developer and the politicians were in the same group. The homeowner was not.'
   },
@@ -78,7 +78,7 @@ const examples = [
     title: 'The volunteers who were told to stop helping',
     domain: 'Temporal integrity + cooperation',
     story: 'A hurricane devastates a coastal city. Within hours, hundreds of people with boats drive to the area and start pulling families out of flooded homes. Then official emergency management arrives and orders the volunteer rescuers to stop. They don\'t have proper credentials. Their boats haven\'t been inspected. They haven\'t completed the required safety training. While the paperwork is sorted out, people wait on rooftops.',
-    mechanism: 'The emergency management officials aren\'t malicious. They\'re following rules written to control liability and keep a rescue coordinated. Those are real concerns. But the rules answer to the agency first, and the people on rooftops have no say in them. When the incentive is "don\'t let anything happen that could be blamed on us," the rational response is to prevent anyone from acting without authorization — even when unauthorized action is saving lives.',
+    mechanism: 'The emergency management officials aren\'t malicious. They\'re following rules written to control liability and keep a rescue coordinated. But the volunteers were already coordinated, boat to boat, with local knowledge no agency had. The rules answer to the agency first, and the people on rooftops have no say in them. When the incentive is "don\'t let anything happen that could be blamed on us," the rational response is to prevent anyone from acting without authorization — even when unauthorized action is saving lives.',
     prediction: 'You said good intentions frequently produce bad outcomes when the incentives are wrong. The people who wrote the emergency management regulations genuinely intended to ensure safe, coordinated rescue. The result was a system that stopped the fastest, most effective help from reaching the people who needed it.'
   },
   {

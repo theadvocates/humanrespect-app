@@ -17,7 +17,7 @@
         <span class="discovery-number">02</span>
         <div>
           <div class="discovery-title">The evidence</div>
-          <p class="discovery-desc">The best periods of your life had safety, autonomy, and opportunity present. The worst had one or more of those domains — body, resources, time — under threat or taken away.</p>
+          <p class="discovery-desc">The best periods of your life had safety, autonomy, and opportunity present. The worst had them taken away.</p>
         </div>
       </div>
     </div>
@@ -26,9 +26,9 @@
       <p>Happiness, harmony, and prosperity always decrease with the initiation of violence, or the taking of people's property or time through force or fraud. They grow where people cooperate voluntarily.</p>
     </ContentBlock>
 
-    <p class="body-text">This is a strong claim. You might agree with the pattern but question whether it applies as broadly as the philosophy suggests. You might think there are exceptions important enough to justify force — situations where the cost of coercion is worth the benefit it produces.</p>
+    <p class="body-text">The usual reply is that some exceptions are worth it. Look at who does the math. The people who decide force is worth its cost never pay it. The costs arrive later, fall on someone else, and go uncounted. And exceptions do not stay exceptions; each one is the precedent for the next.</p>
 
-    <p class="body-text">Good. The next experience takes the hardest objection of all seriously: people as they actually are.</p>
+    <p class="body-text">The next experience takes on the hardest objection: people as they actually are.</p>
 
     <NewsletterSignup
       variant="minimal"

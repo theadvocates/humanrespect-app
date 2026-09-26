@@ -30,7 +30,6 @@ version.
 ```js
 export default {
   standfirst: 'One or two sentences under the title.',
-  minutes: 4,
   sections: [
     { heading: 'A sentence-case heading', body: ['A paragraph.', 'Another.'] }
   ]
@@ -47,13 +46,19 @@ These are read by people who disagree, arriving from a link someone sent
 them. That sets the register:
 
 - Second person, present tense, plain words. No exclamation marks.
-- Concede what is genuinely conceded, in the essay, not in a footnote. An
-  argument that has never lost anything reads as advertising.
+- Concede what the sources concede — a transition takes time; the principle
+  promises conditions, not outcomes — and nothing else. Never the objection's
+  premise, and never the principle itself. A concession is a sentence, not a
+  paragraph, and no essay ends on one.
 - Never assert that the reader already agrees. Show the reasoning and let
   them arrive.
 - The pull-quote is the claim, not a summary of the claim.
 - No calls to action. The page has those already.
 
-`minutes` is an honest estimate at ~220 words per minute, rounded up. It is
-shown before the essay for the same reason the experiences show theirs: an
-unlabeled time cost is what makes a short read feel expensive.
+Reading time is derived, not stored: `readingMinutes` in
+`app/utils/reading.js` counts the body words at ~220 words per minute,
+rounded to the nearest minute and floored at two. Do not add a `minutes`
+field — `test/essays.test.js` fails on one, because every hand-written
+estimate drifted from what was actually written. The time is shown before
+the essay for the same reason the experiences show theirs: an unlabeled time
+cost is what makes a short read feel expensive.

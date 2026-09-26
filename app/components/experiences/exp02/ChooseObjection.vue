@@ -4,7 +4,6 @@
     <p class="caption" style="margin-bottom: 1.5rem;">Your strongest pushback</p>
     <h2 class="display-medium">Which of these is closest to what you're thinking?</h2>
     <Divider />
-    <p class="body-text">Pick the one that feels most true to you — the objection you'd make if we were having this conversation in person.</p>
 
     <div class="choices">
       <button

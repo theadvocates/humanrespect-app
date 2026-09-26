@@ -5,8 +5,6 @@
     <h2 class="display-medium">What changes when the intermediary is a government?</h2>
     <Divider />
 
-    <p class="body-text-large">You just established that hiring someone to take, threaten, or coerce makes you responsible for the taking, the threatening, and the coercing. The intermediary doesn't absorb the moral weight.</p>
-
     <ScenarioBox label="The parallel">
       <p>When you vote for a politician who promises to tax your neighbor, regulate how your neighbor earns a living, or imprison your neighbor for choices you disapprove of, you are hiring an agent to act on your behalf.</p>
       <p>The politician is the intermediary. The police are the enforcement mechanism. But you — the voter — are the principal. You authorized it.</p>

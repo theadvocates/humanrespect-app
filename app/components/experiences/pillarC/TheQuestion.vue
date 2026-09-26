@@ -5,8 +5,7 @@
     <h2 class="display-medium">If property is crystallized time, and time is the substance of life...</h2>
     <Divider />
     <ContentBlock variant="principle"><p>...then what is taxation of legitimately earned property — and what would voluntary funding look like?</p></ContentBlock>
-    <p class="body-text-large">If every dollar you earned represents hours of your life, then taking those dollars without your individual consent is taking your life-hours.</p>
-    <ContentBlock variant="concession" label="The honest acknowledgment"><p>The philosophy doesn't claim that moving to voluntary funding is simple. The argument is <em>directional</em>: we should be moving toward more voluntary funding and less compulsory taking.</p></ContentBlock>
+    <ContentBlock variant="insight" label="No half measure"><p>The principle isn't partial: a smaller taking is still a taking. Nor is compulsory funding simple; it runs on enforcement, compliance costs, and a budget every organized interest fights to capture. Americans gave $592.5 billion to charity in 2024 with no one made to. Voluntary funding isn't a hope. It's the part of the system that already works.</p></ContentBlock>
     <NewsletterSignup variant="minimal" source="pillarC_closing" headline="One question per week, applied to the real world." description="A short email on how the force-or-persuasion question plays out in real situations." button-text="Subscribe" />
     <JourneyNav current="pillarC" />
     <p class="body-text" style="text-align: center; margin-top: 3rem; color: var(--ink-faint); font-style: italic;">The Philosophy of Human Respect — articulated by Chris J. Rufer</p>

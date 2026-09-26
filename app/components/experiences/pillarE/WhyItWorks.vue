@@ -25,7 +25,7 @@
 
       <div class="mechanism">
         <div class="mechanism-name">Trust-building</div>
-        <p>Coercion erodes trust. Cooperation builds it. Every successful voluntary interaction strengthens the social fabric. Every act of compulsion weakens it. Over time, the difference compounds.</p>
+        <p>Coercion erodes trust. Cooperation builds it. Over time, the difference compounds.</p>
       </div>
 
       <div class="mechanism">

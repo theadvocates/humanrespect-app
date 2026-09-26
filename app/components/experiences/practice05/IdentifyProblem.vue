@@ -4,7 +4,7 @@
     <p class="caption" style="margin-bottom: 1.5rem;">Your community</p>
     <h2 class="display-medium">What's a real problem where you live?</h2>
     <Divider />
-    <p class="body-text">Think local. A park that needs maintenance. A neighbor who needs help. A street that's unsafe. A school that's failing. Kids with nothing to do after school. Elderly people who are isolated. A food desert. A housing shortage.</p>
+    <p class="body-text">Think local. A park that needs maintenance. A street that's unsafe. Kids with nothing to do after school. Elderly people who are isolated.</p>
     <p class="body-text">Pick something specific enough to actually address — not "fix inequality" but "the playground on Elm Street is broken and kids have nowhere to play."</p>
     <textarea v-model="problem" class="text-input" placeholder="The problem, in a sentence or two" rows="4"/>
     <NavBar :can-go-back="true" :disable-continue="!problem.trim()" @back="$emit('back')" @continue="$emit('advance')" />

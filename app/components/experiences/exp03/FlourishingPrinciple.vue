@@ -12,13 +12,9 @@
       <p style="margin-top: 1rem;">Therefore, the ethical foundation of society is the full respect for each person's body, resources, and time.</p>
     </ContentBlock>
 
-    <p class="body-text">A statement about cause and effect — the same kind of statement as "plants grow toward light" or "trust increases cooperation." It describes a pattern that holds across cultures, eras, and individual lives.</p>
+    <p class="body-text">A statement about cause and effect — the same kind of statement as "plants grow toward light." The evidence is not subtle. Countries that score high on economic-freedom indices have higher incomes, longer lives, and higher life satisfaction. The same people, split by a border, produced West and East Germany, South and North Korea.</p>
 
     <p class="body-text">Including yours. The best period of your life had these conditions present. The worst period had them violated. That's not a coincidence — it's the pattern the principle describes.</p>
-
-    <ContentBlock variant="insight">
-      <p>What makes this different from other moral frameworks is the grounding. It doesn't ask you to accept a premise handed down from a theory. It makes a claim about cause and effect: force, theft, and violence always damage the conditions people need to do well. You can test that claim against your own life and against the history of the societies around you.</p>
-    </ContentBlock>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

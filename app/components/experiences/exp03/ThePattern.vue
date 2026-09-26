@@ -5,7 +5,7 @@
     <h2 class="display-medium">You just described what researchers call human flourishing.</h2>
     <Divider />
 
-    <p class="body-text-large">The conditions you selected aren't random. They map closely to what researchers in psychology, economics, and philosophy keep finding when they study human well-being.</p>
+    <p class="body-text-large">The conditions you selected aren't random. In psychology, Self-Determination Theory names autonomy, competence, and relatedness as basic human needs. The World Happiness Report counts freedom to make life choices among the six factors that best explain national life satisfaction.</p>
 
     <div class="pillars">
       <div v-for="p in pillars" :key="p.id" class="pillar" :class="{ highlighted: isSelected(p.id) }">

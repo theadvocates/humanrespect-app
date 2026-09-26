@@ -26,7 +26,6 @@ export const useJourneyStore = defineStore('journey', {
       chosenObjection: null,
       exploredObjections: [],
       verdict: null,
-      concessionCredibility: null,
       completedAt: null
     },
     completions: {},
@@ -118,7 +117,7 @@ export const useJourneyStore = defineStore('journey', {
           if (!parsed.completionTimes) parsed.completionTimes = {}
           if (!parsed.furthestTier) parsed.furthestTier = 'none'
           if (!parsed.exp01) parsed.exp01 = { completed: false, methods: [], wouldForce: null, whyNot: [], completedAt: null }
-          if (!parsed.exp02) parsed.exp02 = { completed: false, chosenObjection: null, exploredObjections: [], verdict: null, concessionCredibility: null, completedAt: null }
+          if (!parsed.exp02) parsed.exp02 = { completed: false, chosenObjection: null, exploredObjections: [], verdict: null, completedAt: null }
           if (!parsed.exp02.exploredObjections) {
             parsed.exp02.exploredObjections = parsed.exp02.chosenObjection ? [parsed.exp02.chosenObjection] : []
           }

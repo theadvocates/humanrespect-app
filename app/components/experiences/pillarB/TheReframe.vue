@@ -16,7 +16,7 @@
       <p>When someone takes your property without consent, they aren't just taking a thing. They're consuming hours of your past — time you invested, time you can never get back — and diminishing the possibilities of your future.</p>
     </ContentBlock>
 
-    <p class="body-text">This reframes the entire question of property. Your resources are the physical form of your irreplaceable life-hours. To respect someone's property is to respect the time they spent earning it — which is to respect their life itself.</p>
+    <p class="body-text">To respect someone's property is to respect the time they spent earning it — which is to respect their life itself.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

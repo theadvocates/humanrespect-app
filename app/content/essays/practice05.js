@@ -7,7 +7,7 @@ export default {
       body: [
         'Think local. The playground on your street that has been broken for two years. An elderly neighbor nobody checks on. A corner where the lighting makes people walk the long way around. Kids with nowhere to go between three and six. A stretch of road where the trash never gets picked up.',
         'Specific enough to actually address. Not "fix inequality" — "the playground on Elm Street is broken and there is nowhere for the children on this street to go."',
-        'The scale matters more than it seems. National problems are where arguments happen; local ones are where things get built. And the point of this exercise is to end up with something you could start this week, not a position you could defend at a dinner party.'
+        'National problems are where arguments happen; local ones are where things get built. The point is to end up with something you could start this week, not a position you could defend at a dinner party.'
       ]
     },
     {
@@ -24,8 +24,8 @@ export default {
     {
       heading: 'The part that decides it',
       body: [
-        'You now have a design. The honest question is whether anything happens next, and for almost everyone who does this exercise the answer is no.',
-        'That is not a character flaw. It is what happens when a thing has no deadline, no boss, and no consequence for skipping it — which describes every voluntary undertaking, and is exactly the objection people raise against voluntary systems.',
+        'You now have a design. The honest question is whether anything happens next, and for most people who do this exercise the answer is no.',
+        'That is the objection to voluntary systems, stated by your own behavior: no deadline, no boss, no consequence for skipping it. Before it lands, look back at the playground. It has been broken for two years under a system with all three, whose deadlines exist on paper. Force does not guarantee the thing gets done. It guarantees that someone is paid whether or not it does.',
         '**Which makes this the smallest honest test of the whole philosophy. Not whether voluntary cooperation could work in principle, but whether you will do one voluntary thing that nobody is making you do.**'
       ]
     },

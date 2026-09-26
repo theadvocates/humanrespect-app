@@ -25,18 +25,16 @@ export default {
     {
       heading: 'What this makes visible',
       body: [
-        'Once time is the unit, some ordinary things look different — not worse necessarily, but different.',
+        'Once time is the unit, some ordinary things look different.',
         'A tax is a claim on the hours you spent earning it. A regulation is hours spent demonstrating compliance rather than doing the thing being demonstrated. A licensing requirement is months of a life spent obtaining permission. A prison sentence is the confiscation of years, which is why it is the most serious thing a state routinely does to a person, and why we count it in years rather than in anything else.',
-        'It is worth saying clearly what this argument does not claim. It does not claim that every demand on your time is unjust. You trade hours for wages voluntarily, every week. You give time to people you love, to obligations you took on, to a community you chose. None of that is theft, and treating it as theft would be a strange way to live.',
         'The line is not between spending time and keeping it. The line is between choosing how your hours go and having that choice made on your behalf, backed by a penalty if you decline.'
       ]
     },
     {
       heading: 'The question this leaves',
       body: [
-        'Societies need coordination. Nothing here says otherwise, and any argument that pretends coordination is unnecessary deserves to be dismissed quickly.',
-        'The open question is narrower, and harder: does coordination have to be compulsory? Where a thing genuinely must be done together, is the only available mechanism one that takes people\'s hours without asking, or is that simply the mechanism we reached for first and have not seriously revisited?',
-        'That question does not resolve itself by being asked. But it changes shape once time is on the table. A policy that would be an obvious imposition if it demanded four weeks of your life directly is often the same policy, described in money.',
+        'Societies need coordination. The question is narrower: does coordination have to be compulsory? Where a thing must be done together, is taking people\'s hours without asking the only mechanism, or the one we reached for first and never revisited?',
+        'The question changes shape once time is on the table. A policy that would be an obvious imposition if it demanded four weeks of your life directly is often the same policy, described in money.',
         'If your time is your life, and nobody has a claim on your life, then the question of who has a claim on your time stops being a technical one.'
       ]
     }

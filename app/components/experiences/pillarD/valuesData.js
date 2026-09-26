@@ -53,8 +53,8 @@ export const issues = [
   {
     id: 'poverty',
     label: 'Reducing poverty',
-    forceOption: 'Fund a guaranteed safety net through taxes',
-    persuadeOption: 'Encourage voluntary charity, mutual aid, and economic opportunity',
+    forceOption: 'Fund a safety net through taxes',
+    persuadeOption: 'Build mutual-aid societies, fund charities, and clear the way for people to earn their way out',
     lean: 'progressive'
   },
   {

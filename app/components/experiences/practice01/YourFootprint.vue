@@ -44,7 +44,7 @@
     </ContentBlock>
 
     <ContentBlock v-if="gap === 0 && supports.length > 0" variant="mirror">
-      <p>You support every area of force you marked. That's a consistent position. The question the philosophy asks of each one: could the same goal be reached through voluntary cooperation instead?</p>
+      <p>You support every area of force you marked. Consistency isn't correctness. Each one still costs happiness, harmony, and prosperity, and the question for each is what the voluntary version would be.</p>
     </ContentBlock>
 
     <ContentBlock v-if="supports.length === 0 && operates.length > 0" variant="mirror">

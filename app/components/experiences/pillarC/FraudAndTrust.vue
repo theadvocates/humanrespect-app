@@ -7,13 +7,13 @@
 
     <p class="body-text-large">Fraud steals more than resources. It steals time spent in trust, cognitive attention misdirected by lies, and the opportunity cost of false belief. But its deepest damage is to the infrastructure of cooperation itself.</p>
 
-    <p class="body-text">Every act of fraud feeds on trust. The scammer exploits the fact that most people deal honestly, and in doing so makes honest dealing more dangerous for everyone. When trust collapses, the cost of every interaction rises: more contracts, more lawyers, more verification, more suspicion.</p>
+    <p class="body-text">Every act of fraud feeds on honest dealing. The scammer exploits the fact that most people keep their word, and makes keeping it more dangerous for everyone. Strangers trade without trusting each other because ratings, warranties, and contracts mean something. Fraud attacks exactly that.</p>
 
-    <ContentBlock variant="concession" label="The honest acknowledgment">
-      <p>Fraud is itself a taking, so stopping it and making victims whole is defense, not the kind of force the principle rules out. The hard part is practical. Detecting fraud takes information and investigation, and much of it is never caught. Certification, reputation, and arbitration help a great deal, and none of them catches everything. Protecting people from deception is one of the harder problems any society faces.</p>
+    <ContentBlock variant="insight" label="Who stops fraud">
+      <p>Fraud is itself a taking, so stopping it and making victims whole is defense, not the kind of force the principle rules out. Day to day, what stops fraud among strangers is reputation: ratings, credit bureaus, testing labs, escrow, chargebacks, the cost of losing every future customer. Regulators miss most fraud too, and add false confidence. The SEC received repeated, detailed warnings about Madoff for years and did nothing.</p>
     </ContentBlock>
 
-    <p class="body-text">What doesn't change is the principle: fraud violates material integrity, damages flourishing, and erodes the trust that makes cooperation possible. A society aligned with Human Respect takes fraud seriously — not as a government prerogative, but as a threat to the social fabric that every community has an interest in preventing.</p>
+    <p class="body-text">A society aligned with Human Respect takes fraud seriously — not as a government prerogative, but as a taking every community has an interest in stopping.</p>
 
     <NavBar :can-go-back="true" @back="$emit('back')" @continue="$emit('advance')" />
   </div>

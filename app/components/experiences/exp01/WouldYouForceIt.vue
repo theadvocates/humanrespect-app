@@ -37,7 +37,7 @@
 
     <div v-if="wouldForce === 'yes'" class="followup">
       <ContentBlock variant="mirror">
-        <p>That's honest. Hold onto that answer. The philosophy has something specific to say about what happens when force becomes the way disagreements get settled, even when the person using it believes they're right.</p>
+        <p>Then look closely at what that call does — even when you're right.</p>
       </ContentBlock>
     </div>
 

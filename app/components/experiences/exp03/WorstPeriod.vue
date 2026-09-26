@@ -5,7 +5,7 @@
     <h2 class="display-medium">Now consider the hardest sustained period of your life.</h2>
     <Divider />
     <p class="body-text-large">A stretch where things weren't working. Where you felt diminished, stuck, or struggling. Not a bad day — a bad chapter.</p>
-    <p class="body-text">What was being violated or missing? Select what applies.</p>
+    <p class="body-text">Which of these was done to you? Select what applies.</p>
 
     <div class="violations">
       <button
@@ -43,23 +43,27 @@ const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 
 const violations = [
-  { id: 'body-unsafe', label: 'My physical safety was threatened or compromised', domain: 'Body' },
-  { id: 'body-fear', label: 'I lived with persistent fear or anxiety about harm', domain: 'Body' },
-  { id: 'resources-taken', label: 'My money, property, or resources were taken or unstable', domain: 'Resources' },
-  { id: 'resources-insecure', label: 'I couldn\'t plan for the future because my material foundation was shaky', domain: 'Resources' },
+  { id: 'body-unsafe', label: 'Someone threatened or harmed me physically', domain: 'Body' },
+  { id: 'body-fear', label: 'I lived in fear of what someone might do to me', domain: 'Body' },
+  { id: 'resources-taken', label: 'My money or property was taken from me, or I was cheated out of it', domain: 'Resources' },
+  { id: 'resources-insecure', label: 'I couldn\'t plan ahead because what I earned or owned could be taken at any time', domain: 'Resources' },
   { id: 'time-controlled', label: 'Someone else controlled how I spent my time', domain: 'Time' },
   { id: 'time-wasted', label: 'I was forced to spend my hours on things I didn\'t choose', domain: 'Time' },
-  { id: 'time-trapped', label: 'I felt trapped — unable to direct my own life', domain: 'Time' }
+  { id: 'time-trapped', label: 'Someone kept me where I was, and leaving was not allowed', domain: 'Time' },
+  { id: 'none', label: 'None of these — my hardest period wasn\'t anyone\'s doing', domain: 'Illness, loss, bad luck' }
 ]
 
 const selected = ref([])
 
 function toggle(id) {
   const idx = selected.value.indexOf(id)
-  if (idx === -1) {
-    selected.value.push(id)
-  } else {
+  if (idx !== -1) {
     selected.value.splice(idx, 1)
+  } else if (id === 'none') {
+    // "None" is exclusive: it means no other option applies.
+    selected.value = ['none']
+  } else {
+    selected.value = [...selected.value.filter(v => v !== 'none'), id]
   }
 }
 

@@ -27,7 +27,7 @@ describe('revealed-in-steps screens', () => {
   it('the response only renders the paragraphs read so far', async () => {
     const w = await mountSuspended(Response)
     expect(w.findAll('.response-block')).toHaveLength(1)
-    await w.find('.reaction-btn').trigger('click')
+    await w.find('.reveal-btn').trigger('click')
     await new Promise((r) => setTimeout(r, 0))
     expect(w.findAll('.response-block')).toHaveLength(2)
   })

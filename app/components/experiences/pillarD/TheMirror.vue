@@ -18,13 +18,13 @@
       <ContentBlock variant="mirror">
         <p>You chose force for every issue. You believe government compulsion is the right tool for advancing social goals — across the board.</p>
       </ContentBlock>
-      <p class="body-text-large">This is at least consistent. But consider: every issue where you chose force, someone who disagrees with your approach is also having force applied to them. They're being compelled to fund and comply with priorities they didn't choose. How would you feel if their priorities — not yours — were the ones being enforced?</p>
+      <p class="body-text-large">Consistent, yes. But consistency isn't correctness; the principle says the cost lands either way. The power you'd build doesn't stay yours: whoever wins the next election uses it, and the contest for it is usually won by organized interests, not your goals. And coercive programs routinely miss their own targets. Spending rises, the problem stays, and the people it was for can't leave.</p>
     </template>
 
     <!-- MIXED (most common) -->
     <template v-else>
       <ContentBlock variant="mirror">
-        <p>Look at the pattern in your answers.</p>
+        <p>Your answers:</p>
         <p v-for="issue in mixedResults" :key="issue.id" style="margin-top: 0.5rem;">
           <strong>{{ issue.label }}:</strong> you chose {{ issue.answer === 'force' ? 'force' : 'persuasion' }}
         </p>
@@ -33,7 +33,7 @@
       <p class="body-text-large">{{ mixedInsight }}</p>
 
       <ContentBlock variant="insight">
-        <p>This is the pattern the Philosophy of Human Respect is designed to reveal. It is natural to want <em>your</em> values backed by law, and <em>other people's</em> values advanced only through persuasion. But you can't have it both ways. If you may force your priorities on others, they may force theirs on you.</p>
+        <p>You can't have it both ways. If you may force your priorities on others, they may force theirs on you.</p>
       </ContentBlock>
     </template>
 
@@ -84,7 +84,7 @@ const mixedInsight = computed(() => {
   if (forceIssues.every(i => i.lean === 'conservative') && persuadeIssues.every(i => i.lean === 'progressive')) {
     return 'You chose force for conservative goals and persuasion for progressive ones. You want the government to enforce the values you agree with, but not the ones you don\'t.'
   }
-  return 'Notice which issues you chose force for, and which persuasion. Is there a pattern? It is common to choose force for the goals you care about most, and persuasion for the ones you care about less.'
+  return 'Notice which goals got force. It is usually the ones a person cares about most.'
 })
 </script>
 
