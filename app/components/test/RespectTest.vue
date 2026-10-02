@@ -32,7 +32,7 @@
           something you want or believe in.
         </p>
         <button class="rt-btn" @click="start">Start <span aria-hidden="true">→</span></button>
-        <p class="rt-meta">Under a minute · nothing to sign up for</p>
+        <p class="rt-meta">Ten statements · about two minutes</p>
       </div>
 
       <!-- ── One statement at a time ───────────────────────────────────── -->

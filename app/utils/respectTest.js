@@ -36,16 +36,16 @@ export const TEST_VERSION = 2
  * the delegation.
  */
 export const ITEMS = [
-  { id: 'd-goal', part: 'directly', text: "If people won't join a cause I care about, my job is to persuade them better, not to make them." },
+  { id: 'd-goal', part: 'directly', text: "If the people around me won't join a cause I care about, I have to win them over or do without them." },
   { id: 'd-money', part: 'directly', keyed: 'force', text: "If a neighbor refused to chip in for something that would clearly help the whole street, I'd be justified in making them pay their share." },
-  { id: 'd-time', part: 'directly', text: "I wouldn't make someone give up their time for a project they didn't agree to, even a good one." },
-  { id: 'd-values', part: 'directly', keyed: 'force', text: "If an adult I care about were making a choice that would ruin their life, I'd be right to force them to stop." },
+  { id: 'd-time', part: 'directly', text: "People should give their time to a project only if they agreed to it, however good the project is." },
+  { id: 'd-values', part: 'directly', keyed: 'force', text: "If an adult I care about were set on a choice that would hurt only themselves, I'd be right to force them to stop." },
   { id: 'd-acid', part: 'directly', text: "I'd rather solve a problem slowly, with people who chose to help, than quickly, with people who were made to." },
 
-  { id: 'o-goal', part: 'others', text: 'Voting for someone who promises to make people comply is still asking someone to make them comply for me.' },
+  { id: 'o-goal', part: 'others', text: "When I vote for someone who promises to make people go along, I'm asking them to do the forcing for me." },
   { id: 'o-money', part: 'others', keyed: 'force', text: "When enough people vote for a good cause, it's fair to make everyone help pay for it." },
   { id: 'o-time', part: 'others', text: "A law that makes people give their time to a cause they didn't choose is still forcing them, even for a good cause." },
-  { id: 'o-values', part: 'others', keyed: 'force', text: "If a law would stop people from making choices that ruin their own lives, it's worth passing even if they object." },
+  { id: 'o-values', part: 'others', keyed: 'force', text: "If a law would stop people from making choices that hurt only themselves, it's worth passing even if they object." },
   { id: 'o-acid', part: 'others', text: "A leader who can't get something done without forcing people to go along isn't much of a leader." }
 ]
 
