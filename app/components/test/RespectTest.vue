@@ -120,6 +120,14 @@
           <p v-if="landedShare !== null" class="rt-stat">
             {{ landedShare }}% of the {{ stats.total.toLocaleString('en-US') }} people who've taken this test landed here.
           </p>
+          <!-- The result read aloud, for people who won't read the text below. On the map trial only, for now. -->
+          <ResultVideo
+            v-if="variant === 'map'"
+            :result="resultKey"
+            :name="result.name"
+            @play="track('video_play', { result: resultKey })"
+            @ended="track('video_end', { result: resultKey })"
+          />
           <div class="rt-result-grid">
             <div class="rt-result-text">
               <h2 class="rt-head rt-head-result">{{ result.head }}</h2>
@@ -187,6 +195,7 @@
 import ShareLink from '@/components/shared/ShareLink.vue'
 import Plate from '@/components/shared/Plate.vue'
 import GapMap from '@/components/test/GapMap.vue'
+import ResultVideo from '@/components/test/ResultVideo.vue'
 import GapRows from '@/components/test/GapRows.vue'
 import { RESULT_PLATE, PLATE_TITLE } from '@/utils/plates'
 import { ANSWERS, PARTS, ITEMS, RESULTS, TEST_VERSION, score, classify, describeScore, parseShared, sharedResultPath } from '@/utils/respectTest'
