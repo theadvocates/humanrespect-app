@@ -8,13 +8,27 @@
     <button class="begin-btn" @click="$emit('advance')">
       Begin <span class="arrow">→</span>
     </button>
+    <!-- The same argument as a narrated video, under the way in rather than
+         above it, so Begin stays on the first screen. -->
+    <ExperienceVideo
+      class="opening-video"
+      file="exp-the-question"
+      label="The Question, as a three-minute narrated video"
+      @play="trackChoice('exp01', 'video_play', { video: 'exp-the-question' })"
+      @ended="trackChoice('exp01', 'video_end', { video: 'exp-the-question' })"
+    >
+      Rather watch it? 3 min
+    </ExperienceVideo>
   </div>
 </template>
 <script setup>
 import { ref, onMounted } from 'vue'
 import Divider from '@/components/shared/Divider.vue'
 import ExperiencePlate from '@/components/shared/ExperiencePlate.vue'
+import ExperienceVideo from '@/components/shared/ExperienceVideo.vue'
+import { useAnalytics } from '@/composables/useAnalytics'
 defineEmits(['advance'])
+const { trackChoice } = useAnalytics()
 const el = ref(null)
 onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 </script>
@@ -28,4 +42,5 @@ onMounted(() => requestAnimationFrame(() => el.value?.classList.add('animate')))
 .begin-btn:hover { background: var(--ochre-light); color: var(--bg-dark); }
 .begin-btn .arrow { display: inline-block; transition: transform 0.3s ease; }
 .begin-btn:hover .arrow { transform: translateX(4px); }
+.opening-video { margin-top: 4.5rem; }
 </style>
