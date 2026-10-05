@@ -17,6 +17,7 @@ import { EXPERIENCES } from '~/utils/experiences.js'
 const STATIC_ROUTES = {
   home: '/',
   test: '/test',
+  watch: '/watch',
   about: '/about',
   terms: '/terms',
   privacy: '/privacy'

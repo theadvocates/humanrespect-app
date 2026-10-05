@@ -94,6 +94,12 @@ export const pageMeta = {
     title: 'Your Journey',
     description: 'Track your progress through the Philosophy of Human Respect.'
   },
+  watch: {
+    title: 'Watch',
+    description:
+      'The Philosophy of Human Respect as a series of short narrated videos, in order: the same arguments as the interactive experiences.',
+    image: 'https://humanrespect.app/videos/exp-the-question.jpg'
+  },
   about: {
     title: 'About',
     description:

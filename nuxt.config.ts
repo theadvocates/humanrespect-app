@@ -98,7 +98,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/', '/about', '/privacy'],
+      routes: ['/', '/watch', '/about', '/privacy'],
       ignore: ['/account', '/certificate'],
       failOnError: false
     }
