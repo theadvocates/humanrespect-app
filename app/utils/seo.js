@@ -97,8 +97,7 @@ export const pageMeta = {
   watch: {
     title: 'Watch',
     description:
-      'The Philosophy of Human Respect as a series of short narrated videos, in order: the same arguments as the interactive experiences.',
-    image: 'https://humanrespect.app/videos/exp-the-question.jpg'
+      'The Philosophy of Human Respect as a series of short narrated videos, in order: the same arguments as the interactive experiences.'
   },
   about: {
     title: 'About',
