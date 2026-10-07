@@ -36,9 +36,11 @@ const { trackChoice } = useAnalytics()
 // series/humanrespect.yaml). Add a row when a part goes live.
 const parts = [
   { n: 1, title: 'The Question', file: 'exp-the-question', path: '/experience/the-question', minutes: 3 },
-  { n: 2, title: 'The Objection', file: 'exp-the-objection', path: '/experience/the-objection', minutes: 4 }
+  { n: 2, title: 'The Objection', file: 'exp-the-objection', path: '/experience/the-objection', minutes: 4 },
+  { n: 3, title: 'What Flourishing Actually Means', file: 'exp-flourishing', path: '/experience/flourishing', minutes: 5 },
+  { n: 4, title: 'Human Agency', file: 'exp-human-agency', path: '/experience/human-agency', minutes: 5 }
 ]
-const next = 'What Flourishing Actually Means'
+const next = 'Cooperation Is a Technology'
 </script>
 
 <style scoped>
