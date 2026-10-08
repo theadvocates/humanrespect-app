@@ -15,7 +15,7 @@
           @play="trackChoice('watch', 'video_play', { video: part.file })"
           @ended="trackChoice('watch', 'video_end', { video: part.file })"
         />
-        <router-link :to="part.path" class="part-link">Work through it yourself instead</router-link>
+        <router-link v-if="part.path" :to="part.path" class="part-link">Work through it yourself instead</router-link>
       </section>
 
       <p class="body-text coming">Next in the series: {{ next }}. More parts are on the way.</p>
@@ -38,9 +38,11 @@ const parts = [
   { n: 1, title: 'The Question', file: 'exp-the-question', path: '/experience/the-question', minutes: 3 },
   { n: 2, title: 'The Objection', file: 'exp-the-objection', path: '/experience/the-objection', minutes: 4 },
   { n: 3, title: 'What Flourishing Actually Means', file: 'exp-flourishing', path: '/experience/flourishing', minutes: 5 },
-  { n: 4, title: 'Human Agency', file: 'exp-human-agency', path: '/experience/human-agency', minutes: 5 }
+  { n: 4, title: 'Human Agency', file: 'exp-human-agency', path: '/experience/human-agency', minutes: 5 },
+  // Part 5 is a video only: there is no interactive experience to work through.
+  { n: 5, title: 'Now Do Crime', file: 'exp-now-do-crime', minutes: 6 }
 ]
-const next = 'Cooperation Is a Technology'
+const next = 'The Method Is the Message'
 </script>
 
 <style scoped>
