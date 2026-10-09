@@ -6,6 +6,7 @@
   <figure class="xv">
     <figcaption v-if="$slots.default" class="xv-caption"><slot /></figcaption>
     <video
+      ref="el"
       class="xv-video"
       controls
       playsinline
@@ -22,12 +23,15 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 const props = defineProps({
   /** The file stem in /public/videos, e.g. "exp-the-question". */
   file: { type: String, required: true },
   label: { type: String, required: true }
 })
 const emit = defineEmits(['play', 'ended'])
+const el = ref(null)
 
 // A pause and resume is one viewing, not two.
 let played = false
@@ -36,6 +40,16 @@ function onPlay() {
   played = true
   emit('play', props.file)
 }
+
+/** Jumps to a time and plays, for a transcript whose paragraphs are links. */
+function seek(seconds) {
+  const v = el.value
+  if (!v) return
+  v.currentTime = seconds
+  v.play()
+  v.scrollIntoView({ behavior: 'smooth', block: 'center' })
+}
+defineExpose({ seek })
 </script>
 
 <style scoped>

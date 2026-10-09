@@ -3,6 +3,11 @@ import { pageMeta, SITE_URL, SITE_NAME } from '@/utils/seo'
 /**
  * Applies server-rendered SEO + Open Graph tags for a page.
  * `key` indexes into app/utils/seo.js; pass overrides for dynamic pages.
+ *
+ * Overrides: `title`, `description`, `image` (with `imageWidth` and
+ * `imageHeight` when it is not a 1200×630 card), and `schema`, an array of
+ * schema.org nodes that replaces the default Article node, for a page whose
+ * main content is something more specific, such as a video.
  */
 export function usePageSeo(key, overrides = {}) {
   const route = useRoute()
@@ -15,6 +20,8 @@ export function usePageSeo(key, overrides = {}) {
   // making; the identical branded card every page used to share reads as
   // marketing, which is fatal when the recipient already disagrees with you.
   const image = meta.image || `${SITE_URL}/og/${key}.png`
+  const imageWidth = meta.imageWidth || 1200
+  const imageHeight = meta.imageHeight || 630
 
   useSeoMeta({
     title: fullTitle,
@@ -26,8 +33,8 @@ export function usePageSeo(key, overrides = {}) {
     ogDescription: meta.description,
     ogUrl: url,
     ogImage: image,
-    ogImageWidth: 1200,
-    ogImageHeight: 630,
+    ogImageWidth: imageWidth,
+    ogImageHeight: imageHeight,
     ogImageAlt: meta.title,
     twitterCard: 'summary_large_image',
     twitterTitle: meta.title,
@@ -64,7 +71,7 @@ export function usePageSeo(key, overrides = {}) {
               'voluntary cooperation relates to human flourishing.'
           }
         ]
-      : [
+      : meta.schema || [
           {
             '@type': 'Article',
             '@id': `${url}#article`,

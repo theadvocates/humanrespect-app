@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { EXPERIENCES } from '../app/utils/experiences.js'
 import { pageMeta, SITE_URL } from '../app/utils/seo.js'
+import { VIDEOS } from '../app/utils/videos.js'
 
 /**
  * robots.txt has advertised /sitemap.xml since launch. For months it returned
@@ -31,8 +32,8 @@ describe('sitemap contents', () => {
     }
   })
 
-  it('lists twenty URLs — fifteen experiences plus five pages', () => {
-    expect(EXPERIENCES.length + STATIC_PAGES.length).toBe(20)
+  it('lists twenty-five URLs — fifteen experiences, five pages and five video pages', () => {
+    expect(EXPERIENCES.length + STATIC_PAGES.length + VIDEOS.length).toBe(25)
   })
 
   it('excludes pages that must never be indexed', () => {
@@ -46,7 +47,11 @@ describe('sitemap contents', () => {
   })
 
   it('never emits a duplicate URL', () => {
-    const all = [...EXPERIENCES.map((e) => e.path), '/', '/test', '/about', '/terms', '/privacy']
+    const all = [
+      ...EXPERIENCES.map((e) => e.path),
+      ...VIDEOS.map((v) => `/watch/${v.slug}`),
+      '/', '/test', '/watch', '/about', '/terms', '/privacy'
+    ]
     expect(new Set(all).size).toBe(all.length)
   })
 })
