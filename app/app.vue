@@ -1,6 +1,12 @@
 <template>
   <SiteNav />
-  <router-view />
+  <!-- NuxtPage, not a bare router-view. Nuxt only updates useRoute() when the
+       page component tells it a navigation finished, and it keys a dynamic
+       route by its parameters. With a bare router-view, going from
+       /watch/the-question to /watch/the-objection kept the first page's
+       content under the second page's address, and useRoute() in a page
+       still described the page before. -->
+  <NuxtPage />
 </template>
 
 <script setup>
